@@ -3,47 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jihwan — Resume</title>
+  <title>강지환 — Resume 디자인 시안</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Apple SD Gothic Neo", "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f5f6f8;
-      color: #1a1a2e;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+    :root { --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a2e; --sub:#5c6270; --line:#e5e7eb; --accent:#4353c6; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#101014; --card:#1a1a20; --ink:#ececf1; --sub:#9a9aa6; --line:#2a2a33; --accent:#8b96ff; }
     }
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-      padding: 56px 48px;
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
-    }
-    h1 { font-size: 1.8rem; margin-bottom: 12px; }
-    p { color: #5c6270; line-height: 1.7; }
-    .badge {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #4353c6;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:32px 20px; }
+    main { max-width:720px; width:100%; }
+    h1 { font-size:1.6rem; margin-bottom:8px; word-break:keep-all; }
+    p.lead { color:var(--sub); margin-bottom:32px; line-height:1.7; word-break:keep-all; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:560px){ .grid{ grid-template-columns:1fr; } }
+    a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; text-decoration:none; color:inherit; transition:transform .15s ease, border-color .15s ease; }
+    a.card:hover { transform:translateY(-2px); border-color:var(--accent); }
+    a.card:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .num { font-size:.75rem; font-weight:700; color:var(--accent); letter-spacing:.08em; }
+    h2 { font-size:1.1rem; margin:6px 0 6px; }
+    .desc { font-size:.88rem; color:var(--sub); line-height:1.6; word-break:keep-all; }
+    footer { margin-top:28px; font-size:.8rem; color:var(--sub); }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Jihwan</h1>
-    <p>이력서 페이지를 준비하고 있습니다.<br>곧 정식 내용으로 업데이트될 예정입니다.</p>
-    <span class="badge">Coming Soon</span>
+  <main>
+    <h1>강지환 — Resume 디자인 시안</h1>
+    <p class="lead">4가지 디자인으로 제작된 이력서 페이지입니다. 마음에 드는 시안을 골라주세요. 선택된 시안이 이 주소의 대표 페이지가 됩니다.</p>
+    <div class="grid">
+      <a class="card" href="v1/">
+        <div class="num">V1 · DOSSIER</div>
+        <h2>미니멀 도큐먼트</h2>
+        <p class="desc">read.cv 스타일의 조용한 종이 질감 문서형. 프로젝트 접기/펼치기, 그대로 인쇄하면 A4 이력서가 되는 프린트 겸용.</p>
+      </a>
+      <a class="card" href="v2/">
+        <div class="num">V2 · MISSION CONTROL</div>
+        <h2>다크 엔지니어링 콘솔</h2>
+        <p class="desc">고정 프로필 + 스크롤 콘텐츠의 2단 다크 레이아웃. 터미널 감성 아카이브 테이블로 전체 프로젝트 열람.</p>
+      </a>
+      <a class="card" href="v3/">
+        <div class="num">V3 · MONOGRAPH</div>
+        <h2>에디토리얼 연대기</h2>
+        <p class="desc">15년 경력을 4개 챕터의 매거진 피처처럼. 대형 타이포그래피와 룰드 인덱스 리스트, 아이보리+버밀리온.</p>
+      </a>
+      <a class="card" href="v4/">
+        <div class="num">V4 · CONTROL PLANE</div>
+        <h2>벤토 대시보드</h2>
+        <p class="desc">Agent OS 콘솔처럼 만든 벤토 그리드. 스탯 타일, 경력 타임라인, 기술 필터로 프로젝트 탐색.</p>
+      </a>
+    </div>
+    <footer>jihwan76@gmail.com · github.com/returnzero76</footer>
   </main>
 </body>
 </html>

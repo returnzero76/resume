@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강지환 · Jihwan Kang — Resume</title>
+<meta name="description" content="강지환 — Software Engineer. Android · Cross-platform · AI Agent Platform. 2011년 Android Music Player에서 Agent OS까지, 15년의 커리어를 네 개의 챕터로 기록한 이력서.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="강지환 · Jihwan Kang — Resume">
+<meta property="og:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform. 15년의 커리어를 네 개의 챕터로.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v3/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%92%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* ————————————————————————————————
+   MONOGRAPH — editorial resume, v3
+   Palette: single-mode light, deliberately committed.
+———————————————————————————————— */
+:root{
+  --bg:      #F7F4ED;  /* ivory */
+  --ink:     #141210;
+  --sub:     #5C574F;
+  --rule:    #D8D2C4;
+  --accent:  #D2481D;  /* vermilion — graphic elements, large type */
+  --accent-t:#B93E17;  /* vermilion deepened for text-size links (AA) */
+  --serif:   "Hahmlet", "Noto Serif KR", serif;
+  --sans:    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --mono:    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ overflow-x:clip; }
+@media (prefers-reduced-motion: no-preference){
+  html{ scroll-behavior:smooth; }
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.75;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--accent); color:var(--bg); }
+a{ color:var(--accent-t); text-decoration:none; border-bottom:1px solid var(--accent); transition:background .15s, color .15s; }
+a:hover{ background:var(--accent); color:var(--bg); }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:1px; }
+img{ max-width:100%; height:auto; display:block; }
+.mono{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; }
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:200;
+  background:var(--ink); color:var(--bg); padding:.6rem 1rem; font-family:var(--mono); font-size:13px; border:none;
+}
+.skip:focus{ left:0; }
+
+/* ——— progress hairline ——— */
+#progress{
+  position:fixed; top:0; left:0; z-index:100;
+  width:100%; height:2px; background:var(--accent);
+  transform:scaleX(0); transform-origin:0 50%;
+}
+
+/* ——— right-edge mini TOC ——— */
+.toc{
+  position:fixed; right:1.25rem; top:50%; transform:translateY(-50%);
+  z-index:90; display:none; flex-direction:column; gap:1.1rem;
+}
+@media (min-width:1150px){ .toc{ display:flex; } }
+.toc a{
+  display:flex; align-items:center; justify-content:flex-end; gap:.65rem;
+  border-bottom:none; color:var(--sub); text-decoration:none;
+}
+.toc a:hover{ background:transparent; color:var(--ink); }
+.toc .lbl{
+  opacity:0; transform:translateX(6px); transition:opacity .18s, transform .18s;
+  white-space:nowrap; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  background:var(--bg); padding:.1rem .35rem;
+}
+.toc a:hover .lbl, .toc a:focus-visible .lbl{ opacity:1; transform:translateX(0); }
+.toc .dot{
+  width:9px; height:9px; border-radius:50%;
+  border:1.5px solid var(--sub); background:transparent; flex:none;
+  transition:background .2s, border-color .2s, transform .2s;
+}
+.toc a.active .dot{ background:var(--accent); border-color:var(--accent); transform:scale(1.25); }
+.toc a.active .lbl{ color:var(--accent-t); }
+
+/* ——— layout measures ——— */
+.wrap{ max-width:1100px; margin:0 auto; padding:0 clamp(1.25rem, 4vw, 3rem); }
+.narrative{ max-width:65ch; margin:0 auto; }
+
+/* ——— hero ——— */
+.hero{
+  min-height:85vh; display:flex; align-items:center;
+  padding:clamp(4rem, 9vh, 7rem) 0 clamp(3rem, 6vh, 5rem);
+}
+.hero-grid{
+  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,4fr);
+  gap:clamp(2rem, 5vw, 4.5rem); align-items:end; width:100%;
+}
+.kicker{
+  color:var(--sub); text-transform:uppercase; letter-spacing:.14em;
+  display:flex; align-items:center; gap:.75rem; margin-bottom:clamp(1.5rem, 3vh, 2.5rem);
+}
+.kicker::before{ content:""; width:2.5rem; height:1px; background:var(--accent); flex:none; }
+h1{
+  font-family:var(--serif); font-weight:700;
+  font-size:clamp(3.5rem, 9vw, 8rem);
+  line-height:1.04; letter-spacing:-0.01em; word-break:keep-all;
+}
+h1 .en{ display:block; color:var(--ink); }
+h1 .kr{ display:block; }
+.thesis{
+  margin-top:clamp(1.5rem, 3vh, 2.25rem);
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(1.15rem, 2.2vw, 1.5rem); line-height:1.6;
+  color:var(--ink); word-break:keep-all; max-width:34ch;
+}
+.thesis em{ font-style:normal; color:var(--accent-t); }
+.hero-meta{
+  margin-top:clamp(1.75rem, 4vh, 3rem); padding-top:1rem;
+  border-top:1px solid var(--rule);
+  color:var(--sub); display:flex; flex-wrap:wrap; gap:.4rem .75rem;
+}
+.hero-meta a{ color:var(--sub); border-bottom-color:var(--rule); }
+.hero-meta a:hover{ color:var(--bg); }
+.hero-photo{ position:relative; }
+.hero-photo img{
+  width:100%; aspect-ratio:1400/1700; object-fit:cover;
+  border:1px solid var(--rule);
+}
+.hero-photo figcaption{
+  margin-top:.7rem; color:var(--sub);
+  display:flex; justify-content:space-between; gap:1rem;
+}
+.hero-photo figcaption span:last-child{ color:var(--accent-t); }
+@media (max-width:840px){
+  .hero{ min-height:auto; }
+  .hero-grid{ grid-template-columns:1fr; align-items:start; }
+  .hero-photo{ max-width:420px; }
+}
+
+/* ——— stats strip ——— */
+.stats{
+  border-top:1px solid var(--ink); border-bottom:1px solid var(--rule);
+  display:grid; grid-template-columns:repeat(4, minmax(0,1fr));
+}
+.stats > div{ padding:1.5rem 1.25rem 1.5rem 0; border-left:1px solid var(--rule); padding-left:1.25rem; }
+.stats > div:first-child{ border-left:none; padding-left:0; }
+.stats b{
+  font-family:var(--serif); font-weight:300; font-size:clamp(2rem, 4vw, 3rem);
+  line-height:1.1; display:block; letter-spacing:-0.01em;
+}
+.stats b sup{ font-size:.45em; color:var(--accent-t); vertical-align:super; }
+.stats small{ display:block; margin-top:.45rem; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--sub); line-height:1.6; }
+@media (max-width:840px){
+  .stats{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .stats > div{ border-left:none; padding-left:0; border-top:1px solid var(--rule); }
+  .stats > div:nth-child(-n+2){ border-top:none; }
+  .stats > div:nth-child(even){ border-left:1px solid var(--rule); padding-left:1.25rem; }
+}
+
+/* ——— prologue ——— */
+.prologue{ padding:clamp(4rem, 10vh, 7rem) 0; }
+.sec-label{
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-t); margin-bottom:1.75rem; display:flex; align-items:center; gap:.75rem;
+}
+.sec-label::after{ content:""; height:1px; background:var(--rule); flex:1; }
+.prologue p{ word-break:keep-all; }
+.prologue p + p{ margin-top:1.25rem; }
+.prologue .lede::first-letter{
+  font-family:var(--serif); font-weight:700; font-size:3.2em; line-height:.85;
+  float:left; margin:.08em .18em 0 0; color:var(--accent);
+}
+
+/* ——— chapters ——— */
+.chapter{ padding:clamp(4rem, 11vh, 8rem) 0 clamp(2.5rem, 6vh, 4rem); scroll-margin-top:3.5rem; }
+.ch-head{
+  display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(1.25rem, 4vw, 3rem); align-items:baseline;
+  border-top:2px solid var(--ink); padding-top:1.25rem;
+  margin-bottom:clamp(2.5rem, 6vh, 4rem);
+}
+.ch-num{
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(4rem, 10vw, 9rem); line-height:.95;
+  color:var(--accent); letter-spacing:-0.01em;
+  will-change:transform;
+}
+.ch-years{ color:var(--sub); letter-spacing:.14em; }
+.ch-title{
+  font-family:var(--serif); font-weight:700;
+  font-size:clamp(1.9rem, 4.5vw, 3.4rem); line-height:1.15;
+  letter-spacing:-0.01em; word-break:keep-all; margin:.35rem 0 .8rem;
+}
+.ch-orgs{ color:var(--sub); letter-spacing:.08em; text-transform:uppercase; }
+.chapter .narrative{ margin-bottom:clamp(2.5rem, 6vh, 4rem); }
+.chapter .narrative p{ word-break:keep-all; }
+
+/* ——— ruled index list ——— */
+.index{ max-width:1100px; margin:0 auto; }
+.index-cols{
+  display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,2.1fr) minmax(0,1.05fr) 5.5rem;
+  gap:0 1.25rem; padding:0 .75rem .55rem;
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--sub);
+}
+.row{ border-top:1px solid var(--rule); }
+.index .row:last-of-type{ border-bottom:1px solid var(--rule); }
+.row summary{
+  list-style:none; cursor:pointer;
+  display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,2.1fr) minmax(0,1.05fr) 5.5rem;
+  gap:.15rem 1.25rem; align-items:baseline;
+  padding:1.1rem .75rem;
+  transition:background .14s, color .14s;
+  position:relative;
+}
+.row summary::-webkit-details-marker{ display:none; }
+.row summary:hover, .row[open] summary{ background:var(--ink); color:var(--bg); }
+.row summary:hover .c-proj small, .row[open] summary .c-proj small,
+.row summary:hover .c-stack, .row[open] summary .c-stack,
+.row summary:hover .c-year, .row[open] summary .c-year,
+.row summary:hover .c-res,  .row[open] summary .c-res{ color:var(--bg); }
+.c-proj{ font-weight:650; word-break:keep-all; line-height:1.45; }
+.c-proj small{
+  display:block; font-weight:400; font-family:var(--mono); font-size:11px;
+  letter-spacing:.08em; color:var(--sub); margin-top:.2rem; text-transform:uppercase;
+}
+.c-res{ font-size:.94rem; color:var(--sub); word-break:keep-all; line-height:1.55; }
+.c-stack, .c-year{ font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--sub); line-height:1.7; }
+.c-year{ text-align:right; white-space:nowrap; }
+.c-year::after{
+  content:"+"; display:inline-block; margin-left:.6rem;
+  color:var(--accent); font-size:14px; font-weight:500;
+  transition:transform .2s; transform-origin:center;
+}
+.row summary:hover .c-year::after{ color:var(--bg); }
+.row[open] .c-year::after{ transform:rotate(45deg); color:var(--bg); }
+.row-detail{
+  padding:1.35rem 1.5rem 1.6rem; background:var(--ink); color:var(--bg);
+}
+.row-detail ul{ list-style:none; max-width:75ch; }
+.row-detail li{
+  padding-left:1.35rem; position:relative; word-break:keep-all;
+  font-size:.93rem; line-height:1.75; color:#EDEAE1;
+}
+.row-detail li + li{ margin-top:.55rem; }
+.row-detail li::before{
+  content:"—"; position:absolute; left:0; color:var(--accent);
+}
+.row-detail li b{ color:var(--bg); font-weight:650; }
+@media (prefers-reduced-motion: no-preference){
+  .row[open] .row-detail{ animation:reveal .28s ease-out; }
+  @keyframes reveal{ from{ opacity:0; transform:translateY(-4px); } to{ opacity:1; transform:none; } }
+}
+@media (max-width:840px){
+  .index-cols{ display:none; }
+  .row summary{ grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"proj year" "res res" "stack stack"; gap:.3rem .75rem; }
+  .c-proj{ grid-area:proj; }
+  .c-year{ grid-area:year; }
+  .c-res{ grid-area:res; }
+  .c-stack{ grid-area:stack; }
+}
+
+/* ——— pull quotes ——— */
+.pullquote{
+  padding:clamp(3rem, 9vh, 6rem) 0; text-align:center;
+}
+.pullquote::before{
+  content:"✳"; display:block; color:var(--accent); font-size:1.1rem; margin-bottom:1.5rem;
+}
+.pullquote p{
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(1.4rem, 3.4vw, 2.4rem); line-height:1.5;
+  letter-spacing:-0.01em; word-break:keep-all;
+  max-width:26ch; margin:0 auto;
+}
+.pullquote p b{ font-weight:700; }
+
+/* ——— appendix ——— */
+.appendix{ padding:clamp(4rem, 10vh, 7rem) 0 0; }
+.appendix .block{ border-top:1px solid var(--ink); padding:1.5rem 0 3rem; }
+.skill-row{
+  display:grid; grid-template-columns:12rem minmax(0,1fr); gap:.4rem 2rem;
+  padding:.85rem 0; border-top:1px solid var(--rule);
+}
+.skill-row:first-of-type{ border-top:none; }
+.skill-row dt{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent-t); line-height:2.1;
+}
+.skill-row dd{ font-size:.95rem; color:var(--ink); word-break:keep-all; line-height:1.8; }
+@media (max-width:700px){ .skill-row{ grid-template-columns:1fr; gap:.15rem; } }
+.edu li{
+  list-style:none; padding:.85rem 0; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:.25rem 1.5rem; justify-content:space-between; align-items:baseline;
+  word-break:keep-all;
+}
+.edu li:first-child{ border-top:none; }
+.edu .when{ font-family:var(--mono); font-size:12px; color:var(--sub); letter-spacing:.05em; }
+
+/* ——— contact / colophon ——— */
+.contact{ padding:clamp(3rem, 8vh, 5rem) 0 clamp(4rem, 9vh, 6rem); text-align:center; }
+.contact h2{
+  font-family:var(--serif); font-weight:700;
+  font-size:clamp(2rem, 5.5vw, 4rem); letter-spacing:-0.01em; word-break:keep-all;
+  line-height:1.25; margin-bottom:2rem;
+}
+.contact-links{ display:flex; flex-wrap:wrap; gap:1rem 2.5rem; justify-content:center; }
+.contact-links a{
+  font-family:var(--mono); font-size:14px; letter-spacing:.04em;
+  color:var(--ink); border-bottom:1px solid var(--accent); padding-bottom:.15rem;
+}
+.contact-links a:hover{ color:var(--bg); }
+footer{
+  border-top:1px solid var(--rule); padding:1.5rem 0 2.5rem;
+  display:flex; flex-wrap:wrap; gap:.5rem 2rem; justify-content:space-between;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--sub);
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div id="progress" aria-hidden="true"></div>
+
+<nav class="toc" aria-label="챕터 목차">
+  <a href="#ch01" data-target="ch01"><span class="lbl">01 · Mobile &amp; Music</span><span class="dot"></span></a>
+  <a href="#ch02" data-target="ch02"><span class="lbl">02 · Commerce at Scale</span><span class="dot"></span></a>
+  <a href="#ch03" data-target="ch03"><span class="lbl">03 · AI Assistant &amp; Mobility</span><span class="dot"></span></a>
+  <a href="#ch04" data-target="ch04"><span class="lbl">04 · A. &amp; Agent OS</span><span class="dot"></span></a>
+</nav>
+
+<main id="main">
+
+<!-- ————— HERO ————— -->
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <p class="kicker mono">Software Engineer — Android · Cross-platform · AI Agent Platform</p>
+      <h1><span class="kr">강지환</span><span class="en">Jihwan Kang</span></h1>
+      <p class="thesis">프리로드 뮤직 플레이어에서 <em>Agent OS</em>까지 — 기능 개발과 개발 흐름 개선을 함께 해 온 15년의 기록.</p>
+      <p class="hero-meta mono">
+        <span>Seoul</span><span aria-hidden="true">·</span>
+        <a href="mailto:jihwan76@gmail.com">jihwan76@gmail.com</a><span aria-hidden="true">·</span>
+        <a href="https://github.com/returnzero76" rel="me noopener">github.com/returnzero76</a>
+      </p>
+    </div>
+    <figure class="hero-photo">
+      <img src="../assets/profile_wide.jpg" alt="강지환 프로필 사진" width="1400" height="1700" fetchpriority="high">
+      <figcaption class="mono"><span>fig. 0 — 강지환, Seoul</span><span>2011 → </span></figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ————— STATS ————— -->
+<section class="wrap" aria-label="숫자로 보는 경력">
+  <div class="stats">
+    <div><b>15<sup>+</sup></b><small>년 소프트웨어 개발 — Android 2011~</small></div>
+    <div><b>3,700<sup>+</sup></b><small>커밋 — 최근 4년, 에이닷 관련 repo 합산</small></div>
+    <div><b>7</b><small>서비스 도메인 리드 — 게임 / 포토 / 노트 / Auto / 음성비서 / TV / 교육</small></div>
+    <div><b>4</b><small>기술 전환 주도 — XML→Compose · Native→RN · 커버리지 체계 · AI 파이프라인</small></div>
+  </div>
+</section>
+
+<!-- ————— PROLOGUE ————— -->
+<section class="prologue wrap">
+  <div class="narrative">
+    <p class="sec-label">Prologue — 서문</p>
+    <p class="lede">2011년부터 Android Application을 개발해왔습니다. Native(Kotlin/Compose)와 Cross-platform(React Native) 개발부터 CI/CD 인프라, AI 자동화 커맨드까지 — 기능 개발과 개발 흐름 개선을 함께 하는 개발자입니다.</p>
+    <p>AI, Mobility, E-commerce, Multimedia 등 다양한 도메인을 경험했고, JAVA로 시작해 Kotlin 중심으로, 최근에는 TypeScript(React Native)와 Go(백엔드 플랫폼)까지 스택을 넓히고 있습니다. 현재보다는 미래를 위한, 다른 사람도 이해하기 쉬운 코드를 만드는 것을 좋아합니다.</p>
+  </div>
+</section>
+
+<!-- ————— CHAPTER 01 ————— -->
+<section id="ch01" class="chapter wrap" data-ch="ch01">
+  <header class="ch-head">
+    <div class="ch-num" aria-hidden="true">01</div>
+    <div>
+      <p class="ch-years mono">2011 — 2015</p>
+      <h2 class="ch-title">Mobile &amp; Music</h2>
+      <p class="ch-orgs mono">Pantech 전임연구원 · LG Electronics 인턴</p>
+    </div>
+  </header>
+  <div class="narrative">
+    <p>커리어는 LG전자 인턴으로 Blu-ray player 디바이스 SW의 텍스트 UI를 C로 개발하며 시작됐다. 2011년 Pantech에 합류해 Android 디바이스에 preload되는 Music Player를 맡아 Media Provider Framework를 분석하고 Music DB와 앨범아트 캐시 구조를 다뤘고, 국내 전 모델과 일본·베트남·대만 수출 모델에 앱을 실으며 Android 2.2부터 5.0까지의 OS 업그레이드를 따라갔다. MP3(ID3)와 FLAC(Vorbis) 스펙을 직접 분석해 Tag Editor Java 라이브러리를 자체 개발한 것도 이 시기다.</p>
+  </div>
+  <div class="index">
+    <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Music Player &amp; Audio Effect<small>Pantech · 전임연구원</small></span>
+        <span class="c-res">국내 전모델 + 일본·베트남·대만 preload 뮤직 플레이어 · Tag Editor 라이브러리 자체 개발</span>
+        <span class="c-stack">Java · Android Framework</span>
+        <span class="c-year">2011–15</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li>Android Media Provider Framework 분석, <b>Music DB / Albumart cache 구조</b>, AppWidget 2종 + U+Box 위젯 개발</li>
+        <li>Melon / OllehMusic / YouTube 온라인 서비스 연동 — 국내 전모델 + 일본·베트남·대만 preload, <b>Android 2.2~5.0 OS 업그레이드 대응</b></li>
+        <li><b>Audio Effect 앱</b>: 사용자 설정 Equalizer, 장르별 Auto Preset, QSound / NXP 3rd party 통합</li>
+        <li><b>Tag Editor Java Library 자체 개발</b>: MP3(ID3) / FLAC(Vorbis) spec 분석, TEXT / LYRICS / ALBUMART read·write, charset encoding 자동 분석</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Blu-ray Player<small>LG Electronics · 인턴</small></span>
+        <span class="c-res">Blu-ray player 디바이스 SW — 텍스트 표시 UI 개발</span>
+        <span class="c-stack">C</span>
+        <span class="c-year">2010</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li>Blu-ray player device SW: <b>Text 표시 UI 개발 (C)</b>, 다국어 지원 추가, Turnkey base 모델 작업</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<aside class="pullquote wrap">
+  <p>“현재보다는 미래를 위한, <b>다른 사람도 이해하기 쉬운 코드</b>를 만드는 것을 좋아합니다.”</p>
+</aside>
+
+<!-- ————— CHAPTER 02 ————— -->
+<section id="ch02" class="chapter wrap" data-ch="ch02">
+  <header class="ch-head">
+    <div class="ch-num" aria-hidden="true">02</div>
+    <div>
+      <p class="ch-years mono">2015 — 2018</p>
+      <h2 class="ch-title">Commerce at Scale</h2>
+      <p class="ch-orgs mono">Tmon Assistant Manager · Titan Platform Manager</p>
+    </div>
+  </header>
+  <div class="narrative">
+    <p>2015년 소셜커머스 Tmon으로 옮겨 대규모 트래픽의 쇼핑 앱을 만들었다. 카테고리 구조 개편과 메인 첫화면 Renewal을 각각 3개월씩 이끌며 lazy loading으로 진입 속도를 개선했고, Jenkins와 Instrumentation test, Slack을 엮은 원클릭 자동화 테스트까지 — 기능과 개발 흐름을 함께 다듬는 습관이 이때 자리잡았다. 중간의 Titan Platform에서는 Winvention US향 멀티미디어 앱을 초기부터 설계하며 단일 Activity 구조와 자체 DRM을 얹은 ExoPlayer를 다뤘다.</p>
+  </div>
+  <div class="index">
+    <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Tmon Android<small>Tmon · Assistant Manager · 2015.06–17.01 / 17.06–18.03</small></span>
+        <span class="c-res">카테고리·메인 첫화면 Renewal — lazy loading 진입 속도 개선, 자동화 테스트 구축</span>
+        <span class="c-stack">Java · Jenkins · RecyclerView</span>
+        <span class="c-year">2015–18</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li>쇼핑 <b>카테고리 구조 개편 Renewal</b>(3개월), <b>메인 첫화면(추천탭) Renewal</b>(3개월) — lazy loading으로 진입 속도 개선</li>
+        <li>Time Attack deal, 배송 상태 AppWidget, Custom view(Expandable GridView, Pull to Refresh 등) 개발</li>
+        <li><b>Jenkins + Instrumentation test + Slack 자동화 테스트</b>(원클릭 결과 공유), EventBus 자체 개발</li>
+        <li>SharedPreference 분리·commit 최소화, 7개 tracking module 통합 리팩토링, ListView→RecyclerView 등 컴포넌트 현대화</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Winvention US/KR<small>Titan Platform · Manager</small></span>
+        <span class="c-res">멀티미디어(Video/Webtoon) US향 앱 초기 개발 — 자체 DRM 적용 ExoPlayer</span>
+        <span class="c-stack">Java · ExoPlayer · Volley</span>
+        <span class="c-year">2017</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>단일 Activity + 전 화면 Fragment 구조</b>(like YouTube), 화면 이동 Movement 모듈 개발</li>
+        <li>File upload Background Service, Jsoup + Volley 문서 파싱, <b>ExoPlayer custom + 자체 DRM(TCI) 적용</b></li>
+        <li>KR향: 검색 WebView→Data binding Native 전환(속도 개선), Firebase / FCM / IGAWorks 연동</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<aside class="pullquote wrap">
+  <p>“<b>기능 개발</b>과 <b>개발 흐름 개선</b>을 함께 하는 개발자.”</p>
+</aside>
+
+<!-- ————— CHAPTER 03 ————— -->
+<section id="ch03" class="chapter wrap" data-ch="ch03">
+  <header class="ch-head">
+    <div class="ch-num" aria-hidden="true">03</div>
+    <div>
+      <p class="ch-years mono">2018 — 2022</p>
+      <h2 class="ch-title">AI Assistant &amp; Mobility</h2>
+      <p class="ch-orgs mono">SK Telecom Manager — NUGU · Tmap Taxi · Btv NUGU</p>
+    </div>
+  </header>
+  <div class="narrative">
+    <p>2018년 SK Telecom에 합류해 NUGU AI Mobile의 App Renewal 2.0을 처음부터 재개발했다. Java→Kotlin 전환, 전 화면 MVVM(RxKotlin·LiveData), Koin DI와 MockK 유닛테스트 도입 — 코드베이스를 현대화하는 전환을 처음으로 주도한 시기다. 이어 Tmap Taxi 승객앱의 호출 화면 전면 Renewal과 SK pay 결제를 개발했고, Btv NUGU에서는 UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 태우며 15개+ model flavor 빌드를 Fastlane과 Jenkins로 효율화했다. 2019년에는 Google I/O에 참여해 사내에 공유했다.</p>
+  </div>
+  <div class="index">
+    <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
+    <details class="row">
+      <summary>
+        <span class="c-proj">NUGU AI Mobile Android<small>SK Telecom · 3rd party 서비스·디바이스 연결</small></span>
+        <span class="c-res">App Renewal 2.0 처음부터 재개발 — Java→Kotlin, 전 화면 MVVM</span>
+        <span class="c-stack">Kotlin · RxKotlin · Koin</span>
+        <span class="c-year">2018–20</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>App Renewal 2.0</b>: 처음부터 재개발, Java→Kotlin 전환</li>
+        <li>디바이스 연결(Bluetooth / AP / OTP / Broadcast) — AI Speaker, Btv 등, TID 연동</li>
+        <li>Melon / Flo / 오디오북 등 멀티미디어·쇼핑·금융 서비스 도메인 연결, Tmap 인터페이스 협의·개발</li>
+        <li>Base / Call / App 모듈 분리, <b>전 화면 MVVM(RxKotlin, LiveData), DI(Koin), MockK 도입 &amp; 유닛테스트</b></li>
+        <li>2019 Google I/O 참여 &amp; 사내 공유</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Tmap Taxi Android<small>SK Telecom · 택시 승객앱</small></span>
+        <span class="c-res">승객 호출 화면 전면 Renewal + SK pay·법인카드 결제 개발</span>
+        <span class="c-stack">Kotlin · MVVM · Fastlane</span>
+        <span class="c-year">2020</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li>업무용 택시 / 법인카드 결제, <b>SK pay 가입·카드연동·결제</b>, 쿠폰 적용 개발</li>
+        <li><b>승객 호출 화면 전면 Renewal</b>(첫화면 / 출발지 / 목적지 / 경로 / 결제), Java→Kotlin 전환, MVVM 적용</li>
+        <li>Base / Tmap SDK / Network 모듈화, Fastlane build script + Slack 연동</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Btv NUGU Android<small>SK Telecom · 전 Btv 디바이스 NUGU 탑재</small></span>
+        <span class="c-res">신규 디바이스 출시 + 15개+ model flavor 빌드 효율화</span>
+        <span class="c-stack">Kotlin · Fastlane · Jenkins</span>
+        <span class="c-year">2020–22</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li>신규 디바이스 출시(AI2 MAX, AI2 AndroidTv) &amp; 유지보수, 백그라운드 service component MVVM 적용</li>
+        <li><b>15개+ model flavor 빌드 효율화</b>: Fastlane 작성 &amp; Jenkins 연동, 개발자 Debug mode 개발</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<aside class="pullquote wrap">
+  <p>“JAVA로 시작해 Kotlin 중심으로 — 최근에는 <b>TypeScript와 Go</b>까지 스택을 넓히고 있습니다.”</p>
+</aside>
+
+<!-- ————— CHAPTER 04 ————— -->
+<section id="ch04" class="chapter wrap" data-ch="ch04">
+  <header class="ch-head">
+    <div class="ch-num" aria-hidden="true">04</div>
+    <div>
+      <p class="ch-years mono">2022 — 현재</p>
+      <h2 class="ch-title">A. &amp; Agent OS</h2>
+      <p class="ch-orgs mono">SK Telecom Manager — 에이닷(A.) Client 개발</p>
+    </div>
+  </header>
+  <div class="narrative">
+    <p>2022년부터 SKT AI 개인비서 '에이닷' Android 클라이언트를 만들고 있다. 대규모 멀티모듈 프로젝트에서 4년간 2,990 커밋(기여 2위권)을 쌓으며 게임·AI 포토·AI 노트 등 도메인을 리드했고, XML→Compose 전면 전환과 React Native 하이브리드 전환, 테스트 인프라와 CI 자동화까지 굵직한 기술 전환을 주도했다. Tmap·TimeTree 파트너 샘플 앱을 initial commit부터 리드했고, 2026년부터는 Go + Next.js 기반 AI Agent 거버넌스 플랫폼 Agent OS와 Claude Code 기반 AI 개발 워크플로로 영역을 넓히는 중이다.</p>
+  </div>
+  <div class="index">
+    <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
+    <details class="row">
+      <summary>
+        <span class="c-proj">에이닷 A. Android 앱<small>SK Telecom · 대규모 멀티모듈 (app/feature/domain/data/core)</small></span>
+        <span class="c-res">4년간 2,990 커밋(기여 2위권) — 게임·포토·노트 도메인 리드, Compose·RN 전환 주도</span>
+        <span class="c-stack">Kotlin · Compose · RN</span>
+        <span class="c-year">2022–</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>AI 노트 도메인 리드 (2025.08~)</b>: 통화녹음/파일 기반 노트 생성 파이프라인, 폴더·휴지통·공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발</li>
+        <li><b>React Native 하이브리드 전환 (2026)</b>: New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow + ReactViewModel + ReactFragment + 라우팅), 전환 후 레거시 Native 코드 정리</li>
+        <li><b>게임 서비스 (2022~2024, 최대 기여 영역)</b>: 게임홈/리스트/상세/리더보드 전체 개발, XML→Compose 전면 전환(Material3 제약 해결, Foldable 대응 nestedScroll 경합 회피)</li>
+        <li><b>AI 포토 (2024)</b>: 프로필 이미지 생성 플로우, 외부 이미지 생성 SDK 연동, UiState 세분화</li>
+        <li><b>A.tv (2022~2025)</b>: 외부 AAR SDK v0.0.7→v244+ 수십 차례 통합, 본인인증 flow, PIP·폴더블·멀티윈도우 대응</li>
+        <li><b>WebView 플랫폼 공통화</b>: webkit 모듈 설계(WebResultProvider, permission/activity result), 영어학습 JS Bridge, 딥링크 도메인 검증 등 보안 이슈 해결</li>
+        <li><b>테스트 인프라 구축 (2024.11~2025.03)</b>: UnitTest report 통합 시스템, Kover coverage 룰셋, CI 파이프라인 테스트 옵션, Slack 알림 연동</li>
+        <li><b>CI 자동화 (2026)</b>: js submodule pointer 무결성 검사, 자동 bump Pipeline Schedule, Debug 빌드 API 프록시 개발자 메뉴</li>
+        <li><b>AI 개발 워크플로 도입 (2026)</b>: Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Tmap x Adot 음성비서 마이그레이션<small>SK Telecom · 레퍼런스 샘플 앱 리드</small></span>
+        <span class="c-res">NUGU→에이닷 마이그레이션 샘플, initial commit부터 리드 — 240 커밋 · 전체의 41%</span>
+        <span class="c-stack">Kotlin · NUGU SDK · Lottie</span>
+        <span class="c-year">2025</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>신규 프로젝트 0→1 부트스트랩</b>: core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합</li>
+        <li>NUGU SDK 통합·커스터마이징: SpeechRecognizer trigger, AudioSpeaker custom, 멀티턴 상태머신 이슈 해결</li>
+        <li><b>Wake-up Word 엔진 적용</b>(멀티 트리거 모델), EPD Timeout 튜닝</li>
+        <li>VoiceChrome(음성 UI) 구현: Lottie 상태별 애니메이션, 유지 정책, TmapCommand Directive viewer, 발화가이드 Chips</li>
+        <li>5개월간 <b>v0.3.0→v1.12.0 10회+ 배포</b>, 파트너사 참조용 코드 품질 관리 + Confluence 연동 가이드 문서 저술(Sample Guide 위키 10여 페이지)</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">TimeTree x Adot Android 샘플<small>SK Telecom · 제휴 서비스 샘플 앱</small></span>
+        <span class="c-res">채팅 화면 개발 — Reactive 메시지 연결 · Streaming 로딩 뷰 (272 커밋)</span>
+        <span class="c-stack">Kotlin · Compose</span>
+        <span class="c-year">2025</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>채팅 화면 개발</b>: Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">adot-react-native<small>SK Telecom · 에이닷 공용 RN 워크스페이스</small></span>
+        <span class="c-res">Android/iOS에 embed되는 크로스플랫폼 공용 코드베이스 — Auto 화면 3종, AI 노트 전환 (167 커밋)</span>
+        <span class="c-stack">TypeScript · RN New Arch · Expo</span>
+        <span class="c-year">2026</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>Auto(차량 연동) RN 화면 3종 전면 구현</b>: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결</li>
+        <li>AI 노트 RN 전환: 공용 noteList 컴포넌트·훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)</li>
+        <li><b>Pull-to-Refresh 제스처 경합 해결</b>: RNGH PanGestureHandler 기반 재구현 → design-system 공용 컴포넌트로 승격</li>
+        <li>Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Agent OS<small>SK Telecom · AI Agent 거버넌스 플랫폼</small></span>
+        <span class="c-res">흩어진 AI Agent를 등록·추적·통제 — Go observability pod + Next.js 콘솔</span>
+        <span class="c-stack">Go · Next.js · Langfuse</span>
+        <span class="c-year">2026–</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>Go 백엔드(control-plane) observability pod 개발</b>: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)</li>
+        <li>Next.js 콘솔 model-evaluation 화면 개발·리팩토링, flaky test 근본 해결</li>
+        <li><b>Speckit 기반 스펙 주도 개발</b> 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화</li>
+        <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 (49 커밋)</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<!-- ————— APPENDIX ————— -->
+<section class="appendix wrap" aria-label="부록">
+  <div class="block">
+    <p class="sec-label">Appendix A — Skills</p>
+    <dl>
+      <div class="skill-row"><dt>Languages</dt><dd>Kotlin, TypeScript, Java, Go</dd></div>
+      <div class="skill-row"><dt>Android</dt><dd>Jetpack Compose, Coroutines/Flow, Hilt/Koin, 멀티모듈 Clean Architecture(MVVM + UseCase), WorkManager, Navigation/DeepLink, ExoPlayer, Room, Paging</dd></div>
+      <div class="skill-row"><dt>Cross-platform</dt><dd>React Native (New Architecture — TurboModule/Codegen), Expo, react-native-gesture-handler, feature-sliced design-system</dd></div>
+      <div class="skill-row"><dt>Voice AI</dt><dd>NUGU SDK(ASR/TTS/Directive/Agent), Wake-up Word 엔진, VoiceChrome UI</dd></div>
+      <div class="skill-row"><dt>Web / Backend (최근)</dt><dd>Next.js, Go(Huma API), Langfuse 관측성 연동</dd></div>
+      <div class="skill-row"><dt>CI/CD &amp; Quality</dt><dd>GitLab CI, Jenkins, Fastlane, Kover(coverage), detekt, JUnit/MockK/Espresso, ProGuard, Gradle Version Catalog</dd></div>
+      <div class="skill-row"><dt>AI Developer Tools</dt><dd>Claude Code 커스텀 파이프라인(JIRA→코드수정→MR 자동화), 모듈 인덱스 시스템, Speckit 스펙 주도 개발</dd></div>
+      <div class="skill-row"><dt>Tools</dt><dd>Git, GitLab/GitHub/Bitbucket, JIRA, Firebase, Figma, Slack</dd></div>
+    </dl>
+  </div>
+  <div class="block">
+    <p class="sec-label">Appendix B — Education &amp; Certification</p>
+    <ul class="edu">
+      <li><span>광운대학교 전자통신공학 — 3.64 / 4.5</span><span class="when">2004.03 – 2011.02</span></li>
+      <li><span>정보통신기사 — 한국산업인력공단</span><span class="when">2010</span></li>
+    </ul>
+  </div>
+  <div class="block contact">
+    <p class="sec-label" style="text-align:left">Appendix C — Contact</p>
+    <h2>다음 챕터를 함께 쓸<br>이야기를 기다립니다.</h2>
+    <p class="contact-links">
+      <a href="mailto:jihwan76@gmail.com">jihwan76@gmail.com</a>
+      <a href="https://github.com/returnzero76" rel="me noopener">github.com/returnzero76</a>
+    </p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>강지환 · Jihwan Kang — Monograph</span>
+  <span>Seoul · Set in Hahmlet, Pretendard &amp; Geist Mono</span>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* — scroll progress hairline — */
+  var bar = document.getElementById("progress");
+  var ticking = false;
+  function paint(){
+    ticking = false;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    bar.style.transform = "scaleX(" + p + ")";
+    if (!reduce.matches) parallax();
+  }
+  function onScroll(){
+    if (!ticking){ ticking = true; requestAnimationFrame(paint); }
+  }
+  window.addEventListener("scroll", onScroll, { passive:true });
+  window.addEventListener("resize", onScroll, { passive:true });
+
+  /* — chapter numeral drift (guarded by prefers-reduced-motion) — */
+  var nums = Array.prototype.slice.call(document.querySelectorAll(".ch-num"));
+  function parallax(){
+    var vh = window.innerHeight;
+    for (var i = 0; i < nums.length; i++){
+      var r = nums[i].getBoundingClientRect();
+      if (r.bottom < -80 || r.top > vh + 80) continue;
+      var d = (r.top + r.height / 2 - vh / 2) / vh; /* -0.5 … 0.5-ish */
+      nums[i].style.transform = "translateY(" + (d * 44).toFixed(1) + "px)";
+    }
+  }
+  paint();
+
+  /* — active chapter dot in mini-TOC — */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".toc a"));
+  var byId = {};
+  links.forEach(function(a){ byId[a.getAttribute("data-target")] = a; });
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          links.forEach(function(a){ a.classList.remove("active"); });
+          var a = byId[e.target.id];
+          if (a) a.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    document.querySelectorAll(".chapter").forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
