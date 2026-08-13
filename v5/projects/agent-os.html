@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent OS — 강지환</title>
+<meta name="description" content="Agent OS — AI Agent 거버넌스 플랫폼 (Go + Next.js 모노레포). 강지환 케이스 스터디, 2026.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent OS — 강지환">
+<meta property="og:description" content="조직 내 AI Agent들을 등록·추적·통제하는 거버넌스 플랫폼 — Go control-plane observability pod와 Next.js 콘솔 개발.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/agent-os.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#FAFAF8;--ink:#111110;--hair:#D9D8D4;--panel:#EFEEEA;--red:#E2231A;--mute:#6E6D68;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --pad:clamp(16px,3.5vw,56px);
+  --gap:clamp(14px,1.8vw,28px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--kr);font-size:14px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3,h4{word-break:keep-all}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.topbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.brand{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--red);padding-bottom:2px}
+.brand:hover{color:var(--red)}
+.crumb{padding:16px 0}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline;text-decoration-color:var(--red);color:var(--ink)}
+.hero{padding:clamp(20px,4vw,48px) 0 clamp(24px,4vw,48px);border-top:1px solid var(--hair)}
+.hero .idx{font-family:var(--disp);font-weight:200;font-size:clamp(4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.03em;color:var(--red)}
+.hero h1{font-size:clamp(1.9rem,4.5vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-top:14px}
+.hero .claim{margin-top:14px;max-width:60ch;word-break:keep-all}
+.facts{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:18px 0}
+.fact{grid-column:span 3}
+.fact dd{margin-top:4px;font-weight:700;word-break:keep-all}
+.context{max-width:62ch;margin:clamp(24px,4vw,44px) 0;word-break:keep-all}
+.case{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.case .text{grid-column:1/8;min-width:0}
+.case .side{grid-column:8/13;min-width:0;display:grid;gap:14px;align-content:start}
+.side.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.side .span2{grid-column:1/-1}
+@media(min-width:1000px){.case .side{border-left:1px solid var(--hair);padding-left:var(--gap)}}
+.sect{margin-top:clamp(28px,4vw,48px)}
+.sect .subttl{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:8px}
+.built{list-style:none}
+.built li{border-top:1px solid var(--hair);padding:14px 0;max-width:62ch;word-break:keep-all}
+.built li b{display:block;margin-bottom:2px}
+.plate{background:var(--panel);border:1px solid var(--hair);padding:10px;min-width:0}
+.plate figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);padding-top:8px;line-height:1.5}
+.plate .slot{aspect-ratio:506/900;border:1px solid var(--hair);background:linear-gradient(to top right,transparent calc(50% - .5px),var(--hair) calc(50% - .5px),var(--hair) calc(50% + .5px),transparent calc(50% + .5px))}
+.plate .slot.wide{aspect-ratio:900/506}
+.plate.arch{max-width:200px}
+.outcome{border-top:1px solid var(--ink);margin-top:clamp(32px,5vw,56px);padding:16px 0}
+.outcome p{max-width:62ch;font-weight:700;word-break:keep-all;margin-top:6px}
+.pn{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);border-top:1px solid var(--hair);margin-top:clamp(40px,6vw,72px)}
+.pn a{display:block;padding:18px 0 64px;text-decoration:none;min-width:0}
+.pn a:hover .t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pn .t{display:block;font-weight:700;margin-top:6px;word-break:keep-all}
+.pn .next{text-align:right}
+.pn .home{text-align:center}
+.gridlay{position:fixed;inset:0;pointer-events:none;z-index:60;display:none}
+body.show-grid .gridlay{display:block}
+.gridlay .cols{height:100%;max-width:1440px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.gridlay .cols i{background:rgba(226,35,26,.04);border-left:1px solid rgba(226,35,26,.22);border-right:1px solid rgba(226,35,26,.22)}
+.gridbtn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);padding:8px 14px;cursor:pointer;color:var(--mute)}
+.gridbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+@media(max-width:960px){
+  .case .text{grid-column:1/13}
+  .case .side{grid-column:1/13}
+  .fact{grid-column:span 6}
+}
+@media(max-width:700px){
+  .pn{grid-template-columns:1fr}
+  .pn .next,.pn .home{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html">강지환 — Jihwan Kang</a>
+    <span class="mono">Case Study · Plate 01</span>
+    <span class="mono">Seoul, KR</span>
+  </div>
+  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p01">Index</a> ← 01 · Agent OS</nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="idx" aria-hidden="true">01</p>
+    <h1>Agent OS — AI Agent 거버넌스 플랫폼</h1>
+    <p class="claim">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼 — Go + Next.js 모노레포.</p>
+  </section>
+
+  <dl class="facts">
+    <div class="fact"><dt class="mono">역할</dt><dd>Go 백엔드 + Next.js 콘솔 개발</dd></div>
+    <div class="fact"><dt class="mono">기간</dt><dd>2026.06 — 현재 · SK Telecom</dd></div>
+    <div class="fact"><dt class="mono">규모</dt><dd>BDD 20 스펙 · agent-os-skills 49 커밋</dd></div>
+    <div class="fact"><dt class="mono">스택</dt><dd>Go(Huma) · Next.js · Langfuse · Speckit</dd></div>
+  </dl>
+
+  <p class="context">Go 기반 control-plane과 Next.js 콘솔로 구성된 모노레포에서 백엔드와 프론트엔드를 오가며 개발합니다. spec→plan→tasks→구현으로 이어지는 Speckit 스펙 주도 개발을 실천하며, 팀 생산성을 위한 자동화 스킬도 직접 만듭니다.</p>
+
+  <div class="case">
+    <div class="text">
+      <p class="mono">What I Built</p>
+      <ul class="built">
+        <li><b>Observability Pod — Go control-plane</b>Langfuse/Pathfinder trace 조회 연동: cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도. BDD tests-first로 20개 스펙을 먼저 작성.</li>
+        <li><b>Model Evaluation 콘솔 — Next.js</b>화면 개발 및 리팩토링, flaky test 근본 해결.</li>
+        <li><b>Speckit 스펙 주도 개발</b>spec→plan→tasks→구현 흐름 실천, GitLab 이슈/Epic 양방향 연결 자동화.</li>
+        <li><b>agent-os-skills — 팀 생산성 자동화</b>daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 자동화 스킬 개발 · 49 커밋.</li>
+      </ul>
+    </div>
+    <aside class="side" aria-label="도판">
+      <figure class="plate">
+        <div class="slot wide" role="img" aria-label="스크린샷 준비 중"></div>
+        <figcaption>Fig. 준비 중 — Observability Pod</figcaption>
+      </figure>
+      <figure class="plate">
+        <div class="slot wide" role="img" aria-label="스크린샷 준비 중"></div>
+        <figcaption>Fig. 준비 중 — Model Evaluation Console</figcaption>
+      </figure>
+    </aside>
+  </div>
+
+  <div class="outcome">
+    <p class="mono">Outcome</p>
+    <p>Go 백엔드부터 Next.js 콘솔, 팀 자동화 스킬까지 — 플랫폼 개발과 개발 문화(스펙 주도·BDD tests-first)를 함께 만들어가는 중.</p>
+  </div>
+
+  <nav class="pn" aria-label="이전·다음 프로젝트">
+    <a href="pantech.html"><span class="mono">← Prev · 09</span><span class="t">Music Player &amp; Audio Effect</span></a>
+    <a class="home" href="../index.html"><span class="mono">Index</span><span class="t">전체 목록</span></a>
+    <a class="next" href="adot.html"><span class="mono">Next · 02 →</span><span class="t">에이닷 A. Android</span></a>
+  </nav>
+</main>
+
+<div class="gridlay" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<button class="gridbtn" id="gridToggle" type="button" aria-pressed="false" aria-label="12컬럼 구성 그리드 표시 전환">Grid</button>
+<script>
+document.getElementById('gridToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-grid');
+  this.setAttribute('aria-pressed',on?'true':'false');
+});
+</script>
+</body>
+</html>

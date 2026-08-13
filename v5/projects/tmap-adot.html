@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tmap × Adot 음성비서 — 강지환</title>
+<meta name="description" content="Tmap × Adot 음성비서 마이그레이션 — NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱, Initial Commit부터 리드 개발(240 커밋, 전체의 41%). 강지환 케이스 스터디.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tmap × Adot 음성비서 — 강지환">
+<meta property="og:description" content="NUGU SDK 통합·Wake-up Word·VoiceChrome — 5개월간 v0.3.0→v1.12.0 10회+ 배포한 레퍼런스 샘플 앱 리드 개발.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/tmap-adot.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#FAFAF8;--ink:#111110;--hair:#D9D8D4;--panel:#EFEEEA;--red:#E2231A;--mute:#6E6D68;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --pad:clamp(16px,3.5vw,56px);
+  --gap:clamp(14px,1.8vw,28px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--kr);font-size:14px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3,h4{word-break:keep-all}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.topbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.brand{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--red);padding-bottom:2px}
+.brand:hover{color:var(--red)}
+.crumb{padding:16px 0}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline;text-decoration-color:var(--red);color:var(--ink)}
+.hero{padding:clamp(20px,4vw,48px) 0 clamp(24px,4vw,48px);border-top:1px solid var(--hair)}
+.hero .idx{font-family:var(--disp);font-weight:200;font-size:clamp(4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.03em;color:var(--red)}
+.hero h1{font-size:clamp(1.9rem,4.5vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-top:14px}
+.hero .claim{margin-top:14px;max-width:60ch;word-break:keep-all}
+.facts{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:18px 0}
+.fact{grid-column:span 3}
+.fact dd{margin-top:4px;font-weight:700;word-break:keep-all}
+.context{max-width:62ch;margin:clamp(24px,4vw,44px) 0;word-break:keep-all}
+.case{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.case .text{grid-column:1/8;min-width:0}
+.case .side{grid-column:8/13;min-width:0;display:grid;gap:14px;align-content:start}
+.side.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.side .span2{grid-column:1/-1}
+@media(min-width:1000px){.case .side{border-left:1px solid var(--hair);padding-left:var(--gap)}}
+.sect{margin-top:clamp(28px,4vw,48px)}
+.sect .subttl{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:8px}
+.built{list-style:none}
+.built li{border-top:1px solid var(--hair);padding:14px 0;max-width:62ch;word-break:keep-all}
+.built li b{display:block;margin-bottom:2px}
+.plate{background:var(--panel);border:1px solid var(--hair);padding:10px;min-width:0}
+.plate figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);padding-top:8px;line-height:1.5}
+.plate .slot{aspect-ratio:506/900;border:1px solid var(--hair);background:linear-gradient(to top right,transparent calc(50% - .5px),var(--hair) calc(50% - .5px),var(--hair) calc(50% + .5px),transparent calc(50% + .5px))}
+.plate .slot.wide{aspect-ratio:900/506}
+.plate.arch{max-width:200px}
+.outcome{border-top:1px solid var(--ink);margin-top:clamp(32px,5vw,56px);padding:16px 0}
+.outcome p{max-width:62ch;font-weight:700;word-break:keep-all;margin-top:6px}
+.pn{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);border-top:1px solid var(--hair);margin-top:clamp(40px,6vw,72px)}
+.pn a{display:block;padding:18px 0 64px;text-decoration:none;min-width:0}
+.pn a:hover .t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pn .t{display:block;font-weight:700;margin-top:6px;word-break:keep-all}
+.pn .next{text-align:right}
+.pn .home{text-align:center}
+.gridlay{position:fixed;inset:0;pointer-events:none;z-index:60;display:none}
+body.show-grid .gridlay{display:block}
+.gridlay .cols{height:100%;max-width:1440px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.gridlay .cols i{background:rgba(226,35,26,.04);border-left:1px solid rgba(226,35,26,.22);border-right:1px solid rgba(226,35,26,.22)}
+.gridbtn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);padding:8px 14px;cursor:pointer;color:var(--mute)}
+.gridbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+@media(max-width:960px){
+  .case .text{grid-column:1/13}
+  .case .side{grid-column:1/13}
+  .fact{grid-column:span 6}
+}
+@media(max-width:700px){
+  .pn{grid-template-columns:1fr}
+  .pn .next,.pn .home{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html">강지환 — Jihwan Kang</a>
+    <span class="mono">Case Study · Plate 03</span>
+    <span class="mono">Seoul, KR</span>
+  </div>
+  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p03">Index</a> ← 03 · Tmap × Adot</nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="idx" aria-hidden="true">03</p>
+    <h1>Tmap × Adot 음성비서 마이그레이션</h1>
+    <p class="claim">Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱 — Initial Commit부터 시작한 리드 개발.</p>
+  </section>
+
+  <dl class="facts">
+    <div class="fact"><dt class="mono">역할</dt><dd>리드 개발 · Initial Commit부터</dd></div>
+    <div class="fact"><dt class="mono">기간</dt><dd>2025.03 — 2025.08 · SK Telecom</dd></div>
+    <div class="fact"><dt class="mono">규모</dt><dd>240 커밋(전체의 41%) · 10회+ 배포</dd></div>
+    <div class="fact"><dt class="mono">스택</dt><dd>Kotlin · NUGU SDK · Wake-up Word · Lottie</dd></div>
+  </dl>
+
+  <p class="context">Tmap에 탑재된 음성비서를 NUGU에서 에이닷 기반으로 마이그레이션하는 프로젝트에서, 파트너사가 참조하는 레퍼런스 샘플 앱을 Initial Commit부터 리드 개발했습니다. 5개월간 240 커밋(전체의 41%)을 쌓으며 v0.3.0에서 v1.12.0까지 10회 이상 배포했고, 참조용 코드 품질 관리와 가이드 문서 저술을 함께 했습니다.</p>
+
+  <div class="case">
+    <div class="text">
+      <p class="mono">What I Built</p>
+      <ul class="built">
+        <li><b>신규 프로젝트 0→1 부트스트랩</b>core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합.</li>
+        <li><b>NUGU SDK 통합·커스터마이징</b>SpeechRecognizer trigger, AudioSpeaker custom, 멀티턴 상태머신 이슈 해결.</li>
+        <li><b>Wake-up Word 엔진 적용</b>멀티 트리거 모델 적용, EPD Timeout 튜닝.</li>
+        <li><b>VoiceChrome(음성 UI) 구현</b>Lottie 상태별 애니메이션과 유지 정책, TmapCommand Directive viewer, 발화가이드 Chips.</li>
+        <li><b>배포·품질·문서</b>5개월간 v0.3.0→v1.12.0 10회+ 배포, 파트너사 참조용 코드 품질 관리, Confluence 연동 가이드 문서 저술(Sample Guide 위키 10여 페이지).</li>
+      </ul>
+    </div>
+    <aside class="side c2" aria-label="도판">
+      <figure class="plate">
+        <img src="../../assets/screens/tmap-store-04.jpg" width="506" height="900" alt="Tmap 앱 공식 스토어 스크린샷 4" loading="eager" decoding="async">
+        <figcaption>Fig. 01 — Tmap 공식 스토어, 2025</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../../assets/screens/tmap-store-05.jpg" width="506" height="900" alt="Tmap 앱 공식 스토어 스크린샷 5" loading="lazy" decoding="async">
+        <figcaption>Fig. 02 — Tmap 공식 스토어, 2025</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../../assets/screens/tmap-store-06.jpg" width="506" height="900" alt="Tmap 앱 공식 스토어 스크린샷 6" loading="lazy" decoding="async">
+        <figcaption>Fig. 03 — Tmap 공식 스토어, 2025</figcaption>
+      </figure>
+    </aside>
+  </div>
+
+  <div class="outcome">
+    <p class="mono">Outcome</p>
+    <p>Initial Commit부터 5개월간 240 커밋 — v0.3.0→v1.12.0 10회+ 배포와 Sample Guide 위키 10여 페이지로, 파트너사가 참조하는 음성비서 레퍼런스 샘플을 완성.</p>
+  </div>
+
+  <nav class="pn" aria-label="이전·다음 프로젝트">
+    <a href="adot.html"><span class="mono">← Prev · 02</span><span class="t">에이닷 A. Android</span></a>
+    <a class="home" href="../index.html"><span class="mono">Index</span><span class="t">전체 목록</span></a>
+    <a class="next" href="nugu-mobile.html"><span class="mono">Next · 06 →</span><span class="t">NUGU Mobile &amp; Btv NUGU</span></a>
+  </nav>
+</main>
+
+<div class="gridlay" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<button class="gridbtn" id="gridToggle" type="button" aria-pressed="false" aria-label="12컬럼 구성 그리드 표시 전환">Grid</button>
+<script>
+document.getElementById('gridToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-grid');
+  this.setAttribute('aria-pressed',on?'true':'false');
+});
+</script>
+</body>
+</html>

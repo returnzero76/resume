@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>에이닷 A. — 강지환</title>
+<meta name="description" content="SKT AI 개인비서 '에이닷' Android 클라이언트 — 4년간 2,990 커밋, AI 노트 도메인 리드, React Native 하이브리드 전환. 강지환 케이스 스터디.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="에이닷 A. — 강지환">
+<meta property="og:description" content="대규모 멀티모듈 Android 클라이언트 — AI 노트 도메인 리드, XML→Compose 전환, React Native 하이브리드 전환 주도.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/adot.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#FAFAF8;--ink:#111110;--hair:#D9D8D4;--panel:#EFEEEA;--red:#E2231A;--mute:#6E6D68;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --pad:clamp(16px,3.5vw,56px);
+  --gap:clamp(14px,1.8vw,28px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--kr);font-size:14px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3,h4{word-break:keep-all}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.topbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.brand{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--red);padding-bottom:2px}
+.brand:hover{color:var(--red)}
+.crumb{padding:16px 0}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline;text-decoration-color:var(--red);color:var(--ink)}
+.hero{padding:clamp(20px,4vw,48px) 0 clamp(24px,4vw,48px);border-top:1px solid var(--hair)}
+.hero .idx{font-family:var(--disp);font-weight:200;font-size:clamp(4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.03em;color:var(--red)}
+.hero h1{font-size:clamp(1.9rem,4.5vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-top:14px}
+.hero .claim{margin-top:14px;max-width:60ch;word-break:keep-all}
+.facts{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:18px 0}
+.fact{grid-column:span 3}
+.fact dd{margin-top:4px;font-weight:700;word-break:keep-all}
+.context{max-width:62ch;margin:clamp(24px,4vw,44px) 0;word-break:keep-all}
+.case{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.case .text{grid-column:1/8;min-width:0}
+.case .side{grid-column:8/13;min-width:0;display:grid;gap:14px;align-content:start}
+.side.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.side .span2{grid-column:1/-1}
+@media(min-width:1000px){.case .side{border-left:1px solid var(--hair);padding-left:var(--gap)}}
+.sect{margin-top:clamp(28px,4vw,48px)}
+.sect .subttl{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:8px}
+.built{list-style:none}
+.built li{border-top:1px solid var(--hair);padding:14px 0;max-width:62ch;word-break:keep-all}
+.built li b{display:block;margin-bottom:2px}
+.plate{background:var(--panel);border:1px solid var(--hair);padding:10px;min-width:0}
+.plate figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);padding-top:8px;line-height:1.5}
+.plate .slot{aspect-ratio:506/900;border:1px solid var(--hair);background:linear-gradient(to top right,transparent calc(50% - .5px),var(--hair) calc(50% - .5px),var(--hair) calc(50% + .5px),transparent calc(50% + .5px))}
+.plate .slot.wide{aspect-ratio:900/506}
+.plate.arch{max-width:200px}
+.outcome{border-top:1px solid var(--ink);margin-top:clamp(32px,5vw,56px);padding:16px 0}
+.outcome p{max-width:62ch;font-weight:700;word-break:keep-all;margin-top:6px}
+.pn{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);border-top:1px solid var(--hair);margin-top:clamp(40px,6vw,72px)}
+.pn a{display:block;padding:18px 0 64px;text-decoration:none;min-width:0}
+.pn a:hover .t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pn .t{display:block;font-weight:700;margin-top:6px;word-break:keep-all}
+.pn .next{text-align:right}
+.pn .home{text-align:center}
+.gridlay{position:fixed;inset:0;pointer-events:none;z-index:60;display:none}
+body.show-grid .gridlay{display:block}
+.gridlay .cols{height:100%;max-width:1440px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.gridlay .cols i{background:rgba(226,35,26,.04);border-left:1px solid rgba(226,35,26,.22);border-right:1px solid rgba(226,35,26,.22)}
+.gridbtn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);padding:8px 14px;cursor:pointer;color:var(--mute)}
+.gridbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+@media(max-width:960px){
+  .case .text{grid-column:1/13}
+  .case .side{grid-column:1/13}
+  .fact{grid-column:span 6}
+}
+@media(max-width:700px){
+  .pn{grid-template-columns:1fr}
+  .pn .next,.pn .home{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html">강지환 — Jihwan Kang</a>
+    <span class="mono">Case Study · Plate 02</span>
+    <span class="mono">Seoul, KR</span>
+  </div>
+  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p02">Index</a> ← 02 · 에이닷 A.</nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="idx" aria-hidden="true">02</p>
+    <h1>에이닷 A. Android</h1>
+    <p class="claim">SKT AI 개인비서 '에이닷'의 Android 클라이언트 — 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트, 4년간 2,990 커밋(기여 2위권).</p>
+  </section>
+
+  <dl class="facts">
+    <div class="fact"><dt class="mono">역할</dt><dd>Android Client 개발 · AI 노트 도메인 리드</dd></div>
+    <div class="fact"><dt class="mono">기간</dt><dd>2022.05 — 현재 · SK Telecom</dd></div>
+    <div class="fact"><dt class="mono">규모</dt><dd>4년 2,990 커밋 · 기여 2위권</dd></div>
+    <div class="fact"><dt class="mono">스택</dt><dd>Kotlin · Compose · RN · Hilt · WorkManager</dd></div>
+  </dl>
+
+  <p class="context">게임·AI 포토·A.tv·AI 노트 등 여러 서비스 도메인을 옮겨 다니며 개발했고, XML→Compose 전환과 Native→React Native 하이브리드 전환이라는 두 번의 큰 기술 전환을 현장에서 주도했습니다. 기능 개발과 함께 테스트 인프라·CI 자동화·AI 개발 워크플로 같은 개발 흐름 개선을 병행했습니다.</p>
+
+  <div class="case">
+    <div class="text">
+      <p class="mono">What I Built</p>
+      <ul class="built">
+        <li><b>AI 노트 도메인 리드 (2025.08~)</b>통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발.</li>
+        <li><b>React Native 하이브리드 전환 (2026)</b>New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow + ReactViewModel + ReactFragment + 라우팅), 전환 후 레거시 Native 코드 정리.</li>
+        <li><b>게임 서비스 (2022~2024 · 최대 기여 영역)</b>게임홈/리스트/상세/리더보드 전체 개발, XML→Compose 전면 전환 — Material3 제약 해결, Foldable 대응 nestedScroll 경합 회피.</li>
+        <li><b>AI 포토 (2024)</b>프로필 이미지 생성 플로우, 외부 이미지 생성 SDK 연동, UiState 세분화.</li>
+        <li><b>A.tv (2022~2025)</b>외부 AAR SDK v0.0.7→v244+ 수십 차례 통합, 본인인증 flow, PIP/폴더블/멀티윈도우 대응.</li>
+        <li><b>WebView 플랫폼 공통화</b>webkit 모듈 설계(WebResultProvider, permission/activity result), 영어학습 JS Bridge, 딥링크 도메인 검증 등 보안 이슈 해결.</li>
+        <li><b>테스트 인프라 구축 (2024.11~2025.03)</b>UnitTest report 통합 시스템, Kover coverage 룰셋, CI 파이프라인 테스트 옵션, Slack 알림 연동.</li>
+        <li><b>CI 자동화 (2026)</b>js submodule pointer 무결성 검사, 자동 bump Pipeline Schedule, Debug 빌드 API 프록시 개발자 메뉴.</li>
+        <li><b>AI 개발 워크플로 도입 (2026)</b>Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발.</li>
+      </ul>
+    </div>
+    <aside class="side c2" aria-label="도판">
+      <figure class="plate">
+        <img src="../../assets/screens/adot-store-04.jpg" width="506" height="900" alt="에이닷 A. 앱 공식 스토어 스크린샷 4" loading="eager" decoding="async">
+        <figcaption>Fig. 01 — 에이닷 A. 공식 스토어, 2026</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../../assets/screens/adot-store-05.jpg" width="506" height="900" alt="에이닷 A. 앱 공식 스토어 스크린샷 5" loading="lazy" decoding="async">
+        <figcaption>Fig. 02 — 에이닷 A. 공식 스토어, 2026</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../../assets/screens/adot-store-06.jpg" width="506" height="900" alt="에이닷 A. 앱 공식 스토어 스크린샷 6" loading="lazy" decoding="async">
+        <figcaption>Fig. 03 — 에이닷 A. 공식 스토어, 2026</figcaption>
+      </figure>
+      <figure class="plate">
+        <div class="slot" role="img" aria-label="스크린샷 준비 중"></div>
+        <figcaption>Fig. 준비 중 — AI 노트</figcaption>
+      </figure>
+    </aside>
+  </div>
+
+  <section class="sect">
+    <p class="mono">Related — 02·A</p>
+    <h2 class="subttl">adot-react-native — 에이닷 공용 RN 워크스페이스</h2>
+    <p class="mono" style="margin-top:6px">2026.03 — 2026.05 · TypeScript · 167 커밋 · Android/iOS 본체에 Submodule로 Embed</p>
+    <ul class="built" style="margin-top:14px">
+      <li><b>Auto(차량 연동) RN 화면 3종 전면 구현</b>OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결.</li>
+      <li><b>AI 노트 RN 전환</b>공용 noteList 컴포넌트/훅 설계 — NotePagingList, SwipeableNoteRow, useNoteListPaging.</li>
+      <li><b>Pull-to-Refresh 제스처 경합 해결</b>RNGH PanGestureHandler 기반 재구현 → design-system 공용 컴포넌트로 승격.</li>
+      <li><b>품질·플랫폼 대응</b>Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입.</li>
+    </ul>
+  </section>
+
+  <section class="sect">
+    <p class="mono">Related — 02·B</p>
+    <h2 class="subttl">TimeTree × Adot Android 샘플</h2>
+    <p class="mono" style="margin-top:6px">2025.03 — 2025.10 · 제휴 서비스용 Android 샘플 앱 · 272 커밋</p>
+    <ul class="built" style="margin-top:14px">
+      <li><b>채팅 화면 개발</b>Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션.</li>
+    </ul>
+  </section>
+
+  <div class="outcome">
+    <p class="mono">Outcome</p>
+    <p>게임·포토·노트 등 여러 도메인을 거치며 XML→Compose, Native→RN 하이브리드, 무테스트→커버리지 체계, 수동 개발→AI 파이프라인 — 4번의 기술 전환을 현장에서 주도.</p>
+  </div>
+
+  <nav class="pn" aria-label="이전·다음 프로젝트">
+    <a href="agent-os.html"><span class="mono">← Prev · 01</span><span class="t">Agent OS</span></a>
+    <a class="home" href="../index.html"><span class="mono">Index</span><span class="t">전체 목록</span></a>
+    <a class="next" href="tmap-adot.html"><span class="mono">Next · 03 →</span><span class="t">Tmap × Adot 음성비서</span></a>
+  </nav>
+</main>
+
+<div class="gridlay" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<button class="gridbtn" id="gridToggle" type="button" aria-pressed="false" aria-label="12컬럼 구성 그리드 표시 전환">Grid</button>
+<script>
+document.getElementById('gridToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-grid');
+  this.setAttribute('aria-pressed',on?'true':'false');
+});
+</script>
+</body>
+</html>

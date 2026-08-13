@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강지환 · Jihwan Kang — Resume</title>
+<meta name="description" content="15년차 Android·Cross-platform·AI Agent Platform 소프트웨어 엔지니어 강지환의 이력서 — Notion 스타일 개인 위키.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="강지환 · Jihwan Kang — Resume">
+<meta property="og:description" content="15년차 Android·Cross-platform·AI Agent Platform 소프트웨어 엔지니어 강지환의 이력서 — Notion 스타일 개인 위키.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v10/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#FFFFFF;--ink:#37352F;--sub:#787774;--line:#EDECE9;--side:#F7F6F4;--link:#2383E2;
+--hover:rgba(55,53,47,.06);--active:rgba(35,131,226,.12);
+--pill-gray:#E3E2E0;--pill-blue:#D3E5EF;--pill-green:#DBEDDB;--pill-orange:#FADEC9;--pill-red:#FFE2DD;--pill-purple:#E8DEEE;
+--code-ink:#EB5757;--code-bg:#F2F1EE}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);overflow-x:clip;
+font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
+img{max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85em;color:var(--code-ink);background:var(--code-bg);padding:2px 6px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:8px 14px;z-index:100;border:1px solid var(--line);border-radius:4px;color:var(--ink)}
+.skip:focus{left:8px;top:8px}
+/* ── mobile top bar ── */
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:48px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);z-index:40;align-items:center;gap:6px;padding:0 12px}
+.menu-btn{appearance:none;border:none;background:none;font:inherit;font-size:18px;line-height:1;padding:6px 9px;border-radius:4px;cursor:pointer;color:var(--ink)}
+.menu-btn:hover{background:var(--hover)}
+.topbar-title{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── sidebar ── */
+.sidebar{position:fixed;top:0;bottom:0;left:0;width:240px;background:var(--side);border-right:1px solid var(--line);overflow-y:auto;z-index:50;padding:12px 8px 28px}
+.ws{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:6px 10px;margin-bottom:6px}
+.ws-emoji{font-size:18px}
+.ws small{display:block;font-size:11px;font-weight:500;color:var(--sub);letter-spacing:.08em}
+.tree,.subtree{list-style:none;margin:0;padding:0}
+.nav-item{display:flex;align-items:center;gap:7px;padding:5px 10px;border-radius:4px;font-size:14px;color:var(--ink);min-height:28px;line-height:1.4}
+a.nav-item:hover{background:var(--hover);text-decoration:none}
+a.nav-item.active{background:var(--active);font-weight:600}
+.nav-emoji{flex:none;width:18px;text-align:center}
+details.nav-group summary{list-style:none;cursor:pointer;user-select:none}
+details.nav-group summary::-webkit-details-marker{display:none}
+details.nav-group summary:hover{background:var(--hover)}
+.caret{flex:none;width:12px;font-size:10px;color:var(--sub);display:inline-block;text-align:center;transition:transform .15s}
+details[open]>summary .caret{transform:rotate(90deg)}
+.subtree .nav-item{padding-left:33px}
+.backdrop{display:none;position:fixed;inset:0;background:rgba(15,15,15,.35);z-index:45}
+/* ── main ── */
+main{margin-left:240px;min-height:100vh}
+.page{max-width:720px;margin:0 auto;padding:24px 24px 96px}
+.crumbbar{max-width:720px;margin:0 auto;padding:14px 24px 10px;font-size:14px;color:var(--sub)}
+.crumbbar a{color:inherit}
+.crumbbar a:hover{color:var(--ink)}
+.crumbbar .sep{margin:0 5px;color:#C9C7C3}
+.cover{height:210px;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover-color{display:flex;align-items:center;justify-content:center}
+.cover-emoji{font-size:72px;line-height:1}
+.page-emoji{font-size:64px;line-height:1;margin:0 0 10px}
+.has-cover .page-emoji{margin-top:-38px}
+h1.page-title{font-size:40px;font-weight:700;line-height:1.25;margin:0 0 8px}
+.page-sub{color:var(--sub);margin:0 0 20px;font-size:16px}
+h2{font-size:24px;font-weight:700;line-height:1.35;margin:42px 0 12px}
+h3{font-size:18px;font-weight:700;line-height:1.4;margin:28px 0 8px}
+hr{border:none;border-top:1px solid var(--line);margin:28px 0}
+[id]{scroll-margin-top:64px}
+p{margin:10px 0}
+/* ── property table ── */
+.props{margin:6px 0 2px;padding:0}
+.prop{display:flex;gap:10px;padding:4px 0;font-size:14px;align-items:flex-start}
+.prop dt{flex:0 0 104px;color:var(--sub);display:flex;gap:7px;margin:0;padding-top:2px}
+.prop dd{margin:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.pill{display:inline-block;padding:1px 8px;border-radius:3px;font-size:13px;line-height:1.65;background:var(--pill-gray)}
+.pill.blue{background:var(--pill-blue)}
+.pill.green{background:var(--pill-green)}
+.pill.orange{background:var(--pill-orange)}
+.pill.red{background:var(--pill-red)}
+.pill.purple{background:var(--pill-purple)}
+/* ── callout ── */
+.callout{display:flex;gap:12px;background:var(--side);border-left:3px solid var(--link);border-radius:4px;padding:16px 18px;margin:16px 0}
+.callout.green{background:var(--pill-green);border-left-color:#5E8A6E}
+.callout .ico{flex:none;font-size:20px;line-height:1.5}
+.callout>div{min-width:0}
+.callout p{margin:0 0 8px}
+.callout p:last-child{margin-bottom:0}
+/* ── bullets ── */
+ul.bullets{list-style:none;margin:8px 0;padding:0}
+ul.bullets li{position:relative;padding:3px 0 3px 22px}
+ul.bullets li::before{content:"•";position:absolute;left:7px;top:3px}
+/* ── figures ── */
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:16px;margin:14px 0}
+.shots.wide{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.shots figure{margin:0}
+.shots img{width:100%;height:auto;border:1px solid var(--line);border-radius:4px;display:block;background:var(--side)}
+.shots figcaption{font-size:13px;color:var(--sub);margin-top:6px;line-height:1.5}
+/* ── notion table ── */
+.tbl-wrap{overflow-x:auto;margin:12px 0}
+table.ntable{border-collapse:collapse;width:100%;font-size:14px;min-width:480px}
+.ntable th{background:var(--side);font-weight:600;text-align:left;white-space:nowrap}
+.ntable th,.ntable td{border:1px solid var(--line);padding:7px 12px;vertical-align:top}
+tr[data-href]{cursor:pointer}
+tr[data-href]:hover td{background:var(--hover)}
+.pg-link{color:var(--ink);font-weight:600}
+/* ── database header + views ── */
+.db-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px;margin:42px 0 16px}
+.db-head h2{margin:0}
+.view-toggle{display:flex;gap:2px;background:var(--side);border:1px solid var(--line);border-radius:6px;padding:2px}
+.view-btn{appearance:none;border:none;background:none;font:inherit;font-size:13px;padding:4px 11px;border-radius:4px;cursor:pointer;color:var(--sub)}
+.view-btn:hover{color:var(--ink)}
+.view-btn[aria-pressed="true"]{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(15,15,15,.1)}
+/* ── gallery cards ── */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;color:var(--ink);transition:box-shadow .15s ease,transform .15s ease}
+.card:hover,.card:focus-visible{text-decoration:none;transform:translateY(-2px);box-shadow:0 5px 16px rgba(15,15,15,.12)}
+.card:hover .card-open,.card:focus-visible .card-open{opacity:1}
+.card-cover{aspect-ratio:16/9;overflow:hidden;background:var(--side);position:relative}
+.card-cover img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.card-cover.color{display:flex;align-items:center;justify-content:center}
+.card-cover.color .emj{font-size:42px;line-height:1}
+.card-open{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:4px;font-size:12px;line-height:1.5;padding:2px 8px;color:var(--sub);opacity:0;transition:opacity .15s;pointer-events:none}
+.card-body{padding:10px 12px 13px;display:flex;flex-direction:column;gap:8px}
+.card-title{font-size:14px;font-weight:600;display:flex;gap:6px;line-height:1.45}
+.card-title .emj{flex:none}
+.card-props{display:flex;flex-wrap:wrap;gap:4px}
+.card-props .pill{font-size:12px;line-height:1.6}
+/* ── intro / skills / stats ── */
+.intro{display:flex;gap:18px;align-items:flex-start;margin:6px 0}
+.avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center 20%;flex:none;border:1px solid var(--line)}
+.intro .callout{flex:1;margin:0}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.stat{font-size:13px;background:var(--side);border:1px solid var(--line);border-radius:4px;padding:3px 10px;color:var(--sub)}
+.skill-group{margin:12px 0 16px}
+.skill-label{font-size:14px;font-weight:700;margin-bottom:7px}
+.chips{display:flex;flex-wrap:wrap;gap:6px 7px}
+/* ── prev / next ── */
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px}
+.pn a{border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;color:var(--ink);min-width:0}
+.pn a:hover{background:var(--side);text-decoration:none}
+.pn .lbl{font-size:12px;color:var(--sub)}
+.pn .ttl{font-size:14px;font-weight:600}
+.pn a.next{grid-column:2;align-items:flex-end;text-align:right}
+/* ── responsive ── */
+@media(max-width:900px){
+.topbar{display:flex}
+.sidebar{transform:translateX(-100%);transition:transform .2s ease;visibility:hidden}
+body.nav-open .sidebar{transform:none;visibility:visible;box-shadow:0 0 28px rgba(15,15,15,.18)}
+body.nav-open .backdrop{display:block}
+main{margin-left:0;padding-top:48px}
+h1.page-title{font-size:32px}
+.page{padding:20px 16px 72px}
+.crumbbar{padding:12px 16px 8px}
+.cover{height:150px}
+.page-emoji{font-size:52px}
+.has-cover .page-emoji{margin-top:-28px}
+h2{font-size:22px}
+}
+@media(max-width:540px){
+.intro{flex-direction:column}
+.pn{grid-template-columns:1fr}
+.pn a.next{grid-column:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header class="topbar">
+<button class="menu-btn" type="button" aria-label="사이드바 열기" aria-expanded="false" aria-controls="sidebar">☰</button>
+<span class="topbar-title">📚 강지환의 이력서</span>
+</header>
+<div class="backdrop"></div>
+<nav class="sidebar" id="sidebar" aria-label="문서함 내비게이션">
+<div class="ws"><span class="ws-emoji">📚</span><span>강지환의 문서함<small>THE HANDBOOK</small></span></div>
+<ul class="tree">
+<li><a class="nav-item active" href="#intro" aria-current="page"><span class="nav-emoji">🏠</span>소개</a></li>
+<li><a class="nav-item" href="#career"><span class="nav-emoji">💼</span>경력</a></li>
+<li>
+<details class="nav-group" open>
+<summary class="nav-item"><span class="caret" aria-hidden="true">▶</span><span class="nav-emoji">📱</span>프로젝트</summary>
+<ul class="subtree">
+<li><a class="nav-item" href="projects/agent-os.html"><span class="nav-emoji">🧭</span>Agent OS</a></li>
+<li><a class="nav-item" href="projects/adot.html"><span class="nav-emoji">🤖</span>에이닷 A. 앱</a></li>
+<li><a class="nav-item" href="projects/adot-rn.html"><span class="nav-emoji">⚛️</span>adot-react-native</a></li>
+<li><a class="nav-item" href="projects/tmap-adot.html"><span class="nav-emoji">🗣️</span>Tmap x Adot 음성비서</a></li>
+<li><a class="nav-item" href="projects/nugu-btv.html"><span class="nav-emoji">🔊</span>NUGU Mobile · Btv</a></li>
+<li><a class="nav-item" href="projects/tmap-taxi.html"><span class="nav-emoji">🚕</span>Tmap Taxi</a></li>
+<li><a class="nav-item" href="projects/tmon.html"><span class="nav-emoji">🛒</span>Tmon</a></li>
+<li><a class="nav-item" href="projects/early-career.html"><span class="nav-emoji">🕰️</span>초기 경력</a></li>
+</ul>
+</details>
+</li>
+<li><a class="nav-item" href="#skills"><span class="nav-emoji">🛠️</span>기술</a></li>
+<li><a class="nav-item" href="#education"><span class="nav-emoji">🎓</span>학력·자격</a></li>
+<li><a class="nav-item" href="#contact"><span class="nav-emoji">✉️</span>연락처</a></li>
+</ul>
+</nav>
+<main id="main">
+<div class="page">
+<div class="page-emoji" aria-hidden="true">📚</div>
+<h1 class="page-title" id="intro">강지환의 이력서</h1>
+<p class="page-sub">Software Engineer — Android · Cross-platform · AI Agent Platform</p>
+
+<div class="intro">
+<img class="avatar" src="../assets/profile.jpg" width="700" height="872" alt="강지환 프로필 사진" decoding="async">
+<div class="callout"><span class="ico" aria-hidden="true">👋</span><div>
+<p><strong>강지환 (Jihwan Kang)</strong> · Live in Seoul</p>
+<p>2011년부터 Android Application을 개발해왔습니다. Native(Kotlin/Compose)와 Cross-platform(React Native) 개발부터 CI/CD 인프라, AI 자동화 커맨드까지 — 기능 개발과 개발 흐름 개선을 함께 하는 개발자입니다.</p>
+<p>AI, Mobility, E-commerce, Multimedia 등 다양한 도메인을 경험했고, JAVA로 시작해 Kotlin 중심으로, 최근에는 TypeScript(React Native)와 Go(백엔드 플랫폼)까지 스택을 넓히고 있습니다. 현재보다는 미래를 위한, 다른 사람도 이해하기 쉬운 코드를 만드는 것을 좋아합니다.</p>
+</div></div>
+</div>
+<div class="stats">
+<span class="stat">15+ 년 소프트웨어 개발 (Android 2011~)</span>
+<span class="stat">3,700+ 커밋 (최근 4년, 에이닷 관련 repo 합산)</span>
+<span class="stat">7개 서비스 도메인 리드</span>
+<span class="stat">4번의 기술 전환 주도</span>
+</div>
+
+<h2 id="career">💼 경력</h2>
+<div class="tbl-wrap">
+<table class="ntable">
+<thead><tr><th>회사</th><th>기간</th><th>직급/역할</th></tr></thead>
+<tbody>
+<tr><td style="font-weight:600">SK Telecom</td><td style="white-space:nowrap">2018.04 ~ 현재</td><td>Manager — 에이닷(A.) Client 개발</td></tr>
+<tr><td style="font-weight:600">Tmon</td><td style="white-space:nowrap">2017.06 ~ 2018.03</td><td>Assistant Manager — Android 앱 개발</td></tr>
+<tr><td style="font-weight:600">Titan Platform</td><td style="white-space:nowrap">2017.01 ~ 2017.06</td><td>Manager — Android 서비스 앱 개발</td></tr>
+<tr><td style="font-weight:600">Tmon</td><td style="white-space:nowrap">2015.06 ~ 2017.01</td><td>Assistant Manager — Android 앱 개발</td></tr>
+<tr><td style="font-weight:600">Pantech</td><td style="white-space:nowrap">2011.01 ~ 2015.05</td><td>전임연구원 — Android Music 앱 개발</td></tr>
+<tr><td style="font-weight:600">LG Electronics</td><td style="white-space:nowrap">2010.09 ~ 2010.12</td><td>인턴 — Blu-ray player SW 개발</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="db-head" id="projects">
+<h2 style="margin:0">📱 프로젝트</h2>
+<div class="view-toggle" role="group" aria-label="보기 전환">
+<button class="view-btn" type="button" id="view-gallery" aria-pressed="true">🔲 갤러리</button>
+<button class="view-btn" type="button" id="view-table" aria-pressed="false">☰ 테이블</button>
+</div>
+</div>
+<div class="gallery" id="projects-gallery">
+<a class="card" href="projects/agent-os.html">
+<div class="card-cover color" style="background:#E8DEEE"><span class="emj" aria-hidden="true">🧭</span></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🧭</span>Agent OS — AI Agent 거버넌스 플랫폼</span>
+<span class="card-props"><span class="pill blue">Go 백엔드·Next.js 콘솔 개발</span><span class="pill gray">2026.06 ~ 현재</span><span class="pill green">Go</span><span class="pill orange">Next.js</span><span class="pill purple">Langfuse</span></span>
+</span>
+</a>
+<a class="card" href="projects/adot.html">
+<div class="card-cover"><img src="../assets/screens/adot-store-01.jpg" width="506" height="900" alt="" loading="lazy" decoding="async" style="object-position:center 18%"></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🤖</span>에이닷 A. Android 앱</span>
+<span class="card-props"><span class="pill blue">AI 노트 도메인 리드 · Client 개발</span><span class="pill gray">2022.05 ~ 현재</span><span class="pill green">Kotlin</span><span class="pill orange">Jetpack Compose</span><span class="pill purple">React Native</span></span>
+</span>
+</a>
+<a class="card" href="projects/adot-rn.html">
+<div class="card-cover color" style="background:#D3E5EF"><span class="emj" aria-hidden="true">⚛️</span></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">⚛️</span>adot-react-native — 에이닷 공용 RN 워크스페이스</span>
+<span class="card-props"><span class="pill blue">RN 화면·공용 컴포넌트 개발</span><span class="pill gray">2026.03 ~ 2026.05</span><span class="pill green">TypeScript</span><span class="pill orange">React Native</span><span class="pill purple">Expo SDK 55</span></span>
+</span>
+</a>
+<a class="card" href="projects/tmap-adot.html">
+<div class="card-cover"><img src="../assets/screens/tmap-store-01.jpg" width="506" height="900" alt="" loading="lazy" decoding="async" style="object-position:center 18%"></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🗣️</span>Tmap x Adot 음성비서 마이그레이션</span>
+<span class="card-props"><span class="pill blue">리드 개발 (커밋 41%)</span><span class="pill gray">2025.03 ~ 2025.08</span><span class="pill green">Kotlin</span><span class="pill orange">NUGU SDK</span><span class="pill purple">Wake-up Word</span></span>
+</span>
+</a>
+<a class="card" href="projects/nugu-btv.html">
+<div class="card-cover"><img src="../assets/screens/btv-nugu-01.jpg" width="900" height="506" alt="" loading="lazy" decoding="async" style="object-position:center"></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🔊</span>NUGU Mobile · Btv NUGU Android</span>
+<span class="card-props"><span class="pill blue">Android 앱 개발</span><span class="pill gray">2018.04 ~ 2022.04</span><span class="pill green">Kotlin</span><span class="pill orange">RxKotlin</span><span class="pill purple">Koin</span></span>
+</span>
+</a>
+<a class="card" href="projects/tmap-taxi.html">
+<div class="card-cover"><img src="../assets/screens/tmap-taxi-01.jpg" width="506" height="900" alt="" loading="lazy" decoding="async" style="object-position:center 30%"></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🚕</span>Tmap Taxi Android</span>
+<span class="card-props"><span class="pill blue">신규 기능 개발·유지보수</span><span class="pill gray">2020.03 ~ 2020.11</span><span class="pill green">Kotlin</span><span class="pill orange">MVVM</span><span class="pill purple">SK pay</span></span>
+</span>
+</a>
+<a class="card" href="projects/tmon.html">
+<div class="card-cover"><img src="../assets/screens/tmon-01.jpg" width="319" height="568" alt="" loading="lazy" decoding="async" style="object-position:center 15%"></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🛒</span>Tmon Android</span>
+<span class="card-props"><span class="pill blue">Android 앱 개발</span><span class="pill gray">2015.06 ~ 2018.03</span><span class="pill green">Java</span><span class="pill orange">Jenkins</span><span class="pill purple">RecyclerView</span></span>
+</span>
+</a>
+<a class="card" href="projects/early-career.html">
+<div class="card-cover"><img src="../assets/screens/winvention-01.jpg" width="506" height="900" alt="" loading="lazy" decoding="async" style="object-position:center 20%"></div>
+<span class="card-open" aria-hidden="true">페이지 열기</span>
+<span class="card-body">
+<span class="card-title"><span class="emj" aria-hidden="true">🕰️</span>초기 경력 — Winvention · Pantech · LG</span>
+<span class="card-props"><span class="pill blue">Android·디바이스 SW 개발</span><span class="pill gray">2010.09 ~ 2017.06</span><span class="pill green">Java</span><span class="pill orange">ExoPlayer</span><span class="pill purple">Media Framework</span></span>
+</span>
+</a>
+</div>
+<div class="tbl-wrap" id="projects-table" hidden>
+<table class="ntable">
+<thead><tr><th>페이지</th><th>역할</th><th>기간</th><th>스택</th></tr></thead>
+<tbody>
+<tr data-href="projects/agent-os.html">
+<td><a class="pg-link" href="projects/agent-os.html">🧭 Agent OS — AI Agent 거버넌스 플랫폼</a></td>
+<td>Go 백엔드·Next.js 콘솔 개발</td><td style="white-space:nowrap">2026.06 ~ 현재</td><td>Go · Next.js · Langfuse · Speckit</td></tr>
+<tr data-href="projects/adot.html">
+<td><a class="pg-link" href="projects/adot.html">🤖 에이닷 A. Android 앱</a></td>
+<td>AI 노트 도메인 리드 · Client 개발</td><td style="white-space:nowrap">2022.05 ~ 현재</td><td>Kotlin · Jetpack Compose · React Native · WorkManager</td></tr>
+<tr data-href="projects/adot-rn.html">
+<td><a class="pg-link" href="projects/adot-rn.html">⚛️ adot-react-native — 에이닷 공용 RN 워크스페이스</a></td>
+<td>RN 화면·공용 컴포넌트 개발</td><td style="white-space:nowrap">2026.03 ~ 2026.05</td><td>TypeScript · React Native · Expo SDK 55 · RNGH</td></tr>
+<tr data-href="projects/tmap-adot.html">
+<td><a class="pg-link" href="projects/tmap-adot.html">🗣️ Tmap x Adot 음성비서 마이그레이션</a></td>
+<td>리드 개발 (커밋 41%)</td><td style="white-space:nowrap">2025.03 ~ 2025.08</td><td>Kotlin · NUGU SDK · Wake-up Word · Lottie</td></tr>
+<tr data-href="projects/nugu-btv.html">
+<td><a class="pg-link" href="projects/nugu-btv.html">🔊 NUGU Mobile · Btv NUGU Android</a></td>
+<td>Android 앱 개발</td><td style="white-space:nowrap">2018.04 ~ 2022.04</td><td>Kotlin · RxKotlin · Koin · Fastlane</td></tr>
+<tr data-href="projects/tmap-taxi.html">
+<td><a class="pg-link" href="projects/tmap-taxi.html">🚕 Tmap Taxi Android</a></td>
+<td>신규 기능 개발·유지보수</td><td style="white-space:nowrap">2020.03 ~ 2020.11</td><td>Kotlin · MVVM · SK pay · Fastlane</td></tr>
+<tr data-href="projects/tmon.html">
+<td><a class="pg-link" href="projects/tmon.html">🛒 Tmon Android</a></td>
+<td>Android 앱 개발</td><td style="white-space:nowrap">2015.06 ~ 2018.03</td><td>Java · Jenkins · RecyclerView · EventBus</td></tr>
+<tr data-href="projects/early-career.html">
+<td><a class="pg-link" href="projects/early-career.html">🕰️ 초기 경력 — Winvention · Pantech · LG</a></td>
+<td>Android·디바이스 SW 개발</td><td style="white-space:nowrap">2010.09 ~ 2017.06</td><td>Java · ExoPlayer · Media Framework · C</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="skills">🛠️ 기술</h2>
+<div class="skill-group"><div class="skill-label">Languages</div><div class="chips"><code>Kotlin</code><code>TypeScript</code><code>Java</code><code>Go</code></div></div>
+<div class="skill-group"><div class="skill-label">Android</div><div class="chips"><code>Jetpack Compose</code><code>Coroutines/Flow</code><code>Hilt/Koin</code><code>멀티모듈 Clean Architecture(MVVM+UseCase)</code><code>WorkManager</code><code>Navigation/DeepLink</code><code>ExoPlayer</code><code>Room</code><code>Paging</code></div></div>
+<div class="skill-group"><div class="skill-label">Cross-platform</div><div class="chips"><code>React Native (New Architecture — TurboModule/Codegen)</code><code>Expo</code><code>react-native-gesture-handler</code><code>feature-sliced design-system</code></div></div>
+<div class="skill-group"><div class="skill-label">Voice AI</div><div class="chips"><code>NUGU SDK(ASR/TTS/Directive/Agent)</code><code>Wake-up Word 엔진</code><code>VoiceChrome UI</code></div></div>
+<div class="skill-group"><div class="skill-label">Web/Backend(최근)</div><div class="chips"><code>Next.js</code><code>Go(Huma API)</code><code>Langfuse 관측성 연동</code></div></div>
+<div class="skill-group"><div class="skill-label">CI/CD &amp; Quality</div><div class="chips"><code>GitLab CI</code><code>Jenkins</code><code>Fastlane</code><code>Kover(coverage)</code><code>detekt</code><code>JUnit/MockK/Espresso</code><code>ProGuard</code><code>Gradle Version Catalog</code></div></div>
+<div class="skill-group"><div class="skill-label">AI Developer Tools</div><div class="chips"><code>Claude Code 커스텀 파이프라인(JIRA→코드수정→MR 자동화)</code><code>모듈 인덱스 시스템</code><code>Speckit 스펙 주도 개발</code></div></div>
+<div class="skill-group"><div class="skill-label">Tools</div><div class="chips"><code>Git</code><code>GitLab/GitHub/Bitbucket</code><code>JIRA</code><code>Firebase</code><code>Figma</code><code>Slack</code></div></div>
+
+<h2 id="education">🎓 학력·자격</h2>
+<ul class="bullets">
+<li>광운대학교 전자통신공학 (2004.03 ~ 2011.02) — 3.64/4.5</li>
+<li>정보통신기사 (한국산업인력공단, 2010)</li>
+</ul>
+
+<h2 id="contact">✉️ 연락처</h2>
+<div class="callout"><span class="ico" aria-hidden="true">📮</span><div>
+<p>E. <a href="mailto:jihwan76@gmail.com">jihwan76@gmail.com</a></p>
+<p>GitHub. <a href="https://github.com/returnzero76" rel="me">github.com/returnzero76</a></p>
+</div></div>
+</div>
+</main>
+<script>
+(function(){
+var btn=document.querySelector('.menu-btn');
+var bd=document.querySelector('.backdrop');
+function setOpen(o){document.body.classList.toggle('nav-open',o);if(btn)btn.setAttribute('aria-expanded',o?'true':'false');}
+if(btn)btn.addEventListener('click',function(){setOpen(!document.body.classList.contains('nav-open'));});
+if(bd)bd.addEventListener('click',function(){setOpen(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+})();
+
+
+(function(){
+var g=document.getElementById('view-gallery'),t=document.getElementById('view-table');
+var gv=document.getElementById('projects-gallery'),tv=document.getElementById('projects-table');
+function show(which){
+  var isG=which==='gallery';
+  g.setAttribute('aria-pressed',isG?'true':'false');
+  t.setAttribute('aria-pressed',isG?'false':'true');
+  gv.hidden=!isG;tv.hidden=isG;
+}
+g.addEventListener('click',function(){show('gallery');});
+t.addEventListener('click',function(){show('table');});
+document.querySelectorAll('tr[data-href]').forEach(function(r){
+  r.addEventListener('click',function(e){
+    if(e.target.closest('a'))return;
+    location.href=r.getAttribute('data-href');
+  });
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Player &amp; Audio Effect — 강지환</title>
+<meta name="description" content="Pantech Music Player &amp; Audio Effect — 국내 전모델 + 일본/베트남/대만 preload Music Player, Audio Effect 앱, Tag Editor Java Library(ID3/FLAC) 자체 개발. 강지환 케이스 스터디.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Music Player &amp; Audio Effect — 강지환">
+<meta property="og:description" content="Pantech Android 디바이스 preload Music Player — Media Provider Framework, Audio Effect, ID3/FLAC Tag Editor 라이브러리, Android 2.2~5.0 대응.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/pantech.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#FAFAF8;--ink:#111110;--hair:#D9D8D4;--panel:#EFEEEA;--red:#E2231A;--mute:#6E6D68;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --pad:clamp(16px,3.5vw,56px);
+  --gap:clamp(14px,1.8vw,28px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--kr);font-size:14px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3,h4{word-break:keep-all}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.topbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.brand{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--red);padding-bottom:2px}
+.brand:hover{color:var(--red)}
+.crumb{padding:16px 0}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline;text-decoration-color:var(--red);color:var(--ink)}
+.hero{padding:clamp(20px,4vw,48px) 0 clamp(24px,4vw,48px);border-top:1px solid var(--hair)}
+.hero .idx{font-family:var(--disp);font-weight:200;font-size:clamp(4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.03em;color:var(--red)}
+.hero h1{font-size:clamp(1.9rem,4.5vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-top:14px}
+.hero .claim{margin-top:14px;max-width:60ch;word-break:keep-all}
+.facts{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:18px 0}
+.fact{grid-column:span 3}
+.fact dd{margin-top:4px;font-weight:700;word-break:keep-all}
+.context{max-width:62ch;margin:clamp(24px,4vw,44px) 0;word-break:keep-all}
+.case{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.case .text{grid-column:1/8;min-width:0}
+.case .side{grid-column:8/13;min-width:0;display:grid;gap:14px;align-content:start}
+.side.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.side .span2{grid-column:1/-1}
+@media(min-width:1000px){.case .side{border-left:1px solid var(--hair);padding-left:var(--gap)}}
+.sect{margin-top:clamp(28px,4vw,48px)}
+.sect .subttl{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:8px}
+.built{list-style:none}
+.built li{border-top:1px solid var(--hair);padding:14px 0;max-width:62ch;word-break:keep-all}
+.built li b{display:block;margin-bottom:2px}
+.plate{background:var(--panel);border:1px solid var(--hair);padding:10px;min-width:0}
+.plate figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);padding-top:8px;line-height:1.5}
+.plate .slot{aspect-ratio:506/900;border:1px solid var(--hair);background:linear-gradient(to top right,transparent calc(50% - .5px),var(--hair) calc(50% - .5px),var(--hair) calc(50% + .5px),transparent calc(50% + .5px))}
+.plate .slot.wide{aspect-ratio:900/506}
+.plate.arch{max-width:200px}
+.outcome{border-top:1px solid var(--ink);margin-top:clamp(32px,5vw,56px);padding:16px 0}
+.outcome p{max-width:62ch;font-weight:700;word-break:keep-all;margin-top:6px}
+.pn{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);border-top:1px solid var(--hair);margin-top:clamp(40px,6vw,72px)}
+.pn a{display:block;padding:18px 0 64px;text-decoration:none;min-width:0}
+.pn a:hover .t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pn .t{display:block;font-weight:700;margin-top:6px;word-break:keep-all}
+.pn .next{text-align:right}
+.pn .home{text-align:center}
+.gridlay{position:fixed;inset:0;pointer-events:none;z-index:60;display:none}
+body.show-grid .gridlay{display:block}
+.gridlay .cols{height:100%;max-width:1440px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.gridlay .cols i{background:rgba(226,35,26,.04);border-left:1px solid rgba(226,35,26,.22);border-right:1px solid rgba(226,35,26,.22)}
+.gridbtn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);padding:8px 14px;cursor:pointer;color:var(--mute)}
+.gridbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+@media(max-width:960px){
+  .case .text{grid-column:1/13}
+  .case .side{grid-column:1/13}
+  .fact{grid-column:span 6}
+}
+@media(max-width:700px){
+  .pn{grid-template-columns:1fr}
+  .pn .next,.pn .home{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html">강지환 — Jihwan Kang</a>
+    <span class="mono">Case Study · Plate 09</span>
+    <span class="mono">Seoul, KR</span>
+  </div>
+  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p09">Index</a> ← 09 · Music Player</nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="idx" aria-hidden="true">09</p>
+    <h1>Music Player &amp; Audio Effect</h1>
+    <p class="claim">Pantech Android 디바이스 preload Music Player 앱 — 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응.</p>
+  </section>
+
+  <dl class="facts">
+    <div class="fact"><dt class="mono">역할</dt><dd>전임연구원 · Android Music 앱 개발</dd></div>
+    <div class="fact"><dt class="mono">기간</dt><dd>2011.01 — 2015.05 · Pantech</dd></div>
+    <div class="fact"><dt class="mono">Preload</dt><dd>국내 전모델 + 일본/베트남/대만 · Android 2.2~5.0</dd></div>
+    <div class="fact"><dt class="mono">스택</dt><dd>Java · Media Provider Framework · ID3/FLAC Spec</dd></div>
+  </dl>
+
+  <p class="context">Pantech Android 디바이스에 preload되는 Music Player 앱을 개발했습니다. Media Provider Framework 분석부터 ID3/FLAC 파일 스펙 레벨의 Tag Editor Java Library 자체 개발까지 — 국내 전모델과 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드를 대응했습니다.</p>
+
+  <div class="case">
+    <div class="text">
+      <p class="mono">What I Built</p>
+      <ul class="built">
+        <li><b>Music Player — preload 앱</b>Android Media Provider Framework 분석, Music DB/Albumart cache 구조, AppWidget 2종 + U+Box 위젯.</li>
+        <li><b>온라인 연동·글로벌 preload</b>Melon/OllehMusic/YouTube 온라인 서비스 연동, 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응.</li>
+        <li><b>Audio Effect 앱</b>사용자 설정 Equalizer, 장르별 Auto Preset, QSound/NXP 3rd party 통합.</li>
+        <li><b>Tag Editor Java Library 자체 개발</b>MP3(ID3)/FLAC(Vorbis) spec 분석, TEXT/LYRICS/ALBUMART read/write, charset encoding 자동 분석.</li>
+      </ul>
+    </div>
+    <aside class="side c2" aria-label="도판">
+      <figure class="plate">
+        <div class="slot" role="img" aria-label="스크린샷 준비 중"></div>
+        <figcaption>Fig. 준비 중 — Music Player, 2011–15</figcaption>
+      </figure>
+      <figure class="plate">
+        <div class="slot" role="img" aria-label="스크린샷 준비 중"></div>
+        <figcaption>Fig. 준비 중 — Audio Effect, 2011–15</figcaption>
+      </figure>
+    </aside>
+  </div>
+
+  <section class="sect">
+    <p class="mono">Appendix — 10</p>
+    <h2 class="subttl">Blu-ray Player SW — LG Electronics 인턴</h2>
+    <p class="mono" style="margin-top:6px">2010.09 — 2010.12 · C · Device SW</p>
+    <ul class="built" style="margin-top:14px">
+      <li><b>Blu-ray player device SW 개발</b>Text 표시 UI 개발(C), 다국어 지원 추가, Turnkey base 모델 작업.</li>
+    </ul>
+  </section>
+
+  <div class="outcome">
+    <p class="mono">Outcome</p>
+    <p>Media Provider Framework부터 ID3/FLAC 파일 스펙까지 — preload Music Player, Audio Effect, Tag Editor 라이브러리를 만든 4년 5개월, Android 개발 경력의 출발점.</p>
+  </div>
+
+  <nav class="pn" aria-label="이전·다음 프로젝트">
+    <a href="tmon.html"><span class="mono">← Prev · 07</span><span class="t">Tmon Android</span></a>
+    <a class="home" href="../index.html"><span class="mono">Index</span><span class="t">전체 목록</span></a>
+    <a class="next" href="agent-os.html"><span class="mono">Next · 01 →</span><span class="t">Agent OS</span></a>
+  </nav>
+</main>
+
+<div class="gridlay" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<button class="gridbtn" id="gridToggle" type="button" aria-pressed="false" aria-label="12컬럼 구성 그리드 표시 전환">Grid</button>
+<script>
+document.getElementById('gridToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-grid');
+  this.setAttribute('aria-pressed',on?'true':'false');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUGU Mobile — 강지환</title>
+<meta name="description" content="NUGU AI Mobile &amp; Btv NUGU Android — App Renewal 2.0 재개발(Java→Kotlin·전 화면 MVVM), 디바이스 연결, Btv 전 디바이스 NUGU 탑재. 강지환 케이스 스터디.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NUGU Mobile — 강지환">
+<meta property="og:description" content="NUGU AI 서비스용 3rd party 서비스·디바이스 연결 앱 — App Renewal 2.0 재개발, 이어 Btv 전 디바이스(UHD/AI/Smart) NUGU 탑재까지.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/nugu-mobile.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@200;300;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#FAFAF8;--ink:#111110;--hair:#D9D8D4;--panel:#EFEEEA;--red:#E2231A;--mute:#6E6D68;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --pad:clamp(16px,3.5vw,56px);
+  --gap:clamp(14px,1.8vw,28px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--kr);font-size:14px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3,h4{word-break:keep-all}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.topbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.brand{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--red);padding-bottom:2px}
+.brand:hover{color:var(--red)}
+.crumb{padding:16px 0}
+.crumb a{text-decoration:none}
+.crumb a:hover{text-decoration:underline;text-decoration-color:var(--red);color:var(--ink)}
+.hero{padding:clamp(20px,4vw,48px) 0 clamp(24px,4vw,48px);border-top:1px solid var(--hair)}
+.hero .idx{font-family:var(--disp);font-weight:200;font-size:clamp(4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.03em;color:var(--red)}
+.hero h1{font-size:clamp(1.9rem,4.5vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-top:14px}
+.hero .claim{margin-top:14px;max-width:60ch;word-break:keep-all}
+.facts{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:18px 0}
+.fact{grid-column:span 3}
+.fact dd{margin-top:4px;font-weight:700;word-break:keep-all}
+.context{max-width:62ch;margin:clamp(24px,4vw,44px) 0;word-break:keep-all}
+.case{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.case .text{grid-column:1/8;min-width:0}
+.case .side{grid-column:8/13;min-width:0;display:grid;gap:14px;align-content:start}
+.side.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.side .span2{grid-column:1/-1}
+@media(min-width:1000px){.case .side{border-left:1px solid var(--hair);padding-left:var(--gap)}}
+.sect{margin-top:clamp(28px,4vw,48px)}
+.sect .subttl{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:8px}
+.built{list-style:none}
+.built li{border-top:1px solid var(--hair);padding:14px 0;max-width:62ch;word-break:keep-all}
+.built li b{display:block;margin-bottom:2px}
+.plate{background:var(--panel);border:1px solid var(--hair);padding:10px;min-width:0}
+.plate figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);padding-top:8px;line-height:1.5}
+.plate .slot{aspect-ratio:506/900;border:1px solid var(--hair);background:linear-gradient(to top right,transparent calc(50% - .5px),var(--hair) calc(50% - .5px),var(--hair) calc(50% + .5px),transparent calc(50% + .5px))}
+.plate .slot.wide{aspect-ratio:900/506}
+.plate.arch{max-width:200px}
+.outcome{border-top:1px solid var(--ink);margin-top:clamp(32px,5vw,56px);padding:16px 0}
+.outcome p{max-width:62ch;font-weight:700;word-break:keep-all;margin-top:6px}
+.pn{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);border-top:1px solid var(--hair);margin-top:clamp(40px,6vw,72px)}
+.pn a{display:block;padding:18px 0 64px;text-decoration:none;min-width:0}
+.pn a:hover .t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.pn .t{display:block;font-weight:700;margin-top:6px;word-break:keep-all}
+.pn .next{text-align:right}
+.pn .home{text-align:center}
+.gridlay{position:fixed;inset:0;pointer-events:none;z-index:60;display:none}
+body.show-grid .gridlay{display:block}
+.gridlay .cols{height:100%;max-width:1440px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.gridlay .cols i{background:rgba(226,35,26,.04);border-left:1px solid rgba(226,35,26,.22);border-right:1px solid rgba(226,35,26,.22)}
+.gridbtn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);padding:8px 14px;cursor:pointer;color:var(--mute)}
+.gridbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+@media(max-width:960px){
+  .case .text{grid-column:1/13}
+  .case .side{grid-column:1/13}
+  .fact{grid-column:span 6}
+}
+@media(max-width:700px){
+  .pn{grid-template-columns:1fr}
+  .pn .next,.pn .home{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="topbar">
+    <a class="brand" href="../index.html">강지환 — Jihwan Kang</a>
+    <span class="mono">Case Study · Plates 06·04</span>
+    <span class="mono">Seoul, KR</span>
+  </div>
+  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p06">Index</a> ← 06·04 · NUGU Mobile &amp; Btv NUGU</nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="idx" aria-hidden="true">06</p>
+    <h1>NUGU AI Mobile Android</h1>
+    <p class="claim">NUGU AI 서비스용 3rd party 서비스 연결·디바이스 연결을 지원하는 Android 앱 — App Renewal 2.0을 처음부터 재개발.</p>
+  </section>
+
+  <dl class="facts">
+    <div class="fact"><dt class="mono">역할</dt><dd>Android 개발</dd></div>
+    <div class="fact"><dt class="mono">기간</dt><dd>2018.04 — 2020.11 · SK Telecom</dd></div>
+    <div class="fact"><dt class="mono">스택</dt><dd>Kotlin · RxKotlin · Koin · MockK</dd></div>
+    <div class="fact"><dt class="mono">Related</dt><dd>Btv NUGU · 2020.11 — 2022.04 · 본 페이지 수록</dd></div>
+  </dl>
+
+  <p class="context">NUGU AI 서비스용 3rd party 서비스 연결·디바이스 연결 Android 앱을 개발했습니다. App Renewal 2.0을 처음부터 재개발하며 Java→Kotlin 전환과 전 화면 MVVM 적용을 이끌었고, 이후 Btv NUGU로 이동해 UHD/AI/Smart 등 모든 Btv 디바이스로 NUGU를 확장했습니다.</p>
+
+  <div class="case">
+    <div class="text">
+      <p class="mono">What I Built</p>
+      <ul class="built">
+        <li><b>App Renewal 2.0</b>처음부터 재개발, Java→Kotlin 전환.</li>
+        <li><b>디바이스 연결</b>Bluetooth/AP/OTP/Broadcast — AI Speaker, Btv 등, TID 연동.</li>
+        <li><b>서비스 도메인 연결</b>Melon/Flo/오디오북 등 멀티미디어·쇼핑·금융 서비스 연결, Tmap 인터페이스 협의/개발.</li>
+        <li><b>아키텍처·품질</b>Base/Call/App 모듈 분리, 전 화면 MVVM(RxKotlin, LiveData), DI(Koin), MockK 도입 &amp; 유닛테스트.</li>
+        <li><b>2019 Google I/O</b>참여 &amp; 사내 공유.</li>
+      </ul>
+    </div>
+    <aside class="side c2" aria-label="도판">
+      <figure class="plate">
+        <img src="../../assets/screens/nugu-mobile-01.jpg" width="506" height="900" alt="NUGU Mobile — 홈 화면의 날씨 카드와 이벤트 배너" loading="eager" decoding="async">
+        <figcaption>Fig. 01 — 홈 · 날씨 카드, 2018–20</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../../assets/screens/nugu-mobile-02.jpg" width="506" height="900" alt="NUGU Mobile — 연결할 NUGU 디바이스 선택 화면" loading="lazy" decoding="async">
+        <figcaption>Fig. 02 — 디바이스 선택, 2018–20</figcaption>
+      </figure>
+      <figure class="plate">
+        <img src="../../assets/screens/nugu-mobile-03.jpg" width="506" height="900" alt="NUGU Mobile — NUGU call 연락처 목록 화면" loading="lazy" decoding="async">
+        <figcaption>Fig. 03 — NUGU Call 연락처, 2018–20</figcaption>
+      </figure>
+    </aside>
+  </div>
+
+  <section class="sect">
+    <p class="mono">Related — 04</p>
+    <h2 class="subttl">Btv NUGU Android</h2>
+    <p class="mono" style="margin-top:6px">2020.11 — 2022.04 · SK Telecom · Kotlin · MVVM · Fastlane · Jenkins</p>
+    <p class="context" style="margin:14px 0">Btv 내 NUGU 사용을 위한 Android 앱 — UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 탑재했습니다.</p>
+    <div class="case">
+      <div class="text">
+        <ul class="built">
+          <li><b>신규 디바이스 출시 &amp; 유지보수</b>AI2 MAX, AI2 AndroidTv 출시, 백그라운드 service component MVVM 적용.</li>
+          <li><b>15개+ model flavor 빌드 효율화</b>Fastlane 작성 &amp; Jenkins 연동, 개발자 Debug mode 개발.</li>
+        </ul>
+      </div>
+      <aside class="side" aria-label="Btv NUGU 도판">
+        <figure class="plate">
+          <img src="../../assets/screens/btv-nugu-01.jpg" width="900" height="506" alt="Btv NUGU — Melon 음악 재생 TV 화면, 앨범아트와 재생바" loading="lazy" decoding="async">
+          <figcaption>Fig. 04 — Melon 음악 재생 · TV UI, 2020–22</figcaption>
+        </figure>
+        <figure class="plate">
+          <img src="../../assets/screens/btv-nugu-02.jpg" width="900" height="506" alt="Btv NUGU — 음성 검색 결과 TV 화면, 무한도전 콘텐츠 리스트" loading="lazy" decoding="async">
+          <figcaption>Fig. 05 — 음성 검색 결과 · TV UI, 2020–22</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <div class="outcome">
+    <p class="mono">Outcome</p>
+    <p>App Renewal 2.0 재개발(Java→Kotlin · 전 화면 MVVM)부터 Btv 전 디바이스 NUGU 탑재까지 — 모바일과 TV를 아우르는 NUGU 클라이언트를 연이어 담당.</p>
+  </div>
+
+  <nav class="pn" aria-label="이전·다음 프로젝트">
+    <a href="tmap-adot.html"><span class="mono">← Prev · 03</span><span class="t">Tmap × Adot 음성비서</span></a>
+    <a class="home" href="../index.html"><span class="mono">Index</span><span class="t">전체 목록</span></a>
+    <a class="next" href="tmon.html"><span class="mono">Next · 07 →</span><span class="t">Tmon Android</span></a>
+  </nav>
+</main>
+
+<div class="gridlay" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<button class="gridbtn" id="gridToggle" type="button" aria-pressed="false" aria-label="12컬럼 구성 그리드 표시 전환">Grid</button>
+<script>
+document.getElementById('gridToggle').addEventListener('click',function(){
+  var on=document.body.classList.toggle('show-grid');
+  this.setAttribute('aria-pressed',on?'true':'false');
+});
+</script>
+</body>
+</html>
