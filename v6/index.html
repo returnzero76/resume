@@ -382,6 +382,59 @@ dialog#viewer[open]::backdrop{animation:bdIn .3s ease}
   .m-body{padding-bottom:120px}
 }
 
+/* ————— image lightbox ————— */
+dialog#lightbox{
+  width:100vw;height:100dvh;max-width:100vw;max-height:100dvh;
+  margin:0;inset:0;border:0;padding:0;background:transparent;overflow:hidden;
+}
+dialog#lightbox[open]{display:grid;place-items:center}
+dialog#lightbox::backdrop{
+  background:rgba(23,20,16,.86);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+@keyframes lbIn{from{opacity:0;transform:scale(.965)}to{opacity:1;transform:none}}
+dialog#lightbox[open] .lb-fig{animation:lbIn .28s cubic-bezier(.2,.8,.25,1)}
+dialog#lightbox[open]::backdrop{animation:bdIn .3s ease}
+.lb-fig{
+  margin:0;background:var(--mat);border:1px solid var(--hairline);
+  padding:clamp(12px,1.8vw,22px) clamp(12px,1.8vw,22px) clamp(10px,1.4vw,16px);
+  max-width:92vw;min-width:min(260px,86vw);
+  box-shadow:0 10px 30px rgba(0,0,0,.4), 0 40px 120px rgba(0,0,0,.5);
+}
+#lb-img{
+  display:block;margin:0 auto;width:auto;height:auto;
+  max-width:calc(92vw - 2*clamp(12px,1.8vw,22px) - 2px);
+  max-height:min(86vh, calc(100dvh - 150px));
+  object-fit:contain;
+  border:1px solid var(--hairline);
+  background:#fff;
+}
+.lb-cap{margin-top:11px;text-align:center}
+.lb-cap .lb-title{display:block;font-family:var(--serif);font-weight:600;font-size:14px;line-height:1.5;color:var(--ink);word-break:keep-all}
+.lb-cap .lb-meta{display:block;margin-top:4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--label)}
+.lb-meta .lb-yr{font-family:var(--en);font-style:italic;font-size:11.5px;letter-spacing:.04em;color:var(--brass)}
+.lb-meta .lb-pos{color:var(--brass);letter-spacing:.2em}
+.lb-btn{
+  position:absolute;z-index:4;width:46px;height:46px;border-radius:50%;
+  border:1px solid rgba(246,244,239,.3);
+  background:rgba(29,27,23,.52);color:#F6F4EF;
+  display:grid;place-items:center;cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  transition:border-color .2s,background .2s,color .2s;
+}
+.lb-btn:hover{border-color:var(--brass-hi);color:var(--brass-hi);background:rgba(29,27,23,.75)}
+#lb-close{top:18px;right:18px}
+.lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb-next{right:16px;top:50%;transform:translateY(-50%)}
+dialog#lightbox.single .lb-prev,dialog#lightbox.single .lb-next{display:none}
+@media (max-width:720px){
+  #lb-close{top:12px;right:12px}
+  .lb-prev{left:10px}
+  .lb-next{right:10px}
+}
+.m-strip img[data-lb],[data-lightbox]{cursor:zoom-in}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition:none !important}
@@ -415,7 +468,7 @@ dialog#viewer[open]::backdrop{animation:bdIn .3s ease}
       </div>
     </div>
     <figure class="portrait" style="margin:0">
-      <span class="mat"><img src="../assets/profile.jpg" width="700" height="872" alt="강지환 프로필 사진" loading="eager" fetchpriority="high" decoding="async"></span>
+      <span class="mat"><img src="../assets/profile.jpg" width="700" height="872" alt="강지환 프로필 사진" loading="eager" fetchpriority="high" decoding="async" data-lightbox data-lb-title="작가, Jihwan Kang" data-lb-cap="Portrait" role="button" tabindex="0" aria-label="강지환 프로필 사진 — 크게 보기"></span>
       <figcaption class="p-label">
         <div class="l1">작가, Jihwan Kang</div>
         <div class="l2">Software Engineer — Android · Cross-platform · AI Agent Platform<br>Live in Seoul</div>
@@ -738,6 +791,26 @@ dialog#viewer[open]::backdrop{animation:bdIn .3s ease}
   </button>
 </dialog>
 
+<!-- ————————— IMAGE LIGHTBOX ————————— -->
+<dialog id="lightbox" aria-label="이미지 확대 보기">
+  <figure class="lb-fig">
+    <img id="lb-img" alt="">
+    <figcaption class="lb-cap">
+      <span class="lb-title" id="lb-title"></span>
+      <span class="lb-meta" id="lb-meta" aria-live="polite"></span>
+    </figcaption>
+  </figure>
+  <button class="lb-btn" id="lb-close" aria-label="이미지 닫기 (Esc)" autofocus>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="이전 이미지">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="다음 이미지">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</dialog>
+
 <script>
 (function(){
 "use strict";
@@ -1014,7 +1087,8 @@ function render(i){
     w.images.forEach(function(im, k){
       html += '<figure' + (w.lowres ? ' class="lowres"' : '') + '>' +
         '<img src="' + IMG_BASE + im.s + '" width="' + im.w + '" height="' + im.h + '" alt="' + im.alt + '"' +
-        (k === 0 ? '' : ' loading="lazy"') + ' decoding="async">' +
+        (k === 0 ? '' : ' loading="lazy"') + ' decoding="async"' +
+        ' data-lb="' + k + '" role="button" tabindex="0" aria-label="' + im.alt + ' — 크게 보기">' +
         '<figcaption>' + (k+1) + ' / ' + w.images.length + ' — ' + im.cap + '</figcaption></figure>';
     });
     html += '</div>';
@@ -1124,6 +1198,7 @@ function parseHash(){
 }
 
 window.addEventListener("popstate", function(){
+  if(lightbox.open) lightbox.close();
   var slug = parseHash();
   if(slug && bySlug[slug] !== undefined){
     if(viewer.open){
@@ -1141,6 +1216,145 @@ var initial = parseHash();
 if(initial && bySlug[initial] !== undefined){
   openWork(initial, null, false);
 }
+
+/* ————— image lightbox ————— */
+var lightbox = document.getElementById("lightbox");
+var lbImg = document.getElementById("lb-img");
+var lbTitle = document.getElementById("lb-title");
+var lbMeta = document.getElementById("lb-meta");
+
+var lbItems = [];
+var lbIdx = 0;
+var lbTrigger = null;
+var lbToken = 0;
+var FULL_OK = {};
+
+function shortYear(period){
+  var ys = (period || "").match(/\d{4}/g);
+  if(!ys || !ys.length) return "";
+  if(/현재/.test(period)) return ys[0] + "–현재";
+  return ys[0] === ys[ys.length-1] ? ys[0] : ys[0] + "–" + ys[ys.length-1];
+}
+
+function fullSrc(src){
+  var m = /^(.*assets\/screens\/)([^\/]+\.jpg)$/.exec(src || "");
+  return m ? m[1] + "full/" + m[2] : null;
+}
+
+function lbRender(){
+  var it = lbItems[lbIdx];
+  var token = ++lbToken;
+  var fs = fullSrc(it.src);
+
+  if(fs && FULL_OK[fs] === true){
+    lbImg.src = fs;
+  } else {
+    lbImg.src = it.src;
+    if(fs && FULL_OK[fs] === undefined){
+      var probe = new Image();
+      probe.onload = function(){
+        FULL_OK[fs] = true;
+        if(token === lbToken && lightbox.open) lbImg.src = fs;
+      };
+      probe.onerror = function(){ FULL_OK[fs] = false; };
+      probe.src = fs;
+    }
+  }
+
+  lbImg.alt = it.alt || "";
+  lbTitle.textContent = it.title || "";
+  var meta = "";
+  if(it.cap) meta += it.cap;
+  if(it.yr) meta += (meta ? " · " : "") + '<span class="lb-yr">' + it.yr + '</span>';
+  if(lbItems.length > 1) meta += (meta ? " · " : "") + '<span class="lb-pos">' + (lbIdx+1) + ' / ' + lbItems.length + '</span>';
+  lbMeta.innerHTML = meta;
+  lightbox.classList.toggle("single", lbItems.length < 2);
+}
+
+function openLightbox(items, i, trig){
+  if(!items || !items.length) return;
+  lbItems = items;
+  lbIdx = (i >= 0 && i < items.length) ? i : 0;
+  lbTrigger = trig || null;
+  lbRender();
+  if(!lightbox.open){
+    lightbox.showModal();
+    document.body.classList.add("locked");
+  }
+}
+
+function lbStep(d){
+  if(!lightbox.open || lbItems.length < 2) return;
+  lbIdx = (lbIdx + d + lbItems.length) % lbItems.length;
+  lbRender();
+}
+
+lightbox.addEventListener("close", function(){
+  if(!viewer.open) document.body.classList.remove("locked");
+  if(lbTrigger){ try{ lbTrigger.focus({preventScroll:true}); }catch(e){} lbTrigger = null; }
+});
+
+lightbox.addEventListener("click", function(e){
+  if(e.target === lightbox){ lightbox.close(); return; }
+  if(!e.target.closest) return;
+  if(e.target.closest("#lb-close")){ lightbox.close(); }
+  else if(e.target.closest("#lb-prev")){ lbStep(-1); }
+  else if(e.target.closest("#lb-next")){ lbStep(1); }
+});
+
+lightbox.addEventListener("keydown", function(e){
+  if(e.key === "ArrowRight"){ e.preventDefault(); lbStep(1); }
+  else if(e.key === "ArrowLeft"){ e.preventDefault(); lbStep(-1); }
+});
+
+/* case-modal strip images → lightbox (cycles the current project's images) */
+function openStripImage(im){
+  var w = WORKS[idx];
+  if(!w || !w.images || !w.images.length) return;
+  var k = parseInt(im.getAttribute("data-lb"), 10) || 0;
+  var yr = shortYear(w.period);
+  openLightbox(w.images.map(function(m){
+    return {src:IMG_BASE + m.s, alt:m.alt, title:w.title, cap:m.cap, yr:yr};
+  }), k, im);
+}
+
+viewer.addEventListener("click", function(e){
+  var im = e.target.closest && e.target.closest(".m-strip img[data-lb]");
+  if(im) openStripImage(im);
+});
+
+viewer.addEventListener("keydown", function(e){
+  if(e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+  var im = e.target.closest && e.target.closest(".m-strip img[data-lb]");
+  if(im){ e.preventDefault(); openStripImage(im); }
+});
+
+/* wall images (frames not wired to the case modal) → lightbox */
+var wallImgs = Array.prototype.slice.call(document.querySelectorAll("[data-lightbox]"));
+
+function openWallImage(el){
+  openLightbox(wallImgs.map(function(n){
+    return {
+      src:n.getAttribute("src"), alt:n.getAttribute("alt") || "",
+      title:n.getAttribute("data-lb-title") || "", cap:n.getAttribute("data-lb-cap") || "",
+      yr:n.getAttribute("data-lb-yr") || ""
+    };
+  }), wallImgs.indexOf(el), el);
+}
+
+document.addEventListener("click", function(e){
+  var el = e.target.closest && e.target.closest("[data-lightbox]");
+  if(!el || el.closest("[data-slug]")) return;
+  openWallImage(el);
+});
+
+document.addEventListener("keydown", function(e){
+  if(e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+  var el = e.target.closest && e.target.closest("[data-lightbox]");
+  if(!el || el.closest("[data-slug]")) return;
+  e.preventDefault();
+  openWallImage(el);
+});
 
 /* floor plan active state */
 var fpLinks = document.querySelectorAll(".floorplan a[data-fp]");

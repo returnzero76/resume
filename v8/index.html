@@ -417,6 +417,49 @@ footer{
   text-transform:uppercase;
 }
 
+/* ============ LIGHTBOX ============ */
+html{ scrollbar-gutter:stable; }
+html.lb-lock, html.lb-lock body{ overflow:hidden; }
+.lb-able{ cursor:zoom-in; }
+img.lb-able:focus-visible{ outline:3px solid var(--ink); outline-offset:3px; }
+.lightbox{
+  padding:0; border:0; background:transparent; color:var(--ink);
+  max-width:none; max-height:none; overflow:visible;
+}
+.lightbox::backdrop{ background:rgba(17,17,17,.7); }
+.lb-box{
+  position:relative; background:var(--cream);
+  border:3px solid var(--ink); box-shadow:8px 8px 0 var(--ink);
+  padding:14px;
+}
+.lb-img{
+  display:block; margin:0 auto; width:auto; height:auto;
+  max-width:90vw; max-height:min(82vh,calc(100vh - 132px));
+  object-fit:contain; border:3px solid var(--ink); background:#fff;
+}
+.lb-cap{
+  display:flex; align-items:center; flex-wrap:wrap; gap:8px 14px;
+  font-family:var(--mono); font-weight:700; font-size:12.5px; letter-spacing:.08em;
+  text-transform:uppercase; padding-top:12px;
+}
+.lb-year{
+  background:#fff; border:2px solid var(--ink); box-shadow:2px 2px 0 var(--ink);
+  padding:2px 9px; transform:rotate(-3deg); flex:none;
+}
+.lb-count{ margin-left:auto; font-weight:400; opacity:.8; }
+.lb-btn{
+  display:grid; place-items:center; padding:0; color:var(--ink);
+  background:#fff; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink);
+  font-family:var(--mono); font-weight:700; font-size:19px; line-height:1;
+  cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;
+}
+.lb-btn:hover{ transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--ink); }
+.lb-btn:active{ transform:translate(0,0); box-shadow:2px 2px 0 var(--ink); }
+.lb-close{ position:absolute; top:-17px; right:-17px; z-index:2; width:44px; height:44px; }
+.lb-prev, .lb-next{ position:fixed; top:50%; translate:0 -50%; width:54px; height:54px; }
+.lb-prev{ left:14px; }
+.lb-next{ right:14px; }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width:920px){
   .hero-grid{ grid-template-columns:1fr; }
@@ -432,6 +475,11 @@ footer{
   .half img{ height:132px; }
   .meta{ padding-right:0; }
   .stamp{ position:static; display:inline-block; margin-bottom:12px; transform:rotate(-2deg); }
+  .lb-box{ padding:10px; }
+  .lb-prev, .lb-next{ width:46px; height:46px; }
+  .lb-prev{ left:8px; }
+  .lb-next{ right:8px; }
+  .lb-close{ top:-14px; right:-10px; width:40px; height:40px; }
 }
 
 /* ============ REDUCED MOTION ============ */
@@ -441,6 +489,7 @@ footer{
   .lift:hover, .topbar a:hover, .hero-tags a:hover, .card summary:hover, .cbtn:hover{
     transform:none; box-shadow:6px 6px 0 var(--ink);
   }
+  .lb-btn:hover{ transform:none; box-shadow:4px 4px 0 var(--ink); }
 }
 </style>
 </head>
@@ -1014,10 +1063,142 @@ footer{
   </div>
 </main>
 
+<dialog class="lightbox" id="lightbox" aria-label="스크린샷 크게 보기">
+  <div class="lb-box">
+    <button type="button" class="lb-btn lb-close" aria-label="닫기">✕</button>
+    <img class="lb-img" alt="">
+    <p class="lb-cap">
+      <span class="lb-year"></span>
+      <span class="lb-text"></span>
+      <span class="lb-count"></span>
+    </p>
+  </div>
+  <button type="button" class="lb-btn lb-prev" aria-label="이전 스크린샷">◀</button>
+  <button type="button" class="lb-btn lb-next" aria-label="다음 스크린샷">▶</button>
+</dialog>
+
 <footer>
   <span>© 2026 JIHWAN KANG 강지환</span>
   <span>REV.8 「빌드로그 / RAW BUILD」</span>
   <span>BUILT RAW IN SEOUL — NO GRADIENTS, NO BLUR</span>
 </footer>
+
+<script>
+(function(){
+  'use strict';
+  var dlg = document.getElementById('lightbox');
+  if(!dlg || typeof dlg.showModal !== 'function') return;
+  var lbImg = dlg.querySelector('.lb-img');
+  var lbText = dlg.querySelector('.lb-text');
+  var lbYear = dlg.querySelector('.lb-year');
+  var lbCount = dlg.querySelector('.lb-count');
+
+  var YEARS = [
+    ['adot-store','2022→NOW'],
+    ['tmap-store','2025'],
+    ['tmap-taxi','2020'],
+    ['nugu-mobile','2018–20'],
+    ['btv-nugu','2020–22'],
+    ['winvention','2017'],
+    ['tmon','2015–18']
+  ];
+  function yearFor(name){
+    for(var i=0;i<YEARS.length;i++){
+      if(name.indexOf(YEARS[i][0]) === 0) return YEARS[i][1];
+    }
+    return 'RAW';
+  }
+
+  var items = [];
+  var indexBySrc = Object.create(null);
+  var cur = -1, opener = null, loadTok = 0;
+
+  document.querySelectorAll('.half img, .shot img').forEach(function(el){
+    var src = el.getAttribute('src');
+    if(!src) return;
+    var item;
+    if(indexBySrc[src] === undefined){
+      var file = (src.split('/').pop() || '').replace(/\.[a-zA-Z0-9]+$/,'');
+      item = { src:src, alt:'', cap:file.toUpperCase(), year:yearFor(file) };
+      indexBySrc[src] = items.length;
+      items.push(item);
+    }else{
+      item = items[indexBySrc[src]];
+    }
+    if(!item.alt && el.alt) item.alt = el.alt;
+    var shot = el.closest('.shot');
+    if(shot){
+      var fc = shot.querySelector('figcaption');
+      if(fc) item.cap = fc.textContent.trim();
+    }
+    el.classList.add('lb-able');
+    el.addEventListener('click', function(){ openBox(src, el); });
+    if(shot){
+      el.tabIndex = 0;
+      el.setAttribute('role','button');
+      el.setAttribute('aria-label', (el.alt || item.cap) + ' — 크게 보기');
+      el.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openBox(src, el); }
+      });
+    }
+  });
+
+  /* full-res probe: swap only after the full/ image is fully loaded; absent files fall back silently */
+  var fullCache = Object.create(null);
+  function resolveFull(src){
+    if(!fullCache[src]){
+      fullCache[src] = new Promise(function(res){
+        if(src.indexOf('/screens/') === -1){ res(src); return; }
+        var full = src.replace('/screens/','/screens/full/');
+        var probe = new Image();
+        probe.onload = function(){ res(full); };
+        probe.onerror = function(){ res(src); };
+        probe.src = full;
+      });
+    }
+    return fullCache[src];
+  }
+
+  function show(i){
+    if(!items.length) return;
+    cur = (i % items.length + items.length) % items.length;
+    var it = items[cur];
+    var tok = ++loadTok;
+    lbImg.src = it.src;
+    lbImg.alt = it.alt || it.cap;
+    lbText.textContent = it.cap;
+    lbYear.textContent = it.year;
+    lbCount.textContent = (cur + 1) + '/' + items.length;
+    resolveFull(it.src).then(function(url){
+      if(tok === loadTok && url !== it.src){ lbImg.src = url; }
+    });
+  }
+
+  function openBox(src, trigger){
+    opener = trigger || document.activeElement;
+    var i = indexBySrc[src];
+    show(i === undefined ? 0 : i);
+    document.documentElement.classList.add('lb-lock');
+    dlg.showModal();
+  }
+
+  dlg.addEventListener('click', function(e){ if(e.target === dlg) dlg.close(); });
+  dlg.querySelector('.lb-close').addEventListener('click', function(){ dlg.close(); });
+  dlg.querySelector('.lb-prev').addEventListener('click', function(){ show(cur - 1); });
+  dlg.querySelector('.lb-next').addEventListener('click', function(){ show(cur + 1); });
+  dlg.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); show(cur - 1); }
+    else if(e.key === 'ArrowRight'){ e.preventDefault(); show(cur + 1); }
+  });
+  dlg.addEventListener('close', function(){
+    loadTok++;
+    document.documentElement.classList.remove('lb-lock');
+    if(opener && opener.isConnected && typeof opener.focus === 'function'){
+      try{ opener.focus(); }catch(err){}
+    }
+    opener = null;
+  });
+})();
+</script>
 </body>
 </html>

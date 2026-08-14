@@ -78,6 +78,25 @@ body.show-grid .gridlay{display:block}
 .gridlay .cols i{background:rgba(226,35,26,.04);border-left:1px solid rgba(226,35,26,.22);border-right:1px solid rgba(226,35,26,.22)}
 .gridbtn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);padding:8px 14px;cursor:pointer;color:var(--mute)}
 .gridbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+/* ---- lightbox ---- */
+:root{scrollbar-gutter:stable}
+body.lb-lock{overflow:hidden}
+.lb-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;color:inherit}
+.lightbox{border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:0}
+.lightbox::backdrop{background:rgba(17,17,16,.82)}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--hair);padding:8px 10px}
+.lb-x{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);border:1px solid var(--hair);color:var(--mute);padding:6px 12px;cursor:pointer}
+.lb-stage{position:relative;padding:10px}
+.lightbox img{display:block;margin:0 auto;max-width:min(92vw,calc(100vw - 64px));max-height:86vh;width:auto;height:auto;object-fit:contain;border:1px solid var(--hair);background:var(--panel)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;font-family:var(--mono);font-size:14px;background:var(--paper);border:1px solid var(--hair);color:var(--ink);cursor:pointer}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-x:hover,.lb-nav:hover{color:var(--red);border-color:var(--red)}
+.lb-cap{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);border-top:1px solid var(--hair);padding:8px 10px}
+@media(prefers-reduced-motion:no-preference){
+  .lightbox[open]{animation:lbIn .18s ease}
+  @keyframes lbIn{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+}
 @media(max-width:960px){
   .case .text{grid-column:1/13}
   .case .side{grid-column:1/13}
@@ -183,6 +202,19 @@ body.show-grid .gridlay{display:block}
   </nav>
 </main>
 
+<dialog class="lightbox" id="lb" aria-label="이미지 확대 보기">
+  <div class="lb-bar">
+    <span class="mono" id="lbCount" aria-live="polite"></span>
+    <button class="lb-x" id="lbClose" type="button" aria-label="닫기">Close ×</button>
+  </div>
+  <div class="lb-stage">
+    <img id="lbImg" alt="" decoding="async">
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="이전 이미지">←</button>
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="다음 이미지">→</button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
+</dialog>
+
 <div class="gridlay" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 <button class="gridbtn" id="gridToggle" type="button" aria-pressed="false" aria-label="12컬럼 구성 그리드 표시 전환">Grid</button>
 <script>
@@ -190,6 +222,50 @@ document.getElementById('gridToggle').addEventListener('click',function(){
   var on=document.body.classList.toggle('show-grid');
   this.setAttribute('aria-pressed',on?'true':'false');
 });
+(function(){
+  var dlg=document.getElementById('lb');if(!dlg||!dlg.showModal)return;
+  var img=document.getElementById('lbImg'),cap=document.getElementById('lbCap'),
+      count=document.getElementById('lbCount'),prev=document.getElementById('lbPrev'),
+      next=document.getElementById('lbNext'),items=[],idx=0,lastFocus=null;
+  function show(i){
+    idx=(i%items.length+items.length)%items.length;
+    var it=items[idx];
+    img.onerror=function(){img.onerror=null;it.resolved=it.src;img.src=it.src;};
+    img.onload=function(){it.resolved=img.getAttribute('src');};
+    img.src=it.resolved||it.full;
+    img.alt=it.alt;
+    cap.textContent=it.cap;
+    count.textContent=(idx+1)+' / '+items.length;
+  }
+  [].filter.call(document.querySelectorAll('figure.plate img'),function(im){return !im.closest('.portrait');})
+    .forEach(function(im,i){
+      var btn=document.createElement('button');
+      btn.type='button';btn.className='lb-open';
+      btn.setAttribute('aria-label','확대 보기: '+(im.getAttribute('alt')||'스크린샷'));
+      im.parentNode.insertBefore(btn,im);btn.appendChild(im);
+      var fig=im.closest('figure'),fc=fig?fig.querySelector('figcaption'):null,src=im.getAttribute('src');
+      items.push({src:src,full:src.replace('/screens/','/screens/full/'),alt:im.getAttribute('alt')||'',cap:fc?fc.textContent:''});
+      btn.addEventListener('click',function(){
+        lastFocus=btn;show(i);
+        if(!dlg.open)dlg.showModal();
+        document.body.classList.add('lb-lock');
+      });
+    });
+  if(!items.length)return;
+  if(items.length<2){prev.hidden=true;next.hidden=true;}
+  prev.addEventListener('click',function(){show(idx-1);});
+  next.addEventListener('click',function(){show(idx+1);});
+  document.getElementById('lbClose').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  dlg.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){e.preventDefault();show(idx-1);}
+    else if(e.key==='ArrowRight'){e.preventDefault();show(idx+1);}
+  });
+  dlg.addEventListener('close',function(){
+    document.body.classList.remove('lb-lock');
+    if(lastFocus)lastFocus.focus();
+  });
+})();
 </script>
 </body>
 </html>
