@@ -50,10 +50,10 @@ AI, Mobility, E-commerce, Multimedia 등 다양한 도메인을 경험했고, JA
 - Go 백엔드(control-plane) observability pod 개발: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)
 - Next.js 콘솔 model-evaluation 화면 개발 및 리팩토링, flaky test 근본 해결
 - Speckit 기반 스펙 주도 개발 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화
-- agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 (49 커밋)
+- agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등
 
 ### 에이닷 A. Android 앱 (2022.05 ~ 현재) · SK Telecom
-SKT AI 개인비서 '에이닷' Android 클라이언트. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트, 4년간 2,990 커밋(기여 2위권).
+SKT AI 개인비서 '에이닷' Android 클라이언트. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트를 4년간 지속 개발.
 - **AI 노트 도메인 리드 (2025.08~)**: 통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발
 - **React Native 하이브리드 전환 (2026)**: New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow+ReactViewModel+ReactFragment+라우팅), 전환 후 레거시 Native 코드 정리
 - **게임 서비스 (2022~2024, 최대 기여 영역)**: 게임홈/리스트/상세/리더보드 전체 개발, XML→Compose 전면 전환(Material3 제약 해결, Foldable 대응 nestedScroll 경합 회피)
@@ -65,23 +65,19 @@ SKT AI 개인비서 '에이닷' Android 클라이언트. 대규모 멀티모듈(
 - **AI 개발 워크플로 도입 (2026)**: Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발
 
 ### adot-react-native — 에이닷 공용 RN 워크스페이스 (2026.03 ~ 2026.05) · SK Telecom
-Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스 (TypeScript). 167 커밋.
+Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스 (TypeScript).
 - Auto(차량 연동) RN 화면 3종 전면 구현: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결
 - AI 노트 RN 전환: 공용 noteList 컴포넌트/훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)
 - Pull-to-Refresh 제스처 경합 해결: RNGH PanGestureHandler 기반 재구현 → design-system 공용 컴포넌트로 승격
 - Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입
 
 ### Tmap x Adot 음성비서 마이그레이션 (2025.03 ~ 2025.08) · SK Telecom
-Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱. Initial commit부터 시작한 리드 개발 (240 커밋, 전체의 41%).
+Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱. Initial commit부터 시작한 리드 개발.
 - 신규 프로젝트 0→1 부트스트랩: core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합
 - NUGU SDK 통합·커스터마이징: SpeechRecognizer trigger, AudioSpeaker custom, 멀티턴 상태머신 이슈 해결
 - Wake-up Word 엔진 적용(멀티 트리거 모델), EPD Timeout 튜닝
 - VoiceChrome(음성 UI) 구현: Lottie 상태별 애니메이션, 유지 정책, TmapCommand Directive viewer, 발화가이드 Chips
 - 5개월간 v0.3.0→v1.12.0 10회+ 배포, 파트너사 참조용 코드 품질 관리 + Confluence 연동 가이드 문서 저술 (Sample Guide 위키 10여 페이지)
-
-### TimeTree x Adot Android 샘플 (2025.03 ~ 2025.10) · SK Telecom
-TimeTree 제휴 서비스용 Android 샘플 앱 (272 커밋).
-- 채팅 화면 개발: Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션
 
 ### Btv NUGU Android (2020.11 ~ 2022.04) · SK Telecom
 Btv 내 NUGU 사용을 위한 Android 앱. UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU 탑재.
@@ -115,12 +111,25 @@ NUGU AI 서비스용 3rd party 서비스 연결·디바이스 연결을 지원�
 - File upload Background Service, Jsoup+Volley 문서 파싱, ExoPlayer custom + 자체 DRM(TCI) 적용
 - KR향: 검색 WebView→Data binding Native 전환(속도 개선), Firebase/FCM/IGAWorks 연동
 
-### Music Player & Audio Effect (2011.01 ~ 2015.05) · Pantech
-Pantech Android 디바이스 preload Music Player 앱 개발.
-- Android Media Provider Framework 분석, Music DB/Albumart cache 구조, AppWidget 2종 + U+Box 위젯
-- Melon/OllehMusic/YouTube 온라인 서비스 연동, 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응
-- Audio Effect 앱: 사용자 설정 Equalizer, 장르별 Auto Preset, QSound/NXP 3rd party 통합
-- Tag Editor Java Library 자체 개발: MP3(ID3)/FLAC(Vorbis) spec 분석, TEXT/LYRICS/ALBUMART read/write, charset encoding 자동 분석
+### Music Player Android 앱 (2011.01 ~ 2015.05) · Pantech
+Pantech Android 디바이스에 preload되는 Music Player 앱 개발.
+- 노래/앨범/음악가 등 각 탭 화면 개발, Android Media Provider Framework 분석 & Music DB 관련 개발
+- Albumart cache 구조 설계, 앱 공통 Thread 모듈 구현, NDK 기반 중복 음원 검색 기능 개발
+- StackView 등 AppWidget 2종 + U+Box 전용 AppWidget 개발
+- Melon/OllehMusic/YouTube 온라인 서비스 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공
+- 국내 전모델 + 일본/베트남/대만 디바이스 preload, Android 2.2~5.0 OS 업그레이드 대응
+
+### Audio Effect Android 앱 (2012.04 ~ 2015.05) · Pantech
+음원 재생 관련 Audio Effect를 제공하는 앱 개발.
+- Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발
+- QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning
+- 타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발
+
+### Tag Editor Library (2013.03 ~ 2013.08) · Pantech
+음원 Tag 영역을 Read/Write하는 Java 라이브러리 자체 개발.
+- MP3(ID3)/FLAC(Vorbis) Tag spec 분석, TEXT/LYRICS/ALBUMART read/write 기능 개발
+- Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발
+- Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용
 
 ### Blu-ray Player (2010.09 ~ 2010.12) · LG Electronics (인턴)
 - Blu-ray player device SW: Text 표시 UI 개발(C), 다국어 지원 추가, Turnkey base 모델 작업
@@ -128,6 +137,6 @@ Pantech Android 디바이스 preload Music Player 앱 개발.
 ## Highlights (숫자로 보는 경력 — 히어로/통계 섹션용)
 
 - 15+ 년 소프트웨어 개발 (Android 2011~)
-- 3,700+ 커밋 (최근 4년, 에이닷 관련 repo 합산)
+- 10+ 서비스·앱 개발 (뮤직/커머스/음성비서/모빌리티/AI 에이전트)
 - 7개 서비스 도메인 리드 (게임/포토/노트/Auto/음성비서/TV/교육)
 - 4번의 기술 전환 주도: XML→Compose, Native→RN 하이브리드, 무테스트→커버리지 체계, 수동 개발→AI 파이프라인

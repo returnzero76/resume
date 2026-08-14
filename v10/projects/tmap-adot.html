@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tmap x Adot 음성비서 — 강지환</title>
-<meta name="description" content="Tmap 음성비서 NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱 리드 개발 기록 (TimeTree 샘플 포함).">
+<title>Tmap x Adot 음성비서 마이그레이션 — 강지환</title>
+<meta name="description" content="Tmap 탑재 음성비서의 NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱 — 리드 개발 기록.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tmap x Adot 음성비서 — 강지환">
-<meta property="og:description" content="Tmap 음성비서 NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱 리드 개발 기록 (TimeTree 샘플 포함).">
+<meta property="og:title" content="Tmap x Adot 음성비서 마이그레이션 — 강지환">
+<meta property="og:description" content="Tmap 탑재 음성비서의 NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱 — 리드 개발 기록.">
 <meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
 <meta property="og:url" content="https://returnzero76.github.io/resume/v10/projects/tmap-adot.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
@@ -208,10 +208,15 @@ html.lb-open{overflow:hidden;scrollbar-gutter:stable}
 <li><a class="nav-item" href="adot.html"><span class="nav-emoji">🤖</span>에이닷 A. 앱</a></li>
 <li><a class="nav-item" href="adot-rn.html"><span class="nav-emoji">⚛️</span>adot-react-native</a></li>
 <li><a class="nav-item active" href="tmap-adot.html" aria-current="page"><span class="nav-emoji">🗣️</span>Tmap x Adot 음성비서</a></li>
-<li><a class="nav-item" href="nugu-btv.html"><span class="nav-emoji">🔊</span>NUGU Mobile · Btv</a></li>
+<li><a class="nav-item" href="btv-nugu.html"><span class="nav-emoji">📺</span>Btv NUGU</a></li>
 <li><a class="nav-item" href="tmap-taxi.html"><span class="nav-emoji">🚕</span>Tmap Taxi</a></li>
+<li><a class="nav-item" href="nugu-mobile.html"><span class="nav-emoji">🔊</span>NUGU Mobile</a></li>
 <li><a class="nav-item" href="tmon.html"><span class="nav-emoji">🛒</span>Tmon</a></li>
-<li><a class="nav-item" href="early-career.html"><span class="nav-emoji">🕰️</span>초기 경력</a></li>
+<li><a class="nav-item" href="winvention.html"><span class="nav-emoji">🎬</span>Winvention</a></li>
+<li><a class="nav-item" href="music-player.html"><span class="nav-emoji">🎵</span>Music Player</a></li>
+<li><a class="nav-item" href="audio-effect.html"><span class="nav-emoji">🎚️</span>Audio Effect</a></li>
+<li><a class="nav-item" href="tag-editor.html"><span class="nav-emoji">🏷️</span>Tag Editor</a></li>
+<li><a class="nav-item" href="lg-bluray.html"><span class="nav-emoji">💿</span>Blu-ray Player</a></li>
 </ul>
 </details>
 </li>
@@ -227,14 +232,14 @@ html.lb-open{overflow:hidden;scrollbar-gutter:stable}
 <div class="page-emoji" aria-hidden="true">🗣️</div>
 <h1 class="page-title">Tmap x Adot 음성비서 마이그레이션</h1>
 <dl class="props">
-<div class="prop"><dt><span aria-hidden="true">🙋</span>역할</dt><dd><span class="pill blue">리드 개발 (커밋 41%)</span></dd></div>
+<div class="prop"><dt><span aria-hidden="true">🙋</span>역할</dt><dd><span class="pill blue">리드 개발</span></dd></div>
 <div class="prop"><dt><span aria-hidden="true">🗓️</span>기간</dt><dd><span class="pill gray">2025.03 ~ 2025.08</span></dd></div>
 <div class="prop"><dt><span aria-hidden="true">🏢</span>소속</dt><dd>SK Telecom</dd></div>
 <div class="prop"><dt><span aria-hidden="true">🧩</span>스택</dt><dd><span class="pill green">Kotlin</span><span class="pill orange">NUGU SDK</span><span class="pill purple">Wake-up Word</span><span class="pill red">Lottie</span></dd></div>
 </dl>
 
 <hr>
-<p>Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱. Initial commit부터 시작한 리드 개발 (240 커밋, 전체의 41%).</p>
+<p>Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱입니다. Initial commit부터 시작해 리드 개발을 맡았습니다.</p>
 <h2>한 일</h2>
 <ul class="bullets">
 <li>신규 프로젝트 0→1 부트스트랩: core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합</li>
@@ -252,16 +257,11 @@ html.lb-open{overflow:hidden;scrollbar-gutter:stable}
 <figure><img src="../../assets/screens/tmap-store-05.jpg" width="506" height="900" alt="TMAP 스토어 소개 이미지 5" loading="lazy" decoding="async"><figcaption>TMAP 스토어 소개 이미지 5</figcaption></figure>
 <figure><img src="../../assets/screens/tmap-store-06.jpg" width="506" height="900" alt="TMAP 스토어 소개 이미지 6" loading="lazy" decoding="async"><figcaption>TMAP 스토어 소개 이미지 6</figcaption></figure>
 </div>
-<h2>🗓️ TimeTree x Adot Android 샘플 (2025.03 ~ 2025.10)</h2>
-<p>TimeTree 제휴 서비스용 Android 샘플 앱 (272 커밋).</p>
-<ul class="bullets">
-<li>채팅 화면 개발: Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션</li>
-</ul>
-<div class="callout green"><span class="ico" aria-hidden="true">⭐</span><div><p><strong>성과</strong></p><p>Initial commit부터 리드 개발(240 커밋, 전체의 41%). 5개월간 v0.3.0→v1.12.0 10회+ 배포하며 파트너사 참조용 코드 품질을 관리하고 Sample Guide 위키 10여 페이지를 저술했습니다.</p></div></div>
+<div class="callout green"><span class="ico" aria-hidden="true">⭐</span><div><p><strong>성과</strong></p><p>Initial commit부터 리드 개발을 맡아 5개월간 v0.3.0→v1.12.0으로 10회+ 배포했고, 파트너사 참조용 코드 품질을 관리하며 Sample Guide 위키 10여 페이지를 저술했습니다.</p></div></div>
 <hr>
 <nav class="pn" aria-label="이전·다음 페이지">
 <a class="prev" href="adot-rn.html"><span class="lbl">← 이전 페이지</span><span class="ttl">⚛️ adot-react-native</span></a>
-<a class="next" href="nugu-btv.html"><span class="lbl">다음 페이지 →</span><span class="ttl">🔊 NUGU Mobile · Btv NUGU</span></a>
+<a class="next" href="btv-nugu.html"><span class="lbl">다음 페이지 →</span><span class="ttl">📺 Btv NUGU Android</span></a>
 </nav>
 </div>
 </main>

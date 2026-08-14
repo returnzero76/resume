@@ -7,7 +7,7 @@
 <meta name="description" content="강지환 — Software Engineer. Android · Cross-platform · AI Agent Platform. 15년+ 모바일 개발, Kotlin/Compose부터 React Native, Go 백엔드, AI 개발 파이프라인까지.">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="강지환 · Jihwan Kang — Resume">
-<meta property="og:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform. 15년+ 경력, 3,700+ 커밋(최근 4년), 7개 도메인 리드.">
+<meta property="og:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform. 15년+ 경력, 10+ 서비스·앱 개발, 7개 도메인 리드.">
 <meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
 <meta property="og:url" content="https://returnzero76.github.io/resume/v4/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎛️</text></svg>">
@@ -259,6 +259,54 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
 .meta-tile .stamp { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sub); line-height: 1.9; }
 .meta-tile .stamp b { color: var(--text); font-weight: 500; }
 
+/* ── tile screenshots ── */
+.shots { display: flex; gap: 8px; margin-top: 2px; overflow-x: auto; scrollbar-width: none; }
+.shots::-webkit-scrollbar { display: none; }
+.shot-btn { padding: 0; border-radius: 8px; flex-shrink: 0; line-height: 0; cursor: zoom-in; }
+.shot {
+  height: 132px; width: auto; display: block; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--tile-hover);
+  transition: border-color .15s;
+}
+.shot-btn:hover .shot, .shot-btn:focus-visible .shot { border-color: var(--accent); }
+.s4 .shot { height: 108px; }
+
+/* ── lightbox ── */
+html { scrollbar-gutter: stable; }
+html.lb-open { overflow: hidden; }
+.lb {
+  padding: 0; border: 1px solid var(--border); border-radius: 16px;
+  background: var(--tile); color: var(--text);
+  max-width: 92vw; max-height: 86vh; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.lb::backdrop { background: rgba(10, 10, 11, 0.78); }
+.lb figure { display: flex; flex-direction: column; }
+.lb-img {
+  display: block; width: auto; height: auto;
+  max-width: calc(92vw - 2px); max-height: calc(86vh - 56px);
+  min-width: min(240px, 80vw); object-fit: contain; background: var(--bg);
+}
+.lb-bar {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--sub);
+}
+.lb-cap { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-ind { color: var(--accent); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.lb-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--tile); color: var(--text);
+  font-family: var(--mono); font-size: 14px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s, color .15s;
+}
+.lb-btn:hover { border-color: var(--accent); color: var(--accent); }
+.lb-prev { left: 10px; }
+.lb-next { right: 10px; }
+.lb-x { top: 10px; right: 10px; transform: none; }
+
 /* ── responsive ── */
 @media (max-width: 980px) {
   .s7, .s8, .s5 { grid-column: span 12; }
@@ -339,10 +387,10 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
       <span class="label">yrs in software</span>
       <span class="detail">Android 2011~</span>
     </section>
-    <section class="tile s3 stat" aria-label="커밋 수">
-      <span class="num">3,700<small>+</small></span>
-      <span class="label">commits · last 4 yrs</span>
-      <span class="detail">에이닷 관련 repo 합산</span>
+    <section class="tile s3 stat" aria-label="서비스·앱 수">
+      <span class="num">10<small>+</small></span>
+      <span class="label">services &amp; apps</span>
+      <span class="detail">뮤직 · 커머스 · 음성비서 · 모빌리티 · AI 에이전트</span>
     </section>
     <section class="tile s3 stat" aria-label="리드 도메인">
       <span class="num">7</span>
@@ -410,7 +458,7 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
     </section>
 
     <!-- ══ Filter bar ══ -->
-    <div class="sec s12"><span class="label">Projects · 12</span></div>
+    <div class="sec s12"><span class="label">Projects · 13</span></div>
     <div class="tile s12 filterbar static" role="toolbar" aria-label="프로젝트 필터">
       <div class="filters">
         <button class="fchip active" data-filter="all" aria-pressed="true">All</button>
@@ -429,14 +477,19 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
         <span class="yr">2026.06 – 현재</span>
       </div>
       <span class="org">SK Telecom</span>
-      <p class="desc">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼 개발 (<b>Go + Next.js 모노레포</b>). 백엔드 control-plane과 콘솔 UI를 함께 개발하며 스펙 주도 개발 문화를 실천하고 있습니다.</p>
+      <p class="desc">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼을 개발하고 있습니다 (<b>Go + Next.js 모노레포</b>). 백엔드 control-plane과 콘솔 UI를 함께 개발하며 스펙 주도 개발 문화를 실천하고 있습니다.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="Agent OS 아키텍처 그래픽 크게 보기">
+          <img class="shot" src="../assets/screens/agent-os-01.svg" alt="Agent OS 아키텍처 개요 그래픽" data-cap="Agent OS — 아키텍처 개요 그래픽" width="900" height="620" loading="lazy" decoding="async">
+        </button>
+      </div>
       <div class="x">
         <div class="x-inner">
           <ul class="bullets">
             <li><b>Go 백엔드(control-plane) observability pod 개발</b>: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)</li>
             <li>Next.js 콘솔 model-evaluation 화면 개발 및 리팩토링, flaky test 근본 해결</li>
             <li>Speckit 기반 스펙 주도 개발 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화</li>
-            <li><b>agent-os-skills</b>: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 (49 커밋)</li>
+            <li><b>agent-os-skills</b>: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등</li>
           </ul>
         </div>
       </div>
@@ -452,7 +505,15 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
         <span class="yr">2022.05 – 현재</span>
       </div>
       <span class="org">SK Telecom</span>
-      <p class="desc">SKT AI 개인비서 '에이닷' Android 클라이언트. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트, <b>4년간 2,990 커밋(기여 2위권)</b>. 게임·포토·노트 등 도메인 리드부터 RN 하이브리드 전환, 테스트 인프라, AI 개발 워크플로 도입까지.</p>
+      <p class="desc">SKT AI 개인비서 '에이닷' Android 클라이언트입니다. <b>대규모 멀티모듈(app/feature/domain/data/core) 프로젝트를 4년간 지속 개발</b>하며 게임·포토·노트 등 도메인 리드부터 RN 하이브리드 전환, 테스트 인프라, AI 개발 워크플로 도입까지 담당했습니다.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="에이닷 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/adot-store-01.jpg" alt="에이닷 앱 소개 화면 — 나만의 AI 개인비서 에이닷" data-cap="에이닷 A. — AI 개인비서 홈 (스토어 스크린샷)" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="shot-btn" aria-label="에이닷 AI 노트 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/adot-store-02.jpg" alt="에이닷 노트 실시간 요약 화면" data-cap="에이닷 A. — AI 노트 실시간 요약 (스토어 스크린샷)" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+      </div>
       <div class="x">
         <div class="x-inner">
           <ul class="bullets">
@@ -480,7 +541,12 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
         <span class="yr">2026.03 – 2026.05</span>
       </div>
       <span class="org">SK Telecom</span>
-      <p class="desc">Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스 (TypeScript). <b>167 커밋</b>. Auto(차량 연동) 화면과 AI 노트 RN 전환을 담당했습니다.</p>
+      <p class="desc">Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스입니다 (TypeScript). <b>Auto(차량 연동) 화면과 AI 노트 RN 전환</b>을 담당했습니다.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="RN 전환 화면 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/adot-store-04.jpg" alt="에이닷 에이전트 채팅·메모리 화면" data-cap="RN 전환 화면 — 에이닷 에이전트 채팅·메모리 (스토어 스크린샷)" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+      </div>
       <div class="x">
         <div class="x-inner">
           <ul class="bullets">
@@ -503,7 +569,12 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
         <span class="yr">2025.03 – 2025.08</span>
       </div>
       <span class="org">SK Telecom</span>
-      <p class="desc">Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱. <b>Initial commit부터 시작한 리드 개발 (240 커밋, 전체의 41%)</b>.</p>
+      <p class="desc">Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱입니다. <b>Initial commit부터 시작해 리드 개발</b>을 맡았습니다.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="Tmap 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/tmap-store-01.jpg" alt="음성비서를 탑재한 Tmap 홈 화면" data-cap="Tmap x Adot — 음성비서 탑재 Tmap 홈 (스토어 스크린샷)" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+      </div>
       <div class="x">
         <div class="x-inner">
           <ul class="bullets">
@@ -522,17 +593,6 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
     </article>
 
     <!-- ══ Long tail projects ══ -->
-    <article class="tile s4 proj" data-tags="android">
-      <div class="proj-head">
-        <h3 class="t-title">TimeTree x Adot Android 샘플</h3>
-        <span class="yr">2025.03 – 2025.10</span>
-      </div>
-      <span class="org">SK Telecom</span>
-      <p class="desc">TimeTree 제휴 서비스용 Android 샘플 앱 (272 커밋).</p>
-      <p class="reveal">채팅 화면 개발 — Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션.</p>
-      <div class="proj-foot"><div class="chips"><span class="chip">Kotlin</span><span class="chip">Compose</span></div></div>
-    </article>
-
     <article class="tile s4 proj" data-tags="android voice platform">
       <div class="proj-head">
         <h3 class="t-title">Btv NUGU Android</h3>
@@ -540,6 +600,11 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
       </div>
       <span class="org">SK Telecom</span>
       <p class="desc">UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 탑재하는 Android 앱. 신규 디바이스(AI2 MAX, AI2 AndroidTv) 출시 & 유지보수.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="Btv NUGU 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/btv-nugu-01.jpg" alt="Btv NUGU Melon 음악 재생 TV 화면" data-cap="Btv NUGU — Melon 음악 재생 (TV UI)" width="900" height="506" loading="lazy" decoding="async">
+        </button>
+      </div>
       <p class="reveal">백그라운드 service component MVVM 적용 · 15개+ model flavor 빌드 효율화 — Fastlane 작성 & Jenkins 연동, 개발자 Debug mode 개발.</p>
       <div class="proj-foot"><div class="chips"><span class="chip">NUGU</span><span class="chip">Fastlane</span><span class="chip">Jenkins</span></div></div>
     </article>
@@ -551,6 +616,11 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
       </div>
       <span class="org">SK Telecom</span>
       <p class="desc">택시 승객앱 신규 기능 개발 & 유지보수 — 승객 호출 화면 전면 Renewal(첫화면/출발지/목적지/경로/결제).</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="Tmap Taxi 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 지도 위 출발지 핀 지정 화면" data-cap="Tmap Taxi — 지도 위 출발지 핀 지정" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+      </div>
       <p class="reveal">업무용 택시/법인카드 결제, SK pay 가입·카드연동·결제, 쿠폰 적용 · Java→Kotlin 전환, MVVM 적용 · Base/Tmap SDK/Network 모듈화, Fastlane build script + Slack 연동.</p>
       <div class="proj-foot"><div class="chips"><span class="chip">Kotlin</span><span class="chip">MVVM</span><span class="chip">SK pay</span></div></div>
     </article>
@@ -562,6 +632,11 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
       </div>
       <span class="org">SK Telecom</span>
       <p class="desc">NUGU AI 3rd party 서비스·디바이스 연결 지원 Android 앱. App Renewal 2.0 — 처음부터 재개발, Java→Kotlin 전환.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="NUGU Mobile 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU Mobile 홈 화면 — 날씨 카드와 이벤트 배너" data-cap="NUGU Mobile — 홈 날씨 카드·이벤트 배너" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+      </div>
       <p class="reveal">디바이스 연결(Bluetooth/AP/OTP/Broadcast) — AI Speaker·Btv, TID 연동 · Melon/Flo/오디오북 등 서비스 도메인 연결, Tmap 인터페이스 협의 · 전 화면 MVVM(RxKotlin, LiveData), DI(Koin), MockK 유닛테스트 · 2019 Google I/O 참여 & 사내 공유.</p>
       <div class="proj-foot"><div class="chips"><span class="chip">Kotlin</span><span class="chip">RxKotlin</span><span class="chip">Koin</span><span class="chip">MockK</span></div></div>
     </article>
@@ -573,6 +648,11 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
       </div>
       <span class="org">Tmon</span>
       <p class="desc">소셜커머스 Tmon Android 앱 전반 개발 — 카테고리 구조 개편·메인 첫화면(추천탭) Renewal, lazy loading으로 진입 속도 개선.</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="Tmon 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/tmon-01.jpg" alt="Tmon 메인 추천 첫화면" data-cap="Tmon — 메인 추천 첫화면" width="319" height="568" loading="lazy" decoding="async">
+        </button>
+      </div>
       <p class="reveal">Time Attack deal, 배송 상태 AppWidget, Custom view(Expandable GridView, Pull to Refresh) · Jenkins+Instrumentation test+Slack 자동화 테스트, EventBus 자체 개발 · 7개 tracking module 통합, ListView→RecyclerView 현대화.</p>
       <div class="proj-foot"><div class="chips"><span class="chip">Java</span><span class="chip">Jenkins</span><span class="chip">RecyclerView</span></div></div>
     </article>
@@ -583,20 +663,47 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
         <span class="yr">2017.01 – 2017.06</span>
       </div>
       <span class="org">Titan Platform</span>
-      <p class="desc">멀티미디어(Video/Webtoon) US향 앱을 개발 초기부터 참여 — 단일 Activity + 전 화면 Fragment 구조(like YouTube).</p>
+      <p class="desc">멀티미디어(Video/Webtoon) 서비스 US향 앱 개발에 초기부터 참여 — 단일 Activity + 전 화면 Fragment 구조(like YouTube).</p>
+      <div class="shots">
+        <button type="button" class="shot-btn" aria-label="Winvention 스크린샷 크게 보기">
+          <img class="shot" src="../assets/screens/winvention-01.jpg" alt="Winvention 홈 피드 화면" data-cap="Winvention — 홈 피드" width="506" height="900" loading="lazy" decoding="async">
+        </button>
+      </div>
       <p class="reveal">화면 이동 Movement 모듈 개발 · File upload Background Service, Jsoup+Volley 문서 파싱 · ExoPlayer custom + 자체 DRM(TCI) 적용 · KR향 검색 WebView→Data binding Native 전환(속도 개선), Firebase/FCM/IGAWorks 연동.</p>
       <div class="proj-foot"><div class="chips"><span class="chip">ExoPlayer</span><span class="chip">DRM</span><span class="chip">Firebase</span></div></div>
     </article>
 
     <article class="tile s4 proj" data-tags="android">
       <div class="proj-head">
-        <h3 class="t-title">Music Player & Audio Effect · Tag Editor</h3>
+        <h3 class="t-title">Music Player Android 앱</h3>
         <span class="yr">2011.01 – 2015.05</span>
       </div>
       <span class="org">Pantech</span>
-      <p class="desc">Pantech Android 디바이스 preload Music Player — 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응.</p>
-      <p class="reveal">Media Provider Framework 분석, Music DB/Albumart cache, AppWidget 2종+U+Box 위젯, Melon/OllehMusic/YouTube 연동 · Audio Effect: 사용자 설정 EQ, 장르별 Auto Preset, QSound/NXP 통합 · Tag Editor Java Library 자체 개발: MP3(ID3)/FLAC(Vorbis) spec 분석, TEXT/LYRICS/ALBUMART read/write, charset 자동 분석.</p>
-      <div class="proj-foot"><div class="chips"><span class="chip">Java</span><span class="chip">Media Framework</span><span class="chip">ID3·FLAC</span></div></div>
+      <p class="desc">Pantech Android 디바이스에 preload되는 Music Player 앱 — 국내 전 모델 + 일본/베트남/대만 디바이스 preload, Android 2.2~5.0 OS 업그레이드 대응.</p>
+      <p class="reveal">노래/앨범/음악가 등 각 탭 화면 개발, Media Provider Framework 분석 & Music DB 개발 · Albumart cache 구조 설계, 앱 공통 Thread 모듈, NDK 기반 중복 음원 검색 · StackView 등 AppWidget 2종 + U+Box 전용 AppWidget · Melon/OllehMusic/YouTube 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공.</p>
+      <div class="proj-foot"><div class="chips"><span class="chip">Java</span><span class="chip">Media Framework</span><span class="chip">NDK</span><span class="chip">AppWidget</span></div></div>
+    </article>
+
+    <article class="tile s4 proj" data-tags="android">
+      <div class="proj-head">
+        <h3 class="t-title">Audio Effect Android 앱</h3>
+        <span class="yr">2012.04 – 2015.05</span>
+      </div>
+      <span class="org">Pantech</span>
+      <p class="desc">음원 재생 관련 Audio Effect를 제공하는 앱 — 타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발.</p>
+      <p class="reveal">Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset · QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning.</p>
+      <div class="proj-foot"><div class="chips"><span class="chip">Java</span><span class="chip">Equalizer</span><span class="chip">QSound·NXP</span></div></div>
+    </article>
+
+    <article class="tile s4 proj" data-tags="android">
+      <div class="proj-head">
+        <h3 class="t-title">Tag Editor Library</h3>
+        <span class="yr">2013.03 – 2013.08</span>
+      </div>
+      <span class="org">Pantech</span>
+      <p class="desc">음원 Tag 영역을 Read/Write하는 Java 라이브러리 자체 개발 — Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용.</p>
+      <p class="reveal">MP3(ID3)/FLAC(Vorbis) Tag spec 분석, TEXT/LYRICS/ALBUMART read/write 개발 · Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발.</p>
+      <div class="proj-foot"><div class="chips"><span class="chip">Java</span><span class="chip">ID3·Vorbis</span><span class="chip">Charset</span></div></div>
     </article>
 
     <article class="tile s4 proj" data-tags="etc">
@@ -643,6 +750,19 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
   </main>
 </div>
 
+<dialog class="lb" id="lightbox" aria-label="프로젝트 스크린샷 크게 보기">
+  <figure>
+    <img class="lb-img" id="lb-img" alt="">
+    <figcaption class="lb-bar">
+      <span class="lb-cap" id="lb-cap"></span>
+      <span class="lb-ind" id="lb-ind" aria-live="polite"></span>
+    </figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="이전 스크린샷">←</button>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="다음 스크린샷">→</button>
+  <button type="button" class="lb-btn lb-x" id="lb-x" aria-label="닫기">×</button>
+</dialog>
+
 <script>
 (function () {
   // ── project filter ──
@@ -677,6 +797,52 @@ h2.t-title, .t-title { font-size: 18px; font-weight: 600; line-height: 1.35; let
       btn.textContent = open ? '접기' : '더 보기';
     });
   });
+
+  // ── screenshot lightbox ──
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var lbCap = document.getElementById('lb-cap');
+  var lbInd = document.getElementById('lb-ind');
+  var shotBtns = Array.prototype.slice.call(document.querySelectorAll('.shot-btn'));
+  var lbIdx = 0;
+  var lbTrigger = null;
+
+  function lbShow(i) {
+    lbIdx = (i + shotBtns.length) % shotBtns.length;
+    var img = shotBtns[lbIdx].querySelector('.shot');
+    var thumbSrc = img.getAttribute('src');
+    var name = thumbSrc.split('/').pop().replace(/\.[^.]+$/, '');
+    lbImg.onerror = function () { this.onerror = null; this.src = thumbSrc; };
+    lbImg.src = '../assets/screens/full/' + name + '.jpg';
+    lbImg.alt = img.alt;
+    lbCap.textContent = img.getAttribute('data-cap') || img.alt;
+    lbInd.textContent = (lbIdx + 1) + ' / ' + shotBtns.length;
+  }
+
+  if (lb && typeof lb.showModal === 'function' && shotBtns.length) {
+    shotBtns.forEach(function (btn, i) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        lbTrigger = btn;
+        lbShow(i);
+        lb.showModal();
+        document.documentElement.classList.add('lb-open');
+      });
+    });
+    document.getElementById('lb-prev').addEventListener('click', function () { lbShow(lbIdx - 1); });
+    document.getElementById('lb-next').addEventListener('click', function () { lbShow(lbIdx + 1); });
+    document.getElementById('lb-x').addEventListener('click', function () { lb.close(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); lbShow(lbIdx - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); lbShow(lbIdx + 1); }
+    });
+    lb.addEventListener('close', function () {
+      document.documentElement.classList.remove('lb-open');
+      lbImg.removeAttribute('src');
+      if (lbTrigger) { lbTrigger.focus(); lbTrigger = null; }
+    });
+  }
 })();
 </script>
 </body>

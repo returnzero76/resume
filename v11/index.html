@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강지환 · Jihwan Kang — Resume</title>
+<meta name="description" content="강지환(Jihwan Kang) — Software Engineer. Android · Cross-platform · AI Agent Platform. 2011년부터 Android를 개발해온 15년차 엔지니어의 이력서입니다.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="강지환 · Jihwan Kang — Resume">
+<meta property="og:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform. 15년간의 프로젝트를 GitHub 프로필처럼 정리했습니다.">
+<meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="강지환 · Jihwan Kang — Resume">
+<meta name="twitter:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform.">
+<meta name="twitter:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐙</text></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root,
+:root[data-theme="dark"]{
+  --canvas:#0d1117;
+  --subtle:#161b22;
+  --inset:#010409;
+  --fg:#e6edf3;
+  --muted:#8b949e;
+  --border:#30363d;
+  --border-soft:#21262d;
+  --accent:#58a6ff;
+  --green:#3fb950;
+  --btn:#21262d;
+  --btn-hover:#30363d;
+  --chip-bg:rgba(110,118,129,.25);
+  --tab:#fd8c73;
+  --shadow:0 8px 24px rgba(1,4,9,.75);
+  --hm0:#161b22; --hm1:#0e4429; --hm2:#006d32; --hm3:#26a641; --hm4:#39d353;
+  --hairline:rgba(255,255,255,.05);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --canvas:#ffffff;
+  --subtle:#f6f8fa;
+  --inset:#f6f8fa;
+  --fg:#1f2328;
+  --muted:#59636e;
+  --border:#d1d9e0;
+  --border-soft:#d1d9e0;
+  --accent:#0969da;
+  --green:#1a7f37;
+  --btn:#f6f8fa;
+  --btn-hover:#eef1f4;
+  --chip-bg:rgba(175,184,193,.2);
+  --tab:#fd8c73;
+  --shadow:0 8px 24px rgba(31,35,40,.16);
+  --hm0:#ebedf0; --hm1:#9be9a8; --hm2:#40c463; --hm3:#30a14e; --hm4:#216e39;
+  --hairline:rgba(27,31,36,.06);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scrollbar-gutter:stable}
+body{
+  margin:0;
+  background:var(--canvas);
+  color:var(--fg);
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,"Helvetica Neue","Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;
+}
+:root{--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+img{max-width:100%}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+#app:focus{outline:none}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--inset);padding:8px 14px;z-index:60;border-radius:0 0 6px 0}
+.skip:focus{left:0}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- top bar ---------- */
+.topbar{background:var(--inset);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:30}
+:root[data-theme="light"] .topbar{background:#f6f8fa}
+.topbar .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.mark{font-size:20px;line-height:1}
+.crumb{font-size:14px;color:var(--fg);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crumb a{color:var(--fg)}
+.crumb b{font-weight:600}
+.crumb .sep{color:var(--muted);margin:0 4px}
+.spacer{flex:1}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--btn);border:1px solid var(--border);color:var(--fg);border-radius:6px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:background .12s ease}
+.btn:hover{background:var(--btn-hover)}
+.btn svg{fill:currentColor}
+
+/* ---------- profile layout ---------- */
+.profile{display:grid;grid-template-columns:296px minmax(0,1fr);gap:24px;padding:24px 0 64px;align-items:start}
+.profile > *{min-width:0}
+.side{position:sticky;top:80px;min-width:0}
+.avatar{width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:50% 22%;border:1px solid var(--border);background:var(--subtle);display:block}
+.name{font-size:26px;font-weight:600;line-height:1.25;margin-top:16px}
+.login{font-size:20px;font-weight:300;color:var(--muted);line-height:1.25}
+.role{margin-top:12px;font-size:14px;color:var(--fg)}
+.bio{margin-top:8px;font-size:14px;color:var(--muted)}
+.meta{margin:16px 0 0;display:grid;gap:6px}
+.meta li{display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--muted)}
+.meta svg{fill:var(--muted);flex:none;margin-top:4px}
+.meta a{color:var(--fg)}
+.meta a:hover{color:var(--accent)}
+.side-h{font-size:14px;font-weight:600;margin:20px 0 8px;padding-top:20px;border-top:1px solid var(--border)}
+.orgs{display:flex;flex-wrap:wrap;gap:8px}
+.org{min-width:34px;height:34px;padding:0 9px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:700;letter-spacing:-.02em;background:var(--subtle);border:1px solid var(--border);color:var(--fg);cursor:default}
+.edu{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* ---------- boxes ---------- */
+.box{border:1px solid var(--border);border-radius:6px;background:var(--canvas);overflow:hidden}
+.box-head{display:flex;align-items:center;gap:8px;padding:8px 16px;background:var(--subtle);border-bottom:1px solid var(--border);font-size:14px;color:var(--muted)}
+.box-head svg{fill:var(--muted)}
+.box-head b{color:var(--fg);font-weight:600}
+.box-body{padding:24px 32px}
+.sec{margin-top:24px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px}
+.sec-head h2{font-size:14px;font-weight:600}
+.sec-head .hint{font-size:12px;color:var(--muted)}
+
+/* ---------- markdown ---------- */
+.md{font-size:15px;line-height:1.75}
+.md h2{font-size:22px;font-weight:600;padding-bottom:.3em;border-bottom:1px solid var(--border);margin:0 0 16px}
+.md h2 + p{margin-top:0}
+.md h3{font-size:17px;font-weight:600;margin:24px 0 8px}
+.md p{margin:0 0 12px}
+.md p:last-child{margin-bottom:0}
+.md ul.bullets{list-style:disc;padding-left:22px;margin:0 0 12px}
+.md ul.bullets li{margin:6px 0}
+.md strong{font-weight:600;color:var(--fg)}
+.md code{font-family:var(--mono);font-size:85%;background:var(--chip-bg);border-radius:6px;padding:.2em .4em}
+.tbl-wrap{overflow-x:auto;margin:16px 0}
+table.md-tbl{border-collapse:collapse;width:100%;font-size:13px}
+table.md-tbl th,table.md-tbl td{border:1px solid var(--border);padding:8px 13px;text-align:left;vertical-align:top}
+table.md-tbl th{background:var(--subtle);font-weight:600;white-space:nowrap}
+table.md-tbl tr:nth-child(2n) td{background:var(--subtle)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0 4px}
+.stat{border:1px solid var(--border);border-radius:6px;padding:10px 12px;background:var(--subtle)}
+.stat b{display:block;font-family:var(--mono);font-size:20px;font-weight:600;color:var(--fg);line-height:1.3}
+.stat span{font-size:11px;color:var(--muted)}
+
+/* ---------- pinned ---------- */
+.pins{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pin{position:relative;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:6px;background:var(--canvas);overflow:hidden;transition:border-color .12s ease}
+.pin-name::after{content:"";position:absolute;inset:0}
+.pin:hover{border-color:var(--muted)}
+.pin-body{padding:16px;flex:1 1 auto;display:flex;flex-direction:column;min-width:0}
+.pin-top{display:flex;align-items:center;gap:8px;min-width:0}
+.pin-top svg{fill:var(--muted);flex:none}
+.pin-name{color:var(--accent);font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pin-name:hover{text-decoration:underline}
+.chip{border:1px solid var(--border);border-radius:2em;padding:0 7px;font-size:12px;line-height:18px;color:var(--muted);white-space:nowrap;flex:none}
+.pin-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+.pin-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:12px;font-size:12px;color:var(--muted)}
+.lang{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid var(--hairline)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);height:120px}
+.strip.one{grid-template-columns:1fr}
+.strip img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block;background:var(--subtle)}
+.strip.one img{object-position:0% 0%}
+
+/* ---------- heatmap ---------- */
+.hm-scroll{overflow-x:auto;padding-bottom:4px}
+.hm{min-width:640px;max-width:640px;margin:0 auto}
+.brackets{position:relative;height:38px;margin-left:38px}
+.brk{position:absolute;height:13px;border:1px solid var(--border);border-bottom:0;border-radius:4px 4px 0 0}
+.brk span{position:absolute;left:50%;top:-9px;transform:translateX(-50%);background:var(--canvas);padding:0 5px;font-size:10px;line-height:16px;color:var(--muted);white-space:nowrap}
+.brk.r0{top:2px}
+.brk.r1{top:21px}
+.hm-grid{display:grid;grid-template-columns:38px repeat(17,minmax(13px,1fr));gap:3px}
+.hm-y{font-size:10px;color:var(--muted);text-align:center;font-family:var(--mono);letter-spacing:-.03em}
+.hm-m{font-size:10px;color:var(--muted);display:flex;align-items:center;justify-content:flex-end;padding-right:4px;font-family:var(--mono)}
+.cell{aspect-ratio:1;border-radius:2px;background:var(--hm0);box-shadow:inset 0 0 0 1px var(--hairline)}
+.cell.l1{background:var(--hm1)}
+.cell.l2{background:var(--hm2)}
+.cell.l3{background:var(--hm3)}
+.cell.l4{background:var(--hm4)}
+.hm-legend{display:flex;align-items:center;justify-content:flex-end;gap:4px;margin-top:12px;font-size:12px;color:var(--muted)}
+.hm-legend .cell{width:11px;height:11px;aspect-ratio:auto;border-radius:2px}
+.hm-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* ---------- repo list ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 4px}
+.fchip{background:transparent;border:1px solid var(--border);border-radius:2em;padding:3px 12px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:background .12s ease}
+.fchip:hover{background:var(--btn-hover)}
+.fchip[aria-pressed="true"]{background:var(--accent);border-color:transparent;color:var(--inset)}
+:root[data-theme="light"] .fchip[aria-pressed="true"]{color:#fff}
+.repo-list{border-top:1px solid var(--border);margin-top:16px}
+.repo-row{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--border)}
+.rr-main{flex:1 1 auto;min-width:0}
+.rr-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rr-name{font-size:18px;font-weight:600;color:var(--accent)}
+.rr-name:hover{text-decoration:underline}
+.rr-desc{font-size:13px;color:var(--muted);margin-top:4px}
+.rr-foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:8px;font-size:12px;color:var(--muted)}
+.rr-side{flex:none;font-size:12px;color:var(--muted);font-family:var(--mono);padding-top:4px}
+.empty{padding:32px 0;color:var(--muted);font-size:13px;text-align:center}
+
+/* ---------- repo detail ---------- */
+.repo-head{padding:16px 0 0;border-bottom:1px solid var(--border)}
+.repo-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:20px}
+.repo-title svg{fill:var(--muted)}
+.repo-title .owner{color:var(--accent);font-weight:400}
+.repo-title .slash{color:var(--muted)}
+.repo-title b{font-weight:600}
+.tabs{display:flex;gap:8px;margin-top:16px;overflow-x:auto}
+.tab{display:inline-flex;align-items:center;gap:8px;padding:8px 8px 10px;font-size:14px;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap}
+.tab svg{fill:currentColor}
+.tab.on{color:var(--fg);font-weight:600;border-bottom-color:var(--tab)}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) 296px;gap:24px;padding:24px 0 64px;align-items:start}
+.detail > *{min-width:0}
+.about{position:sticky;top:80px}
+.about h3{font-size:14px;font-weight:600;margin-bottom:8px}
+.about p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.topic{background:var(--chip-bg);color:var(--accent);border-radius:2em;padding:0 10px;font-size:12px;line-height:22px;font-weight:500}
+.about-rows{border-top:1px solid var(--border);padding-top:12px;display:grid;gap:8px}
+.about-rows div{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.about-rows svg{fill:var(--muted);flex:none;margin-top:3px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 20px}
+.badge{display:inline-flex;border-radius:3px;overflow:hidden;font-family:var(--mono);font-size:11px;line-height:20px;font-weight:600}
+.badge b{background:#3f4550;color:#fff;padding:0 7px;font-weight:600}
+.badge i{padding:0 7px;font-style:normal;color:#fff}
+.readme-h1{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:600;padding-bottom:.3em;border-bottom:1px solid var(--border);margin-bottom:4px}
+.readme-h1 svg{fill:var(--muted);flex:none}
+.readme-sub{font-size:14px;color:var(--muted);margin-top:8px}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 8px}
+.shot{margin:0;min-width:0}
+.shot.wide{grid-column:1/-1}
+.shot-btn{display:block;width:100%;padding:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--subtle);cursor:zoom-in;line-height:0}
+.shot-btn:hover{border-color:var(--muted)}
+.shot-btn img{width:100%;height:auto;display:block}
+.shot figcaption{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.45}
+.shot-note{font-size:12px;color:var(--muted);margin:8px 0 0;padding-left:2px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:13px}
+.pager a{display:inline-flex;gap:6px;align-items:center;max-width:48%}
+.pager .lbl{color:var(--muted);display:block;font-size:11px}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin:20px 0 0}
+.back svg{fill:currentColor}
+.back:hover{color:var(--accent)}
+
+/* ---------- lightbox ---------- */
+dialog#lb{width:92vw;max-width:1280px;height:86vh;padding:0;border:1px solid var(--border);border-radius:6px;background:var(--canvas);color:var(--fg);box-shadow:var(--shadow)}
+dialog#lb::backdrop{background:rgba(1,4,9,.75)}
+:root[data-theme="light"] dialog#lb::backdrop{background:rgba(31,35,40,.55)}
+.lb-bar{display:flex;align-items:center;gap:12px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--subtle);height:48px}
+.lb-cap{flex:1;min-width:0;font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.icon-btn{display:grid;place-items:center;width:30px;height:30px;border-radius:6px;border:1px solid transparent;background:transparent;cursor:pointer}
+.icon-btn:hover{background:var(--btn-hover);border-color:var(--border)}
+.icon-btn svg{fill:var(--fg)}
+.lb-stage{position:relative;height:calc(86vh - 48px);display:grid;place-items:center;padding:16px 56px;background:var(--inset)}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:4px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--canvas);display:grid;place-items:center;cursor:pointer}
+.lb-nav:hover{background:var(--btn-hover)}
+.lb-nav svg{fill:var(--fg)}
+.lb-nav.prev{left:10px}
+.lb-nav.next{right:10px}
+.lb-nav[hidden]{display:none}
+
+/* ---------- footer ---------- */
+footer.site{border-top:1px solid var(--border);padding:24px 0 40px;font-size:12px;color:var(--muted)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center}
+
+@media (max-width:1012px){
+  .profile{grid-template-columns:1fr;gap:16px}
+  .side{position:static}
+  .avatar{width:140px}
+  .name{margin-top:12px}
+  .detail{grid-template-columns:1fr}
+  .about{position:static;order:-1;border:1px solid var(--border);border-radius:6px;padding:16px}
+  .box-body{padding:20px}
+}
+@media (max-width:768px){
+  .wrap{padding:0 16px}
+  .pins{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shots{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .avatar{width:110px}
+  .name{font-size:22px}
+  .repo-row{flex-direction:column;gap:4px}
+  .rr-side{padding-top:0}
+  .lb-stage{padding:12px 44px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+@media print{
+  .topbar,.filters,.pager,dialog#lb{display:none!important}
+  .profile,.detail{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">🐙</span>
+    <span class="crumb"><a href="#/">returnzero76</a><span class="sep">/</span><b id="crumb-repo">resume</b></span>
+    <span class="spacer"></span>
+    <button class="btn" id="theme-btn" type="button">
+      <span id="theme-icon" aria-hidden="true"></span>
+      <span id="theme-label">Light</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap"><div id="app" tabindex="-1"></div></div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 강지환 · Jihwan Kang</span>
+    <a href="mailto:jihwan76@gmail.com">jihwan76@gmail.com</a>
+    <a href="https://github.com/returnzero76" rel="noopener">github.com/returnzero76</a>
+  </div>
+</footer>
+
+<dialog id="lb" aria-label="스크린샷 확대 보기">
+  <div class="lb-bar">
+    <span class="lb-cap" id="lb-cap"></span>
+    <span class="lb-cap" id="lb-count" style="flex:none"></span>
+    <button class="icon-btn" id="lb-close" type="button" aria-label="닫기 (Esc)"></button>
+  </div>
+  <div class="lb-stage">
+    <button class="lb-nav prev" id="lb-prev" type="button" aria-label="이전 스크린샷"></button>
+    <img id="lb-img" alt="">
+    <button class="lb-nav next" id="lb-next" type="button" aria-label="다음 스크린샷"></button>
+  </div>
+</dialog>
+
+<script>
+"use strict";
+
+/* ============================ icons ============================ */
+var I = {
+  repo: 'M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z',
+  book: 'M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z',
+  code: 'm11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z',
+  loc: 'm12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z',
+  mail: 'M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88Z',
+  link: 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z',
+  bldg: 'M1.75 16A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 0 0 .25-.25V8.285a.25.25 0 0 0-.111-.208l-1.055-.703a.749.749 0 1 1 .832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0 1 14.25 16h-3.5a.766.766 0 0 1-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 0 1-.75-.75V14h-1v1.25a.75.75 0 0 1-.75.75Zm-.25-1.75c0 .138.112.25.25.25H4v-1.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v1.25h2.25a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25ZM3.75 6h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 3.75A.75.75 0 0 1 3.75 3h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 3.75Zm4 3A.75.75 0 0 1 7.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 7 6.75ZM7.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 9.75A.75.75 0 0 1 3.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 9.75ZM7.75 9h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z',
+  clock: 'M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z',
+  x: 'M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z',
+  cl: 'M9.78 12.78a.75.75 0 0 1-1.06 0L4.47 8.53a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L6.06 8l3.72 3.72a.75.75 0 0 1 0 1.06Z',
+  cr: 'M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z',
+  al: 'M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 1.06L4.81 7.25h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z',
+  sun: 'M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-1.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm5.657-8.157a.75.75 0 0 1 0 1.061l-1.061 1.06a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.06-1.06a.75.75 0 0 1 1.06 0Zm-9.193 9.193a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0ZM8 0a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 8 0ZM3 8a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 3 8Zm13 0a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 16 8Zm-8 5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 13ZM2.343 2.343a.75.75 0 0 1 1.061 0l1.06 1.061a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-1.06-1.06a.75.75 0 0 1 0-1.06Zm9.193 9.193a.75.75 0 0 1 1.06 0l1.061 1.06a.75.75 0 0 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 0-1.061Z',
+  moon: 'M9.598 1.591a.749.749 0 0 1 .785-.175 7.001 7.001 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786Zm1.616 1.945a7 7 0 0 1-7.678 7.678 5.499 5.499 0 1 0 7.678-7.678Z'
+};
+function svg(k, size){
+  var s = size || 16;
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="' + s + '" height="' + s + '" aria-hidden="true"><path d="' + I[k] + '"></path></svg>';
+}
+function esc(s){
+  return String(s).replace(/[&<>"]/g, function(c){
+    return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c];
+  });
+}
+
+/* ============================ data ============================ */
+var NOW = [2026, 8];
+var LANG_COLOR = { Kotlin:'#A97BFF', TypeScript:'#3178c6', Go:'#00ADD8', Java:'#b07219', C:'#555555' };
+var SRC = '../assets/screens/';
+
+var ADOT_SHOTS = [
+  { f:'adot-store-01.jpg', w:506, h:900, alt:'에이닷 앱 소개 화면 — "일상을 간편하게, 나만의 AI 개인비서 에이닷"', cap:'앱 소개 — AI 개인비서 에이닷' },
+  { f:'adot-store-02.jpg', w:506, h:900, alt:'에이닷 AI 노트 화면 — 실시간 요약 탭과 받아쓰기 탭', cap:'AI 노트 — 실시간 요약 / 받아쓰기' },
+  { f:'adot-store-03.jpg', w:506, h:900, alt:'에이닷 브리핑 화면 — 오늘의 주요 일정과 추천 콘텐츠', cap:'브리핑 — 오늘의 일정·추천 콘텐츠' },
+  { f:'adot-store-04.jpg', w:506, h:900, alt:'에이닷 에이전트 대화 화면 — 메모리 관리와 장소 추천 응답', cap:'에이전트 대화 — 메모리 관리' },
+  { f:'adot-store-05.jpg', w:506, h:900, alt:'에이닷 캘린더 화면 — 월간 일정 그리드', cap:'캘린더 — 월간 일정' },
+  { f:'adot-store-06.jpg', w:506, h:900, alt:'에이닷 할일 화면 — AI 체크리스트가 포함된 할일 목록', cap:'할일 — AI 체크리스트' }
+];
+var TMAP_SHOTS = [
+  { f:'tmap-store-01.jpg', w:506, h:900, alt:'Tmap 앱 소개 화면 — "스마트한 이동 생활의 시작"', cap:'앱 소개 — 이동을 넘어 일상으로' },
+  { f:'tmap-store-02.jpg', w:506, h:900, alt:'Tmap 홈 화면 — 검색바와 서비스 아이콘 그리드', cap:'홈 — 검색·서비스 진입' },
+  { f:'tmap-store-03.jpg', w:506, h:900, alt:'Tmap 숏폼 홈 화면 — 장소 영상 카드 그리드', cap:'숏폼 — 장소 영상' },
+  { f:'tmap-store-04.jpg', w:506, h:900, alt:'Tmap 차꾸미기 화면 — 차 아이콘 스토어', cap:'차꾸미기 — 차 아이콘 스토어' },
+  { f:'tmap-store-05.jpg', w:506, h:900, alt:'Tmap 오픈 프로필 화면 — 저장 장소와 숏폼·리뷰 목록', cap:'오픈 프로필 — 저장·리뷰' },
+  { f:'tmap-store-06.jpg', w:506, h:900, alt:'Tmap 주행 화면 — 실시간 도로 상황 소셜 제보', cap:'주행 — 실시간 소셜 제보' }
+];
+
+var REPOS = [
+  {
+    slug:'agent-os', name:'agent-os', full:'Agent OS — AI Agent 거버넌스 플랫폼',
+    company:'SK Telecom', period:'2026.06 ~ 현재', from:[2026,6], to:null,
+    lang:'Go', cats:['backend'],
+    one:'AI Agent 등록·추적·통제 거버넌스 플랫폼 — Go control-plane observability pod 개발',
+    desc:'조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼입니다. Go 백엔드와 Next.js 콘솔로 구성된 모노레포에서 observability pod와 스펙 주도 개발 자동화를 맡고 있습니다.',
+    stack:'Go · Next.js · Langfuse', platform:'Backend · Web Console',
+    topics:['go','nextjs','ai-agent','observability','langfuse','speckit','bdd'],
+    imgs:[{ f:'agent-os-01.svg', w:900, h:620, alt:'Agent OS 아키텍처 개요 — A. Console(Next.js), agentos-gateway(Go), control-plane(Go), data-plane(Go), speckit 워크플로', cap:'Agent OS 아키텍처 개요 — control-plane / data-plane / 콘솔 / speckit 워크플로' }],
+    work:[
+      'Go 백엔드(control-plane) observability pod 개발: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)',
+      'Next.js 콘솔 model-evaluation 화면 개발 및 리팩토링, flaky test 근본 해결',
+      'Speckit 기반 스펙 주도 개발 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화',
+      'agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등'
+    ],
+    results:[]
+  },
+  {
+    slug:'adot-android', name:'adot-android', full:'에이닷 A. Android 앱',
+    company:'SK Telecom', period:'2022.05 ~ 현재', from:[2022,5], to:null,
+    lang:'Kotlin', cats:['android','rn'],
+    one:'SKT AI 개인비서 ‘에이닷’ Android 클라이언트 — 대규모 멀티모듈을 4년간 지속 개발',
+    desc:'SKT AI 개인비서 ‘에이닷’의 Android 클라이언트입니다. app/feature/domain/data/core로 나뉜 대규모 멀티모듈 프로젝트를 4년간 지속 개발하고 있습니다.',
+    stack:'Kotlin · Compose · Coroutines', platform:'Android',
+    topics:['kotlin','jetpack-compose','multi-module','mvvm','workmanager','react-native','ci-cd','testing'],
+    imgs:ADOT_SHOTS,
+    imgNote:'Google Play 스토어에 공개된 에이닷 A. 앱 화면입니다.',
+    work:[
+      '<strong>AI 노트 도메인 리드 (2025.08~)</strong>: 통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발',
+      '<strong>React Native 하이브리드 전환 (2026)</strong>: New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow+ReactViewModel+ReactFragment+라우팅), 전환 후 레거시 Native 코드 정리',
+      '<strong>게임 서비스 (2022~2024, 최대 기여 영역)</strong>: 게임홈/리스트/상세/리더보드 전체 개발, XML→Compose 전면 전환(Material3 제약 해결, Foldable 대응 nestedScroll 경합 회피)',
+      '<strong>AI 포토 (2024)</strong>: 프로필 이미지 생성 플로우, 외부 이미지 생성 SDK 연동, UiState 세분화',
+      '<strong>A.tv (2022~2025)</strong>: 외부 AAR SDK v0.0.7→v244+ 수십 차례 통합, 본인인증 flow, PIP/폴더블/멀티윈도우 대응',
+      '<strong>WebView 플랫폼 공통화</strong>: webkit 모듈 설계(WebResultProvider, permission/activity result), 영어학습 JS Bridge, 딥링크 도메인 검증 등 보안 이슈 해결',
+      '<strong>테스트 인프라 구축 (2024.11~2025.03)</strong>: UnitTest report 통합 시스템, Kover coverage 룰셋, CI 파이프라인 테스트 옵션, Slack 알림 연동',
+      '<strong>CI 자동화 (2026)</strong>: js submodule pointer 무결성 검사, 자동 bump Pipeline Schedule, Debug 빌드 API 프록시 개발자 메뉴',
+      '<strong>AI 개발 워크플로 도입 (2026)</strong>: Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발'
+    ],
+    results:[]
+  },
+  {
+    slug:'adot-react-native', name:'adot-react-native', full:'adot-react-native — 에이닷 공용 RN 워크스페이스',
+    company:'SK Telecom', period:'2026.03 ~ 2026.05', from:[2026,3], to:[2026,5],
+    lang:'TypeScript', cats:['rn'],
+    one:'에이닷 공용 RN 워크스페이스 — Android/iOS 본체에 submodule로 embed되는 TypeScript 코드베이스',
+    desc:'Android/iOS 본체에 submodule로 embed되는 에이닷 크로스플랫폼 공용 코드베이스입니다. Auto 화면과 AI 노트를 React Native로 구현했습니다.',
+    stack:'TypeScript · React Native · Expo', platform:'Android · iOS',
+    topics:['typescript','react-native','turbomodule','expo','design-system','gesture-handler','a11y'],
+    imgs:[ADOT_SHOTS[3], ADOT_SHOTS[1], ADOT_SHOTS[5]],
+    imgNote:'RN 워크스페이스가 submodule로 embed되는 본체 앱, 에이닷 A.의 공개 스토어 화면입니다.',
+    work:[
+      'Auto(차량 연동) RN 화면 3종 전면 구현: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결',
+      'AI 노트 RN 전환: 공용 noteList 컴포넌트/훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)',
+      'Pull-to-Refresh 제스처 경합 해결: RNGH PanGestureHandler 기반 재구현 → design-system 공용 컴포넌트로 승격',
+      'Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입'
+    ],
+    results:[]
+  },
+  {
+    slug:'tmap-adot-voice', name:'tmap-adot-voice', full:'Tmap x Adot 음성비서 마이그레이션',
+    company:'SK Telecom', period:'2025.03 ~ 2025.08', from:[2025,3], to:[2025,8],
+    lang:'Kotlin', cats:['android','voice'],
+    one:'Tmap 음성비서 NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱 — Initial commit부터 리드 개발',
+    desc:'Tmap 앱에 탑재된 음성비서를 NUGU에서 에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱입니다. Initial commit부터 시작해 리드 개발했습니다.',
+    stack:'Kotlin · NUGU SDK · Lottie', platform:'Android',
+    topics:['kotlin','nugu-sdk','voice-assistant','wake-up-word','lottie','clean-architecture'],
+    imgs:TMAP_SHOTS,
+    imgNote:'마이그레이션 대상 서비스인 Tmap의 공개 스토어 화면입니다. 샘플 앱 자체는 파트너사 참조용 비공개 코드베이스입니다.',
+    work:[
+      '신규 프로젝트 0→1 부트스트랩: core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합',
+      'NUGU SDK 통합·커스터마이징: SpeechRecognizer trigger, AudioSpeaker custom, 멀티턴 상태머신 이슈 해결',
+      'Wake-up Word 엔진 적용(멀티 트리거 모델), EPD Timeout 튜닝',
+      'VoiceChrome(음성 UI) 구현: Lottie 상태별 애니메이션, 유지 정책, TmapCommand Directive viewer, 발화가이드 Chips'
+    ],
+    results:[
+      '5개월간 v0.3.0→v1.12.0 10회+ 배포',
+      '파트너사 참조용 코드 품질 관리 + Confluence 연동 가이드 문서 저술 (Sample Guide 위키 10여 페이지)'
+    ]
+  },
+  {
+    slug:'btv-nugu', name:'btv-nugu-android', full:'Btv NUGU Android',
+    company:'SK Telecom', period:'2020.11 ~ 2022.04', from:[2020,11], to:[2022,4],
+    lang:'Kotlin', cats:['android','voice'],
+    one:'Btv 디바이스용 NUGU Android 앱 — 신규 디바이스 출시와 15개+ model flavor 빌드 효율화',
+    desc:'Btv 내에서 NUGU를 사용하기 위한 Android 앱입니다. UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 탑재했습니다.',
+    stack:'Kotlin · NUGU SDK · Fastlane', platform:'Android TV · Set-top',
+    topics:['kotlin','android-tv','nugu-sdk','mvvm','fastlane','jenkins'],
+    imgs:[
+      { f:'btv-nugu-01.jpg', w:900, h:506, alt:'Btv NUGU Melon 음악 재생 화면 — TV UI의 앨범아트와 재생바', cap:'Melon 음악 재생 (TV UI)' },
+      { f:'btv-nugu-02.jpg', w:900, h:506, alt:'Btv NUGU 음성 검색 결과 화면 — "무한도전" 콘텐츠 리스트', cap:'음성 검색 결과 목록' }
+    ],
+    work:[
+      '신규 디바이스 출시(AI2 MAX, AI2 AndroidTv) & 유지보수',
+      '백그라운드 service component MVVM 적용',
+      'Fastlane 작성 & Jenkins 연동으로 빌드 파이프라인 구성, 개발자 Debug mode 개발'
+    ],
+    results:[
+      '15개+ model flavor 빌드 효율화',
+      'UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU 탑재'
+    ]
+  },
+  {
+    slug:'tmap-taxi', name:'tmap-taxi-android', full:'Tmap Taxi Android',
+    company:'SK Telecom', period:'2020.03 ~ 2020.11', from:[2020,3], to:[2020,11],
+    lang:'Kotlin', cats:['android'],
+    one:'택시 승객앱 — 결제 도메인 개발, 호출 화면 전면 Renewal, Java→Kotlin 전환',
+    desc:'택시 승객앱의 신규 기능 개발과 유지보수를 담당했습니다. 결제 도메인과 승객 호출 화면 전면 Renewal을 진행했습니다.',
+    stack:'Kotlin · MVVM · Fastlane', platform:'Android',
+    topics:['kotlin','mvvm','payment','modularization','fastlane','mobility'],
+    imgs:[
+      { f:'tmap-taxi-01.jpg', w:506, h:900, alt:'Tmap Taxi 지도 위 출발지 핀 지정 화면', cap:'출발지 지정' },
+      { f:'tmap-taxi-02.jpg', w:506, h:900, alt:'Tmap Taxi 차종 선택·결제 방식·예상금액 호출 화면', cap:'차종 선택·결제·예상금액' },
+      { f:'tmap-taxi-03.jpg', w:506, h:900, alt:'Tmap Taxi 경로 확인·요금 비교 화면', cap:'경로 확인·요금 비교' }
+    ],
+    work:[
+      '업무용 택시/법인카드 결제, SK pay 가입·카드연동·결제, 쿠폰 적용 개발',
+      '승객 호출 화면 전면 Renewal(첫화면/출발지/목적지/경로/결제), Java→Kotlin 전환, MVVM 적용',
+      'Base/Tmap SDK/Network 모듈화, Fastlane build script + Slack 연동'
+    ],
+    results:[]
+  },
+  {
+    slug:'nugu-mobile', name:'nugu-ai-mobile', full:'NUGU AI Mobile Android',
+    company:'SK Telecom', period:'2018.04 ~ 2020.11', from:[2018,4], to:[2020,11],
+    lang:'Kotlin', cats:['android','voice'],
+    one:'NUGU 디바이스·서비스 연결 Android 앱 — App Renewal 2.0 재개발, 전 화면 MVVM 전환',
+    desc:'NUGU AI 서비스용 3rd party 서비스 연결과 디바이스 연결을 지원하는 Android 앱입니다. App Renewal 2.0을 처음부터 재개발했습니다.',
+    stack:'Kotlin · RxKotlin · Koin', platform:'Android',
+    topics:['kotlin','mvvm','rxkotlin','koin','bluetooth','mockk','voice-assistant'],
+    imgs:[
+      { f:'nugu-mobile-01.jpg', w:506, h:900, alt:'NUGU AI Mobile 홈 화면 — 날씨 카드와 이벤트 배너', cap:'홈 — 날씨 카드·이벤트' },
+      { f:'nugu-mobile-02.jpg', w:506, h:900, alt:'NUGU AI Mobile 디바이스 선택 화면 — 연결할 NUGU 디바이스 목록', cap:'디바이스 연결 선택' },
+      { f:'nugu-mobile-03.jpg', w:506, h:900, alt:'NUGU AI Mobile NUGU call 연락처 목록 화면', cap:'NUGU call 연락처' }
+    ],
+    work:[
+      'App Renewal 2.0: 처음부터 재개발, Java→Kotlin 전환',
+      '디바이스 연결(Bluetooth/AP/OTP/Broadcast) — AI Speaker, Btv 등, TID 연동',
+      'Melon/Flo/오디오북 등 멀티미디어·쇼핑·금융 서비스 도메인 연결, Tmap 인터페이스 협의/개발',
+      'Base/Call/App 모듈 분리, 전 화면 MVVM(RxKotlin, LiveData), DI(Koin), MockK 도입 & 유닛테스트'
+    ],
+    results:['2019 Google I/O 참여 & 사내 공유']
+  },
+  {
+    slug:'tmon-android', name:'tmon-android', full:'Tmon Android',
+    company:'Tmon', period:'2015.06 ~ 2017.01, 2017.06 ~ 2018.03', from:[2015,6], to:[2018,3],
+    lang:'Java', cats:['android'],
+    one:'소셜커머스 Tmon Android 앱 — 카테고리/메인 Renewal, 자동화 테스트 구축',
+    desc:'소셜커머스 Tmon Android 앱 전반을 개발했습니다. 쇼핑 카테고리 구조와 메인 첫화면 Renewal을 각각 3개월간 진행했습니다.',
+    stack:'Java · Jenkins · EventBus', platform:'Android',
+    topics:['java','e-commerce','jenkins','appwidget','custom-view','refactoring'],
+    imgs:[
+      { f:'tmon-01.jpg', w:319, h:568, alt:'Tmon 메인 추천 첫화면 — 슈퍼 어벤저스 배너', cap:'메인 추천 첫화면' },
+      { f:'tmon-02.jpg', w:319, h:568, alt:'Tmon 전체 카테고리 화면', cap:'전체 카테고리' }
+    ],
+    imgNote:'2018년 경력기술서에 임베드된 원본(319x568)이라 해상도가 낮습니다.',
+    work:[
+      '쇼핑 카테고리 구조 개편 Renewal(3개월), 메인 첫화면(추천탭) Renewal(3개월) — lazy loading으로 진입 속도 개선',
+      'Time Attack deal, 배송 상태 AppWidget, Custom view(Expandable GridView, Pull to Refresh 등)',
+      'Jenkins+Instrumentation test+Slack 자동화 테스트(원클릭 결과 공유), EventBus 자체 개발',
+      'SharedPreference 분리·commit 최소화, 7개 tracking module 통합 리팩토링, ListView→RecyclerView 등 컴포넌트 현대화'
+    ],
+    results:[]
+  },
+  {
+    slug:'winvention', name:'winvention', full:'Winvention US/KR',
+    company:'Titan Platform', period:'2017.01 ~ 2017.06', from:[2017,1], to:[2017,6],
+    lang:'Java', cats:['android'],
+    one:'Video/Webtoon 멀티미디어 US·KR 앱 — 단일 Activity 구조, ExoPlayer custom + 자체 DRM',
+    desc:'멀티미디어(Video/Webtoon) 서비스의 US향 앱을 개발 초기부터 참여했습니다.',
+    stack:'Java · ExoPlayer · Volley', platform:'Android',
+    topics:['java','exoplayer','drm','fragment','firebase','data-binding'],
+    imgs:[
+      { f:'winvention-01.jpg', w:506, h:900, alt:'Winvention 홈 피드 화면 — Disney "미녀와 야수" 콘텐츠', cap:'홈 피드' },
+      { f:'winvention-02.jpg', w:506, h:900, alt:'Winvention 동영상 재생·태그·댓글 화면', cap:'동영상 재생·댓글' },
+      { f:'winvention-03.jpg', w:506, h:900, alt:'Winvention 채널 Featured 목록 화면', cap:'채널 Featured' }
+    ],
+    work:[
+      '단일 Activity + 전 화면 Fragment 구조(like YouTube), 화면 이동 Movement 모듈 개발',
+      'File upload Background Service, Jsoup+Volley 문서 파싱, ExoPlayer custom + 자체 DRM(TCI) 적용',
+      'KR향: 검색 WebView→Data binding Native 전환(속도 개선), Firebase/FCM/IGAWorks 연동'
+    ],
+    results:[]
+  },
+  {
+    slug:'audio-effect', name:'audio-effect', full:'Audio Effect Android 앱',
+    company:'Pantech', period:'2012.04 ~ 2015.05', from:[2012,4], to:[2015,5],
+    lang:'Java', cats:['android'],
+    one:'음원 재생 Audio Effect 앱 — Equalizer·Auto Preset, 3rd party 라이브러리 통합',
+    desc:'음원 재생 관련 Audio Effect를 제공하는 앱을 개발했습니다.',
+    stack:'Java · QSound · NXP', platform:'Android',
+    topics:['java','audio','equalizer','sdk-integration','multimedia'],
+    imgs:[],
+    work:[
+      'Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발',
+      'QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning'
+    ],
+    results:['타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발']
+  },
+  {
+    slug:'music-player', name:'music-player', full:'Music Player Android 앱',
+    company:'Pantech', period:'2011.01 ~ 2015.05', from:[2011,1], to:[2015,5],
+    lang:'Java', cats:['android'],
+    one:'Pantech 디바이스 preload 뮤직 플레이어 — Music DB·앨범아트 캐시·AppWidget·온라인 연동',
+    desc:'Pantech Android 디바이스에 preload되는 Music Player 앱을 개발했습니다.',
+    stack:'Java · NDK · Media Provider', platform:'Android (preload)',
+    topics:['java','ndk','media-provider','appwidget','cache','multimedia'],
+    imgs:[],
+    work:[
+      '노래/앨범/음악가 등 각 탭 화면 개발, Android Media Provider Framework 분석 & Music DB 관련 개발',
+      'Albumart cache 구조 설계, 앱 공통 Thread 모듈 구현, NDK 기반 중복 음원 검색 기능 개발',
+      'StackView 등 AppWidget 2종 + U+Box 전용 AppWidget 개발',
+      'Melon/OllehMusic/YouTube 온라인 서비스 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공'
+    ],
+    results:[
+      '국내 전모델 + 일본/베트남/대만 디바이스 preload',
+      'Android 2.2~5.0 OS 업그레이드 대응'
+    ]
+  },
+  {
+    slug:'tag-editor', name:'tag-editor', full:'Tag Editor Library',
+    company:'Pantech', period:'2013.03 ~ 2013.08', from:[2013,3], to:[2013,8],
+    lang:'Java', cats:['android'],
+    one:'음원 Tag Read/Write Java 라이브러리 — ID3/Vorbis spec 분석, charset 자동 판별',
+    desc:'음원 Tag 영역을 Read/Write하는 Java 라이브러리를 자체 개발했습니다.',
+    stack:'Java · ID3 · Vorbis', platform:'Java Library',
+    topics:['java','library','id3','flac','charset','multimedia'],
+    imgs:[],
+    work:[
+      'MP3(ID3)/FLAC(Vorbis) Tag spec 분석, TEXT/LYRICS/ALBUMART read/write 기능 개발',
+      'Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발'
+    ],
+    results:['Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용']
+  },
+  {
+    slug:'lg-bluray', name:'bluray-player-sw', full:'Blu-ray Player SW (인턴)',
+    company:'LG Electronics', period:'2010.09 ~ 2010.12', from:[2010,9], to:[2010,12],
+    lang:'C', cats:[], intern:true,
+    one:'Blu-ray player 디바이스 SW(C) — Text 표시 UI, 다국어 지원, Turnkey base 모델',
+    desc:'Blu-ray player 디바이스 SW를 개발한 인턴 프로젝트입니다. 커리어의 첫 임베디드 개발 경험이었습니다.',
+    stack:'C · Embedded', platform:'Blu-ray Player Device',
+    topics:['c','embedded','i18n','device-sw'],
+    imgs:[],
+    work:[
+      'Blu-ray player device SW: Text 표시 UI 개발(C)',
+      '다국어 지원 추가',
+      'Turnkey base 모델 작업'
+    ],
+    results:[]
+  }
+];
+
+var PINNED = ['adot-android','agent-os','adot-react-native','tmap-adot-voice','nugu-mobile','tmap-taxi'];
+
+var TENURES = [
+  { label:'LG',         name:'LG Electronics · 2010.09 ~ 2010.12 · 인턴',        a:[2010,9],  b:[2010,12], row:1 },
+  { label:'Pantech',    name:'Pantech · 2011.01 ~ 2015.05 · 전임연구원',          a:[2011,1],  b:[2015,5],  row:0 },
+  { label:'Tmon',       name:'Tmon · 2015.06 ~ 2017.01 · Assistant Manager',     a:[2015,6],  b:[2017,1],  row:0 },
+  { label:'Titan',      name:'Titan Platform · 2017.01 ~ 2017.06 · Manager',     a:[2017,1],  b:[2017,6],  row:1 },
+  { label:'Tmon',       name:'Tmon · 2017.06 ~ 2018.03 · Assistant Manager',     a:[2017,6],  b:[2018,3],  row:0 },
+  { label:'SK Telecom', name:'SK Telecom · 2018.04 ~ 현재 · Manager',            a:[2018,4],  b:[2026,8],  row:0 }
+];
+
+var ORGS = [
+  { i:'SKT',     t:'SK Telecom · 2018.04 ~ 현재' },
+  { i:'Tmon',    t:'Tmon · 2015.06 ~ 2017.01, 2017.06 ~ 2018.03' },
+  { i:'Titan',   t:'Titan Platform · 2017.01 ~ 2017.06' },
+  { i:'Pantech', t:'Pantech · 2011.01 ~ 2015.05' },
+  { i:'LG',      t:'LG Electronics · 2010.09 ~ 2010.12' }
+];
+
+var SKILLS = [
+  ['Languages', 'Kotlin, TypeScript, Java, Go'],
+  ['Android', 'Jetpack Compose, Coroutines/Flow, Hilt/Koin, 멀티모듈 Clean Architecture(MVVM+UseCase), WorkManager, Navigation/DeepLink, ExoPlayer, Room, Paging'],
+  ['Cross-platform', 'React Native (New Architecture — TurboModule/Codegen), Expo, react-native-gesture-handler, feature-sliced design-system'],
+  ['Voice AI', 'NUGU SDK(ASR/TTS/Directive/Agent), Wake-up Word 엔진, VoiceChrome UI'],
+  ['Web/Backend', 'Next.js, Go(Huma API), Langfuse 관측성 연동'],
+  ['CI/CD &amp; Quality', 'GitLab CI, Jenkins, Fastlane, Kover(coverage), detekt, JUnit/MockK/Espresso, ProGuard, Gradle Version Catalog'],
+  ['AI Developer Tools', 'Claude Code 커스텀 파이프라인(JIRA→코드수정→MR 자동화), 모듈 인덱스 시스템, Speckit 스펙 주도 개발'],
+  ['Tools', 'Git, GitLab/GitHub/Bitbucket, JIRA, Firebase, Figma, Slack']
+];
+
+var HIGHLIGHTS = [
+  ['15+', '년 소프트웨어 개발 (Android 2011~)'],
+  ['10+', '서비스·앱 개발'],
+  ['7', '개 서비스 도메인 리드'],
+  ['4', '번의 기술 전환 주도']
+];
+
+var FILTERS = [
+  { k:'all',     l:'All' },
+  { k:'android', l:'Android' },
+  { k:'rn',      l:'React Native' },
+  { k:'voice',   l:'Voice AI' },
+  { k:'backend', l:'Backend · Platform' }
+];
+
+var BY_SLUG = {};
+REPOS.forEach(function(r){ BY_SLUG[r.slug] = r; });
+
+/* ============================ helpers ============================ */
+function mi(y, m){ return (y - 2010) * 12 + (m - 1); }
+function pad2(n){ return n < 10 ? '0' + n : String(n); }
+function endOf(r){ return r.to || NOW; }
+function langDot(lang){
+  return '<span class="lang"><span class="dot" style="background:' + LANG_COLOR[lang] + '"></span>' + lang + '</span>';
+}
+function periodShort(r){
+  var a = r.from, b = endOf(r);
+  var head = a[0] + '.' + pad2(a[1]);
+  var tail = r.to ? (b[0] + '.' + pad2(b[1])) : '현재';
+  return head + ' — ' + tail;
+}
+function shots(r){
+  if (!r.imgs || !r.imgs.length) return '';
+  var items = r.imgs.map(function(im, i){
+    var wide = im.w > im.h;
+    return '<figure class="shot' + (wide ? ' wide' : '') + '">' +
+      '<button class="shot-btn" type="button" data-slug="' + r.slug + '" data-i="' + i + '" aria-label="' + esc(im.cap) + ' 크게 보기">' +
+      '<img src="' + SRC + im.f + '" width="' + im.w + '" height="' + im.h + '" alt="' + esc(im.alt) + '" loading="lazy" decoding="async">' +
+      '</button><figcaption>' + esc(im.cap) + '</figcaption></figure>';
+  }).join('');
+  return '<div class="shots">' + items + '</div>' +
+    (r.imgNote ? '<p class="shot-note">' + esc(r.imgNote) + '</p>' : '');
+}
+
+/* ============================ profile view ============================ */
+function sideHtml(){
+  var orgs = ORGS.map(function(o){
+    return '<li class="org" title="' + esc(o.t) + '"><span class="sr">' + esc(o.t) + '</span><span aria-hidden="true">' + o.i + '</span></li>';
+  }).join('');
+  return '' +
+  '<aside class="side">' +
+    '<img class="avatar" src="../assets/profile.jpg" width="700" height="872" alt="강지환 프로필 사진" fetchpriority="high" decoding="async">' +
+    '<h1 class="name">강지환<span class="sr"> (Jihwan Kang)</span></h1>' +
+    '<p class="login" aria-hidden="true">Jihwan Kang</p>' +
+    '<p class="role">Software Engineer — Android · Cross-platform · AI Agent Platform</p>' +
+    '<p class="bio">2011년부터 Android를 개발해왔습니다. 기능 개발과 개발 흐름 개선을 함께 하는 개발자입니다.</p>' +
+    '<ul class="meta">' +
+      '<li>' + svg('bldg') + '<span>SK Telecom</span></li>' +
+      '<li>' + svg('loc') + '<span>Live in Seoul</span></li>' +
+      '<li>' + svg('mail') + '<a href="mailto:jihwan76@gmail.com">jihwan76@gmail.com</a></li>' +
+      '<li>' + svg('link') + '<a href="https://github.com/returnzero76" rel="noopener">github.com/returnzero76</a></li>' +
+    '</ul>' +
+    '<h2 class="side-h">Organizations</h2>' +
+    '<ul class="orgs">' + orgs + '</ul>' +
+    '<p class="edu">광운대학교 전자통신공학 · 정보통신기사</p>' +
+  '</aside>';
+}
+
+function readmeHtml(){
+  var rows = SKILLS.map(function(s){
+    return '<tr><th scope="row">' + s[0] + '</th><td>' + s[1] + '</td></tr>';
+  }).join('');
+  var stats = HIGHLIGHTS.map(function(h){
+    return '<div class="stat"><b>' + h[0] + '</b><span>' + h[1] + '</span></div>';
+  }).join('');
+  return '' +
+  '<section class="box">' +
+    '<div class="box-head">' + svg('book') + '<span><b>returnzero76</b> / README.md</span></div>' +
+    '<div class="box-body md">' +
+      '<h2>안녕하세요 👋</h2>' +
+      '<p>2011년부터 Android Application을 개발해왔습니다. Native(Kotlin/Compose)와 Cross-platform(React Native) 개발부터 CI/CD 인프라, AI 자동화 커맨드까지 — 기능 개발과 개발 흐름 개선을 함께 하는 개발자입니다.</p>' +
+      '<p>AI, Mobility, E-commerce, Multimedia 등 다양한 도메인을 경험했고, JAVA로 시작해 Kotlin 중심으로, 최근에는 TypeScript(React Native)와 Go(백엔드 플랫폼)까지 스택을 넓히고 있습니다. 현재보다는 미래를 위한, 다른 사람도 이해하기 쉬운 코드를 만드는 것을 좋아합니다.</p>' +
+      '<div class="stats">' + stats + '</div>' +
+      '<h3>🛠 Tech Stack</h3>' +
+      '<div class="tbl-wrap"><table class="md-tbl"><thead><tr><th scope="col">분류</th><th scope="col">내용</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<h3>🎓 Education &amp; Certification</h3>' +
+      '<ul class="bullets">' +
+        '<li>광운대학교 전자통신공학 (2004.03 ~ 2011.02) — 3.64/4.5</li>' +
+        '<li>정보통신기사 (한국산업인력공단, 2010)</li>' +
+      '</ul>' +
+    '</div>' +
+  '</section>';
+}
+
+function pinCard(r){
+  var strip = '';
+  if (r.imgs && r.imgs.length) {
+    var use = r.imgs.slice(0, r.imgs.length === 1 ? 1 : 3);
+    strip = '<div class="strip' + (use.length === 1 ? ' one' : '') + '" aria-hidden="true">' +
+      use.map(function(im){
+        return '<img src="' + SRC + im.f + '" width="' + im.w + '" height="' + im.h + '" alt="" loading="lazy" decoding="async">';
+      }).join('') + '</div>';
+  }
+  return '' +
+  '<article class="pin">' +
+    '<div class="pin-body">' +
+      '<div class="pin-top">' + svg('repo') +
+        '<a class="pin-name" href="#/repo/' + r.slug + '">' + r.name + '</a>' +
+        '<span class="chip">Public</span>' +
+      '</div>' +
+      '<p class="pin-desc">' + esc(r.one) + '</p>' +
+      '<div class="pin-foot">' + langDot(r.lang) + '<span>' + esc(r.period) + '</span></div>' +
+    '</div>' + strip +
+  '</article>';
+}
+
+function pinnedHtml(){
+  var cards = PINNED.map(function(s){ return pinCard(BY_SLUG[s]); }).join('');
+  return '<section class="sec"><div class="sec-head"><h2>Pinned</h2><span class="hint">6 / 13 repositories</span></div>' +
+    '<div class="pins">' + cards + '</div></section>';
+}
+
+function heatmapHtml(){
+  var TOTAL = 17 * 12;
+  var brk = TENURES.map(function(t){
+    var i0 = mi(t.a[0], t.a[1]), i1 = mi(t.b[0], t.b[1]);
+    var left = (i0 / TOTAL) * 100;
+    var w = ((i1 - i0 + 1) / TOTAL) * 100;
+    return '<div class="brk r' + t.row + '" style="left:' + left.toFixed(3) + '%;width:' + w.toFixed(3) + '%" title="' + esc(t.name) + '">' +
+      '<span>' + esc(t.label) + '</span></div>';
+  }).join('');
+
+  var head = '<div class="hm-m" aria-hidden="true"></div>';
+  for (var y = 2010; y <= 2026; y++) head += '<div class="hm-y">' + y + '</div>';
+
+  var body = '';
+  for (var m = 1; m <= 12; m++) {
+    body += '<div class="hm-m">' + m + '월</div>';
+    for (var yy = 2010; yy <= 2026; yy++) {
+      var idx = mi(yy, m);
+      var names = [], intern = false;
+      for (var k = 0; k < REPOS.length; k++) {
+        var r = REPOS[k];
+        var e = endOf(r);
+        if (idx >= mi(r.from[0], r.from[1]) && idx <= mi(e[0], e[1])) {
+          names.push(r.full.split(' — ')[0]);
+          if (r.intern) intern = true;
+        }
+      }
+      var lvl = 0;
+      if (names.length === 1 && intern) lvl = 1;
+      else if (names.length > 0) lvl = Math.min(4, names.length + 1);
+      var tip = yy + '.' + pad2(m) + ' · ' + (names.length ? names.join(' · ') : '기록 없음');
+      body += '<div class="cell' + (lvl ? ' l' + lvl : '') + '" title="' + esc(tip) + '"></div>';
+    }
+  }
+
+  var legend = '';
+  for (var L = 0; L <= 4; L++) legend += '<span class="cell' + (L ? ' l' + L : '') + '"></span>';
+
+  return '' +
+  '<section class="sec">' +
+    '<div class="sec-head"><h2>15 Years of Shipping</h2><span class="hint">2010.09 — 2026.08</span></div>' +
+    '<div class="box"><div class="box-body">' +
+      '<div class="hm-scroll"><div class="hm">' +
+        '<div class="brackets">' + brk + '</div>' +
+        '<div class="hm-grid" role="img" aria-label="2010년부터 2026년까지 월별 프로젝트 진행 현황 히트맵">' + head + body + '</div>' +
+        '<div class="hm-legend"><span>Less</span>' + legend + '<span>More</span></div>' +
+      '</div></div>' +
+      '<p class="hm-note">칸 하나는 한 달입니다. 같은 달에 동시에 진행한 프로젝트가 많을수록 짙게 표시했습니다. 각 칸에 마우스를 올리면 해당 월의 프로젝트를 볼 수 있습니다.</p>' +
+    '</div></div>' +
+  '</section>';
+}
+
+function repoRow(r){
+  return '' +
+  '<article class="repo-row" data-cats="' + (r.cats.join(' ') || 'none') + '">' +
+    '<div class="rr-main">' +
+      '<div class="rr-top">' +
+        '<a class="rr-name" href="#/repo/' + r.slug + '">' + r.name + '</a>' +
+        '<span class="chip">Public</span>' +
+      '</div>' +
+      '<p class="rr-desc">' + esc(r.one) + '</p>' +
+      '<div class="rr-foot">' + langDot(r.lang) + '<span>' + esc(r.company) + '</span></div>' +
+    '</div>' +
+    '<div class="rr-side" title="' + esc(r.period) + '">' + periodShort(r) + '</div>' +
+  '</article>';
+}
+
+function repositoriesHtml(){
+  var chips = FILTERS.map(function(f, i){
+    return '<button class="fchip" type="button" data-f="' + f.k + '" aria-pressed="' + (i === 0 ? 'true' : 'false') + '">' + f.l + '</button>';
+  }).join('');
+  return '' +
+  '<section class="sec" id="repos">' +
+    '<div class="sec-head"><h2>Repositories</h2><span class="hint">' + REPOS.length + ' projects · 최신순</span></div>' +
+    '<div class="filters">' + chips + '</div>' +
+    '<div class="repo-list" id="repo-list">' + REPOS.map(repoRow).join('') + '</div>' +
+    '<p class="empty" id="repo-empty" hidden>해당 분류의 저장소가 없습니다.</p>' +
+  '</section>';
+}
+
+function renderProfile(){
+  document.getElementById('app').innerHTML =
+    '<div class="profile">' + sideHtml() +
+    '<div class="main-col">' + readmeHtml() + pinnedHtml() + heatmapHtml() + repositoriesHtml() + '</div></div>';
+  document.title = '강지환 · Jihwan Kang — Resume';
+  document.getElementById('crumb-repo').textContent = 'resume';
+  bindFilters();
+}
+
+/* ============================ repo view ============================ */
+function readableOn(hex){
+  var c = hex.replace('#', '');
+  var v = [0, 2, 4].map(function(i){
+    var x = parseInt(c.substr(i, 2), 16) / 255;
+    return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+  });
+  var L = 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2];
+  return (1.05 / (L + 0.05)) >= 4.5 ? '#ffffff' : '#0d1117';
+}
+function badge(label, value, color){
+  return '<span class="badge"><b>' + esc(label) + '</b>' +
+    '<i style="background:' + color + ';color:' + readableOn(color) + '">' + esc(value) + '</i></span>';
+}
+
+function renderRepo(r){
+  var idx = REPOS.indexOf(r);
+  var prev = REPOS[idx - 1], next = REPOS[idx + 1];
+  var topics = r.topics.map(function(t){ return '<span class="topic">' + t + '</span>'; }).join('');
+  var work = r.work.map(function(w){ return '<li>' + w + '</li>'; }).join('');
+  var results = r.results.length
+    ? '<h3>📈 성과</h3><ul class="bullets">' + r.results.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'
+    : '';
+
+  var pager =
+    '<div class="pager">' +
+      (prev ? '<a href="#/repo/' + prev.slug + '">' + svg('cl') + '<span><span class="lbl">이전 저장소</span>' + prev.name + '</span></a>' : '<span></span>') +
+      (next ? '<a href="#/repo/' + next.slug + '" style="text-align:right"><span><span class="lbl">다음 저장소</span>' + next.name + '</span>' + svg('cr') + '</a>' : '<span></span>') +
+    '</div>';
+
+  document.getElementById('app').innerHTML = '' +
+  '<div class="repo-head">' +
+    '<div class="repo-title">' + svg('repo') +
+      '<a class="owner" href="#/">returnzero76</a><span class="slash">/</span><b>' + r.name + '</b>' +
+      '<span class="chip">Public</span>' +
+    '</div>' +
+    '<nav class="tabs" aria-label="저장소 탭">' +
+      '<span class="tab">' + svg('code') + 'Code</span>' +
+      '<span class="tab on" aria-current="page">' + svg('book') + 'README</span>' +
+      '<span class="tab">' + svg('clock') + esc(r.period) + '</span>' +
+    '</nav>' +
+  '</div>' +
+  '<div class="detail">' +
+    '<div class="md">' +
+      '<h1 class="readme-h1">' + svg('repo', 22) + esc(r.full) + '</h1>' +
+      '<p class="readme-sub">' + esc(r.company) + ' · ' + esc(r.period) + '</p>' +
+      '<div class="badges">' +
+        badge('stack', r.stack, '#1a5fb4') +
+        badge('platform', r.platform, '#5a3fa0') +
+        badge('period', r.period, '#1a7f37') +
+        badge('lang', r.lang, LANG_COLOR[r.lang]) +
+      '</div>' +
+      '<p>' + esc(r.desc) + '</p>' +
+      shots(r) +
+      '<h3>🔧 주요 작업</h3><ul class="bullets">' + work + '</ul>' +
+      results +
+      pager +
+      '<a class="back" href="#/">' + svg('al') + 'returnzero76 프로필로 돌아가기</a>' +
+    '</div>' +
+    '<aside class="about">' +
+      '<h3>About</h3>' +
+      '<p>' + esc(r.one) + '</p>' +
+      '<div class="topics">' + topics + '</div>' +
+      '<div class="about-rows">' +
+        '<div>' + svg('bldg') + '<span>' + esc(r.company) + '</span></div>' +
+        '<div>' + svg('clock') + '<span>' + esc(r.period) + '</span></div>' +
+        '<div><span class="lang"><span class="dot" style="background:' + LANG_COLOR[r.lang] + '"></span>' + r.lang + '</span></div>' +
+      '</div>' +
+    '</aside>' +
+  '</div>';
+
+  document.title = r.name + ' · 강지환 — Resume';
+  document.getElementById('crumb-repo').textContent = r.name;
+}
+
+/* ============================ filters ============================ */
+function bindFilters(){
+  var host = document.querySelector('.filters');
+  if (!host) return;
+  host.addEventListener('click', function(ev){
+    var b = ev.target.closest('.fchip');
+    if (!b) return;
+    var key = b.getAttribute('data-f');
+    Array.prototype.forEach.call(host.querySelectorAll('.fchip'), function(c){
+      c.setAttribute('aria-pressed', c === b ? 'true' : 'false');
+    });
+    var shown = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('#repo-list .repo-row'), function(row){
+      var cats = (row.getAttribute('data-cats') || '').split(' ');
+      var on = key === 'all' || cats.indexOf(key) > -1;
+      row.hidden = !on;
+      if (on) shown++;
+    });
+    document.getElementById('repo-empty').hidden = shown > 0;
+  });
+}
+
+/* ============================ lightbox ============================ */
+var lb = document.getElementById('lb');
+var lbImg = document.getElementById('lb-img');
+var lbCap = document.getElementById('lb-cap');
+var lbCount = document.getElementById('lb-count');
+var lbPrev = document.getElementById('lb-prev');
+var lbNext = document.getElementById('lb-next');
+var lbClose = document.getElementById('lb-close');
+lbClose.innerHTML = svg('x');
+lbPrev.innerHTML = svg('cl');
+lbNext.innerHTML = svg('cr');
+
+var LB = { list: [], i: 0, opener: null };
+
+function lbShow(){
+  var im = LB.list[LB.i];
+  if (!im) return;
+  var base = SRC + im.f;
+  lbImg.alt = im.alt;
+  lbImg.removeAttribute('width');
+  lbImg.removeAttribute('height');
+  if (/\.svg$/i.test(im.f)) {
+    lbImg.onerror = null;
+    lbImg.src = base;
+  } else {
+    lbImg.onerror = function(){ lbImg.onerror = null; lbImg.src = base; };
+    lbImg.src = SRC + 'full/' + im.f;
+  }
+  lbCap.textContent = im.cap;
+  lbCount.textContent = (LB.i + 1) + ' / ' + LB.list.length;
+  var multi = LB.list.length > 1;
+  lbPrev.hidden = !multi;
+  lbNext.hidden = !multi;
+}
+function lbOpen(slug, i, opener){
+  var r = BY_SLUG[slug];
+  if (!r || !r.imgs.length) return;
+  LB.list = r.imgs;
+  LB.i = i;
+  LB.opener = opener;
+  lbShow();
+  if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
+  document.body.style.overflow = 'hidden';
+  lbClose.focus();
+}
+function lbStep(d){
+  if (LB.list.length < 2) return;
+  LB.i = (LB.i + d + LB.list.length) % LB.list.length;
+  lbShow();
+}
+lbClose.addEventListener('click', function(){ lb.close(); });
+lbPrev.addEventListener('click', function(){ lbStep(-1); });
+lbNext.addEventListener('click', function(){ lbStep(1); });
+lb.addEventListener('click', function(ev){ if (ev.target === lb) lb.close(); });
+lb.addEventListener('cancel', function(){ /* Esc closes; handled by close event */ });
+lb.addEventListener('close', function(){
+  document.body.style.overflow = '';
+  lbImg.removeAttribute('src');
+  if (LB.opener && document.contains(LB.opener)) LB.opener.focus();
+  LB.opener = null;
+});
+document.addEventListener('keydown', function(ev){
+  if (!lb.open) return;
+  if (ev.key === 'ArrowLeft') { ev.preventDefault(); lbStep(-1); }
+  else if (ev.key === 'ArrowRight') { ev.preventDefault(); lbStep(1); }
+});
+document.getElementById('app').addEventListener('click', function(ev){
+  var b = ev.target.closest('.shot-btn');
+  if (!b) return;
+  ev.preventDefault();
+  lbOpen(b.getAttribute('data-slug'), parseInt(b.getAttribute('data-i'), 10), b);
+});
+
+/* ============================ theme ============================ */
+var themeBtn = document.getElementById('theme-btn');
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  var dark = t === 'dark';
+  document.getElementById('theme-icon').innerHTML = svg(dark ? 'sun' : 'moon', 14);
+  document.getElementById('theme-label').textContent = dark ? 'Light' : 'Dark';
+  themeBtn.setAttribute('aria-label', dark ? 'Light 모드로 전환' : 'Dark 모드로 전환');
+}
+themeBtn.addEventListener('click', function(){
+  var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem('resume-v11-theme', next); } catch (e) {}
+  applyTheme(next);
+});
+(function(){
+  var saved = null;
+  try { saved = localStorage.getItem('resume-v11-theme'); } catch (e) {}
+  applyTheme(saved === 'light' ? 'light' : 'dark');
+})();
+
+/* ============================ router ============================ */
+function route(){
+  if (lb.open) lb.close();
+  var h = location.hash.replace(/^#/, '');
+  var m = h.match(/^\/repo\/([a-z0-9-]+)$/i);
+  if (m && BY_SLUG[m[1]]) renderRepo(BY_SLUG[m[1]]);
+  else renderProfile();
+  window.scrollTo(0, 0);
+  var app = document.getElementById('app');
+  app.focus({ preventScroll: true });
+}
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>

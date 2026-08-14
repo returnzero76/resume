@@ -29,7 +29,7 @@
   --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,"Helvetica Neue","Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 body{
   background:var(--bg);
   color:var(--text);
@@ -280,6 +280,58 @@ footer.status{
 footer.status .mode{color:var(--accent)}
 footer.status .copy{color:#475569}
 
+/* ---------- screenshot thumbnails ---------- */
+.shot{margin-top:1rem}
+.shot .shot-open{
+  all:unset;cursor:zoom-in;display:inline-block;border-radius:8px;
+}
+.shot .shot-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.shot img{
+  display:block;height:140px;width:auto;max-width:100%;
+  border:1px solid var(--border);border-radius:8px;object-fit:cover;
+  background:#0d1526;
+  transition:border-color .2s,transform .2s;
+}
+.shot .shot-open:hover img{border-color:var(--accent-border);transform:translateY(-2px)}
+.shot figcaption{
+  margin-top:.45rem;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:#64748b;
+}
+
+/* ---------- lightbox ---------- */
+dialog.lightbox{
+  border:1px solid var(--border);border-radius:10px;padding:0;
+  background:#0B1120;color:var(--text);
+  max-width:none;max-height:none;margin:auto;
+}
+dialog.lightbox::backdrop{background:rgba(2,6,17,.82);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.lb-frame{position:relative;padding:1rem 1rem .85rem}
+.lb-frame img{
+  display:block;max-width:92vw;max-height:86vh;width:auto;height:auto;
+  border-radius:6px;background:#0d1526;
+}
+.lb-bar{display:flex;align-items:baseline;gap:1rem;justify-content:space-between;margin-top:.7rem}
+.lb-cap{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--accent)}
+.lb-idx{font-family:var(--mono);font-size:11px;color:#64748b;white-space:nowrap}
+.lb-btn{
+  all:unset;cursor:pointer;position:absolute;box-sizing:border-box;
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:9999px;
+  font-family:var(--mono);font-size:16px;line-height:1;
+  color:var(--heading);background:rgba(15,23,42,.85);
+  border:1px solid #334155;
+  transition:color .2s,border-color .2s;
+}
+.lb-btn:hover{color:var(--accent);border-color:var(--accent-border)}
+.lb-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lb-close{top:.6rem;right:.6rem}
+.lb-prev{left:.6rem;top:50%;transform:translateY(-50%)}
+.lb-next{right:.6rem;top:50%;transform:translateY(-50%)}
+body.lb-open{overflow:hidden}
+@media(prefers-reduced-motion:no-preference){
+  dialog.lightbox[open]{animation:lbIn .18s ease}
+  @keyframes lbIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
@@ -333,7 +385,7 @@ footer.status .copy{color:#475569}
       <p>AI, Mobility, E-commerce, Multimedia 등 다양한 도메인을 경험했고, JAVA로 시작해 Kotlin 중심으로, 최근에는 TypeScript(React Native)와 Go(백엔드 플랫폼)까지 스택을 넓히고 있습니다. 현재보다는 미래를 위한, 다른 사람도 이해하기 쉬운 코드를 만드는 것을 좋아합니다.</p>
       <div class="stats" role="list" aria-label="숫자로 보는 경력">
         <div class="stat" role="listitem"><b>15+ yrs</b><span>소프트웨어 개발 (Android 2011~)</span></div>
-        <div class="stat" role="listitem"><b>3,700+</b><span>커밋 — 최근 4년, 에이닷 관련 repo 합산</span></div>
+        <div class="stat" role="listitem"><b>10+ apps</b><span>서비스·앱 개발 (뮤직/커머스/음성비서/모빌리티/AI 에이전트)</span></div>
         <div class="stat" role="listitem"><b>7 domains</b><span>서비스 도메인 리드 (게임/포토/노트/Auto/음성비서/TV/교육)</span></div>
         <div class="stat" role="listitem"><b>4 pivots</b><span>기술 전환 주도 — XML→Compose · Native→RN · 무테스트→커버리지 · 수동 개발→AI 파이프라인</span></div>
       </div>
@@ -356,14 +408,20 @@ footer.status .copy{color:#475569}
             <div class="card-date">2026.06 — Present</div>
             <div class="card-body">
               <h4>Agent OS — AI Agent 거버넌스 플랫폼</h4>
-              <p class="desc">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼 개발. Go + Next.js 모노레포.</p>
+              <p class="desc">조직 내 흩어진 AI Agent를 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼입니다. Go + Next.js 모노레포로 개발하고 있습니다.</p>
               <ul class="points">
                 <li>Go 백엔드(control-plane) observability pod 개발: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)</li>
                 <li>Next.js 콘솔 model-evaluation 화면 개발 및 리팩토링, flaky test 근본 해결</li>
                 <li>Speckit 기반 스펙 주도 개발 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화</li>
-                <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 (49 커밋)</li>
+                <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등</li>
               </ul>
               <ul class="chips"><li>Go</li><li>Next.js</li><li>Langfuse</li><li>BDD</li><li>Speckit</li><li>GitLab</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Agent OS 아키텍처">
+                  <img src="../assets/screens/agent-os-01.svg" alt="Agent OS 아키텍처 개요 다이어그램" width="900" height="620" loading="lazy" decoding="async">
+                </button>
+                <figcaption>Agent OS 아키텍처 개요 — control-plane · console</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -371,7 +429,7 @@ footer.status .copy{color:#475569}
             <div class="card-date">2022.05 — Present</div>
             <div class="card-body">
               <h4>에이닷 A. Android 앱</h4>
-              <p class="desc">SKT AI 개인비서 '에이닷' Android 클라이언트. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트, 4년간 2,990 커밋(기여 2위권).</p>
+              <p class="desc">SKT AI 개인비서 '에이닷'의 Android 클라이언트입니다. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트를 4년간 지속 개발하고 있습니다.</p>
               <ul class="points">
                 <li><strong>AI 노트 도메인 리드 (2025.08~)</strong>: 통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발</li>
                 <li><strong>React Native 하이브리드 전환 (2026)</strong>: New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow+ReactViewModel+ReactFragment+라우팅), 전환 후 레거시 Native 코드 정리</li>
@@ -384,6 +442,12 @@ footer.status .copy{color:#475569}
                 <li><strong>AI 개발 워크플로 도입 (2026)</strong>: Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>React Native</li><li>WorkManager</li><li>Kover</li><li>GitLab CI</li><li>Claude Code</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 A.">
+                  <img src="../assets/screens/adot-store-01.jpg" alt="에이닷 A. 스토어 스크린샷 — AI 개인비서 홈 화면" width="506" height="900" loading="lazy" decoding="async">
+                </button>
+                <figcaption>에이닷 A. 스토어 스크린샷 — AI 개인비서 홈</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -391,7 +455,7 @@ footer.status .copy{color:#475569}
             <div class="card-date">2026.03 — 2026.05</div>
             <div class="card-body">
               <h4>adot-react-native — 에이닷 공용 RN 워크스페이스</h4>
-              <p class="desc">Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스 (TypeScript). 167 커밋.</p>
+              <p class="desc">Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스입니다(TypeScript).</p>
               <ul class="points">
                 <li>Auto(차량 연동) RN 화면 3종 전면 구현: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결</li>
                 <li>AI 노트 RN 전환: 공용 noteList 컴포넌트/훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)</li>
@@ -399,6 +463,12 @@ footer.status .copy{color:#475569}
                 <li>Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입</li>
               </ul>
               <ul class="chips"><li>TypeScript</li><li>React Native</li><li>TurboModule</li><li>RNGH</li><li>Expo SDK 55</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 RN 전환 화면">
+                  <img src="../assets/screens/adot-store-04.jpg" alt="에이닷 RN 전환 화면 스크린샷 — 채팅과 메모리" width="506" height="900" loading="lazy" decoding="async">
+                </button>
+                <figcaption>RN 전환 화면 — 에이닷 채팅·메모리 (스토어 스크린샷)</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -406,7 +476,7 @@ footer.status .copy{color:#475569}
             <div class="card-date">2025.03 — 2025.08</div>
             <div class="card-body">
               <h4>Tmap x Adot 음성비서 마이그레이션</h4>
-              <p class="desc">Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱. Initial commit부터 시작한 리드 개발 (240 커밋, 전체의 41%).</p>
+              <p class="desc">Tmap 앱 탑재 음성비서를 NUGU에서 에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱입니다. Initial commit부터 시작해 리드 개발을 맡았습니다.</p>
               <ul class="points">
                 <li>신규 프로젝트 0→1 부트스트랩: core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합</li>
                 <li>NUGU SDK 통합·커스터마이징: SpeechRecognizer trigger, AudioSpeaker custom, 멀티턴 상태머신 이슈 해결</li>
@@ -415,18 +485,12 @@ footer.status .copy{color:#475569}
                 <li>5개월간 v0.3.0→v1.12.0 10회+ 배포, 파트너사 참조용 코드 품질 관리 + Confluence 연동 가이드 문서 저술 (Sample Guide 위키 10여 페이지)</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>NUGU SDK</li><li>Wake-up Word</li><li>Lottie</li><li>Adot Login SDK</li></ul>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-date">2025.03 — 2025.10</div>
-            <div class="card-body">
-              <h4>TimeTree x Adot Android 샘플</h4>
-              <p class="desc">TimeTree 제휴 서비스용 Android 샘플 앱 (272 커밋).</p>
-              <ul class="points">
-                <li>채팅 화면 개발: Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션</li>
-              </ul>
-              <ul class="chips"><li>Android</li><li>Reactive</li><li>Streaming UI</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap 음성비서">
+                  <img src="../assets/screens/tmap-store-01.jpg" alt="Tmap 스토어 스크린샷 — 음성비서가 탑재된 홈 화면" width="506" height="900" loading="lazy" decoding="async">
+                </button>
+                <figcaption>Tmap 스토어 스크린샷 — 음성비서 탑재 홈</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -434,12 +498,38 @@ footer.status .copy{color:#475569}
             <div class="card-date">2020.11 — 2022.04</div>
             <div class="card-body">
               <h4>Btv NUGU Android</h4>
-              <p class="desc">Btv 내 NUGU 사용을 위한 Android 앱. UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU 탑재.</p>
+              <p class="desc">Btv 내 NUGU 사용을 위한 Android 앱입니다. UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 탑재했습니다.</p>
               <ul class="points">
                 <li>신규 디바이스 출시(AI2 MAX, AI2 AndroidTv) &amp; 유지보수, 백그라운드 service component MVVM 적용</li>
                 <li>15개+ model flavor 빌드 효율화: Fastlane 작성 &amp; Jenkins 연동, 개발자 Debug mode 개발</li>
               </ul>
               <ul class="chips"><li>Android</li><li>MVVM</li><li>Fastlane</li><li>Jenkins</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Btv NUGU">
+                  <img src="../assets/screens/btv-nugu-01.jpg" alt="Btv NUGU에서 Melon 음악을 재생 중인 TV 화면" width="900" height="506" loading="lazy" decoding="async">
+                </button>
+                <figcaption>Btv NUGU — Melon 음악 재생 화면(TV UI)</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-date">2020.03 — 2020.11</div>
+            <div class="card-body">
+              <h4>Tmap Taxi Android</h4>
+              <p class="desc">택시 승객앱의 신규 기능 개발과 유지보수를 담당했습니다.</p>
+              <ul class="points">
+                <li>업무용 택시/법인카드 결제, SK pay 가입·카드연동·결제, 쿠폰 적용 개발</li>
+                <li>승객 호출 화면 전면 Renewal(첫화면/출발지/목적지/경로/결제), Java→Kotlin 전환, MVVM 적용</li>
+                <li>Base/Tmap SDK/Network 모듈화, Fastlane build script + Slack 연동</li>
+              </ul>
+              <ul class="chips"><li>Kotlin</li><li>MVVM</li><li>SK pay</li><li>Fastlane</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap Taxi">
+                  <img src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 지도 위 출발지 지정 화면" width="506" height="900" loading="lazy" decoding="async">
+                </button>
+                <figcaption>Tmap Taxi — 지도 위 출발지 지정 화면</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -447,7 +537,7 @@ footer.status .copy{color:#475569}
             <div class="card-date">2018.04 — 2020.11</div>
             <div class="card-body">
               <h4>NUGU AI Mobile Android</h4>
-              <p class="desc">NUGU AI 서비스용 3rd party 서비스 연결·디바이스 연결을 지원하는 Android 앱.</p>
+              <p class="desc">NUGU AI 서비스용 3rd party 서비스 연결과 디바이스 연결을 지원하는 Android 앱입니다.</p>
               <ul class="points">
                 <li>App Renewal 2.0: 처음부터 재개발, Java→Kotlin 전환</li>
                 <li>디바이스 연결(Bluetooth/AP/OTP/Broadcast) — AI Speaker, Btv 등, TID 연동</li>
@@ -456,6 +546,12 @@ footer.status .copy{color:#475569}
                 <li>2019 Google I/O 참여 &amp; 사내 공유</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>RxKotlin</li><li>Koin</li><li>MockK</li><li>Bluetooth</li></ul>
+              <figure class="shot">
+                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — NUGU Mobile">
+                  <img src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU 앱 홈 화면 — 날씨 카드와 이벤트 배너" width="506" height="900" loading="lazy" decoding="async">
+                </button>
+                <figcaption>NUGU 앱 홈 — 날씨 카드·이벤트 배너</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -519,23 +615,6 @@ footer.status .copy{color:#475569}
           </thead>
           <tbody>
             <tr class="row">
-              <td class="a-year">2020</td>
-              <td class="a-proj"><button type="button" aria-expanded="false" aria-controls="d-taxi">Tmap Taxi Android</button></td>
-              <td class="a-co">SK Telecom</td>
-              <td class="a-stack">Kotlin · MVVM · SK pay · Fastlane</td>
-            </tr>
-            <tr class="detail" id="d-taxi" hidden>
-              <td colspan="4">
-                <ul>
-                  <li>택시 승객앱 신규 기능 개발 &amp; 유지보수 (2020.03 ~ 2020.11)</li>
-                  <li>업무용 택시/법인카드 결제, SK pay 가입·카드연동·결제, 쿠폰 적용 개발</li>
-                  <li>승객 호출 화면 전면 Renewal(첫화면/출발지/목적지/경로/결제), Java→Kotlin 전환, MVVM 적용</li>
-                  <li>Base/Tmap SDK/Network 모듈화, Fastlane build script + Slack 연동</li>
-                </ul>
-              </td>
-            </tr>
-
-            <tr class="row">
               <td class="a-year">2015–18</td>
               <td class="a-proj"><button type="button" aria-expanded="false" aria-controls="d-tmon">Tmon Android</button></td>
               <td class="a-co">Tmon</td>
@@ -562,7 +641,7 @@ footer.status .copy{color:#475569}
             <tr class="detail" id="d-winv" hidden>
               <td colspan="4">
                 <ul>
-                  <li>멀티미디어(Video/Webtoon) 서비스 US향 앱을 개발 초기부터 참여 (2017.01 ~ 2017.06)</li>
+                  <li>멀티미디어(Video/Webtoon) 서비스 US향 앱 개발에 초기부터 참여 (2017.01 ~ 2017.06)</li>
                   <li>단일 Activity + 전 화면 Fragment 구조(like YouTube), 화면 이동 Movement 모듈 개발</li>
                   <li>File upload Background Service, Jsoup+Volley 문서 파싱, ExoPlayer custom + 자체 DRM(TCI) 적용</li>
                   <li>KR향: 검색 WebView→Data binding Native 전환(속도 개선), Firebase/FCM/IGAWorks 연동</li>
@@ -580,14 +659,16 @@ footer.status .copy{color:#475569}
               <td colspan="4">
                 <ul>
                   <li>Pantech Android 디바이스 preload Music Player 앱 개발 (2011.01 ~ 2015.05)</li>
-                  <li>Android Media Provider Framework 분석, Music DB/Albumart cache 구조, AppWidget 2종 + U+Box 위젯</li>
-                  <li>Melon/OllehMusic/YouTube 온라인 서비스 연동, 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응</li>
+                  <li>Android Media Provider Framework 분석 &amp; Music DB 관련 개발, Albumart cache 구조 설계, 앱 공통 Thread 모듈 구현</li>
+                  <li>NDK 기반 중복 음원 검색 기능, StackView 등 AppWidget 2종 + U+Box 전용 AppWidget 개발</li>
+                  <li>Melon/OllehMusic/YouTube 온라인 서비스 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공</li>
+                  <li>국내 전모델 + 일본/베트남/대만 디바이스 preload, Android 2.2~5.0 OS 업그레이드 대응</li>
                 </ul>
               </td>
             </tr>
 
             <tr class="row">
-              <td class="a-year">2011–15</td>
+              <td class="a-year">2012–15</td>
               <td class="a-proj"><button type="button" aria-expanded="false" aria-controls="d-audio">Audio Effect</button></td>
               <td class="a-co">Pantech</td>
               <td class="a-stack">Equalizer · QSound · NXP</td>
@@ -595,13 +676,16 @@ footer.status .copy{color:#475569}
             <tr class="detail" id="d-audio" hidden>
               <td colspan="4">
                 <ul>
-                  <li>사용자 설정 Equalizer, 장르별 Auto Preset, QSound/NXP 3rd party 통합</li>
+                  <li>음원 재생 관련 Audio Effect 제공 앱 개발 (2012.04 ~ 2015.05)</li>
+                  <li>Effect 종류별 사용자 UI, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발</li>
+                  <li>QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning</li>
+                  <li>타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발</li>
                 </ul>
               </td>
             </tr>
 
             <tr class="row">
-              <td class="a-year">2011–15</td>
+              <td class="a-year">2013</td>
               <td class="a-proj"><button type="button" aria-expanded="false" aria-controls="d-tag">Tag Editor Library</button></td>
               <td class="a-co">Pantech</td>
               <td class="a-stack">Java · MP3(ID3) · FLAC(Vorbis)</td>
@@ -609,7 +693,10 @@ footer.status .copy{color:#475569}
             <tr class="detail" id="d-tag" hidden>
               <td colspan="4">
                 <ul>
-                  <li>Tag Editor Java Library 자체 개발: MP3(ID3)/FLAC(Vorbis) spec 분석, TEXT/LYRICS/ALBUMART read/write, charset encoding 자동 분석</li>
+                  <li>음원 Tag 영역을 Read/Write하는 Java 라이브러리 자체 개발 (2013.03 ~ 2013.08)</li>
+                  <li>MP3(ID3)/FLAC(Vorbis) Tag spec 분석, TEXT/LYRICS/ALBUMART read/write 기능 개발</li>
+                  <li>Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발</li>
+                  <li>Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용</li>
                 </ul>
               </td>
             </tr>
@@ -659,6 +746,19 @@ footer.status .copy{color:#475569}
   </main>
 </div>
 </div>
+
+<dialog class="lightbox" id="lightbox" aria-label="스크린샷 확대 보기">
+  <div class="lb-frame">
+    <img id="lb-img" alt="">
+    <div class="lb-bar">
+      <span class="lb-cap" id="lb-cap"></span>
+      <span class="lb-idx" id="lb-idx"></span>
+    </div>
+    <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="닫기">✕</button>
+    <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="이전 스크린샷">←</button>
+    <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="다음 스크린샷">→</button>
+  </div>
+</dialog>
 
 <script>
 (function(){
@@ -722,6 +822,63 @@ footer.status .copy{color:#475569}
     btn.addEventListener("click", function(e){ e.stopPropagation(); toggle(); });
     row.addEventListener("click", toggle);
   });
+
+  /* ---------- screenshot lightbox ---------- */
+  var dlg = document.getElementById("lightbox");
+  if (dlg && typeof dlg.showModal === "function"){
+    var lbImg = document.getElementById("lb-img");
+    var lbCap = document.getElementById("lb-cap");
+    var lbIdx = document.getElementById("lb-idx");
+    var thumbs = Array.prototype.slice.call(document.querySelectorAll(".shot .shot-open"));
+    var idx = -1;
+    var opener = null;
+
+    var fullSrcOf = function(src){
+      /* 고해상 원본(full/NAME.jpg) 우선 시도, 없으면 onerror로 썸네일 폴백 */
+      return src.replace("assets/screens/", "assets/screens/full/").replace(/\.\w+$/, ".jpg");
+    };
+    var show = function(i){
+      if (!thumbs.length) return;
+      idx = (i + thumbs.length) % thumbs.length;
+      var img = thumbs[idx].querySelector("img");
+      var fig = thumbs[idx].closest ? thumbs[idx].closest("figure") : null;
+      var cap = fig ? fig.querySelector("figcaption") : null;
+      var thumbSrc = img.getAttribute("src");
+      lbImg.onerror = function(){
+        lbImg.onerror = null;
+        lbImg.src = thumbSrc;
+      };
+      lbImg.src = fullSrcOf(thumbSrc);
+      lbImg.alt = img.alt || "";
+      lbCap.textContent = cap ? cap.textContent : (img.alt || "");
+      lbIdx.textContent = (idx + 1) + " / " + thumbs.length;
+    };
+
+    thumbs.forEach(function(btn, i){
+      btn.addEventListener("click", function(){
+        opener = btn;
+        show(i);
+        dlg.showModal();
+        document.body.classList.add("lb-open");
+      });
+    });
+    dlg.addEventListener("close", function(){
+      document.body.classList.remove("lb-open");
+      lbImg.onerror = null;
+      lbImg.removeAttribute("src");
+      if (opener){ opener.focus(); opener = null; }
+    });
+    dlg.addEventListener("click", function(e){
+      if (e.target === dlg) dlg.close();
+    });
+    dlg.addEventListener("keydown", function(e){
+      if (e.key === "ArrowLeft"){ e.preventDefault(); show(idx - 1); }
+      else if (e.key === "ArrowRight"){ e.preventDefault(); show(idx + 1); }
+    });
+    document.getElementById("lb-close").addEventListener("click", function(){ dlg.close(); });
+    document.getElementById("lb-prev").addEventListener("click", function(){ show(idx - 1); });
+    document.getElementById("lb-next").addEventListener("click", function(){ show(idx + 1); });
+  }
 })();
 </script>
 </body>

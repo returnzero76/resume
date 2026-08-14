@@ -283,6 +283,65 @@ h1 .kr{ display:block; }
 }
 .pullquote p b{ font-weight:700; }
 
+/* ——— editorial plates ——— */
+.plates{
+  display:flex; flex-wrap:wrap; align-items:flex-end; gap:1.75rem 1.4rem;
+  margin-bottom:clamp(2.5rem, 6vh, 4rem);
+}
+.chapter .narrative + .plates{ margin-top:calc(-1 * clamp(.75rem, 2.5vh, 1.5rem)); }
+.plate{ margin:0; }
+.plate-btn{
+  display:block; padding:.4rem; border:1px solid var(--rule); background:#FFFDF6;
+  cursor:zoom-in; transition:border-color .15s;
+}
+.plate-btn:hover{ border-color:var(--accent); }
+.plate-btn img{
+  display:block; width:auto; height:auto;
+  max-height:clamp(150px, 24vw, 200px); max-width:min(76vw, 330px);
+}
+.plate figcaption{
+  margin-top:.55rem; color:var(--sub); max-width:240px; line-height:1.7;
+}
+
+/* ——— lightbox ——— */
+html.lb-open{ overflow:hidden; scrollbar-gutter:stable; }
+#lightbox{
+  width:92vw; height:86vh; max-width:92vw; max-height:86vh;
+  margin:auto; padding:0; border:1px solid var(--ink);
+  background:var(--bg); color:var(--ink);
+}
+#lightbox::backdrop{ background:rgba(20,18,16,.55); }
+.lb-figure{
+  width:100%; height:100%; margin:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:1rem; padding:clamp(1.25rem, 5vw, 3.25rem);
+}
+#lb-img{
+  max-width:100%; max-height:calc(100% - 3.25rem); width:auto; height:auto;
+  border:1px solid var(--rule); background:#FFFDF6;
+}
+.lb-figure figcaption{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline;
+  gap:.25rem 1rem; color:var(--sub); max-width:100%; text-align:center;
+}
+#lb-count{ color:var(--accent-t); white-space:nowrap; }
+#lb-count::before{ content:"✳ "; color:var(--accent); }
+.lb-btn{
+  position:absolute; z-index:2;
+  width:2.6rem; height:2.6rem; display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:15px; line-height:1;
+  color:var(--ink); background:var(--bg); border:1px solid var(--rule);
+  cursor:pointer; transition:background .15s, color .15s, border-color .15s;
+}
+.lb-btn:hover{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.lb-close{ top:.9rem; right:.9rem; }
+.lb-prev{ left:.9rem; top:50%; transform:translateY(-50%); }
+.lb-next{ right:.9rem; top:50%; transform:translateY(-50%); }
+@media (prefers-reduced-motion: no-preference){
+  #lightbox[open]{ animation:lb-in .22s ease-out; }
+  @keyframes lb-in{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
+}
+
 /* ——— appendix ——— */
 .appendix{ padding:clamp(4rem, 10vh, 7rem) 0 0; }
 .appendix .block{ border-top:1px solid var(--ink); padding:1.5rem 0 3rem; }
@@ -345,7 +404,7 @@ footer{
     <div>
       <p class="kicker mono">Software Engineer — Android · Cross-platform · AI Agent Platform</p>
       <h1><span class="kr">강지환</span><span class="en">Jihwan Kang</span></h1>
-      <p class="thesis">프리로드 뮤직 플레이어에서 <em>Agent OS</em>까지 — 기능 개발과 개발 흐름 개선을 함께 해 온 15년의 기록.</p>
+      <p class="thesis">프리로드 뮤직 플레이어에서 <em>Agent OS</em>까지 — 기능 개발과 개발 흐름 개선을 함께해 온 15년의 기록.</p>
       <p class="hero-meta mono">
         <span>Seoul</span><span aria-hidden="true">·</span>
         <a href="mailto:jihwan76@gmail.com">jihwan76@gmail.com</a><span aria-hidden="true">·</span>
@@ -363,7 +422,7 @@ footer{
 <section class="wrap" aria-label="숫자로 보는 경력">
   <div class="stats">
     <div><b>15<sup>+</sup></b><small>년 소프트웨어 개발 — Android 2011~</small></div>
-    <div><b>3,700<sup>+</sup></b><small>커밋 — 최근 4년, 에이닷 관련 repo 합산</small></div>
+    <div><b>10<sup>+</sup></b><small>서비스·앱 개발 — 뮤직 / 커머스 / 음성비서 / 모빌리티 / AI 에이전트</small></div>
     <div><b>7</b><small>서비스 도메인 리드 — 게임 / 포토 / 노트 / Auto / 음성비서 / TV / 교육</small></div>
     <div><b>4</b><small>기술 전환 주도 — XML→Compose · Native→RN · 커버리지 체계 · AI 파이프라인</small></div>
   </div>
@@ -373,7 +432,7 @@ footer{
 <section class="prologue wrap">
   <div class="narrative">
     <p class="sec-label">Prologue — 서문</p>
-    <p class="lede">2011년부터 Android Application을 개발해왔습니다. Native(Kotlin/Compose)와 Cross-platform(React Native) 개발부터 CI/CD 인프라, AI 자동화 커맨드까지 — 기능 개발과 개발 흐름 개선을 함께 하는 개발자입니다.</p>
+    <p class="lede">2011년부터 Android Application을 개발해왔습니다. Native(Kotlin/Compose)와 Cross-platform(React Native) 개발부터 CI/CD 인프라, AI 자동화 커맨드까지 — 기능 개발과 개발 흐름 개선을 함께하는 개발자입니다.</p>
     <p>AI, Mobility, E-commerce, Multimedia 등 다양한 도메인을 경험했고, JAVA로 시작해 Kotlin 중심으로, 최근에는 TypeScript(React Native)와 Go(백엔드 플랫폼)까지 스택을 넓히고 있습니다. 현재보다는 미래를 위한, 다른 사람도 이해하기 쉬운 코드를 만드는 것을 좋아합니다.</p>
   </div>
 </section>
@@ -389,22 +448,49 @@ footer{
     </div>
   </header>
   <div class="narrative">
-    <p>커리어는 LG전자 인턴으로 Blu-ray player 디바이스 SW의 텍스트 UI를 C로 개발하며 시작됐다. 2011년 Pantech에 합류해 Android 디바이스에 preload되는 Music Player를 맡아 Media Provider Framework를 분석하고 Music DB와 앨범아트 캐시 구조를 다뤘고, 국내 전 모델과 일본·베트남·대만 수출 모델에 앱을 실으며 Android 2.2부터 5.0까지의 OS 업그레이드를 따라갔다. MP3(ID3)와 FLAC(Vorbis) 스펙을 직접 분석해 Tag Editor Java 라이브러리를 자체 개발한 것도 이 시기다.</p>
+    <p>커리어는 LG전자 인턴으로 Blu-ray player 디바이스 SW의 텍스트 UI를 C로 개발하며 시작됐습니다. 2011년 Pantech에 합류해서는 Android 디바이스에 preload되는 Music Player를 맡아 Media Provider Framework를 분석하고 Music DB와 앨범아트 캐시 구조를 다뤘으며, 국내 전 모델과 일본·베트남·대만 수출 모델에 앱을 실으며 Android 2.2부터 5.0까지의 OS 업그레이드를 따라갔습니다. 여기서 갈라져 나온 Audio Effect 앱, 그리고 MP3(ID3)와 FLAC(Vorbis) 스펙을 직접 분석해 자체 개발한 Tag Editor Java 라이브러리까지 — 음악이라는 한 도메인을 앱·이펙트·라이브러리 세 갈래로 파고든 시기입니다.</p>
   </div>
   <div class="index">
     <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
     <details class="row">
       <summary>
-        <span class="c-proj">Music Player &amp; Audio Effect<small>Pantech · 전임연구원</small></span>
-        <span class="c-res">국내 전모델 + 일본·베트남·대만 preload 뮤직 플레이어 · Tag Editor 라이브러리 자체 개발</span>
-        <span class="c-stack">Java · Android Framework</span>
+        <span class="c-proj">Music Player Android 앱<small>Pantech · 전임연구원 · preload 뮤직 플레이어</small></span>
+        <span class="c-res">국내 전 모델 + 일본·베트남·대만 preload — Android 2.2~5.0 OS 업그레이드 대응</span>
+        <span class="c-stack">Java · Android Framework · NDK</span>
         <span class="c-year">2011–15</span>
       </summary>
       <div class="row-detail"><ul>
-        <li>Android Media Provider Framework 분석, <b>Music DB / Albumart cache 구조</b>, AppWidget 2종 + U+Box 위젯 개발</li>
-        <li>Melon / OllehMusic / YouTube 온라인 서비스 연동 — 국내 전모델 + 일본·베트남·대만 preload, <b>Android 2.2~5.0 OS 업그레이드 대응</b></li>
-        <li><b>Audio Effect 앱</b>: 사용자 설정 Equalizer, 장르별 Auto Preset, QSound / NXP 3rd party 통합</li>
-        <li><b>Tag Editor Java Library 자체 개발</b>: MP3(ID3) / FLAC(Vorbis) spec 분석, TEXT / LYRICS / ALBUMART read·write, charset encoding 자동 분석</li>
+        <li>노래 / 앨범 / 음악가 등 각 탭 화면 개발, <b>Android Media Provider Framework 분석 &amp; Music DB 관련 개발</b></li>
+        <li><b>Albumart cache 구조 설계</b>, 앱 공통 Thread 모듈 구현, NDK 기반 중복 음원 검색 기능 개발</li>
+        <li>StackView 등 AppWidget 2종 + U+Box 전용 AppWidget 개발</li>
+        <li>Melon / OllehMusic / YouTube 온라인 서비스 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공</li>
+        <li><b>국내 전 모델 + 일본·베트남·대만 디바이스 preload</b>, Android 2.2~5.0 OS 업그레이드 대응</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Audio Effect Android 앱<small>Pantech · 음원 재생 Audio Effect</small></span>
+        <span class="c-res">사용자 설정 Equalizer·장르 기반 Auto Preset — 3rd party Effect 라이브러리 통합</span>
+        <span class="c-stack">Java · QSound · NXP</span>
+        <span class="c-year">2012–15</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li>Effect 종류별 사용자 UI 개발, <b>사용자 설정 가능한 Equalizer</b>, 재생 장르 기반 Auto Preset 기능 개발</li>
+        <li><b>QSound / NXP / Android Native 3rd party 라이브러리 통합</b> — 하나의 apk로 모두 지원, Effect tuning</li>
+        <li>타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
+        <span class="c-proj">Tag Editor Library<small>Pantech · Java 라이브러리 자체 개발</small></span>
+        <span class="c-res">MP3(ID3) / FLAC(Vorbis) Tag read·write 라이브러리 — Music 앱에 porting</span>
+        <span class="c-stack">Java</span>
+        <span class="c-year">2013</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>MP3(ID3) / FLAC(Vorbis) Tag spec 분석</b>, TEXT / LYRICS / ALBUMART read·write 기능 개발</li>
+        <li>Charset encoding field 부재 대응 — <b>UTF-8 / ISO-8859-1 / UTF-16BE·LE 자동 분석 로직</b> 개발</li>
+        <li>Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용</li>
       </ul></div>
     </details>
     <details class="row">
@@ -436,7 +522,21 @@ footer{
     </div>
   </header>
   <div class="narrative">
-    <p>2015년 소셜커머스 Tmon으로 옮겨 대규모 트래픽의 쇼핑 앱을 만들었다. 카테고리 구조 개편과 메인 첫화면 Renewal을 각각 3개월씩 이끌며 lazy loading으로 진입 속도를 개선했고, Jenkins와 Instrumentation test, Slack을 엮은 원클릭 자동화 테스트까지 — 기능과 개발 흐름을 함께 다듬는 습관이 이때 자리잡았다. 중간의 Titan Platform에서는 Winvention US향 멀티미디어 앱을 초기부터 설계하며 단일 Activity 구조와 자체 DRM을 얹은 ExoPlayer를 다뤘다.</p>
+    <p>2015년 소셜커머스 Tmon으로 옮겨 대규모 트래픽의 쇼핑 앱을 만들었습니다. 카테고리 구조 개편과 메인 첫화면 Renewal을 각각 3개월씩 이끌며 lazy loading으로 진입 속도를 개선했고, Jenkins와 Instrumentation test, Slack을 엮은 원클릭 자동화 테스트까지 — 기능과 개발 흐름을 함께 다듬는 습관이 이때 자리 잡았습니다. 중간의 Titan Platform에서는 Winvention US향 멀티미디어 앱을 초기부터 설계하며 단일 Activity 구조와 자체 DRM을 얹은 ExoPlayer를 다뤘습니다.</p>
+  </div>
+  <div class="plates narrative">
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="tmon-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/tmon-01.jpg" alt="Tmon Android 메인 추천 첫화면" width="319" height="568" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 2.1 — Tmon, 메인 추천 첫화면</figcaption>
+    </figure>
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="winvention-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/winvention-01.jpg" alt="Winvention US 홈 피드 화면" width="506" height="900" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 2.2 — Winvention US, 홈 피드</figcaption>
+    </figure>
   </div>
   <div class="index">
     <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
@@ -471,7 +571,7 @@ footer{
 </section>
 
 <aside class="pullquote wrap">
-  <p>“<b>기능 개발</b>과 <b>개발 흐름 개선</b>을 함께 하는 개발자.”</p>
+  <p>“<b>기능 개발</b>과 <b>개발 흐름 개선</b>을 함께하는 개발자입니다.”</p>
 </aside>
 
 <!-- ————— CHAPTER 03 ————— -->
@@ -485,7 +585,27 @@ footer{
     </div>
   </header>
   <div class="narrative">
-    <p>2018년 SK Telecom에 합류해 NUGU AI Mobile의 App Renewal 2.0을 처음부터 재개발했다. Java→Kotlin 전환, 전 화면 MVVM(RxKotlin·LiveData), Koin DI와 MockK 유닛테스트 도입 — 코드베이스를 현대화하는 전환을 처음으로 주도한 시기다. 이어 Tmap Taxi 승객앱의 호출 화면 전면 Renewal과 SK pay 결제를 개발했고, Btv NUGU에서는 UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 태우며 15개+ model flavor 빌드를 Fastlane과 Jenkins로 효율화했다. 2019년에는 Google I/O에 참여해 사내에 공유했다.</p>
+    <p>2018년 SK Telecom에 합류해 NUGU AI Mobile의 App Renewal 2.0을 처음부터 재개발했습니다. Java→Kotlin 전환, 전 화면 MVVM(RxKotlin·LiveData), Koin DI와 MockK 유닛테스트 도입 — 코드베이스를 현대화하는 전환을 처음으로 주도한 시기입니다. 이어 Tmap Taxi 승객앱의 호출 화면 전면 Renewal과 SK pay 결제를 개발했고, Btv NUGU에서는 UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 태우며 15개+ model flavor 빌드를 Fastlane과 Jenkins로 효율화했습니다. 2019년에는 Google I/O에 참여해 사내에 공유했습니다.</p>
+  </div>
+  <div class="plates narrative">
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="nugu-mobile-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU AI Mobile 홈 화면 — 날씨 카드와 이벤트 배너" width="506" height="900" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 3.1 — NUGU AI Mobile, 홈</figcaption>
+    </figure>
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="tmap-taxi-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 지도 위 출발지 지정 화면" width="506" height="900" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 3.2 — Tmap Taxi, 출발지 지정</figcaption>
+    </figure>
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="btv-nugu-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/btv-nugu-01.jpg" alt="Btv NUGU Melon 음악 재생 TV 화면" width="900" height="506" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 3.3 — Btv NUGU, Melon 재생 (TV)</figcaption>
+    </figure>
   </div>
   <div class="index">
     <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
@@ -547,14 +667,34 @@ footer{
     </div>
   </header>
   <div class="narrative">
-    <p>2022년부터 SKT AI 개인비서 '에이닷' Android 클라이언트를 만들고 있다. 대규모 멀티모듈 프로젝트에서 4년간 2,990 커밋(기여 2위권)을 쌓으며 게임·AI 포토·AI 노트 등 도메인을 리드했고, XML→Compose 전면 전환과 React Native 하이브리드 전환, 테스트 인프라와 CI 자동화까지 굵직한 기술 전환을 주도했다. Tmap·TimeTree 파트너 샘플 앱을 initial commit부터 리드했고, 2026년부터는 Go + Next.js 기반 AI Agent 거버넌스 플랫폼 Agent OS와 Claude Code 기반 AI 개발 워크플로로 영역을 넓히는 중이다.</p>
+    <p>2022년부터 SKT AI 개인비서 '에이닷' Android 클라이언트를 만들고 있습니다. 대규모 멀티모듈 프로젝트를 4년간 지속 개발하며 게임·AI 포토·AI 노트 등 도메인을 리드했고, XML→Compose 전면 전환과 React Native 하이브리드 전환, 테스트 인프라와 CI 자동화까지 굵직한 기술 전환을 주도했습니다. Tmap 파트너 레퍼런스 샘플 앱을 initial commit부터 리드했으며, 2026년부터는 Go + Next.js 기반 AI Agent 거버넌스 플랫폼 Agent OS와 Claude Code 기반 AI 개발 워크플로로 영역을 넓히고 있습니다.</p>
+  </div>
+  <div class="plates narrative">
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="adot-store-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/adot-store-01.jpg" alt="에이닷 A. — AI 개인비서 소개 화면" width="506" height="900" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 4.1 — 에이닷 A., AI 개인비서</figcaption>
+    </figure>
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="tmap-store-01" data-ext="jpg" aria-haspopup="dialog">
+        <img src="../assets/screens/tmap-store-01.jpg" alt="음성비서가 탑재된 Tmap 앱 홈 화면" width="506" height="900" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 4.2 — Tmap x Adot, 음성비서 탑재 Tmap</figcaption>
+    </figure>
+    <figure class="plate">
+      <button type="button" class="plate-btn" data-name="agent-os-01" data-ext="svg" aria-haspopup="dialog">
+        <img src="../assets/screens/agent-os-01.svg" alt="Agent OS 아키텍처 개요 다이어그램" width="900" height="620" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="mono">fig. 4.3 — Agent OS, 아키텍처 개요</figcaption>
+    </figure>
   </div>
   <div class="index">
     <div class="index-cols" aria-hidden="true"><span>Project</span><span>Result</span><span>Stack</span><span>Year</span></div>
     <details class="row">
       <summary>
         <span class="c-proj">에이닷 A. Android 앱<small>SK Telecom · 대규모 멀티모듈 (app/feature/domain/data/core)</small></span>
-        <span class="c-res">4년간 2,990 커밋(기여 2위권) — 게임·포토·노트 도메인 리드, Compose·RN 전환 주도</span>
+        <span class="c-res">게임·포토·노트 등 도메인 리드 — XML→Compose·RN 하이브리드 전환, 테스트 인프라 주도</span>
         <span class="c-stack">Kotlin · Compose · RN</span>
         <span class="c-year">2022–</span>
       </summary>
@@ -572,8 +712,22 @@ footer{
     </details>
     <details class="row">
       <summary>
+        <span class="c-proj">adot-react-native<small>SK Telecom · 에이닷 공용 RN 워크스페이스</small></span>
+        <span class="c-res">Android/iOS에 embed되는 크로스플랫폼 공용 코드베이스 — Auto 화면 3종, AI 노트 전환</span>
+        <span class="c-stack">TypeScript · RN New Arch · Expo</span>
+        <span class="c-year">2026</span>
+      </summary>
+      <div class="row-detail"><ul>
+        <li><b>Auto(차량 연동) RN 화면 3종 전면 구현</b>: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결</li>
+        <li>AI 노트 RN 전환: 공용 noteList 컴포넌트·훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)</li>
+        <li><b>Pull-to-Refresh 제스처 경합 해결</b>: RNGH PanGestureHandler 기반 재구현 → design-system 공용 컴포넌트로 승격</li>
+        <li>Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입</li>
+      </ul></div>
+    </details>
+    <details class="row">
+      <summary>
         <span class="c-proj">Tmap x Adot 음성비서 마이그레이션<small>SK Telecom · 레퍼런스 샘플 앱 리드</small></span>
-        <span class="c-res">NUGU→에이닷 마이그레이션 샘플, initial commit부터 리드 — 240 커밋 · 전체의 41%</span>
+        <span class="c-res">NUGU→에이닷 마이그레이션 레퍼런스 샘플 — initial commit부터 리드 개발</span>
         <span class="c-stack">Kotlin · NUGU SDK · Lottie</span>
         <span class="c-year">2025</span>
       </summary>
@@ -587,31 +741,6 @@ footer{
     </details>
     <details class="row">
       <summary>
-        <span class="c-proj">TimeTree x Adot Android 샘플<small>SK Telecom · 제휴 서비스 샘플 앱</small></span>
-        <span class="c-res">채팅 화면 개발 — Reactive 메시지 연결 · Streaming 로딩 뷰 (272 커밋)</span>
-        <span class="c-stack">Kotlin · Compose</span>
-        <span class="c-year">2025</span>
-      </summary>
-      <div class="row-detail"><ul>
-        <li><b>채팅 화면 개발</b>: Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션</li>
-      </ul></div>
-    </details>
-    <details class="row">
-      <summary>
-        <span class="c-proj">adot-react-native<small>SK Telecom · 에이닷 공용 RN 워크스페이스</small></span>
-        <span class="c-res">Android/iOS에 embed되는 크로스플랫폼 공용 코드베이스 — Auto 화면 3종, AI 노트 전환 (167 커밋)</span>
-        <span class="c-stack">TypeScript · RN New Arch · Expo</span>
-        <span class="c-year">2026</span>
-      </summary>
-      <div class="row-detail"><ul>
-        <li><b>Auto(차량 연동) RN 화면 3종 전면 구현</b>: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결</li>
-        <li>AI 노트 RN 전환: 공용 noteList 컴포넌트·훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)</li>
-        <li><b>Pull-to-Refresh 제스처 경합 해결</b>: RNGH PanGestureHandler 기반 재구현 → design-system 공용 컴포넌트로 승격</li>
-        <li>Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입</li>
-      </ul></div>
-    </details>
-    <details class="row">
-      <summary>
         <span class="c-proj">Agent OS<small>SK Telecom · AI Agent 거버넌스 플랫폼</small></span>
         <span class="c-res">흩어진 AI Agent를 등록·추적·통제 — Go observability pod + Next.js 콘솔</span>
         <span class="c-stack">Go · Next.js · Langfuse</span>
@@ -621,7 +750,7 @@ footer{
         <li><b>Go 백엔드(control-plane) observability pod 개발</b>: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)</li>
         <li>Next.js 콘솔 model-evaluation 화면 개발·리팩토링, flaky test 근본 해결</li>
         <li><b>Speckit 기반 스펙 주도 개발</b> 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화</li>
-        <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 (49 커밋)</li>
+        <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등</li>
       </ul></div>
     </details>
   </div>
@@ -665,6 +794,16 @@ footer{
 </footer>
 
 </main>
+
+<dialog id="lightbox" aria-label="프로젝트 화면 크게 보기">
+  <figure class="lb-figure">
+    <img id="lb-img" alt="">
+    <figcaption class="mono"><span id="lb-cap"></span><span id="lb-count"></span></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-prev" aria-label="이전 도판">&#8592;</button>
+  <button type="button" class="lb-btn lb-next" aria-label="다음 도판">&#8594;</button>
+  <button type="button" class="lb-btn lb-close" aria-label="닫기">&#215;</button>
+</dialog>
 
 <script>
 (function(){
@@ -716,6 +855,67 @@ footer{
       });
     }, { rootMargin: "-35% 0px -55% 0px" });
     document.querySelectorAll(".chapter").forEach(function(s){ io.observe(s); });
+  }
+
+  /* — plate lightbox — */
+  var dlg = document.getElementById("lightbox");
+  if (dlg && typeof dlg.showModal === "function"){
+    var plates = Array.prototype.slice.call(document.querySelectorAll(".plate-btn"));
+    var lbImg = document.getElementById("lb-img");
+    var lbCap = document.getElementById("lb-cap");
+    var lbCount = document.getElementById("lb-count");
+    var cur = 0;
+    var opener = null;
+
+    function baseSrc(btn){
+      return "../assets/screens/" + btn.getAttribute("data-name") + "." + btn.getAttribute("data-ext");
+    }
+    function fullSrc(btn){
+      return "../assets/screens/full/" + btn.getAttribute("data-name") + ".jpg";
+    }
+    function show(i){
+      cur = (i + plates.length) % plates.length;
+      var btn = plates[cur];
+      var thumb = btn.querySelector("img");
+      var fig = btn.closest ? btn.closest(".plate") : btn.parentNode;
+      var cap = fig ? fig.querySelector("figcaption") : null;
+      lbImg.onerror = null;
+      if (btn.getAttribute("data-ext") === "jpg"){
+        /* high-res swap: try full/, fall back to the standard asset */
+        lbImg.onerror = function(){ this.onerror = null; this.src = baseSrc(btn); };
+        lbImg.src = fullSrc(btn);
+      } else {
+        lbImg.src = baseSrc(btn);
+      }
+      lbImg.alt = thumb ? thumb.alt : "";
+      lbCap.textContent = cap ? cap.textContent : "";
+      lbCount.textContent = (cur + 1) + " / " + plates.length;
+    }
+    plates.forEach(function(btn, i){
+      btn.addEventListener("click", function(){
+        opener = btn;
+        show(i);
+        document.documentElement.classList.add("lb-open");
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener("close", function(){
+      document.documentElement.classList.remove("lb-open");
+      lbImg.onerror = null;
+      lbImg.removeAttribute("src");
+      if (opener){ opener.focus(); opener = null; }
+    });
+    dlg.addEventListener("click", function(e){
+      /* clicks on ::backdrop dispatch on the dialog element itself */
+      if (e.target === dlg) dlg.close();
+    });
+    dlg.addEventListener("keydown", function(e){
+      if (e.key === "ArrowLeft"){ e.preventDefault(); show(cur - 1); }
+      else if (e.key === "ArrowRight"){ e.preventDefault(); show(cur + 1); }
+    });
+    dlg.querySelector(".lb-close").addEventListener("click", function(){ dlg.close(); });
+    dlg.querySelector(".lb-prev").addEventListener("click", function(){ show(cur - 1); });
+    dlg.querySelector(".lb-next").addEventListener("click", function(){ show(cur + 1); });
   }
 })();
 </script>

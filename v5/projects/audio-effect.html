@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>에이닷 A. — 강지환</title>
-<meta name="description" content="SKT AI 개인비서 '에이닷' Android 클라이언트 — AI 노트 도메인 리드, XML→Compose 전환, React Native 하이브리드 전환. 강지환 케이스 스터디.">
+<title>Audio Effect — 강지환</title>
+<meta name="description" content="Audio Effect Android — 음원 재생 Audio Effect 앱. 사용자 설정 Equalizer, 장르 기반 Auto Preset, QSound/NXP/Android Native 통합. 강지환 케이스 스터디.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="에이닷 A. — 강지환">
-<meta property="og:description" content="대규모 멀티모듈 Android 클라이언트 — AI 노트 도메인 리드, XML→Compose 전환, React Native 하이브리드 전환 주도.">
+<meta property="og:title" content="Audio Effect — 강지환">
+<meta property="og:description" content="음원 재생 관련 Audio Effect를 제공하는 앱 — 사용자 설정 Equalizer, 재생 장르 기반 Auto Preset, 3rd party 라이브러리를 하나의 apk로 통합.">
 <meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
-<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/adot.html">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v5/projects/audio-effect.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,72 +116,58 @@ body.lb-lock{overflow:hidden}
 <header class="wrap">
   <div class="topbar">
     <a class="brand" href="../index.html">강지환 — Jihwan Kang</a>
-    <span class="mono">Case Study · Plate 02</span>
+    <span class="mono">Case Study · Plate 11</span>
     <span class="mono">Seoul, KR</span>
   </div>
-  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p02">Index</a> ← 02 · 에이닷 A.</nav>
+  <nav class="crumb mono" aria-label="브레드크럼"><a href="../index.html#p11">Index</a> ← 11 · Audio Effect</nav>
 </header>
 
 <main class="wrap">
   <section class="hero">
-    <p class="idx" aria-hidden="true">02</p>
-    <h1>에이닷 A. Android</h1>
-    <p class="claim">SKT AI 개인비서 '에이닷'의 Android 클라이언트 — 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트를 4년간 지속 개발하고 있습니다.</p>
+    <p class="idx" aria-hidden="true">11</p>
+    <h1>Audio Effect Android</h1>
+    <p class="claim">음원 재생 관련 Audio Effect를 제공하는 앱을 개발했습니다.</p>
   </section>
 
   <dl class="facts">
-    <div class="fact"><dt class="mono">역할</dt><dd>Android Client 개발 · AI 노트 도메인 리드</dd></div>
-    <div class="fact"><dt class="mono">기간</dt><dd>2022.05 — 현재 · SK Telecom</dd></div>
-    <div class="fact"><dt class="mono">규모</dt><dd>대규모 멀티모듈 · 4년 지속 개발</dd></div>
-    <div class="fact"><dt class="mono">스택</dt><dd>Kotlin · Compose · RN · Hilt · WorkManager</dd></div>
+    <div class="fact"><dt class="mono">역할</dt><dd>전임연구원 · Android 앱 개발</dd></div>
+    <div class="fact"><dt class="mono">기간</dt><dd>2012.04 — 2015.05 · Pantech</dd></div>
+    <div class="fact"><dt class="mono">통합</dt><dd>QSound · NXP · Android Native — 하나의 apk</dd></div>
+    <div class="fact"><dt class="mono">스택</dt><dd>Java · Equalizer · Effect Tuning</dd></div>
   </dl>
 
-  <p class="context">게임·AI 포토·A.tv·AI 노트 등 여러 서비스 도메인을 옮겨 다니며 개발했고, XML→Compose 전환과 Native→React Native 하이브리드 전환이라는 두 번의 큰 기술 전환을 현장에서 주도했습니다. 기능 개발과 함께 테스트 인프라·CI 자동화·AI 개발 워크플로 같은 개발 흐름 개선을 병행했습니다.</p>
+  <p class="context">Effect 종류별 사용자 UI와 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능을 개발했습니다. QSound/NXP/Android Native 3rd party 라이브러리를 하나의 apk로 통합했고, 타사 디바이스와 모든 뮤직 플레이어 앱에서 동작하도록 개발했습니다.</p>
 
   <div class="case">
     <div class="text">
       <p class="mono">What I Built</p>
       <ul class="built">
-        <li><b>AI 노트 도메인 리드 (2025.08~)</b>통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발.</li>
-        <li><b>React Native 하이브리드 전환 (2026)</b>New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow + ReactViewModel + ReactFragment + 라우팅), 전환 후 레거시 Native 코드 정리.</li>
-        <li><b>게임 서비스 (2022~2024 · 최대 기여 영역)</b>게임홈/리스트/상세/리더보드 전체 개발, XML→Compose 전면 전환 — Material3 제약 해결, Foldable 대응 nestedScroll 경합 회피.</li>
-        <li><b>AI 포토 (2024)</b>프로필 이미지 생성 플로우, 외부 이미지 생성 SDK 연동, UiState 세분화.</li>
-        <li><b>A.tv (2022~2025)</b>외부 AAR SDK v0.0.7→v244+ 수십 차례 통합, 본인인증 flow, PIP/폴더블/멀티윈도우 대응.</li>
-        <li><b>WebView 플랫폼 공통화</b>webkit 모듈 설계(WebResultProvider, permission/activity result), 영어학습 JS Bridge, 딥링크 도메인 검증 등 보안 이슈 해결.</li>
-        <li><b>테스트 인프라 구축 (2024.11~2025.03)</b>UnitTest report 통합 시스템, Kover coverage 룰셋, CI 파이프라인 테스트 옵션, Slack 알림 연동.</li>
-        <li><b>CI 자동화 (2026)</b>js submodule pointer 무결성 검사, 자동 bump Pipeline Schedule, Debug 빌드 API 프록시 개발자 메뉴.</li>
-        <li><b>AI 개발 워크플로 도입 (2026)</b>Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발.</li>
+        <li><b>Effect UI · Equalizer</b>Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발.</li>
+        <li><b>3rd party 라이브러리 통합</b>QSound/NXP/Android Native 통합 — 하나의 apk로 모두 지원, Effect tuning.</li>
+        <li><b>호환성 확장</b>타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발.</li>
       </ul>
     </div>
     <aside class="side c2" aria-label="도판">
       <figure class="plate">
-        <img src="../../assets/screens/adot-store-01.jpg" width="506" height="900" alt="에이닷 A. 앱 공식 스토어 스크린샷 1" loading="eager" decoding="async">
-        <figcaption>Fig. 01 — 에이닷 A. 공식 스토어, 2026</figcaption>
-      </figure>
-      <figure class="plate">
-        <img src="../../assets/screens/adot-store-02.jpg" width="506" height="900" alt="에이닷 A. 앱 공식 스토어 스크린샷 2" loading="lazy" decoding="async">
-        <figcaption>Fig. 02 — 에이닷 A. 공식 스토어, 2026</figcaption>
-      </figure>
-      <figure class="plate">
-        <img src="../../assets/screens/adot-store-03.jpg" width="506" height="900" alt="에이닷 A. 앱 공식 스토어 스크린샷 3" loading="lazy" decoding="async">
-        <figcaption>Fig. 03 — 에이닷 A. 공식 스토어, 2026</figcaption>
+        <div class="slot" role="img" aria-label="스크린샷 준비 중"></div>
+        <figcaption>Fig. 준비 중 — Equalizer UI, 2012–15</figcaption>
       </figure>
       <figure class="plate">
         <div class="slot" role="img" aria-label="스크린샷 준비 중"></div>
-        <figcaption>Fig. 준비 중 — AI 노트</figcaption>
+        <figcaption>Fig. 준비 중 — Effect 설정 화면, 2012–15</figcaption>
       </figure>
     </aside>
   </div>
 
   <div class="outcome">
     <p class="mono">Outcome</p>
-    <p>게임·포토·노트 등 여러 도메인을 거치며 XML→Compose, Native→RN 하이브리드, 무테스트→커버리지 체계, 수동 개발→AI 파이프라인 — 4번의 기술 전환을 현장에서 주도했습니다.</p>
+    <p>서로 다른 3rd party Effect 라이브러리를 하나의 apk로 통합하고 타사 디바이스까지 지원 — 디바이스에 종속되지 않는 Audio Effect 앱을 만들었습니다.</p>
   </div>
 
   <nav class="pn" aria-label="이전·다음 프로젝트">
-    <a href="agent-os.html"><span class="mono">← Prev · 01</span><span class="t">Agent OS</span></a>
+    <a href="music-player.html"><span class="mono">← Prev · 10</span><span class="t">Music Player Android</span></a>
     <a class="home" href="../index.html"><span class="mono">Index</span><span class="t">전체 목록</span></a>
-    <a class="next" href="adot-rn.html"><span class="mono">Next · 03 →</span><span class="t">adot-react-native</span></a>
+    <a class="next" href="tag-editor.html"><span class="mono">Next · 12 →</span><span class="t">Tag Editor Library</span></a>
   </nav>
 </main>
 

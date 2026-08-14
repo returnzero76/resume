@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="강지환 · Jihwan Kang — Resume">
-<meta property="og:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform. 15+년, 3,700+ 커밋, 7개 서비스 도메인 리드.">
+<meta property="og:description" content="Software Engineer — Android · Cross-platform · AI Agent Platform. 15+년 소프트웨어 개발, 7개 서비스 도메인 리드.">
 <meta property="og:url" content="https://returnzero76.github.io/resume/v9/">
 <meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%8C%8C%3C/text%3E%3C/svg%3E">
@@ -89,6 +89,7 @@ img{max-width:100%;height:auto;display:block}
   padding:28px;overflow:hidden;cursor:pointer;
 }
 .card.md{grid-column:span 2;padding:22px}
+.card.md.wide2{grid-column:span 3}
 .card.md-b{padding:20px}
 .card:has(.stretch:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
 .stretch:focus-visible{outline:none}
@@ -296,7 +297,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-c
 }
 @media (max-width:700px){
   .hero{flex-direction:column-reverse;padding-top:80px;gap:24px}
-  .card.md,.row{grid-column:span 6}
+  .card.md,.card.md.wide2,.row{grid-column:span 6}
   .adot-shots{grid-template-columns:repeat(3,1fr);gap:8px}
   .row .r-meta{display:none}
   .skill-grid{grid-template-columns:1fr}
@@ -344,7 +345,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-c
       </div>
       <div class="stats mono">
         <span><b>15+</b>년 소프트웨어 개발</span>
-        <span><b>3,700+</b>커밋 · 최근 4년</span>
+        <span><b>10+</b>서비스·앱 개발</span>
         <span><b>7</b>개 서비스 도메인 리드</span>
         <span><b>4</b>번의 기술 전환 주도</span>
       </div>
@@ -363,32 +364,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-c
       <div class="xl-grid">
         <div class="xl-left">
           <h3>Agent OS</h3>
-          <p class="tagline">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 AI Agent 거버넌스 플랫폼 (Go + Next.js 모노레포)</p>
+          <p class="tagline">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 AI Agent 거버넌스 플랫폼(Go + Next.js 모노레포)을 개발하고 있습니다.</p>
           <ul class="mini">
             <li>Go control-plane observability pod — Langfuse/Pathfinder trace 조회 연동, cursor 페이징 · 지수 백오프 · BDD tests-first 20 스펙</li>
             <li>Next.js 콘솔 model-evaluation 화면 개발·리팩토링, flaky test 근본 해결</li>
             <li>Speckit 스펙 주도 개발: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화</li>
-            <li>agent-os-skills — daily-briefing(Slack Block Kit) · spec-tracker 등 팀 자동화 스킬 (49 커밋)</li>
+            <li>agent-os-skills — daily-briefing(Slack Block Kit) · spec-tracker 등 팀 자동화 스킬</li>
           </ul>
           <div class="chips mono"><span>Go</span><span>Next.js</span><span>Huma API</span><span>Langfuse</span><span>Speckit</span><span>BDD</span><span>GitLab CI</span></div>
           <button class="open stretch mono" data-open="agent-os">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
         </div>
         <div class="xl-right">
-          <div class="term" aria-hidden="true">
-            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">agent-os · control-plane</span></div>
-<pre class="term-body"><span class="t-p">$</span> agentos agents list --status active
-<span class="t-h">NAME              STATUS   KIND      OWNER</span>
-model-evaluation  <span class="t-ok">active</span>   console   agent-os
-daily-briefing    <span class="t-ok">active</span>   skill     agent-os-skills
-spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
-
-<span class="t-p">$</span> agentos traces tail --source langfuse,pathfinder
-<span class="t-dim">[trace]</span> langfuse    <span class="t-cy">llm.generation</span>   812ms  <span class="t-ok">ok</span>
-<span class="t-dim">[trace]</span> pathfinder  <span class="t-cy">agent.plan</span>       143ms  <span class="t-ok">ok</span>
-<span class="t-dim">[trace]</span> langfuse    <span class="t-cy">cursor.next</span>       64ms  <span class="t-ok">ok</span>
-<span class="t-dim">[retry]</span> backoff 2s → 4s · attempt 2/5 · recovered
-<span class="t-ok">✓</span> observability pod · BDD 20 specs passed</pre>
-          </div>
+          <div class="frame land"><img src="../assets/screens/agent-os-01.svg" alt="Agent OS 아키텍처 그래픽" width="900" height="620" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </article>
@@ -399,7 +386,7 @@ spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
       <div class="xl-grid">
         <div class="xl-left">
           <h3>에이닷 A. Android</h3>
-          <p class="tagline">SKT AI 개인비서 '에이닷' Android 클라이언트 — 대규모 멀티모듈(app/feature/domain/data/core), 4년간 2,990 커밋(기여 2위권)</p>
+          <p class="tagline">SKT AI 개인비서 '에이닷'의 Android 클라이언트입니다. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트를 4년간 지속 개발하고 있습니다.</p>
           <div class="chips tl mono"><span>게임 ’22</span><i>→</i><span>포토 ’24</span><i>→</i><span>노트 ’25</span><i>→</i><span>RN ’26</span></div>
           <ul class="mini" style="margin-top:16px">
             <li><strong>AI 노트 도메인 리드</strong> — 통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축</li>
@@ -420,40 +407,30 @@ spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
     </article>
 
     <!-- adot-react-native · MEDIUM -->
-    <article class="card md spot">
+    <article class="card md wide2 spot">
       <div class="card-top mono"><span>2026.03 — 05</span><span>SKT</span></div>
       <h3>adot-react-native</h3>
-      <p class="tagline">Android/iOS 본체에 submodule로 embed되는 에이닷 공용 RN 워크스페이스(TypeScript) — Auto 화면 3종 전면 구현, AI 노트 RN 전환. 167 커밋.</p>
-      <div class="code-note" aria-hidden="true">TurboModule Spec<br><b>NotePagingList</b> · <b>SwipeableNoteRow</b><br>useNoteListPaging · RNGH Pull-to-Refresh</div>
+      <p class="tagline">Android/iOS 본체에 submodule로 embed되는 에이닷 공용 RN 워크스페이스(TypeScript)입니다. Auto 화면 3종 전면 구현과 AI 노트 RN 전환을 진행했습니다.</p>
+      <div class="md-media"><div class="frame crop"><img src="../assets/screens/adot-store-04.jpg" alt="에이닷 RN 전환 화면" width="506" height="900" loading="lazy" decoding="async"></div></div>
       <div class="chips mono"><span>TypeScript</span><span>New Architecture</span><span>Expo SDK 55</span></div>
       <button class="open stretch mono" data-open="adot-rn">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
     </article>
 
     <!-- Tmap x Adot · MEDIUM -->
-    <article class="card md spot">
+    <article class="card md wide2 spot">
       <div class="card-top mono"><span>2025.03 — 08</span><span>SKT</span></div>
       <h3>Tmap × Adot</h3>
-      <p class="tagline">Tmap 음성비서 NUGU→에이닷 마이그레이션 레퍼런스 샘플 앱 — initial commit부터 리드 개발 (240 커밋 · 전체의 41%)</p>
+      <p class="tagline">Tmap 음성비서를 NUGU에서 에이닷 기반으로 마이그레이션하는 레퍼런스 샘플 앱입니다. Initial commit부터 리드 개발을 맡았습니다.</p>
       <div class="md-media"><div class="frame crop"><img src="../assets/screens/tmap-store-01.jpg" alt="Tmap 음성비서 화면" width="506" height="900" loading="lazy" decoding="async"></div></div>
       <div class="chips mono"><span>NUGU SDK</span><span>Wake-up Word</span><span>VoiceChrome</span></div>
       <button class="open stretch mono" data-open="tmap-adot">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
-    </article>
-
-    <!-- TimeTree · MEDIUM -->
-    <article class="card md spot">
-      <div class="card-top mono"><span>2025.03 — 10</span><span>SKT</span></div>
-      <h3>TimeTree × Adot</h3>
-      <p class="tagline">TimeTree 제휴 서비스용 Android 샘플 앱 (272 커밋) — 채팅 화면 개발</p>
-      <div class="code-note" aria-hidden="true">Reactive 메시지 연결<br><b>Streaming</b> 로딩 뷰<br>채팅방 enter/exit 애니메이션</div>
-      <div class="chips mono"><span>Android</span><span>Reactive</span><span>Chat UI</span></div>
-      <button class="open stretch mono" data-open="timetree">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
     </article>
 
     <!-- Btv NUGU · MEDIUM -->
     <article class="card md md-b spot">
       <div class="card-top mono"><span>2020.11 — 2022.04</span><span>SKT</span></div>
       <h3>Btv NUGU</h3>
-      <p class="tagline">모든 Btv 디바이스(UHD/AI/Smart)에 NUGU 탑재 — 신규 디바이스 출시, 15개+ model flavor 빌드 효율화</p>
+      <p class="tagline">모든 Btv 디바이스(UHD/AI/Smart)에 NUGU를 탑재하는 앱입니다. 신규 디바이스 출시와 15개+ model flavor 빌드 효율화를 진행했습니다.</p>
       <div class="md-media"><div class="frame land"><img src="../assets/screens/btv-nugu-01.jpg" alt="Btv NUGU Melon 음악 재생 TV 화면" width="900" height="506" loading="lazy" decoding="async"></div></div>
       <div class="chips mono"><span>MVVM</span><span>Fastlane</span><span>Jenkins</span></div>
       <button class="open stretch mono" data-open="btv-nugu">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
@@ -463,7 +440,7 @@ spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
     <article class="card md md-b spot">
       <div class="card-top mono"><span>2020.03 — 11</span><span>SKT</span></div>
       <h3>Tmap Taxi</h3>
-      <p class="tagline">택시 승객앱 — 호출 화면 전면 Renewal, SK pay 결제, Java→Kotlin 전환·MVVM 적용</p>
+      <p class="tagline">택시 승객앱의 호출 화면 전면 Renewal과 SK pay 결제 개발, Java→Kotlin 전환·MVVM 적용을 진행했습니다.</p>
       <div class="md-media"><div class="frame crop"><img src="../assets/screens/tmap-taxi-02.jpg" alt="Tmap Taxi 차종 선택·결제 방식 화면" width="506" height="900" loading="lazy" decoding="async"></div></div>
       <div class="chips mono"><span>Kotlin</span><span>MVVM</span><span>SK pay</span></div>
       <button class="open stretch mono" data-open="tmap-taxi">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
@@ -473,7 +450,7 @@ spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
     <article class="card md md-b spot">
       <div class="card-top mono"><span>2018.04 — 2020.11</span><span>SKT</span></div>
       <h3>NUGU Mobile</h3>
-      <p class="tagline">NUGU AI 서비스·디바이스 연결 Android 앱 — App Renewal 2.0 처음부터 재개발, Java→Kotlin</p>
+      <p class="tagline">NUGU AI 서비스·디바이스 연결 Android 앱입니다. App Renewal 2.0을 처음부터 재개발하며 Java→Kotlin 전환을 진행했습니다.</p>
       <div class="md-media"><div class="frame crop"><img src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU Mobile 홈 화면" width="506" height="900" loading="lazy" decoding="async"></div></div>
       <div class="chips mono"><span>RxKotlin</span><span>Koin</span><span>MockK</span></div>
       <button class="open stretch mono" data-open="nugu-mobile">케이스 스터디 <span class="arr" aria-hidden="true">→</span></button>
@@ -501,14 +478,34 @@ spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
       <button class="open stretch mono" data-open="winvention" aria-label="Winvention 케이스 스터디"><span class="arr" aria-hidden="true">→</span></button>
     </article>
 
-    <!-- Pantech · compact text row -->
+    <!-- Music Player · compact text row -->
     <article class="row spot">
       <div class="row-body">
-        <h3>Music Player &amp; Audio Effect</h3>
-        <p class="r-desc">Pantech 전 모델 preload Music 앱 — 해외 preload, Tag Editor 라이브러리 자체 개발</p>
+        <h3>Music Player</h3>
+        <p class="r-desc">Pantech 전 모델 preload Music 앱 — Media Provider 분석, 해외 preload, OS 2.2~5.0 대응</p>
       </div>
       <div class="r-meta mono">2011.01–2015.05<br>Pantech</div>
-      <button class="open stretch mono" data-open="pantech" aria-label="Music Player 케이스 스터디"><span class="arr" aria-hidden="true">→</span></button>
+      <button class="open stretch mono" data-open="music-player" aria-label="Music Player 케이스 스터디"><span class="arr" aria-hidden="true">→</span></button>
+    </article>
+
+    <!-- Audio Effect · compact text row -->
+    <article class="row spot">
+      <div class="row-body">
+        <h3>Audio Effect</h3>
+        <p class="r-desc">음원 재생 Audio Effect 앱 — 사용자 설정 Equalizer, QSound/NXP 3rd party 통합</p>
+      </div>
+      <div class="r-meta mono">2012.04–2015.05<br>Pantech</div>
+      <button class="open stretch mono" data-open="audio-effect" aria-label="Audio Effect 케이스 스터디"><span class="arr" aria-hidden="true">→</span></button>
+    </article>
+
+    <!-- Tag Editor · compact text row -->
+    <article class="row spot">
+      <div class="row-body">
+        <h3>Tag Editor Library</h3>
+        <p class="r-desc">음원 Tag Read/Write Java 라이브러리 자체 개발 — MP3(ID3)/FLAC(Vorbis) spec 분석</p>
+      </div>
+      <div class="r-meta mono">2013.03–2013.08<br>Pantech</div>
+      <button class="open stretch mono" data-open="tag-editor" aria-label="Tag Editor 케이스 스터디"><span class="arr" aria-hidden="true">→</span></button>
     </article>
 
     <!-- LG · compact text row -->
@@ -579,6 +576,7 @@ spec-tracker      <span class="t-ok">active</span>   skill     agent-os-skills
     </header>
     <div class="dlg-body">
       <div class="dlg-media">
+        <figure class="wide"><div class="frame land"><img src="../assets/screens/agent-os-01.svg" alt="Agent OS 아키텍처 그래픽" width="900" height="620" loading="lazy" decoding="async"></div><figcaption>Agent OS 아키텍처 개요</figcaption></figure>
         <div class="wide">
           <div class="term" aria-hidden="true">
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">agent-os · control-plane</span></div>
@@ -607,12 +605,12 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2026.06 — 현재<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">Go · Next.js · Huma API · Langfuse · Speckit · GitLab CI</p></div>
         </aside>
-        <p class="dlg-lede">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼 개발 (Go + Next.js 모노레포).</p>
+        <p class="dlg-lede">조직 내 흩어진 AI Agent들을 한 곳에서 등록·추적·통제하는 거버넌스 플랫폼(Go + Next.js 모노레포)을 개발하고 있습니다.</p>
         <ul class="bullets">
           <li>Go 백엔드(control-plane) observability pod 개발: Langfuse/Pathfinder trace 조회 연동 — cursor 페이징, 오류 계약 매핑, 지수 백오프 재시도, BDD tests-first(20 스펙)</li>
           <li>Next.js 콘솔 model-evaluation 화면 개발 및 리팩토링, flaky test 근본 해결</li>
           <li>Speckit 기반 스펙 주도 개발 문화 실천: spec→plan→tasks→구현, GitLab 이슈/Epic 양방향 연결 자동화</li>
-          <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등 (49 커밋)</li>
+          <li>agent-os-skills: 팀 생산성 자동화 스킬 개발 — daily-briefing(Slack Block Kit 발송), spec-tracker(스펙 번호 충돌 자동 재번호) 등</li>
         </ul>
       </div>
     </div>
@@ -634,17 +632,14 @@ spec → plan → tasks → 구현
         <figure><div class="frame"><img src="../assets/screens/adot-store-01.jpg" alt="에이닷 앱 화면 1" width="506" height="900" loading="lazy" decoding="async"></div></figure>
         <figure><div class="frame"><img src="../assets/screens/adot-store-02.jpg" alt="에이닷 앱 화면 2" width="506" height="900" loading="lazy" decoding="async"></div></figure>
         <figure><div class="frame"><img src="../assets/screens/adot-store-03.jpg" alt="에이닷 앱 화면 3" width="506" height="900" loading="lazy" decoding="async"></div></figure>
-        <figure><div class="frame"><img src="../assets/screens/adot-store-04.jpg" alt="에이닷 앱 화면 4" width="506" height="900" loading="lazy" decoding="async"></div></figure>
-        <figure><div class="frame"><img src="../assets/screens/adot-store-05.jpg" alt="에이닷 앱 화면 5" width="506" height="900" loading="lazy" decoding="async"></div></figure>
-        <figure><div class="frame"><img src="../assets/screens/adot-store-06.jpg" alt="에이닷 앱 화면 6" width="506" height="900" loading="lazy" decoding="async"></div></figure>
       </div>
       <div class="dlg-text">
         <aside class="facts">
-          <div><h3>역할</h3><p>Android Client 개발 · AI 노트 도메인 리드 (2,990 커밋 · 기여 2위권)</p></div>
+          <div><h3>역할</h3><p>Android Client 개발 · AI 노트 도메인 리드</p></div>
           <div><h3>기간</h3><p>2022.05 — 현재<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">Kotlin · Compose · Hilt · WorkManager · React Native · Kover</p></div>
         </aside>
-        <p class="dlg-lede">SKT AI 개인비서 '에이닷' Android 클라이언트. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트, 4년간 2,990 커밋(기여 2위권).</p>
+        <p class="dlg-lede">SKT AI 개인비서 '에이닷'의 Android 클라이언트입니다. 대규모 멀티모듈(app/feature/domain/data/core) 프로젝트를 4년간 지속 개발하고 있습니다.</p>
         <ul class="bullets">
           <li><strong>AI 노트 도메인 리드 (2025.08~)</strong>: 통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발</li>
           <li><strong>React Native 하이브리드 전환 (2026)</strong>: New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow+ReactViewModel+ReactFragment+라우팅), 전환 후 레거시 Native 코드 정리</li>
@@ -662,7 +657,7 @@ spec → plan → tasks → 구현
 </dialog>
 
 <!-- adot-react-native -->
-<dialog class="dlg nomedia" id="dlg-adot-rn" aria-labelledby="t-adot-rn">
+<dialog class="dlg" id="dlg-adot-rn" aria-labelledby="t-adot-rn">
   <div class="dlg-in">
     <header class="dlg-head">
       <div>
@@ -672,13 +667,18 @@ spec → plan → tasks → 구현
       <button class="dlg-x" data-close aria-label="닫기">✕</button>
     </header>
     <div class="dlg-body">
+      <div class="dlg-media">
+        <figure><div class="frame"><img src="../assets/screens/adot-store-04.jpg" alt="에이닷 RN 전환 화면" width="506" height="900" loading="lazy" decoding="async"></div><figcaption>RN 전환 화면</figcaption></figure>
+        <figure><div class="frame"><img src="../assets/screens/adot-store-05.jpg" alt="에이닷 앱 화면 5" width="506" height="900" loading="lazy" decoding="async"></div></figure>
+        <figure><div class="frame"><img src="../assets/screens/adot-store-06.jpg" alt="에이닷 앱 화면 6" width="506" height="900" loading="lazy" decoding="async"></div></figure>
+      </div>
       <div class="dlg-text">
         <aside class="facts">
-          <div><h3>역할</h3><p>Cross-platform 개발 (167 커밋)</p></div>
+          <div><h3>역할</h3><p>Cross-platform 개발</p></div>
           <div><h3>기간</h3><p>2026.03 — 2026.05<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">TypeScript · RN New Architecture · TurboModule · Expo SDK 55 · RNGH</p></div>
         </aside>
-        <p class="dlg-lede">Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스 (TypeScript). 167 커밋.</p>
+        <p class="dlg-lede">Android/iOS 본체에 submodule로 embed되는 크로스플랫폼 공용 코드베이스(TypeScript)입니다.</p>
         <ul class="bullets">
           <li>Auto(차량 연동) RN 화면 3종 전면 구현: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결</li>
           <li>AI 노트 RN 전환: 공용 noteList 컴포넌트/훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)</li>
@@ -711,43 +711,17 @@ spec → plan → tasks → 구현
       </div>
       <div class="dlg-text">
         <aside class="facts">
-          <div><h3>역할</h3><p>리드 개발 — initial commit부터 (240 커밋 · 전체의 41%)</p></div>
+          <div><h3>역할</h3><p>리드 개발 — initial commit부터</p></div>
           <div><h3>기간</h3><p>2025.03 — 2025.08<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">Kotlin · NUGU SDK · Wake-up Word · Lottie · Adot Login SDK</p></div>
         </aside>
-        <p class="dlg-lede">Tmap 앱 탑재 음성비서를 NUGU→에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱. Initial commit부터 시작한 리드 개발.</p>
+        <p class="dlg-lede">Tmap 앱 탑재 음성비서를 NUGU에서 에이닷 기반으로 마이그레이션하는 프로젝트의 레퍼런스 샘플 앱입니다. Initial commit부터 리드 개발을 맡았습니다.</p>
         <ul class="bullets">
           <li>신규 프로젝트 0→1 부트스트랩: core/presentation 모듈 아키텍처 설계, Adot Login SDK 인증 통합</li>
           <li>NUGU SDK 통합·커스터마이징: SpeechRecognizer trigger, AudioSpeaker custom, 멀티턴 상태머신 이슈 해결</li>
           <li>Wake-up Word 엔진 적용(멀티 트리거 모델), EPD Timeout 튜닝</li>
           <li>VoiceChrome(음성 UI) 구현: Lottie 상태별 애니메이션, 유지 정책, TmapCommand Directive viewer, 발화가이드 Chips</li>
           <li>5개월간 v0.3.0→v1.12.0 10회+ 배포, 파트너사 참조용 코드 품질 관리 + Confluence 연동 가이드 문서 저술 (Sample Guide 위키 10여 페이지)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- TimeTree -->
-<dialog class="dlg nomedia" id="dlg-timetree" aria-labelledby="t-timetree">
-  <div class="dlg-in">
-    <header class="dlg-head">
-      <div>
-        <p class="dlg-kicker">SK Telecom · 2025.03 — 2025.10</p>
-        <h2 id="t-timetree" tabindex="-1">TimeTree × Adot Android 샘플</h2>
-      </div>
-      <button class="dlg-x" data-close aria-label="닫기">✕</button>
-    </header>
-    <div class="dlg-body">
-      <div class="dlg-text">
-        <aside class="facts">
-          <div><h3>역할</h3><p>Android 샘플 앱 개발 (272 커밋)</p></div>
-          <div><h3>기간</h3><p>2025.03 — 2025.10<br>SK Telecom</p></div>
-          <div><h3>스택</h3><p class="stack">Android · Reactive · Chat UI</p></div>
-        </aside>
-        <p class="dlg-lede">TimeTree 제휴 서비스용 Android 샘플 앱 (272 커밋).</p>
-        <ul class="bullets">
-          <li>채팅 화면 개발: Reactive 메시지 연결, Streaming 로딩 뷰, 채팅방 enter/exit 애니메이션</li>
         </ul>
       </div>
     </div>
@@ -775,7 +749,7 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2020.11 — 2022.04<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">Android · MVVM · Fastlane · Jenkins</p></div>
         </aside>
-        <p class="dlg-lede">Btv 내 NUGU 사용을 위한 Android 앱. UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU 탑재.</p>
+        <p class="dlg-lede">Btv 내 NUGU 사용을 위한 Android 앱입니다. UHD/AI/Smart 등 모든 Btv 디바이스에 NUGU를 탑재했습니다.</p>
         <ul class="bullets">
           <li>신규 디바이스 출시(AI2 MAX, AI2 AndroidTv) &amp; 유지보수, 백그라운드 service component MVVM 적용</li>
           <li>15개+ model flavor 빌드 효율화: Fastlane 작성 &amp; Jenkins 연동, 개발자 Debug mode 개발</li>
@@ -807,7 +781,7 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2020.03 — 2020.11<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">Kotlin · MVVM · SK pay · Fastlane</p></div>
         </aside>
-        <p class="dlg-lede">택시 승객앱 신규 기능 개발 &amp; 유지보수.</p>
+        <p class="dlg-lede">택시 승객앱의 신규 기능 개발과 유지보수를 담당했습니다.</p>
         <ul class="bullets">
           <li>업무용 택시/법인카드 결제, SK pay 가입·카드연동·결제, 쿠폰 적용 개발</li>
           <li>승객 호출 화면 전면 Renewal(첫화면/출발지/목적지/경로/결제), Java→Kotlin 전환, MVVM 적용</li>
@@ -840,7 +814,7 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2018.04 — 2020.11<br>SK Telecom</p></div>
           <div><h3>스택</h3><p class="stack">Kotlin · RxKotlin · LiveData · Koin · MockK</p></div>
         </aside>
-        <p class="dlg-lede">NUGU AI 서비스용 3rd party 서비스 연결·디바이스 연결을 지원하는 Android 앱.</p>
+        <p class="dlg-lede">NUGU AI 서비스용 3rd party 서비스 연결과 디바이스 연결을 지원하는 Android 앱입니다.</p>
         <ul class="bullets">
           <li>App Renewal 2.0: 처음부터 재개발, Java→Kotlin 전환</li>
           <li>디바이스 연결(Bluetooth/AP/OTP/Broadcast) — AI Speaker, Btv 등, TID 연동</li>
@@ -874,7 +848,7 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2015.06 — 2017.01<br>2017.06 — 2018.03</p></div>
           <div><h3>스택</h3><p class="stack">Android · Jenkins · Instrumentation Test · EventBus(자체)</p></div>
         </aside>
-        <p class="dlg-lede">소셜커머스 Tmon Android 앱 전반 개발.</p>
+        <p class="dlg-lede">소셜커머스 Tmon Android 앱 전반을 개발했습니다.</p>
         <ul class="bullets">
           <li>쇼핑 카테고리 구조 개편 Renewal(3개월), 메인 첫화면(추천탭) Renewal(3개월) — lazy loading으로 진입 속도 개선</li>
           <li>Time Attack deal, 배송 상태 AppWidget, Custom view(Expandable GridView, Pull to Refresh 등)</li>
@@ -908,7 +882,7 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2017.01 — 2017.06<br>Titan Platform</p></div>
           <div><h3>스택</h3><p class="stack">Android · ExoPlayer · Jsoup · Volley · Firebase/FCM · Data binding</p></div>
         </aside>
-        <p class="dlg-lede">멀티미디어(Video/Webtoon) 서비스 US향 앱을 개발 초기부터 참여.</p>
+        <p class="dlg-lede">멀티미디어(Video/Webtoon) 서비스 US향 앱에 개발 초기부터 참여했습니다.</p>
         <ul class="bullets">
           <li>단일 Activity + 전 화면 Fragment 구조(like YouTube), 화면 이동 Movement 모듈 개발</li>
           <li>File upload Background Service, Jsoup+Volley 문서 파싱, ExoPlayer custom + 자체 DRM(TCI) 적용</li>
@@ -919,13 +893,13 @@ spec → plan → tasks → 구현
   </div>
 </dialog>
 
-<!-- Pantech -->
-<dialog class="dlg nomedia" id="dlg-pantech" aria-labelledby="t-pantech">
+<!-- Music Player -->
+<dialog class="dlg nomedia" id="dlg-music-player" aria-labelledby="t-music-player">
   <div class="dlg-in">
     <header class="dlg-head">
       <div>
         <p class="dlg-kicker">Pantech · 2011.01 — 2015.05</p>
-        <h2 id="t-pantech" tabindex="-1">Music Player &amp; Audio Effect</h2>
+        <h2 id="t-music-player" tabindex="-1">Music Player Android 앱</h2>
       </div>
       <button class="dlg-x" data-close aria-label="닫기">✕</button>
     </header>
@@ -934,14 +908,71 @@ spec → plan → tasks → 구현
         <aside class="facts">
           <div><h3>역할</h3><p>전임연구원 — Android 디바이스 preload Music 앱 개발</p></div>
           <div><h3>기간</h3><p>2011.01 — 2015.05<br>Pantech</p></div>
-          <div><h3>스택</h3><p class="stack">Android 2.2~5.0 · Media Provider · Tag Editor(자체 Java Library) · QSound/NXP</p></div>
+          <div><h3>스택</h3><p class="stack">Android 2.2~5.0 · Media Provider · NDK · AppWidget</p></div>
         </aside>
-        <p class="dlg-lede">Pantech Android 디바이스 preload Music Player 앱 개발.</p>
+        <p class="dlg-lede">Pantech Android 디바이스에 preload되는 Music Player 앱을 개발했습니다.</p>
         <ul class="bullets">
-          <li>Android Media Provider Framework 분석, Music DB/Albumart cache 구조, AppWidget 2종 + U+Box 위젯</li>
-          <li>Melon/OllehMusic/YouTube 온라인 서비스 연동, 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응</li>
-          <li>Audio Effect 앱: 사용자 설정 Equalizer, 장르별 Auto Preset, QSound/NXP 3rd party 통합</li>
-          <li>Tag Editor Java Library 자체 개발: MP3(ID3)/FLAC(Vorbis) spec 분석, TEXT/LYRICS/ALBUMART read/write, charset encoding 자동 분석</li>
+          <li>노래/앨범/음악가 등 각 탭 화면 개발, Android Media Provider Framework 분석 &amp; Music DB 관련 개발</li>
+          <li>Albumart cache 구조 설계, 앱 공통 Thread 모듈 구현, NDK 기반 중복 음원 검색 기능 개발</li>
+          <li>StackView 등 AppWidget 2종 + U+Box 전용 AppWidget 개발</li>
+          <li>Melon/OllehMusic/YouTube 온라인 서비스 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공</li>
+          <li>국내 전 모델 + 일본/베트남/대만 디바이스 preload, Android 2.2~5.0 OS 업그레이드 대응</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Audio Effect -->
+<dialog class="dlg nomedia" id="dlg-audio-effect" aria-labelledby="t-audio-effect">
+  <div class="dlg-in">
+    <header class="dlg-head">
+      <div>
+        <p class="dlg-kicker">Pantech · 2012.04 — 2015.05</p>
+        <h2 id="t-audio-effect" tabindex="-1">Audio Effect Android 앱</h2>
+      </div>
+      <button class="dlg-x" data-close aria-label="닫기">✕</button>
+    </header>
+    <div class="dlg-body">
+      <div class="dlg-text">
+        <aside class="facts">
+          <div><h3>역할</h3><p>전임연구원 — Audio Effect 앱 개발</p></div>
+          <div><h3>기간</h3><p>2012.04 — 2015.05<br>Pantech</p></div>
+          <div><h3>스택</h3><p class="stack">Android · QSound · NXP · Equalizer</p></div>
+        </aside>
+        <p class="dlg-lede">음원 재생 관련 Audio Effect를 제공하는 앱을 개발했습니다.</p>
+        <ul class="bullets">
+          <li>Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발</li>
+          <li>QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning</li>
+          <li>타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Tag Editor -->
+<dialog class="dlg nomedia" id="dlg-tag-editor" aria-labelledby="t-tag-editor">
+  <div class="dlg-in">
+    <header class="dlg-head">
+      <div>
+        <p class="dlg-kicker">Pantech · 2013.03 — 2013.08</p>
+        <h2 id="t-tag-editor" tabindex="-1">Tag Editor Library</h2>
+      </div>
+      <button class="dlg-x" data-close aria-label="닫기">✕</button>
+    </header>
+    <div class="dlg-body">
+      <div class="dlg-text">
+        <aside class="facts">
+          <div><h3>역할</h3><p>전임연구원 — Java 라이브러리 자체 개발</p></div>
+          <div><h3>기간</h3><p>2013.03 — 2013.08<br>Pantech</p></div>
+          <div><h3>스택</h3><p class="stack">Java · MP3(ID3) · FLAC(Vorbis)</p></div>
+        </aside>
+        <p class="dlg-lede">음원 Tag 영역을 Read/Write하는 Java 라이브러리를 자체 개발했습니다.</p>
+        <ul class="bullets">
+          <li>MP3(ID3)/FLAC(Vorbis) Tag spec 분석, TEXT/LYRICS/ALBUMART read/write 기능 개발</li>
+          <li>Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발</li>
+          <li>Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용</li>
         </ul>
       </div>
     </div>
@@ -965,7 +996,7 @@ spec → plan → tasks → 구현
           <div><h3>기간</h3><p>2010.09 — 2010.12<br>LG Electronics</p></div>
           <div><h3>스택</h3><p class="stack">C</p></div>
         </aside>
-        <p class="dlg-lede">Blu-ray player device SW 개발.</p>
+        <p class="dlg-lede">Blu-ray player device SW를 개발했습니다.</p>
         <ul class="bullets">
           <li>Text 표시 UI 개발(C), 다국어 지원 추가, Turnkey base 모델 작업</li>
         </ul>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>초기 경력 — 강지환</title>
-<meta name="description" content="Winvention 멀티미디어 앱·Pantech Music Player·LG Blu-ray — 2010~2017 초기 경력 기록.">
+<title>Audio Effect Android 앱 — 강지환</title>
+<meta name="description" content="음원 재생 Audio Effect 앱 — 사용자 설정 Equalizer, Auto Preset, QSound/NXP 3rd party 라이브러리 통합 기록.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="초기 경력 — 강지환">
-<meta property="og:description" content="Winvention 멀티미디어 앱·Pantech Music Player·LG Blu-ray — 2010~2017 초기 경력 기록.">
+<meta property="og:title" content="Audio Effect Android 앱 — 강지환">
+<meta property="og:description" content="음원 재생 Audio Effect 앱 — 사용자 설정 Equalizer, Auto Preset, QSound/NXP 3rd party 라이브러리 통합 기록.">
 <meta property="og:image" content="https://returnzero76.github.io/resume/assets/profile.jpg">
-<meta property="og:url" content="https://returnzero76.github.io/resume/v10/projects/early-career.html">
+<meta property="og:url" content="https://returnzero76.github.io/resume/v10/projects/audio-effect.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -165,27 +165,6 @@ h2{font-size:22px}
 .pn{grid-template-columns:1fr}
 .pn a.next{grid-column:auto}
 }
-/* ── lightbox ── */
-.shots figure img{cursor:zoom-in}
-.lightbox{width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;padding:0;border:none;background:transparent;display:none;align-items:center;justify-content:center}
-.lightbox[open]{display:flex}
-.lightbox::backdrop{background:rgba(15,15,15,.6)}
-html.lb-open{overflow:hidden;scrollbar-gutter:stable}
-.lb-panel{margin:0;padding:12px;background:#fff;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.2);display:flex;flex-direction:column;align-items:center;gap:8px}
-.lb-img{max-width:92vw;max-height:86vh;object-fit:contain;display:block;border-radius:4px}
-.lb-cap{font-size:14px;color:#787774;line-height:1.5;text-align:center;display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap;max-width:92vw}
-.lb-count{white-space:nowrap}
-.lb-btn{position:fixed;appearance:none;border:none;cursor:pointer;font:inherit;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.9);color:#787774;border-radius:6px;box-shadow:0 2px 8px rgba(15,15,15,.18)}
-.lb-btn:hover{background:#fff;color:#37352F}
-.lb-close{top:16px;right:16px;width:36px;height:36px;font-size:16px}
-.lb-prev,.lb-next{top:50%;transform:translateY(-50%);width:36px;height:48px;font-size:22px}
-.lb-prev{left:14px}
-.lb-next{right:14px}
-@media(prefers-reduced-motion:no-preference){
-.lightbox[open]{animation:lb-in .18s ease}
-@keyframes lb-in{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
-.lb-btn{transition:background .15s,color .15s}
-}
 </style>
 </head>
 <body>
@@ -208,10 +187,15 @@ html.lb-open{overflow:hidden;scrollbar-gutter:stable}
 <li><a class="nav-item" href="adot.html"><span class="nav-emoji">🤖</span>에이닷 A. 앱</a></li>
 <li><a class="nav-item" href="adot-rn.html"><span class="nav-emoji">⚛️</span>adot-react-native</a></li>
 <li><a class="nav-item" href="tmap-adot.html"><span class="nav-emoji">🗣️</span>Tmap x Adot 음성비서</a></li>
-<li><a class="nav-item" href="nugu-btv.html"><span class="nav-emoji">🔊</span>NUGU Mobile · Btv</a></li>
+<li><a class="nav-item" href="btv-nugu.html"><span class="nav-emoji">📺</span>Btv NUGU</a></li>
 <li><a class="nav-item" href="tmap-taxi.html"><span class="nav-emoji">🚕</span>Tmap Taxi</a></li>
+<li><a class="nav-item" href="nugu-mobile.html"><span class="nav-emoji">🔊</span>NUGU Mobile</a></li>
 <li><a class="nav-item" href="tmon.html"><span class="nav-emoji">🛒</span>Tmon</a></li>
-<li><a class="nav-item active" href="early-career.html" aria-current="page"><span class="nav-emoji">🕰️</span>초기 경력</a></li>
+<li><a class="nav-item" href="winvention.html"><span class="nav-emoji">🎬</span>Winvention</a></li>
+<li><a class="nav-item" href="music-player.html"><span class="nav-emoji">🎵</span>Music Player</a></li>
+<li><a class="nav-item active" href="audio-effect.html" aria-current="page"><span class="nav-emoji">🎚️</span>Audio Effect</a></li>
+<li><a class="nav-item" href="tag-editor.html"><span class="nav-emoji">🏷️</span>Tag Editor</a></li>
+<li><a class="nav-item" href="lg-bluray.html"><span class="nav-emoji">💿</span>Blu-ray Player</a></li>
 </ul>
 </details>
 </li>
@@ -221,60 +205,34 @@ html.lb-open{overflow:hidden;scrollbar-gutter:stable}
 </ul>
 </nav>
 <main id="main">
-<div class="crumbbar" aria-label="현재 위치"><a href="../index.html">강지환의 이력서</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span><span>초기 경력</span></div>
-<div class="cover"><img src="../../assets/screens/winvention-01.jpg" width="506" height="900" alt="" decoding="async" style="object-position:center 20%"></div>
+<div class="crumbbar" aria-label="현재 위치"><a href="../index.html">강지환의 이력서</a><span class="sep">/</span><a href="../index.html#projects">프로젝트</a><span class="sep">/</span><span>Audio Effect</span></div>
+<div class="cover cover-color" style="background:#FADEC9"><span class="cover-emoji" aria-hidden="true">🎚️</span></div>
 <div class="page has-cover">
-<div class="page-emoji" aria-hidden="true">🕰️</div>
-<h1 class="page-title">초기 경력 — Winvention · Pantech · LG</h1>
+<div class="page-emoji" aria-hidden="true">🎚️</div>
+<h1 class="page-title">Audio Effect Android 앱</h1>
 <dl class="props">
-<div class="prop"><dt><span aria-hidden="true">🙋</span>역할</dt><dd><span class="pill blue">Android·디바이스 SW 개발</span></dd></div>
-<div class="prop"><dt><span aria-hidden="true">🗓️</span>기간</dt><dd><span class="pill gray">2010.09 ~ 2017.06</span></dd></div>
-<div class="prop"><dt><span aria-hidden="true">🏢</span>소속</dt><dd>Titan Platform · Pantech · LG전자</dd></div>
-<div class="prop"><dt><span aria-hidden="true">🧩</span>스택</dt><dd><span class="pill green">Java</span><span class="pill orange">ExoPlayer</span><span class="pill purple">Media Framework</span><span class="pill red">C</span></dd></div>
+<div class="prop"><dt><span aria-hidden="true">🙋</span>역할</dt><dd><span class="pill blue">Audio Effect 앱 개발</span></dd></div>
+<div class="prop"><dt><span aria-hidden="true">🗓️</span>기간</dt><dd><span class="pill gray">2012.04 ~ 2015.05</span></dd></div>
+<div class="prop"><dt><span aria-hidden="true">🏢</span>소속</dt><dd>Pantech</dd></div>
+<div class="prop"><dt><span aria-hidden="true">🧩</span>스택</dt><dd><span class="pill green">Java</span><span class="pill orange">Equalizer</span><span class="pill purple">QSound</span><span class="pill red">NXP</span></dd></div>
 </dl>
 
 <hr>
-<p>Blu-ray player 임베디드 SW에서 시작해 Pantech preload Music Player, 멀티미디어 스타트업 서비스까지 — Android 개발의 기반을 다진 시기입니다.</p>
-<h2>🎬 Winvention US/KR (2017.01 ~ 2017.06) · Titan Platform</h2>
-<p>멀티미디어(Video/Webtoon) 서비스 US향 앱을 개발 초기부터 참여.</p>
+<p>음원 재생 관련 Audio Effect를 제공하는 앱을 개발했습니다.</p>
+<h2>한 일</h2>
 <ul class="bullets">
-<li>단일 Activity + 전 화면 Fragment 구조(like YouTube), 화면 이동 Movement 모듈 개발</li>
-<li>File upload Background Service, Jsoup+Volley 문서 파싱, ExoPlayer custom + 자체 DRM(TCI) 적용</li>
-<li>KR향: 검색 WebView→Data binding Native 전환(속도 개선), Firebase/FCM/IGAWorks 연동</li>
+<li>Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발</li>
+<li>QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning</li>
+<li>타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발</li>
 </ul>
-<div class="shots">
-<figure><img src="../../assets/screens/winvention-01.jpg" width="506" height="900" alt="홈 피드(Disney “미녀와 야수”) 화면" loading="lazy" decoding="async"><figcaption>홈 피드(Disney “미녀와 야수”) 화면</figcaption></figure>
-<figure><img src="../../assets/screens/winvention-02.jpg" width="506" height="900" alt="동영상 재생·태그·댓글 화면" loading="lazy" decoding="async"><figcaption>동영상 재생·태그·댓글 화면</figcaption></figure>
-<figure><img src="../../assets/screens/winvention-03.jpg" width="506" height="900" alt="채널 Featured 목록 화면" loading="lazy" decoding="async"><figcaption>채널 Featured 목록 화면</figcaption></figure>
-</div>
-<h2>🎵 Music Player &amp; Audio Effect (2011.01 ~ 2015.05) · Pantech</h2>
-<p>Pantech Android 디바이스 preload Music Player 앱 개발.</p>
-<ul class="bullets">
-<li>Android Media Provider Framework 분석, Music DB/Albumart cache 구조, AppWidget 2종 + U+Box 위젯</li>
-<li>Melon/OllehMusic/YouTube 온라인 서비스 연동, 국내 전모델 + 일본/베트남/대만 preload, Android 2.2~5.0 OS 업그레이드 대응</li>
-<li>Audio Effect 앱: 사용자 설정 Equalizer, 장르별 Auto Preset, QSound/NXP 3rd party 통합</li>
-<li>Tag Editor Java Library 자체 개발: MP3(ID3)/FLAC(Vorbis) spec 분석, TEXT/LYRICS/ALBUMART read/write, charset encoding 자동 분석</li>
-</ul>
-<h2>💿 Blu-ray Player (2010.09 ~ 2010.12) · LG Electronics (인턴)</h2>
-<ul class="bullets">
-<li>Blu-ray player device SW: Text 표시 UI 개발(C), 다국어 지원 추가, Turnkey base 모델 작업</li>
-</ul>
-<div class="callout green"><span class="ico" aria-hidden="true">⭐</span><div><p><strong>성과</strong></p><p>Tag Editor Java Library를 자체 개발(MP3 ID3/FLAC Vorbis spec 분석)하고, 국내 전모델 + 일본/베트남/대만 preload와 Android 2.2~5.0 OS 업그레이드 대응을 수행했습니다.</p></div></div>
+<div class="callout green"><span class="ico" aria-hidden="true">⭐</span><div><p><strong>성과</strong></p><p>QSound/NXP/Android Native 3rd party 라이브러리를 하나의 apk로 통합 지원하고, 타사 디바이스와 모든 뮤직 플레이어 앱에서 동작하도록 개발했습니다.</p></div></div>
 <hr>
 <nav class="pn" aria-label="이전·다음 페이지">
-<a class="prev" href="tmon.html"><span class="lbl">← 이전 페이지</span><span class="ttl">🛒 Tmon</span></a>
+<a class="prev" href="music-player.html"><span class="lbl">← 이전 페이지</span><span class="ttl">🎵 Music Player</span></a>
+<a class="next" href="tag-editor.html"><span class="lbl">다음 페이지 →</span><span class="ttl">🏷️ Tag Editor</span></a>
 </nav>
 </div>
 </main>
-<dialog class="lightbox" id="lightbox" aria-label="스크린샷 크게 보기">
-<figure class="lb-panel">
-<img class="lb-img" alt="">
-<figcaption class="lb-cap"><span class="lb-text"></span><span class="lb-count"></span></figcaption>
-</figure>
-<button class="lb-btn lb-close" type="button" aria-label="닫기">✕</button>
-<button class="lb-btn lb-prev" type="button" aria-label="이전 스크린샷">‹</button>
-<button class="lb-btn lb-next" type="button" aria-label="다음 스크린샷">›</button>
-</dialog>
 <script>
 (function(){
 var btn=document.querySelector('.menu-btn');
@@ -283,51 +241,6 @@ function setOpen(o){document.body.classList.toggle('nav-open',o);if(btn)btn.setA
 if(btn)btn.addEventListener('click',function(){setOpen(!document.body.classList.contains('nav-open'));});
 if(bd)bd.addEventListener('click',function(){setOpen(false);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
-})();
-
-(function(){
-var dlg=document.getElementById('lightbox');
-if(!dlg||typeof dlg.showModal!=='function')return;
-var imgs=Array.prototype.slice.call(document.querySelectorAll('.shots figure img'));
-if(!imgs.length)return;
-var lbImg=dlg.querySelector('.lb-img'),lbText=dlg.querySelector('.lb-text'),lbCount=dlg.querySelector('.lb-count');
-var cur=0,trigger=null,token=0,resolved={};
-function fullOf(s){return s.replace('/screens/','/screens/full/');}
-function show(i){
-  cur=(i+imgs.length)%imgs.length;
-  var im=imgs[cur],orig=im.getAttribute('src'),t=++token;
-  lbImg.src=resolved[orig]||orig;
-  lbImg.alt=im.getAttribute('alt')||'';
-  var cap=im.nextElementSibling;
-  lbText.textContent=cap?cap.textContent:(im.getAttribute('alt')||'');
-  lbCount.textContent=(cur+1)+' / '+imgs.length;
-  if(!resolved[orig]){
-    var probe=new Image();
-    probe.onload=function(){resolved[orig]=fullOf(orig);if(t===token&&dlg.open)lbImg.src=resolved[orig];};
-    probe.onerror=function(){resolved[orig]=orig;};
-    probe.src=fullOf(orig);
-  }
-}
-function openAt(i){trigger=imgs[i];show(i);document.documentElement.classList.add('lb-open');dlg.showModal();}
-imgs.forEach(function(im,i){
-  im.setAttribute('tabindex','0');
-  im.setAttribute('role','button');
-  im.setAttribute('aria-label',(im.getAttribute('alt')||'스크린샷')+' — 크게 보기');
-  im.addEventListener('click',function(){openAt(i);});
-  im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAt(i);}});
-});
-dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
-dlg.querySelector('.lb-close').addEventListener('click',function(){dlg.close();});
-dlg.querySelector('.lb-prev').addEventListener('click',function(){show(cur-1);});
-dlg.querySelector('.lb-next').addEventListener('click',function(){show(cur+1);});
-dlg.addEventListener('keydown',function(e){
-  if(e.key==='ArrowLeft'){e.preventDefault();show(cur-1);}
-  else if(e.key==='ArrowRight'){e.preventDefault();show(cur+1);}
-});
-dlg.addEventListener('close',function(){
-  document.documentElement.classList.remove('lb-open');
-  if(trigger){trigger.focus();trigger=null;}
-});
 })();
 </script>
 </body>

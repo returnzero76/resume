@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="Agent OS 아키텍처 개요">
+  <defs>
+    <style>
+      .bg{fill:#0d1117}
+      .panel{fill:#161b22;stroke:#30363d;stroke-width:1.5;rx:10}
+      .box{fill:#1c2333;stroke:#3d4663;stroke-width:1.5}
+      .box2{fill:#16231c;stroke:#2ea043;stroke-width:1.5}
+      .box3{fill:#2a1f33;stroke:#8957e5;stroke-width:1.5}
+      .t{font:600 20px 'SF Mono','Pretendard',monospace;fill:#e6edf3}
+      .s{font:400 14px 'SF Mono',monospace;fill:#8b949e}
+      .k{font:600 14px 'SF Mono',monospace;fill:#7ee787}
+      .kb{font:600 14px 'SF Mono',monospace;fill:#a5b4fc}
+      .kp{font:600 14px 'SF Mono',monospace;fill:#d2a8ff}
+      .arrow{stroke:#484f58;stroke-width:1.5;fill:none;marker-end:url(#ah)}
+      .title{font:700 24px 'Pretendard','SF Mono',sans-serif;fill:#e6edf3}
+      .sub{font:400 14px 'Pretendard',sans-serif;fill:#8b949e}
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#484f58"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="900" height="620"/>
+  <text class="title" x="40" y="52">Agent OS — Agent 거버넌스 플랫폼</text>
+  <text class="sub" x="40" y="78">조직 내 모든 AI Agent의 등록 · 추적 · 통제를 한 곳에서</text>
+
+  <rect class="box3" x="40" y="110" width="380" height="90" rx="10"/>
+  <text class="kp" x="60" y="140">A. Console — Next.js</text>
+  <text class="s" x="60" y="164">에이전트 등록 · 검색 · 모델 평가 화면</text>
+  <text class="s" x="60" y="184">Trace 조회 UI</text>
+
+  <rect class="box" x="480" y="110" width="380" height="90" rx="10"/>
+  <text class="kb" x="500" y="140">agentos-gateway — Go</text>
+  <text class="s" x="500" y="164">Edge proxy · routing · auth · identity</text>
+
+  <rect class="box" x="40" y="250" width="380" height="130" rx="10"/>
+  <text class="kb" x="60" y="280">control-plane — Go</text>
+  <text class="s" x="60" y="304">identity · lifecycle · metering · audit</text>
+  <text class="s" x="60" y="324">observability: Langfuse 조회 연동</text>
+  <text class="s" x="60" y="344">cursor 페이징 · 오류 계약 · 재시도</text>
+
+  <rect class="box" x="480" y="250" width="380" height="130" rx="10"/>
+  <text class="kb" x="500" y="280">data-plane — Go</text>
+  <text class="s" x="500" y="304">계측 · 수집 adapter / sidecar</text>
+  <rect class="box2" x="500" y="322" width="160" height="40" rx="8"/>
+  <text class="k" x="514" y="347">Python SDK</text>
+
+  <rect class="panel" x="40" y="430" width="820" height="140" rx="10"/>
+  <text class="t" x="60" y="464">$ speckit — 스펙 주도 개발</text>
+  <text class="s" x="60" y="492">spec.md → plan.md → tasks.md → 구현 · GitLab 이슈/Epic 양방향 연동</text>
+  <text class="s" x="60" y="516">BDD tests-first · arch-lint · golangci 게이트</text>
+  <text class="k" x="60" y="544">skills: daily-briefing(Slack) · spec-tracker</text>
+
+  <path class="arrow" d="M230 200 L230 250"/>
+  <path class="arrow" d="M670 200 L670 250"/>
+  <path class="arrow" d="M420 155 L480 155"/>
+  <path class="arrow" d="M420 315 L480 315"/>
+</svg>
