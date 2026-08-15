@@ -144,7 +144,8 @@ h1.claim,h2.claim{
 .era.light .phone{box-shadow:0 34px 70px -22px rgba(0,0,0,.35)}
 .phone .screen{
   position:relative;overflow:hidden;background:#000;
-  aspect-ratio:9/19.5;
+  /* --ar: set per project so each screenshot fills its frame without distortion */
+  aspect-ratio:var(--ar,9/19.5);
   border-radius:calc(var(--pw) * .12 - 6px);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),inset 0 0 24px rgba(0,0,0,.35);
 }
@@ -154,7 +155,7 @@ h1.claim,h2.claim{
   box-shadow:0 0 0 1px rgba(255,255,255,.04);
 }
 .phone.archival{border-radius:calc(var(--pw) * .08)}
-.phone.archival .screen{aspect-ratio:9/16;border-radius:calc(var(--pw) * .08 - 6px)}
+.phone.archival .screen{aspect-ratio:var(--ar,9/16);border-radius:calc(var(--pw) * .08 - 6px)}
 
 /* TV frame */
 .tvdev{align-items:center}
@@ -185,23 +186,6 @@ h1.claim,h2.claim{
 .era.dark .dots button{background:#3A3A3C}
 .dots button.on{background:var(--accent);transform:scale(1.3)}
 .dots button:focus-visible{outline-offset:4px}
-
-/* placeholder screen (Pantech) */
-.ph-screen{
-  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  background:
-    repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 14px,transparent 14px 28px),
-    linear-gradient(180deg,#141417,#0e0e11);
-  color:#48484D;text-align:center;padding:0 18px;
-}
-.ph-screen .note{font-size:44px;line-height:1}
-.ph-screen .eq{display:flex;align-items:flex-end;gap:5px;height:44px;margin-top:6px}
-.ph-screen .eq i{width:6px;border-radius:3px;background:#2C2C31;display:block}
-.ph-screen .eq i:nth-child(1){height:40%}.ph-screen .eq i:nth-child(2){height:75%}
-.ph-screen .eq i:nth-child(3){height:55%}.ph-screen .eq i:nth-child(4){height:95%}
-.ph-screen .eq i:nth-child(5){height:35%}.ph-screen .eq i:nth-child(6){height:65%}
-.ph-screen .eq i:nth-child(7){height:50%}
-.ph-screen p{font-size:12px;font-weight:600;letter-spacing:.04em}
 
 /* ---------- hero ---------- */
 .hero{padding-top:calc(52px + clamp(60px,10vh,110px))}
@@ -423,8 +407,8 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
       </div>
       <div class="phone modern front">
         <div class="screen">
-          <img class="plate" src="../assets/screens/adot-store-01.jpg" alt="" width="506" height="900" loading="eager" decoding="async">
-          <img class="fitshot" src="../assets/screens/adot-store-01.jpg" alt="" width="506" height="900" loading="eager" fetchpriority="high" decoding="async">
+          <img class="plate" src="../assets/screens/adot-01.jpg" alt="" width="368" height="900" loading="eager" decoding="async">
+          <img class="fitshot" src="../assets/screens/adot-01.jpg" alt="" width="368" height="900" loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
     </div>
@@ -457,19 +441,22 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
         <div class="device">
           <div class="phone archival" style="--pw:236px">
             <div class="screen">
-              <div class="ph-screen">
-                <span class="note" aria-hidden="true">♪</span>
-                <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-                <p>2011 – 2015 · 화면은 남아 있지 않습니다</p>
+              <div class="carousel" tabindex="0" role="group" aria-label="Music Player 스크린샷 넘겨보기">
+                <div class="slide"><img class="shot" src="../assets/screens/music-player-01.jpg" alt="Music Player 재생 화면 — 앨범아트 풀블리드·곡 정보" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/music-player-02.jpg" alt="Music Player 앨범 탭 — 원형 앨범아트 그리드" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/music-player-03.jpg" alt="Music Player 중복 음원 검색 결과 목록" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/music-player-04.jpg" alt="Music Player 검색 결과 — 음악가·곡 매칭" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/music-player-05.jpg" alt="Music Player 설정 — 음향효과·사용 리스트·자동 재생/종료" width="506" height="900" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
+          <div class="dots" data-dots></div>
           <p class="cap">Music Player — preload 앱</p>
         </div>
       </div>
     </article>
 
-    <article class="projblock solo reveal">
+    <article class="projblock reveal">
       <div class="pinfo">
         <p class="pmeta">2012.04 – 2015.05</p>
         <h3 class="ptitle">Audio Effect Android 앱</h3>
@@ -484,9 +471,23 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
           <span class="plushint">프로젝트 스펙</span>
         </div>
       </div>
+      <div class="pmedia">
+        <div class="device">
+          <div class="phone archival" style="--pw:236px">
+            <div class="screen">
+              <div class="carousel" tabindex="0" role="group" aria-label="Audio Effect 스크린샷 넘겨보기">
+                <div class="slide"><img class="shot" src="../assets/screens/audio-effect-01.jpg" alt="음향 효과 홈 — 프리셋 선택·저음/고음 강화·입체 서라운드" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/audio-effect-02.jpg" alt="사용자 정의 8밴드 이퀄라이저(95Hz~16KHz)" width="506" height="900" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dots" data-dots></div>
+          <p class="cap">Audio Effect — 프리셋 · 이퀄라이저</p>
+        </div>
+      </div>
     </article>
 
-    <article class="projblock solo reveal">
+    <article class="projblock reveal">
       <div class="pinfo">
         <p class="pmeta">2013.03 – 2013.08</p>
         <h3 class="ptitle">Tag Editor Library</h3>
@@ -499,6 +500,20 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
         <div class="plusrow">
           <button class="plus" data-modal="m-tag" aria-haspopup="dialog" aria-label="Tag Editor Library 프로젝트 상세 스펙 보기">+</button>
           <span class="plushint">프로젝트 스펙</span>
+        </div>
+      </div>
+      <div class="pmedia">
+        <div class="device">
+          <div class="phone archival" style="--pw:236px">
+            <div class="screen">
+              <div class="carousel" tabindex="0" role="group" aria-label="Tag Editor 스크린샷 넘겨보기">
+                <div class="slide"><img class="shot" src="../assets/screens/tag-editor-01.jpg" alt="태그 편집 다이얼로그 — 제목·음악가·앨범·장르·곡 번호 write" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tag-editor-02.jpg" alt="가사(LYRICS) 태그 표시 화면" width="506" height="900" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dots" data-dots></div>
+          <p class="cap">Tag Editor — Music 앱 porting 결과</p>
         </div>
       </div>
     </article>
@@ -531,11 +546,13 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
       </div>
       <div class="pmedia">
         <div class="device">
-          <div class="phone archival" style="--pw:196px">
+          <div class="phone archival" style="--pw:250px">
             <div class="screen">
               <div class="carousel" tabindex="0" role="group" aria-label="Tmon 스크린샷 넘겨보기">
-                <div class="slide"><img class="shot" src="../assets/screens/tmon-01.jpg" alt="Tmon 메인 추천 첫 화면" width="319" height="568" loading="lazy" decoding="async"></div>
-                <div class="slide"><img class="shot" src="../assets/screens/tmon-02.jpg" alt="Tmon 전체 카테고리 화면" width="319" height="568" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmon-01.jpg" alt="Tmon 메인 첫화면(추천 탭) — 배너·카테고리 숏컷" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmon-02.jpg" alt="Tmon 전체 카테고리 화면 — 쇼핑 카테고리 구조 개편 결과" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmon-03.jpg" alt="Tmon 패션잡화 카테고리 딜 리스트 — 정렬 팝업" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmon-04.jpg" alt="Tmon 슈퍼마트 기획전 홈 — 배너 캐러셀·기획전 숏컷" width="506" height="900" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
@@ -568,6 +585,7 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
                 <div class="slide"><img class="shot" src="../assets/screens/winvention-01.jpg" alt="Winvention 홈 피드 화면" width="506" height="900" loading="lazy" decoding="async"></div>
                 <div class="slide"><img class="shot" src="../assets/screens/winvention-02.jpg" alt="Winvention 동영상 재생·태그·댓글 화면" width="506" height="900" loading="lazy" decoding="async"></div>
                 <div class="slide"><img class="shot" src="../assets/screens/winvention-03.jpg" alt="Winvention 채널 Featured 목록 화면" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/winvention-04.jpg" alt="TitanPlay KR 홈 — 팔로우 채널·#preview 영상 리스트" width="506" height="900" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
@@ -606,9 +624,9 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
           <div class="phone archival" style="--pw:246px">
             <div class="screen">
               <div class="carousel" tabindex="0" role="group" aria-label="NUGU Mobile 스크린샷 넘겨보기">
-                <div class="slide"><img class="shot" src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU Mobile 홈 화면 — 날씨 카드와 이벤트 배너" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide"><img class="shot" src="../assets/screens/nugu-mobile-02.jpg" alt="연결할 NUGU 디바이스 선택 화면" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide"><img class="shot" src="../assets/screens/nugu-mobile-03.jpg" alt="NUGU call 연락처 목록 화면" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU Mobile 홈 — 발화 추천 카드·이벤트 배너" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/nugu-mobile-02.jpg" alt="연결할 NUGU 디바이스 선택 화면 — 스피커·캔들·네모" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/nugu-mobile-03.jpg" alt="" aria-hidden="true" width="715" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/nugu-mobile-03.jpg" alt="연동 3rd party 서비스 목록 — 멜론·FLO·ASMR·라디오·팟빵" width="715" height="900" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
@@ -635,12 +653,13 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
       </div>
       <div class="pmedia">
         <div class="device">
-          <div class="phone archival" style="--pw:246px">
+          <div class="phone" style="--pw:246px;--ar:361/741">
             <div class="screen">
               <div class="carousel" tabindex="0" role="group" aria-label="Tmap Taxi 스크린샷 넘겨보기">
-                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 지도 위 출발지 핀 지정 화면" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-02.jpg" alt="차종 선택·결제 방식·예상금액 호출 화면" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-03.jpg" alt="경로 확인·요금 비교 화면" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-04.jpg" alt="Tmap Taxi 호출 첫화면 — 목적지 검색·최근 간 장소" width="363" height="746" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 출발지 핀 조정 — 지도 위 승차 위치 지정" width="361" height="741" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-03.jpg" alt="Tmap Taxi 경로 확인·요금 비교(티맵추천 vs 최소시간)" width="362" height="744" loading="lazy" decoding="async"></div>
+                <div class="slide"><img class="shot" src="../assets/screens/tmap-taxi-02.jpg" alt="Tmap Taxi 업무택시 호출 — 용도·그룹·사유·차종·예상금액" width="363" height="744" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
@@ -712,9 +731,12 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
           <div class="phone modern" style="--pw:258px">
             <div class="screen">
               <div class="carousel" tabindex="0" role="group" aria-label="에이닷 스크린샷 넘겨보기">
-                <div class="slide fit"><img class="plate" src="../assets/screens/adot-store-01.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-store-01.jpg" alt="에이닷 A. 스토어 스크린샷 1 — 나만의 AI 개인비서" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/adot-store-02.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-store-02.jpg" alt="에이닷 A. 스토어 스크린샷 2" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/adot-store-03.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-store-03.jpg" alt="에이닷 A. 스토어 스크린샷 3" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/adot-01.jpg" alt="" aria-hidden="true" width="368" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-01.jpg" alt="에이닷 게임 홈 — 오늘의 게임 대전 배너·최근 플레이 게임" width="368" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/adot-02.jpg" alt="" aria-hidden="true" width="368" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-02.jpg" alt="에이닷 게임 리스트 — 추천·퍼즐·고전·아케이드 필터 칩" width="368" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/adot-04.jpg" alt="" aria-hidden="true" width="368" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-04.jpg" alt="에이닷 게임 대전 리더보드 — 팀별 평균 점수 순위" width="368" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/adot-05.jpg" alt="" aria-hidden="true" width="426" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-05.jpg" alt="에이닷 A.tv 홈 — 라이브 프로야구·VOD 채널 리스트" width="426" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/adot-07.jpg" alt="" aria-hidden="true" width="368" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-07.jpg" alt="에이닷 A. 튜터 홈 — 출석 스트릭·오늘의 카드영어" width="368" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/adot-08.jpg" alt="" aria-hidden="true" width="368" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-08.jpg" alt="에이닷 영어 어휘 학습 화면 — YBM 연동 WebView" width="368" height="900" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
@@ -724,7 +746,7 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
       </div>
     </article>
 
-    <article class="projblock reveal">
+    <article class="projblock solo reveal">
       <div class="pinfo">
         <p class="pmeta">2026.03 – 2026.05</p>
         <h3 class="ptitle">adot-react-native — 공용 RN 워크스페이스</h3>
@@ -737,21 +759,6 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
         <div class="plusrow">
           <button class="plus" data-modal="m-adot-rn" aria-haspopup="dialog" aria-label="adot-react-native 프로젝트 상세 스펙 보기">+</button>
           <span class="plushint">프로젝트 스펙</span>
-        </div>
-      </div>
-      <div class="pmedia">
-        <div class="device">
-          <div class="phone modern" style="--pw:240px">
-            <div class="screen">
-              <div class="carousel" tabindex="0" role="group" aria-label="RN 전환 화면 스크린샷 넘겨보기">
-                <div class="slide fit"><img class="plate" src="../assets/screens/adot-store-04.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-store-04.jpg" alt="에이닷 RN 전환 화면 스크린샷 1" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/adot-store-05.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-store-05.jpg" alt="에이닷 RN 전환 화면 스크린샷 2" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/adot-store-06.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/adot-store-06.jpg" alt="에이닷 RN 전환 화면 스크린샷 3" width="506" height="900" loading="lazy" decoding="async"></div>
-              </div>
-            </div>
-          </div>
-          <div class="dots" data-dots></div>
-          <p class="cap">RN 전환 화면</p>
         </div>
       </div>
     </article>
@@ -775,18 +782,18 @@ footer{padding:30px 20px 44px;text-align:center;font-size:13px;color:#6E6E73}
         <div class="device">
           <div class="phone modern" style="--pw:240px">
             <div class="screen">
-              <div class="carousel" tabindex="0" role="group" aria-label="Tmap 음성비서 스크린샷 넘겨보기">
-                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-01.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-01.jpg" alt="Tmap 스토어 스크린샷 1 — 스마트한 이동 생활의 시작" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-02.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-02.jpg" alt="Tmap 스토어 스크린샷 2" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-03.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-03.jpg" alt="Tmap 스토어 스크린샷 3" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-04.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-04.jpg" alt="Tmap 스토어 스크린샷 4" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-05.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-05.jpg" alt="Tmap 스토어 스크린샷 5" width="506" height="900" loading="lazy" decoding="async"></div>
-                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-06.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-06.jpg" alt="Tmap 스토어 스크린샷 6" width="506" height="900" loading="lazy" decoding="async"></div>
+              <div class="carousel" tabindex="0" role="group" aria-label="Tmap 앱 이미지 넘겨보기">
+                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-01.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-01.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 (스토어 이미지 1)" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-02.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-02.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 (스토어 이미지 2)" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-03.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-03.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 (스토어 이미지 3)" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-04.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-04.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 (스토어 이미지 4)" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-05.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-05.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 (스토어 이미지 5)" width="506" height="900" loading="lazy" decoding="async"></div>
+                <div class="slide fit"><img class="plate" src="../assets/screens/tmap-store-06.jpg" alt="" aria-hidden="true" width="506" height="900" loading="lazy" decoding="async"><img class="shot" src="../assets/screens/tmap-store-06.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 (스토어 이미지 6)" width="506" height="900" loading="lazy" decoding="async"></div>
               </div>
             </div>
           </div>
           <div class="dots" data-dots></div>
-          <p class="cap">Tmap × 에이닷 — 음성비서 마이그레이션</p>
+          <p class="cap">Tmap 앱 — 음성비서 탑재 서비스</p>
         </div>
       </div>
     </article>

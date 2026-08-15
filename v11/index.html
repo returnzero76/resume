@@ -169,6 +169,8 @@ table.md-tbl tr:nth-child(2n) td{background:var(--subtle)}
 .strip.one{grid-template-columns:1fr}
 .strip img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block;background:var(--subtle)}
 .strip.one img{object-position:0% 0%}
+pre.strip.code{display:block;grid-template-columns:none;margin:0;padding:12px 16px;background:var(--inset);overflow:hidden}
+pre.strip.code code{font-family:var(--mono);font-size:11px;line-height:1.65;color:var(--muted);white-space:pre;display:block}
 
 /* ---------- heatmap ---------- */
 .hm-scroll{overflow-x:auto;padding-bottom:4px}
@@ -243,6 +245,7 @@ table.md-tbl tr:nth-child(2n) td{background:var(--subtle)}
 .shot-btn img{width:100%;height:auto;display:block}
 .shot figcaption{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.45}
 .shot-note{font-size:12px;color:var(--muted);margin:8px 0 0;padding-left:2px}
+.shot-note.solo{margin:20px 0 8px;padding:12px 14px;border:1px dashed var(--border);border-radius:6px;background:var(--subtle)}
 .pager{display:flex;justify-content:space-between;gap:16px;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:13px}
 .pager a{display:inline-flex;gap:6px;align-items:center;max-width:48%}
 .pager .lbl{color:var(--muted);display:block;font-size:11px}
@@ -377,20 +380,22 @@ var LANG_COLOR = { Kotlin:'#A97BFF', TypeScript:'#3178c6', Go:'#00ADD8', Java:'#
 var SRC = '../assets/screens/';
 
 var ADOT_SHOTS = [
-  { f:'adot-store-01.jpg', w:506, h:900, alt:'에이닷 앱 소개 화면 — "일상을 간편하게, 나만의 AI 개인비서 에이닷"', cap:'앱 소개 — AI 개인비서 에이닷' },
-  { f:'adot-store-02.jpg', w:506, h:900, alt:'에이닷 AI 노트 화면 — 실시간 요약 탭과 받아쓰기 탭', cap:'AI 노트 — 실시간 요약 / 받아쓰기' },
-  { f:'adot-store-03.jpg', w:506, h:900, alt:'에이닷 브리핑 화면 — 오늘의 주요 일정과 추천 콘텐츠', cap:'브리핑 — 오늘의 일정·추천 콘텐츠' },
-  { f:'adot-store-04.jpg', w:506, h:900, alt:'에이닷 에이전트 대화 화면 — 메모리 관리와 장소 추천 응답', cap:'에이전트 대화 — 메모리 관리' },
-  { f:'adot-store-05.jpg', w:506, h:900, alt:'에이닷 캘린더 화면 — 월간 일정 그리드', cap:'캘린더 — 월간 일정' },
-  { f:'adot-store-06.jpg', w:506, h:900, alt:'에이닷 할일 화면 — AI 체크리스트가 포함된 할일 목록', cap:'할일 — AI 체크리스트' }
+  { f:'adot-01.jpg', w:368, h:900, alt:'에이닷 게임 홈 화면 — 오늘의 게임 대전 배너, 최근 플레이 게임, 퀴즈퀴즈', cap:'게임 홈 — 오늘의 게임 대전·최근 플레이' },
+  { f:'adot-02.jpg', w:368, h:900, alt:'에이닷 게임 리스트 화면 — 추천/퍼즐/고전/아케이드 필터 칩과 게임 카드', cap:'게임 리스트 — 카테고리 필터 칩' },
+  { f:'adot-03.jpg', w:368, h:900, alt:'에이닷 게임 대전 상세 화면 — 오늘의 게임(원더랜드) 종료 카운트다운과 참여', cap:'게임 대전 상세 — 종료 카운트다운' },
+  { f:'adot-04.jpg', w:368, h:900, alt:'에이닷 게임 대전 리더보드 — 팀별 평균 점수 순위와 내 최고 점수', cap:'게임 대전 리더보드 — 팀별 순위' },
+  { f:'adot-05.jpg', w:426, h:900, alt:'에이닷 A.tv 홈 화면 — 라이브 프로야구와 VOD 채널 리스트', cap:'A.tv 홈 — 라이브·VOD (외부 AAR SDK)' },
+  { f:'adot-06.jpg', w:426, h:900, alt:'에이닷 A.tv 실시간 야구 중계 화면과 스퀴즈런 라이브 퀴즈', cap:'A.tv 실시간 중계 — 스퀴즈런 라이브 퀴즈' },
+  { f:'adot-07.jpg', w:368, h:900, alt:'에이닷 A. 튜터 홈 화면 — 출석 스트릭, 오늘의 카드영어, 영어 어휘·표현', cap:'A. 튜터 홈 — 출석 스트릭·카드영어' },
+  { f:'adot-08.jpg', w:368, h:900, alt:'에이닷 영어 어휘 학습 화면 — YBM 연동 WebView', cap:'영어 어휘 학습 — WebView JS Bridge 구간' }
 ];
 var TMAP_SHOTS = [
-  { f:'tmap-store-01.jpg', w:506, h:900, alt:'Tmap 앱 소개 화면 — "스마트한 이동 생활의 시작"', cap:'앱 소개 — 이동을 넘어 일상으로' },
-  { f:'tmap-store-02.jpg', w:506, h:900, alt:'Tmap 홈 화면 — 검색바와 서비스 아이콘 그리드', cap:'홈 — 검색·서비스 진입' },
-  { f:'tmap-store-03.jpg', w:506, h:900, alt:'Tmap 숏폼 홈 화면 — 장소 영상 카드 그리드', cap:'숏폼 — 장소 영상' },
-  { f:'tmap-store-04.jpg', w:506, h:900, alt:'Tmap 차꾸미기 화면 — 차 아이콘 스토어', cap:'차꾸미기 — 차 아이콘 스토어' },
-  { f:'tmap-store-05.jpg', w:506, h:900, alt:'Tmap 오픈 프로필 화면 — 저장 장소와 숏폼·리뷰 목록', cap:'오픈 프로필 — 저장·리뷰' },
-  { f:'tmap-store-06.jpg', w:506, h:900, alt:'Tmap 주행 화면 — 실시간 도로 상황 소셜 제보', cap:'주행 — 실시간 소셜 제보' }
+  { f:'tmap-store-01.jpg', w:506, h:900, alt:'Tmap 앱 소개 화면 — "스마트한 이동 생활의 시작"', cap:'Tmap 앱 — 음성비서 탑재 서비스 (앱 소개)' },
+  { f:'tmap-store-02.jpg', w:506, h:900, alt:'Tmap 홈 화면 — 검색바와 서비스 아이콘 그리드', cap:'Tmap 앱 — 음성비서 탑재 서비스 (홈)' },
+  { f:'tmap-store-03.jpg', w:506, h:900, alt:'Tmap 숏폼 홈 화면 — 장소 영상 카드 그리드', cap:'Tmap 앱 — 음성비서 탑재 서비스 (숏폼)' },
+  { f:'tmap-store-04.jpg', w:506, h:900, alt:'Tmap 차꾸미기 화면 — 차 아이콘 스토어', cap:'Tmap 앱 — 음성비서 탑재 서비스 (차꾸미기)' },
+  { f:'tmap-store-05.jpg', w:506, h:900, alt:'Tmap 오픈 프로필 화면 — 저장 장소와 숏폼·리뷰 목록', cap:'Tmap 앱 — 음성비서 탑재 서비스 (오픈 프로필)' },
+  { f:'tmap-store-06.jpg', w:506, h:900, alt:'Tmap 주행 화면 — 실시간 도로 상황 소셜 제보', cap:'Tmap 앱 — 음성비서 탑재 서비스 (주행)' }
 ];
 
 var REPOS = [
@@ -420,7 +425,7 @@ var REPOS = [
     stack:'Kotlin · Compose · Coroutines', platform:'Android',
     topics:['kotlin','jetpack-compose','multi-module','mvvm','workmanager','react-native','ci-cd','testing'],
     imgs:ADOT_SHOTS,
-    imgNote:'Google Play 스토어에 공개된 에이닷 A. 앱 화면입니다.',
+    imgNote:'직접 개발한 게임·A.tv·A. 튜터 도메인의 실제 앱 화면입니다.',
     work:[
       '<strong>AI 노트 도메인 리드 (2025.08~)</strong>: 통화녹음/파일 기반 노트 생성 파이프라인, 폴더/휴지통/공유 노트 체계 신규 구축, WorkManager 백그라운드 처리, 파일 공유 인텐트 수신 개발',
       '<strong>React Native 하이브리드 전환 (2026)</strong>: New Architecture TurboModule 브릿지 아키텍처 설계·구현(EventFlow+ReactViewModel+ReactFragment+라우팅), 전환 후 레거시 Native 코드 정리',
@@ -442,8 +447,9 @@ var REPOS = [
     desc:'Android/iOS 본체에 submodule로 embed되는 에이닷 크로스플랫폼 공용 코드베이스입니다. Auto 화면과 AI 노트를 React Native로 구현했습니다.',
     stack:'TypeScript · React Native · Expo', platform:'Android · iOS',
     topics:['typescript','react-native','turbomodule','expo','design-system','gesture-handler','a11y'],
-    imgs:[ADOT_SHOTS[3], ADOT_SHOTS[1], ADOT_SHOTS[5]],
-    imgNote:'RN 워크스페이스가 submodule로 embed되는 본체 앱, 에이닷 A.의 공개 스토어 화면입니다.',
+    imgs:[],
+    codeStrip:['packages/', '  design-system/', '  features/note/', '  features/auto/', 'specs/*.turbo.ts'],
+    imgNote:'단독 실행되는 앱이 아니라 Android·iOS 본체에 submodule로 embed되는 코드베이스라 이 워크스페이스만의 화면은 없습니다.',
     work:[
       'Auto(차량 연동) RN 화면 3종 전면 구현: OTP/차량리스트 — TurboModule Spec 설계, first-mount race 해결',
       'AI 노트 RN 전환: 공용 noteList 컴포넌트/훅 설계(NotePagingList, SwipeableNoteRow, useNoteListPaging)',
@@ -504,9 +510,10 @@ var REPOS = [
     stack:'Kotlin · MVVM · Fastlane', platform:'Android',
     topics:['kotlin','mvvm','payment','modularization','fastlane','mobility'],
     imgs:[
-      { f:'tmap-taxi-01.jpg', w:506, h:900, alt:'Tmap Taxi 지도 위 출발지 핀 지정 화면', cap:'출발지 지정' },
-      { f:'tmap-taxi-02.jpg', w:506, h:900, alt:'Tmap Taxi 차종 선택·결제 방식·예상금액 호출 화면', cap:'차종 선택·결제·예상금액' },
-      { f:'tmap-taxi-03.jpg', w:506, h:900, alt:'Tmap Taxi 경로 확인·요금 비교 화면', cap:'경로 확인·요금 비교' }
+      { f:'tmap-taxi-01.jpg', w:361, h:741, alt:'Tmap Taxi 출발지 핀 조정 화면 — 지도 위 승차 위치 지정', cap:'출발지 핀 조정' },
+      { f:'tmap-taxi-02.jpg', w:363, h:744, alt:'Tmap Taxi 업무택시 호출 화면 — 용도·그룹·사유·차종·예상금액', cap:'업무택시 호출 — 용도·차종·예상금액' },
+      { f:'tmap-taxi-03.jpg', w:362, h:744, alt:'Tmap Taxi 경로 확인·요금 비교 화면 — 티맵추천과 최소시간', cap:'경로 확인·요금 비교' },
+      { f:'tmap-taxi-04.jpg', w:363, h:746, alt:'Tmap Taxi 호출 첫화면 — 목적지 검색과 최근 간 장소', cap:'호출 첫화면 — 목적지 검색' }
     ],
     work:[
       '업무용 택시/법인카드 결제, SK pay 가입·카드연동·결제, 쿠폰 적용 개발',
@@ -524,9 +531,9 @@ var REPOS = [
     stack:'Kotlin · RxKotlin · Koin', platform:'Android',
     topics:['kotlin','mvvm','rxkotlin','koin','bluetooth','mockk','voice-assistant'],
     imgs:[
-      { f:'nugu-mobile-01.jpg', w:506, h:900, alt:'NUGU AI Mobile 홈 화면 — 날씨 카드와 이벤트 배너', cap:'홈 — 날씨 카드·이벤트' },
-      { f:'nugu-mobile-02.jpg', w:506, h:900, alt:'NUGU AI Mobile 디바이스 선택 화면 — 연결할 NUGU 디바이스 목록', cap:'디바이스 연결 선택' },
-      { f:'nugu-mobile-03.jpg', w:506, h:900, alt:'NUGU AI Mobile NUGU call 연락처 목록 화면', cap:'NUGU call 연락처' }
+      { f:'nugu-mobile-01.jpg', w:506, h:900, alt:'NUGU AI Mobile 홈 화면 — 발화 추천 카드, 이벤트 배너, Btv 최근 인기 대화', cap:'홈 — 발화 추천 카드·이벤트 배너' },
+      { f:'nugu-mobile-02.jpg', w:506, h:900, alt:'NUGU AI Mobile 디바이스 선택 화면 — 스피커·캔들·네모 등 연결할 NUGU 디바이스', cap:'디바이스 연결 선택' },
+      { f:'nugu-mobile-03.jpg', w:715, h:900, alt:'NUGU AI Mobile 연동 3rd party 서비스 목록 — 멜론·FLO·ASMR·라디오·팟빵', cap:'연동 3rd party 서비스 목록' }
     ],
     work:[
       'App Renewal 2.0: 처음부터 재개발, Java→Kotlin 전환',
@@ -545,10 +552,11 @@ var REPOS = [
     stack:'Java · Jenkins · EventBus', platform:'Android',
     topics:['java','e-commerce','jenkins','appwidget','custom-view','refactoring'],
     imgs:[
-      { f:'tmon-01.jpg', w:319, h:568, alt:'Tmon 메인 추천 첫화면 — 슈퍼 어벤저스 배너', cap:'메인 추천 첫화면' },
-      { f:'tmon-02.jpg', w:319, h:568, alt:'Tmon 전체 카테고리 화면', cap:'전체 카테고리' }
+      { f:'tmon-01.jpg', w:506, h:900, alt:'Tmon 메인 첫화면(추천 탭) — 슈퍼 어벤저스 배너와 카테고리 숏컷', cap:'메인 첫화면(추천 탭)' },
+      { f:'tmon-02.jpg', w:506, h:900, alt:'Tmon 전체 카테고리 화면 — 쇼핑 카테고리 구조 개편 결과', cap:'전체 카테고리 — 구조 개편 결과' },
+      { f:'tmon-03.jpg', w:506, h:900, alt:'Tmon 패션잡화 카테고리 딜 리스트 — 정렬(추천순/최신순) 팝업', cap:'카테고리 딜 리스트 — 정렬 팝업' },
+      { f:'tmon-04.jpg', w:506, h:900, alt:'Tmon 슈퍼마트 기획전 홈 — 배너 캐러셀과 기획전 숏컷', cap:'슈퍼마트 기획전 홈' }
     ],
-    imgNote:'2018년 경력기술서에 임베드된 원본(319x568)이라 해상도가 낮습니다.',
     work:[
       '쇼핑 카테고리 구조 개편 Renewal(3개월), 메인 첫화면(추천탭) Renewal(3개월) — lazy loading으로 진입 속도 개선',
       'Time Attack deal, 배송 상태 AppWidget, Custom view(Expandable GridView, Pull to Refresh 등)',
@@ -566,9 +574,10 @@ var REPOS = [
     stack:'Java · ExoPlayer · Volley', platform:'Android',
     topics:['java','exoplayer','drm','fragment','firebase','data-binding'],
     imgs:[
-      { f:'winvention-01.jpg', w:506, h:900, alt:'Winvention 홈 피드 화면 — Disney "미녀와 야수" 콘텐츠', cap:'홈 피드' },
-      { f:'winvention-02.jpg', w:506, h:900, alt:'Winvention 동영상 재생·태그·댓글 화면', cap:'동영상 재생·댓글' },
-      { f:'winvention-03.jpg', w:506, h:900, alt:'Winvention 채널 Featured 목록 화면', cap:'채널 Featured' }
+      { f:'winvention-01.jpg', w:506, h:900, alt:'Winvention 홈 피드 화면 — 태그(#lol) 기반 콘텐츠 피드, Disney "미녀와 야수"', cap:'홈 피드 — 태그 기반 콘텐츠' },
+      { f:'winvention-02.jpg', w:506, h:900, alt:'Winvention 동영상 재생 화면 — ExoPlayer custom, 태그, RELATED·COMMENTS', cap:'동영상 재생 — RELATED·COMMENTS' },
+      { f:'winvention-03.jpg', w:506, h:900, alt:'Winvention 채널 Featured 목록 화면 — 단일 Activity + Fragment 구조', cap:'채널 Featured 목록' },
+      { f:'winvention-04.jpg', w:506, h:900, alt:'KR향 TitanPlay 홈 화면 — 팔로우 채널과 #preview 영상 리스트', cap:'KR TitanPlay 홈 — 팔로우 채널' }
     ],
     work:[
       '단일 Activity + 전 화면 Fragment 구조(like YouTube), 화면 이동 Movement 모듈 개발',
@@ -585,7 +594,10 @@ var REPOS = [
     desc:'음원 재생 관련 Audio Effect를 제공하는 앱을 개발했습니다.',
     stack:'Java · QSound · NXP', platform:'Android',
     topics:['java','audio','equalizer','sdk-integration','multimedia'],
-    imgs:[],
+    imgs:[
+      { f:'audio-effect-01.jpg', w:506, h:900, alt:'Audio Effect 음향 효과 홈 화면 — 프리셋 선택, 저음/고음 강화, 입체 서라운드', cap:'음향 효과 홈 — 프리셋·저음/고음 강화' },
+      { f:'audio-effect-02.jpg', w:506, h:900, alt:'Audio Effect 사용자 정의 8밴드 이퀄라이저 화면(95Hz~16KHz)', cap:'사용자 정의 8밴드 이퀄라이저' }
+    ],
     work:[
       'Effect 종류별 사용자 UI 개발, 사용자 설정 가능한 Equalizer, 재생 장르 기반 Auto Preset 기능 개발',
       'QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning'
@@ -600,7 +612,13 @@ var REPOS = [
     desc:'Pantech Android 디바이스에 preload되는 Music Player 앱을 개발했습니다.',
     stack:'Java · NDK · Media Provider', platform:'Android (preload)',
     topics:['java','ndk','media-provider','appwidget','cache','multimedia'],
-    imgs:[],
+    imgs:[
+      { f:'music-player-01.jpg', w:506, h:900, alt:'Music Player 재생 화면 — 앨범아트 풀블리드와 곡 정보 오버레이', cap:'재생 화면 — 앨범아트 풀블리드' },
+      { f:'music-player-02.jpg', w:506, h:900, alt:'Music Player 앨범 탭 — 원형 앨범아트 그리드', cap:'앨범 탭 — albumart cache 구조' },
+      { f:'music-player-03.jpg', w:506, h:900, alt:'Music Player 중복 음원 검색 결과 목록', cap:'중복 음원 검색 결과 (NDK)' },
+      { f:'music-player-04.jpg', w:506, h:900, alt:'Music Player 검색 결과 화면 — 음악가/곡 매칭 하이라이트', cap:'검색 결과 — 매칭 하이라이트' },
+      { f:'music-player-05.jpg', w:506, h:900, alt:'Music Player 설정 화면 — 음향효과, 사용 리스트, 자동 재생/종료', cap:'설정 — 음향효과·자동 재생/종료' }
+    ],
     work:[
       '노래/앨범/음악가 등 각 탭 화면 개발, Android Media Provider Framework 분석 & Music DB 관련 개발',
       'Albumart cache 구조 설계, 앱 공통 Thread 모듈 구현, NDK 기반 중복 음원 검색 기능 개발',
@@ -620,7 +638,11 @@ var REPOS = [
     desc:'음원 Tag 영역을 Read/Write하는 Java 라이브러리를 자체 개발했습니다.',
     stack:'Java · ID3 · Vorbis', platform:'Java Library',
     topics:['java','library','id3','flac','charset','multimedia'],
-    imgs:[],
+    imgs:[
+      { f:'tag-editor-01.jpg', w:506, h:900, alt:'Tag Editor 태그 편집 다이얼로그 — 제목·음악가·앨범·장르·곡 번호 write', cap:'태그 편집 — TEXT 필드 write' },
+      { f:'tag-editor-02.jpg', w:506, h:900, alt:'Tag Editor 가사(LYRICS) 태그 표시 화면', cap:'가사(LYRICS) 태그 표시' }
+    ],
+    imgNote:'라이브러리가 porting된 Music Player 앱의 Tag 편집·가사 표시 화면입니다.',
     work:[
       'MP3(ID3)/FLAC(Vorbis) Tag spec 분석, TEXT/LYRICS/ALBUMART read/write 기능 개발',
       'Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발'
@@ -707,7 +729,9 @@ function periodShort(r){
   return head + ' — ' + tail;
 }
 function shots(r){
-  if (!r.imgs || !r.imgs.length) return '';
+  if (!r.imgs || !r.imgs.length) {
+    return r.imgNote ? '<p class="shot-note solo">' + esc(r.imgNote) + '</p>' : '';
+  }
   var items = r.imgs.map(function(im, i){
     var wide = im.w > im.h;
     return '<figure class="shot' + (wide ? ' wide' : '') + '">' +
@@ -777,6 +801,9 @@ function pinCard(r){
       use.map(function(im){
         return '<img src="' + SRC + im.f + '" width="' + im.w + '" height="' + im.h + '" alt="" loading="lazy" decoding="async">';
       }).join('') + '</div>';
+  } else if (r.codeStrip && r.codeStrip.length) {
+    strip = '<pre class="strip code" aria-hidden="true"><code>' +
+      r.codeStrip.map(esc).join('\n') + '</code></pre>';
   }
   return '' +
   '<article class="pin">' +

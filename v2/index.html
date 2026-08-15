@@ -282,6 +282,7 @@ footer.status .copy{color:#475569}
 
 /* ---------- screenshot thumbnails ---------- */
 .shot{margin-top:1rem}
+.shot-row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 1rem}
 .shot .shot-open{
   all:unset;cursor:zoom-in;display:inline-block;border-radius:8px;
 }
@@ -442,12 +443,26 @@ body.lb-open{overflow:hidden}
                 <li><strong>AI 개발 워크플로 도입 (2026)</strong>: Claude Code 모듈 인덱스 시스템 설계(대규모 멀티모듈을 LLM이 탐색 가능하게), JIRA→수정→MR 자동화 bugfix 파이프라인 커맨드 개발</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>React Native</li><li>WorkManager</li><li>Kover</li><li>GitLab CI</li><li>Claude Code</li></ul>
-              <figure class="shot">
-                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 A.">
-                  <img src="../assets/screens/adot-store-01.jpg" alt="에이닷 A. 스토어 스크린샷 — AI 개인비서 홈 화면" width="506" height="900" loading="lazy" decoding="async">
-                </button>
-                <figcaption>에이닷 A. 스토어 스크린샷 — AI 개인비서 홈</figcaption>
-              </figure>
+              <div class="shot-row">
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 게임 홈">
+                    <img src="../assets/screens/adot-01.jpg" alt="에이닷 게임 홈 — 오늘의 게임 대전 배너·최근 플레이 게임" width="368" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>에이닷 게임 홈 — 오늘의 게임 대전</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 A.tv 홈">
+                    <img src="../assets/screens/adot-05.jpg" alt="에이닷 A.tv 홈 — 라이브 프로야구·VOD 채널 리스트" width="426" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>A.tv 홈 — 라이브·VOD 채널(외부 AAR SDK)</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 A. 튜터 홈">
+                    <img src="../assets/screens/adot-07.jpg" alt="에이닷 A. 튜터 홈 — 출석 스트릭·오늘의 카드영어" width="368" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>A. 튜터 홈 — 출석 스트릭·카드영어</figcaption>
+                </figure>
+              </div>
             </div>
           </article>
 
@@ -463,12 +478,6 @@ body.lb-open{overflow:hidden}
                 <li>Native Compose 화면과의 pixel parity 검증, 다크모드 토큰, 접근성(a11y) lint 게이트 대응, Expo SDK 55 도입</li>
               </ul>
               <ul class="chips"><li>TypeScript</li><li>React Native</li><li>TurboModule</li><li>RNGH</li><li>Expo SDK 55</li></ul>
-              <figure class="shot">
-                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 에이닷 RN 전환 화면">
-                  <img src="../assets/screens/adot-store-04.jpg" alt="에이닷 RN 전환 화면 스크린샷 — 채팅과 메모리" width="506" height="900" loading="lazy" decoding="async">
-                </button>
-                <figcaption>RN 전환 화면 — 에이닷 채팅·메모리 (스토어 스크린샷)</figcaption>
-              </figure>
             </div>
           </article>
 
@@ -485,12 +494,20 @@ body.lb-open{overflow:hidden}
                 <li>5개월간 v0.3.0→v1.12.0 10회+ 배포, 파트너사 참조용 코드 품질 관리 + Confluence 연동 가이드 문서 저술 (Sample Guide 위키 10여 페이지)</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>NUGU SDK</li><li>Wake-up Word</li><li>Lottie</li><li>Adot Login SDK</li></ul>
-              <figure class="shot">
-                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap 음성비서">
-                  <img src="../assets/screens/tmap-store-01.jpg" alt="Tmap 스토어 스크린샷 — 음성비서가 탑재된 홈 화면" width="506" height="900" loading="lazy" decoding="async">
-                </button>
-                <figcaption>Tmap 스토어 스크린샷 — 음성비서 탑재 홈</figcaption>
-              </figure>
+              <div class="shot-row">
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="이미지 크게 보기 — Tmap 앱 음성비서 1">
+                    <img src="../assets/screens/tmap-store-01.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 소개 이미지 1" width="506" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Tmap 앱 — 음성비서 탑재 서비스</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="이미지 크게 보기 — Tmap 앱 음성비서 2">
+                    <img src="../assets/screens/tmap-store-02.jpg" alt="Tmap 앱 — 음성비서 탑재 서비스 소개 이미지 2" width="506" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Tmap 앱 — 음성비서 탑재 서비스</figcaption>
+                </figure>
+              </div>
             </div>
           </article>
 
@@ -504,12 +521,20 @@ body.lb-open{overflow:hidden}
                 <li>15개+ model flavor 빌드 효율화: Fastlane 작성 &amp; Jenkins 연동, 개발자 Debug mode 개발</li>
               </ul>
               <ul class="chips"><li>Android</li><li>MVVM</li><li>Fastlane</li><li>Jenkins</li></ul>
-              <figure class="shot">
-                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Btv NUGU">
-                  <img src="../assets/screens/btv-nugu-01.jpg" alt="Btv NUGU에서 Melon 음악을 재생 중인 TV 화면" width="900" height="506" loading="lazy" decoding="async">
-                </button>
-                <figcaption>Btv NUGU — Melon 음악 재생 화면(TV UI)</figcaption>
-              </figure>
+              <div class="shot-row">
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Btv NUGU Melon 재생">
+                    <img src="../assets/screens/btv-nugu-01.jpg" alt="Btv NUGU에서 Melon 음악을 재생 중인 TV 화면" width="900" height="506" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Btv NUGU — Melon 음악 재생 화면(TV UI)</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Btv NUGU 음성 검색 결과">
+                    <img src="../assets/screens/btv-nugu-02.jpg" alt="Btv NUGU 음성 검색 결과 — 콘텐츠 리스트 TV 화면" width="900" height="506" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Btv NUGU — 음성 검색 결과 화면(TV UI)</figcaption>
+                </figure>
+              </div>
             </div>
           </article>
 
@@ -524,12 +549,26 @@ body.lb-open{overflow:hidden}
                 <li>Base/Tmap SDK/Network 모듈화, Fastlane build script + Slack 연동</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>MVVM</li><li>SK pay</li><li>Fastlane</li></ul>
-              <figure class="shot">
-                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap Taxi">
-                  <img src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 지도 위 출발지 지정 화면" width="506" height="900" loading="lazy" decoding="async">
-                </button>
-                <figcaption>Tmap Taxi — 지도 위 출발지 지정 화면</figcaption>
-              </figure>
+              <div class="shot-row">
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap Taxi 출발지 핀">
+                    <img src="../assets/screens/tmap-taxi-01.jpg" alt="Tmap Taxi 출발지 핀 조정 — 지도 위 승차 위치 지정" width="361" height="741" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Tmap Taxi — 출발지 핀 조정</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap Taxi 업무택시 호출">
+                    <img src="../assets/screens/tmap-taxi-02.jpg" alt="Tmap Taxi 업무택시 호출 — 용도·그룹·사유·차종·예상금액" width="363" height="744" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Tmap Taxi — 업무택시 호출</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmap Taxi 경로·요금 비교">
+                    <img src="../assets/screens/tmap-taxi-03.jpg" alt="Tmap Taxi 경로 확인·요금 비교(티맵추천 vs 최소시간)" width="362" height="744" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>Tmap Taxi — 경로 확인·요금 비교</figcaption>
+                </figure>
+              </div>
             </div>
           </article>
 
@@ -546,12 +585,26 @@ body.lb-open{overflow:hidden}
                 <li>2019 Google I/O 참여 &amp; 사내 공유</li>
               </ul>
               <ul class="chips"><li>Kotlin</li><li>RxKotlin</li><li>Koin</li><li>MockK</li><li>Bluetooth</li></ul>
-              <figure class="shot">
-                <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — NUGU Mobile">
-                  <img src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU 앱 홈 화면 — 날씨 카드와 이벤트 배너" width="506" height="900" loading="lazy" decoding="async">
-                </button>
-                <figcaption>NUGU 앱 홈 — 날씨 카드·이벤트 배너</figcaption>
-              </figure>
+              <div class="shot-row">
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — NUGU Mobile 홈">
+                    <img src="../assets/screens/nugu-mobile-01.jpg" alt="NUGU 앱 홈 — 발화 추천 카드·이벤트 배너" width="506" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>NUGU 앱 홈 — 발화 추천 카드·이벤트 배너</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — NUGU 디바이스 연결">
+                    <img src="../assets/screens/nugu-mobile-02.jpg" alt="연결할 NUGU 디바이스 선택 — 스피커·캔들·네모" width="506" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>NUGU 디바이스 연결 — 스피커·캔들·네모</figcaption>
+                </figure>
+                <figure class="shot">
+                  <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — NUGU 연동 서비스 목록">
+                    <img src="../assets/screens/nugu-mobile-03.jpg" alt="NUGU 연동 3rd party 서비스 목록 — 멜론·FLO·ASMR·라디오·팟빵" width="715" height="900" loading="lazy" decoding="async">
+                  </button>
+                  <figcaption>연동 서비스 목록 — 멜론·FLO·라디오·팟빵</figcaption>
+                </figure>
+              </div>
             </div>
           </article>
 
@@ -629,6 +682,26 @@ body.lb-open{overflow:hidden}
                   <li>Jenkins+Instrumentation test+Slack 자동화 테스트(원클릭 결과 공유), EventBus 자체 개발</li>
                   <li>SharedPreference 분리·commit 최소화, 7개 tracking module 통합 리팩토링, ListView→RecyclerView 등 컴포넌트 현대화</li>
                 </ul>
+                <div class="shot-row">
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmon 메인 첫화면">
+                      <img src="../assets/screens/tmon-01.jpg" alt="Tmon 메인 첫화면(추천 탭) — 배너·카테고리 숏컷" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>Tmon 메인 첫화면(추천 탭)</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmon 전체 카테고리">
+                      <img src="../assets/screens/tmon-02.jpg" alt="Tmon 전체 카테고리 화면 — 쇼핑 카테고리 구조 개편 결과" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>전체 카테고리 — 구조 개편 결과</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Tmon 딜 리스트">
+                      <img src="../assets/screens/tmon-03.jpg" alt="Tmon 패션잡화 카테고리 딜 리스트 — 정렬 팝업" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>딜 리스트 — 정렬 팝업</figcaption>
+                  </figure>
+                </div>
               </td>
             </tr>
 
@@ -646,6 +719,26 @@ body.lb-open{overflow:hidden}
                   <li>File upload Background Service, Jsoup+Volley 문서 파싱, ExoPlayer custom + 자체 DRM(TCI) 적용</li>
                   <li>KR향: 검색 WebView→Data binding Native 전환(속도 개선), Firebase/FCM/IGAWorks 연동</li>
                 </ul>
+                <div class="shot-row">
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Winvention 홈 피드">
+                      <img src="../assets/screens/winvention-01.jpg" alt="Winvention 홈 피드 — 태그 기반 콘텐츠 피드" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>Winvention US — 홈 피드(태그 기반)</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Winvention 동영상 재생">
+                      <img src="../assets/screens/winvention-02.jpg" alt="Winvention 동영상 재생 — ExoPlayer custom·RELATED/COMMENTS" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>동영상 재생 — ExoPlayer custom</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — KR TitanPlay 홈">
+                      <img src="../assets/screens/winvention-04.jpg" alt="KR향 TitanPlay 홈 — 팔로우 채널·영상 리스트" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>KR향 TitanPlay 홈 — 팔로우 채널</figcaption>
+                  </figure>
+                </div>
               </td>
             </tr>
 
@@ -664,6 +757,32 @@ body.lb-open{overflow:hidden}
                   <li>Melon/OllehMusic/YouTube 온라인 서비스 연동 — 재생곡 관련 가수·음원·가사·영상 부가정보 제공</li>
                   <li>국내 전모델 + 일본/베트남/대만 디바이스 preload, Android 2.2~5.0 OS 업그레이드 대응</li>
                 </ul>
+                <div class="shot-row">
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Music Player 재생 화면">
+                      <img src="../assets/screens/music-player-01.jpg" alt="Music Player 재생 화면 — 앨범아트 풀블리드·곡 정보 오버레이" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>재생 화면 — 앨범아트 풀블리드</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Music Player 앨범 탭">
+                      <img src="../assets/screens/music-player-02.jpg" alt="Music Player 앨범 탭 — 원형 앨범아트 그리드" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>앨범 탭 — albumart cache 구조</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 중복 음원 검색 결과">
+                      <img src="../assets/screens/music-player-03.jpg" alt="NDK 기반 중복 음원 검색 결과 목록" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>중복 음원 검색 결과(NDK)</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — Music Player 검색 결과">
+                      <img src="../assets/screens/music-player-04.jpg" alt="Music Player 검색 결과 — 음악가/곡 매칭 하이라이트" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>검색 결과 — 음악가·곡 매칭</figcaption>
+                  </figure>
+                </div>
               </td>
             </tr>
 
@@ -681,6 +800,20 @@ body.lb-open{overflow:hidden}
                   <li>QSound/NXP/Android Native 3rd party 라이브러리 통합 — 하나의 apk로 모두 지원, Effect tuning</li>
                   <li>타사 디바이스·모든 뮤직 플레이어 앱에서 동작하도록 개발</li>
                 </ul>
+                <div class="shot-row">
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 음향 효과 홈">
+                      <img src="../assets/screens/audio-effect-01.jpg" alt="음향 효과 홈 — 프리셋 선택·저음/고음 강화·입체 서라운드" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>음향 효과 홈 — 프리셋·서라운드</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 8밴드 이퀄라이저">
+                      <img src="../assets/screens/audio-effect-02.jpg" alt="사용자 정의 8밴드 이퀄라이저 (95Hz~16KHz)" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>사용자 정의 8밴드 이퀄라이저</figcaption>
+                  </figure>
+                </div>
               </td>
             </tr>
 
@@ -698,6 +831,20 @@ body.lb-open{overflow:hidden}
                   <li>Charset encoding field 부재 대응 — UTF-8/ISO-8859-1/UTF-16BE·LE 자동 분석 로직 개발</li>
                   <li>Music 앱에 porting되어 Tag 편집·가사 표시 기능으로 활용</li>
                 </ul>
+                <div class="shot-row">
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 태그 편집 다이얼로그">
+                      <img src="../assets/screens/tag-editor-01.jpg" alt="태그 편집 다이얼로그 — 제목·음악가·앨범·장르·곡 번호 write" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>태그 편집 다이얼로그 — write</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <button type="button" class="shot-open" aria-label="스크린샷 크게 보기 — 가사 태그 표시">
+                      <img src="../assets/screens/tag-editor-02.jpg" alt="가사(LYRICS) 태그 표시 화면" width="506" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>가사(LYRICS) 태그 표시</figcaption>
+                  </figure>
+                </div>
               </td>
             </tr>
 
