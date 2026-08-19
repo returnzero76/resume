@@ -3,103 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>강지환 — Resume 디자인 시안</title>
+  <title>강지환 — Resume 시안 심사</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
   <style>
-    :root { --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a2e; --sub:#5c6270; --line:#e5e7eb; --accent:#4353c6; --badge:#eef2ff; }
+    :root {
+      --bg:#f5f6f8; --card:#ffffff; --ink:#1a1a2e; --sub:#5c6270; --line:#e5e7eb;
+      --accent:#4353c6; --badge:#eef2ff; --dim:#9aa0ad; --out:#f0f0f3;
+    }
     @media (prefers-color-scheme: dark) {
-      :root { --bg:#101014; --card:#1a1a20; --ink:#ececf1; --sub:#9a9aa6; --line:#2a2a33; --accent:#8b96ff; --badge:#23234a; }
+      :root {
+        --bg:#101014; --card:#1a1a20; --ink:#ececf1; --sub:#9a9aa6; --line:#2a2a33;
+        --accent:#8b96ff; --badge:#23234a; --dim:#6b6b78; --out:#151519;
+      }
     }
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; padding:48px 20px; }
-    main { max-width:880px; margin:0 auto; }
-    h1 { font-size:1.6rem; margin-bottom:8px; word-break:keep-all; }
-    p.lead { color:var(--sub); margin-bottom:12px; line-height:1.7; word-break:keep-all; }
-    .round { font-size:.8rem; font-weight:700; color:var(--sub); letter-spacing:.08em; margin:28px 0 12px; text-transform:uppercase; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:14px; }
-    a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; text-decoration:none; color:inherit; transition:transform .15s ease, border-color .15s ease; }
-    a.card:hover { transform:translateY(-2px); border-color:var(--accent); }
+    body {
+      font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background:var(--bg); color:var(--ink); min-height:100vh; padding:48px 20px; line-height:1.6;
+    }
+    main { max-width:940px; margin:0 auto; }
+    h1 { font-size:1.65rem; margin-bottom:8px; word-break:keep-all; letter-spacing:-0.02em; }
+    p.lead { color:var(--sub); margin-bottom:8px; word-break:keep-all; }
+    .stage { display:flex; align-items:baseline; gap:10px; margin:36px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+    .stage h2 { font-size:1.05rem; letter-spacing:-0.01em; }
+    .stage .count { font-size:.8rem; color:var(--sub); font-weight:600; }
+    .stage .note { font-size:.8rem; color:var(--sub); margin-left:auto; word-break:keep-all; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; }
+    a.card {
+      display:block; background:var(--card); border:1px solid var(--line); border-radius:14px;
+      padding:20px; text-decoration:none; color:inherit;
+      transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    a.card:hover { transform:translateY(-2px); border-color:var(--accent); box-shadow:0 6px 20px rgba(0,0,0,.06); }
     a.card:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
     .num { font-size:.72rem; font-weight:700; color:var(--accent); letter-spacing:.08em; }
-    h2 { font-size:1.05rem; margin:6px 0 6px; word-break:keep-all; }
-    .desc { font-size:.85rem; color:var(--sub); line-height:1.6; word-break:keep-all; }
-    .tag { display:inline-block; margin-top:10px; padding:3px 10px; border-radius:999px; background:var(--badge); color:var(--accent); font-size:.72rem; font-weight:600; }
-    footer { margin-top:32px; font-size:.8rem; color:var(--sub); }
+    h3 { font-size:1.05rem; margin:6px 0; word-break:keep-all; }
+    .desc { font-size:.85rem; color:var(--sub); word-break:keep-all; }
+    .tags { margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; }
+    .tag { padding:3px 10px; border-radius:999px; background:var(--badge); color:var(--accent); font-size:.72rem; font-weight:600; }
+    .tag.plain { background:var(--out); color:var(--sub); }
+    /* 예선 탈락 */
+    .out a.card { background:var(--out); opacity:.72; }
+    .out a.card:hover { opacity:1; }
+    .out .num { color:var(--dim); }
+    .out .tag { background:transparent; border:1px solid var(--line); color:var(--dim); }
+    .gone { font-size:.85rem; color:var(--sub); margin-top:12px; word-break:keep-all; }
+    footer { margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:.8rem; color:var(--sub); }
   </style>
 </head>
 <body>
   <main>
-    <h1>강지환 — Resume 디자인 시안</h1>
-    <p class="lead">10가지 디자인으로 제작된 이력서 페이지입니다. 마음에 드는 시안을 골라주세요.</p>
+    <h1>강지환 — Resume 시안 심사</h1>
+    <p class="lead">보면서 계속 추려나가는 중입니다. 후보에서 빼고 싶은 시안이 있으면 알려주세요.</p>
 
-    <div class="round">Developer Style — 신규</div>
+    <div class="stage">
+      <h2>후보</h2><span class="count">7</span>
+      <span class="note">계속 검토 중</span>
+    </div>
     <div class="grid">
       <a class="card" href="v11/">
         <div class="num">V11 · PROFILE</div>
-        <h2>GitHub 프로필</h2>
-        <p class="desc">실제 GitHub 디자인 토큰으로 만든 프로필. 15년 컨트리뷰션 히트맵, 핀 저장소 카드, README 상세.</p>
-        <span class="tag">해시 라우팅 상세</span>
+        <h3>GitHub 프로필</h3>
+        <p class="desc">실제 GitHub 디자인 토큰으로 만든 프로필. 15년 컨트리뷰션 히트맵, 핀 저장소 카드, README 상세 페이지.</p>
+        <div class="tags"><span class="tag">페이지 이동</span><span class="tag plain">다크 기본</span></div>
       </a>
       <a class="card" href="v12/">
         <div class="num">V12 · REFERENCE</div>
-        <h2>API 문서 스타일</h2>
+        <h3>API 문서 스타일</h3>
         <p class="desc">Stripe 문서처럼 경력을 API 레퍼런스로. 엔드포인트 인덱스, 파라미터 테이블, 다크 레일 스크린샷.</p>
-        <span class="tag">단일 페이지 · 스크롤스파이</span>
+        <div class="tags"><span class="tag">단일 페이지</span><span class="tag plain">라이트 기본</span></div>
       </a>
-    </div>
-
-    <div class="round">Round 2 — 스크린샷 활용</div>
-    <div class="grid">
       <a class="card" href="v5/">
         <div class="num">V5 · PLATE</div>
-        <h2>스위스 그리드 카탈로그</h2>
-        <p class="desc">스크린샷을 도판(Fig.)처럼 전시하는 타이포그래피 그리드. 프로젝트 번호 체계.</p>
-        <span class="tag">페이지 이동형</span>
+        <h3>스위스 그리드 카탈로그</h3>
+        <p class="desc">스크린샷을 도판(Fig.)처럼 전시하는 타이포그래피 그리드. 프로젝트마다 번호가 붙은 카탈로그.</p>
+        <div class="tags"><span class="tag">페이지 이동</span><span class="tag plain">라이트</span></div>
       </a>
       <a class="card" href="v7/">
         <div class="num">V7 · KEYNOTE</div>
-        <h2>제품 발표 스타일</h2>
-        <p class="desc">시대별 헤드라인 + 폰 프레임 캐러셀. 애플 제품 페이지처럼 한 스크롤로 읽힘.</p>
-        <span class="tag">스펙시트 모달</span>
+        <h3>제품 발표 스타일</h3>
+        <p class="desc">시대별 헤드라인 + 폰 프레임 캐러셀. 애플 제품 페이지처럼 한 스크롤로 읽힙니다.</p>
+        <div class="tags"><span class="tag">스펙 모달</span><span class="tag plain">흑백 교차</span></div>
       </a>
       <a class="card" href="v9/">
         <div class="num">V9 · AURORA</div>
-        <h2>다크 AI 글로우</h2>
-        <p class="desc">오로라 히어로 + 커서 추적 스포트라이트 카드. 최신 경력일수록 크게 보이는 구조.</p>
-        <span class="tag">글래스 모달</span>
-      </a>
-      <a class="card" href="v10/">
-        <div class="num">V10 · 문서함</div>
-        <h2>노션 스타일 위키</h2>
-        <p class="desc">사이드바 트리 + 갤러리/테이블 뷰 토글. 프로젝트마다 서브페이지로 이동.</p>
-        <span class="tag">페이지 이동형</span>
-      </a>
-    </div>
-
-    <div class="round">Round 1 — 텍스트 중심 + 사진 보강</div>
-    <div class="grid">
-      <a class="card" href="v1/">
-        <div class="num">V1 · DOSSIER</div>
-        <h2>미니멀 도큐먼트</h2>
-        <p class="desc">종이 질감 문서형. ⌘P로 그대로 A4 이력서 인쇄 가능.</p>
+        <h3>다크 AI 글로우</h3>
+        <p class="desc">오로라 히어로 + 커서 추적 스포트라이트 카드. 최근 경력일수록 크게 보이는 구조.</p>
+        <div class="tags"><span class="tag">글래스 모달</span><span class="tag plain">다크</span></div>
       </a>
       <a class="card" href="v2/">
         <div class="num">V2 · MISSION CONTROL</div>
-        <h2>다크 엔지니어링 콘솔</h2>
-        <p class="desc">고정 프로필 + 스크롤스파이 2단 레이아웃, 터미널 아카이브 테이블.</p>
+        <h3>다크 엔지니어링 콘솔</h3>
+        <p class="desc">고정 프로필 + 스크롤스파이 2단 레이아웃. 터미널 감성 아카이브 테이블.</p>
+        <div class="tags"><span class="tag">인라인</span><span class="tag plain">다크</span></div>
       </a>
+      <a class="card" href="v1/">
+        <div class="num">V1 · DOSSIER</div>
+        <h3>미니멀 도큐먼트</h3>
+        <p class="desc">종이 질감 문서형. ⌘P로 그대로 A4 이력서가 인쇄됩니다.</p>
+        <div class="tags"><span class="tag">접기·펼치기</span><span class="tag plain">인쇄 겸용</span></div>
+      </a>
+    </div>
+
+    <div class="stage">
+      <h2>예선 탈락</h2><span class="count">3</span>
+      <span class="note">보관용 — 필요하면 다시 올릴 수 있습니다</span>
+    </div>
+    <div class="grid out">
       <a class="card" href="v3/">
         <div class="num">V3 · MONOGRAPH</div>
-        <h2>에디토리얼 연대기</h2>
+        <h3>에디토리얼 연대기</h3>
         <p class="desc">4개 챕터의 매거진 피처. 대형 타이포 + 아이보리/버밀리온.</p>
+        <div class="tags"><span class="tag">제외</span></div>
       </a>
       <a class="card" href="v4/">
         <div class="num">V4 · CONTROL PLANE</div>
-        <h2>벤토 대시보드</h2>
+        <h3>벤토 대시보드</h3>
         <p class="desc">스탯 타일 + 경력 타임라인 + 기술 필터 벤토 그리드.</p>
+        <div class="tags"><span class="tag">제외</span></div>
+      </a>
+      <a class="card" href="v10/">
+        <div class="num">V10 · 문서함</div>
+        <h3>노션 스타일 위키</h3>
+        <p class="desc">사이드바 트리 + 갤러리/테이블 뷰 토글. 프로젝트마다 서브페이지.</p>
+        <div class="tags"><span class="tag">제외</span></div>
       </a>
     </div>
+    <p class="gone">V6 미술관형 · V8 네오브루탈리즘은 “개발자 이력서로 느껴지지 않는다”는 이유로 이미 삭제했습니다.</p>
 
     <footer>jihwan76@gmail.com · github.com/returnzero76</footer>
   </main>
